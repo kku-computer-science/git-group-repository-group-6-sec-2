@@ -122,19 +122,17 @@
                 <table id="papersTable" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Year</th>
                             <th>Paper Name</th>
+                            <th>Citations</th>
+                            <th>Year</th>
                             <th>Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @foreach ($papers as $n => $paper)
+                        @foreach ($papers as $paper)
                         <tr>
-                            <td>{{ $n + 1 }}</td>
-                            <td>{{ $paper->paper_yearpub }}</td>
-                            <td style="width:70%;">
+                            <td style="width:50%;">
                                 {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
                                 <div id="collapse-{{ $paper->id }}" class="collapse">
                                     <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
@@ -165,6 +163,8 @@
                                     </p>
                                 </div>
                             </td>
+                            <td>{{ $paper->paper_citation }}</td>
+                            <td>{{ $paper->paper_yearpub }}</td>
                             <td>
                                 <a href="#" class="show-more" data-target="#collapse-{{ $paper->id }}" data-id="{{ $paper->id }}">Show more ▼</a>
                             </td>
@@ -174,6 +174,7 @@
                 </table>
             </div>
         </div>
+
         <div class="tab-pane fade" id="scopus" role="tabpanel" aria-labelledby="scopus-tab">
 
             <table id="example2" class="table table-striped" style="width:100%">
@@ -420,12 +421,12 @@
 <script>
     $(document).ready(function() {
         $('#papersTable').DataTable({
-            "paging": true,
-            "lengthChange": true,
-            "searching": true,
-            "ordering": false,
-            "info": true,
-            "autoWidth": false
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false
         });
 
         // ใช้ on() แทน .on("click") เพื่อรองรับการโหลดของ DataTable

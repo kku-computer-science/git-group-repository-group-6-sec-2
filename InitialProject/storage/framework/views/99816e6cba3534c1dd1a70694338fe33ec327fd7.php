@@ -122,19 +122,17 @@
                 <table id="papersTable" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Year</th>
                             <th>Paper Name</th>
+                            <th>Citations</th>
+                            <th>Year</th>
                             <th>Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <?php $__currentLoopData = $papers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $papers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td><?php echo e($n + 1); ?></td>
-                            <td><?php echo e($paper->paper_yearpub); ?></td>
-                            <td style="width:70%;">
+                            <td style="width:50%;">
                                 <?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?>
 
                                 <div id="collapse-<?php echo e($paper->id); ?>" class="collapse">
@@ -166,6 +164,8 @@
                                     </p>
                                 </div>
                             </td>
+                            <td><?php echo e($paper->paper_citation); ?></td>
+                            <td><?php echo e($paper->paper_yearpub); ?></td>
                             <td>
                                 <a href="#" class="show-more" data-target="#collapse-<?php echo e($paper->id); ?>" data-id="<?php echo e($paper->id); ?>">Show more ▼</a>
                             </td>
@@ -175,6 +175,7 @@
                 </table>
             </div>
         </div>
+
         <div class="tab-pane fade" id="scopus" role="tabpanel" aria-labelledby="scopus-tab">
 
             <table id="example2" class="table table-striped" style="width:100%">
@@ -421,12 +422,12 @@
 <script>
     $(document).ready(function() {
         $('#papersTable').DataTable({
-            "paging": true,
-            "lengthChange": true,
-            "searching": true,
-            "ordering": false,
-            "info": true,
-            "autoWidth": false
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false
         });
 
         // ใช้ on() แทน .on("click") เพื่อรองรับการโหลดของ DataTable
