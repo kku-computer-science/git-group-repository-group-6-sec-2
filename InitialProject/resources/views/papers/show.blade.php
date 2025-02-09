@@ -72,9 +72,6 @@
                     <b>Corresponding Author:</b> {{ $teacher->fname_en}} {{ $teacher->lname_en}} <br>
                     @endif 
                     @endforeach
-                    
-
-
 
                 </p>
             </div>
@@ -99,10 +96,10 @@
                 <p class="card-text col-sm-3"><b>เลขหน้า</b></p>
                 <p class="card-text col-sm-9">{{ $paper->paper_page }}</p>
             </div>
-            <div class="row mt-2">
+            <!-- <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>DOI</b></p>
                 <p class="card-text col-sm-9">{{ $paper->paper_doi }}</p>
-            </div>
+            </div> -->
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>URL</b></p>
                 <a href="{{ $paper->paper_url }}" target="_blank" class="card-text col-sm-9">{{ $paper->paper_url }}</a>

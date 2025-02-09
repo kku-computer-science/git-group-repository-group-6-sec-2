@@ -4,8 +4,6 @@
         background-color: #fff;
         padding: 2px 0;
         border-radius: 5px;
-
-
     }
 
     .count-title {
@@ -25,8 +23,6 @@
         margin-bottom: 0;
         text-align: center;
         color: #000;
-
-
     }
 
     .fa-2x {
@@ -54,23 +50,11 @@
                         <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}</b>
                             @endif</h6>
                         <h6 class="card-text1"><b>{{$res->academic_ranks_en}}</b></h6>
-                        <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
-                        <!-- <h6 class="card-text1">College of Computing</h6>
-                    <h6 class="card-text1">Khon Kaen University</h6> -->
                         <h6 class="card-text1">E-mail: {{$res->email}}</h6>
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
                         @foreach( $res->education as $edu)
                         <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
                         @endforeach
-                        <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            {{ trans('message.expertise') }}
-                        </button> -->
-                        <!-- <h6 class="card-title">Metrics overview</h6>
-                    <h6 class="card-text2" id="citation">Citation count</h6>
-                    <h6 class="card-text2" id="doc_count">Document count</h6>
-                    <h6 class="card-text2" id="cite_count">Cited By count</h6>
-                    <h6 class="card-text2" id="h-index">H-index </h6> -->
 
                 </div>
             </div>
@@ -96,7 +80,6 @@
                             <div class="count" id='tci_sum'>
                             </div>
                         </div>
-
                     </div>
                     <br>
                     <div class="chart">
@@ -104,116 +87,92 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ความเชี่ยวชาญ</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                @foreach($res->expertise as $exper)
-                                <p class="card-text"> {{$exper->expert_name}}</p>
-                                @endforeach
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <br>
 
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="scopus-tab" data-bs-toggle="tab" data-bs-target="#scopus" type="button" role="tab" aria-controls="scopus" aria-selected="false">SCOPUS</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="wos-tab" data-bs-toggle="tab" data-bs-target="#wos" type="button" role="tab" aria-controls="wos" aria-selected="false">Web of Science</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
-        </li>
-    </ul>
+    <div class="d-flex justify-content-between align-items-center">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="scopus-tab" data-bs-toggle="tab" data-bs-target="#scopus" type="button" role="tab" aria-controls="scopus" aria-selected="false">SCOPUS</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="wos-tab" data-bs-toggle="tab" data-bs-target="#wos" type="button" role="tab" aria-controls="wos" aria-selected="false">Web of Science</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
+            </li>
+        </ul>
+        <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">Export To Excel</a>
+    </div>
     <br>
     <div class="tab-content" id="myTabContent">
 
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="tab-content" style="padding-bottom: 20px;">
-                <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">Export To Excel</a>
+            <div class="table-responsive">
+                <table id="papersTable" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Year</th>
+                            <th>Paper Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach ($papers as $n => $paper)
+                        <tr>
+                            <td>{{ $n + 1 }}</td>
+                            <td>{{ $paper->paper_yearpub }}</td>
+                            <td style="width:70%;">
+                                {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
+                                <div id="collapse-{{ $paper->id }}" class="collapse">
+                                    <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
+                                    <p>Author: 
+                                        @foreach ($paper->author as $author)
+                                        <span>
+                                            <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                        </span>
+                                        @endforeach
+                                        @foreach ($paper->teacher as $author)
+                                        <span >
+                                            <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                                                <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                        </span>
+                                        @endforeach
+                                    </p>
+                                    <p>Document Type: {{$paper->paper_type}}</p>
+                                    <p>Page: {{$paper->paper_page}}</p>
+                                    <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
+                                    <p>Ciations: {{$paper->paper_citation}}</p>
+                                    <p>Doi: {{$paper->paper_doi}}</p>
+                                    <p>Source: 
+                                        @foreach ($paper->source as $s)
+                                        <span>
+                                            <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
+                                        </span>
+                                        @endforeach
+                                    </p>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="#" class="show-more" data-target="#collapse-{{ $paper->id }}" data-id="{{ $paper->id }}">Show more ▼</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-            <table id="example1" class="table table-striped" style="width:100%">
-                <thead>
-                    <!-- <tr>
-                        <th><a href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">#Export</a></td>
-                    </tr> -->
-                    <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th>Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th>Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
-                        <th>Source</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach ($papers as $n => $paper)
-                    <tr>
-                        <td> {{$n+1}}</td>
-                        <td>{{ $paper->paper_yearpub }}</td>
-                        <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
-                        <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
-                        <td>
-                            @foreach ($paper->author as $author)
-                            <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-                            </span>
-                            @endforeach
-                            @foreach ($paper->teacher as $author)
-                            <span >
-                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
-                            </span>
-                            @endforeach
-                        </td>
-                        <td>{{$paper->paper_type}}</td>
-                        <td style="width:100%;">{{$paper->paper_page}}</td>
-                        <td>{{$paper->paper_sourcetitle}}</td>
-                        <td>{{$paper->paper_citation}}</td>
-                        <td>{{$paper->paper_doi}}</td>
-                        <td>
-                            @foreach ($paper->source as $s)
-                            <span>
-                                <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
-                            </span>
-                            @endforeach
-                        </td>
-
-                    </tr>
-                    @endforeach
-                </tbody>
-
-            </table>
-
         </div>
         <div class="tab-pane fade" id="scopus" role="tabpanel" aria-labelledby="scopus-tab">
 
@@ -455,8 +414,42 @@
 
     </div>
 </div>
-<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.js"></script> -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#papersTable').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": false,
+            "info": true,
+            "autoWidth": false
+        });
+
+        // ใช้ on() แทน .on("click") เพื่อรองรับการโหลดของ DataTable
+        $(document).on("click", ".show-more", function(e) {
+            e.preventDefault();
+            let target = $(this).data("target");
+            
+            console.log("Clicked Show More:", target);
+            console.log("Element exists:", $(target).length > 0);
+
+            if ($(target).length) {
+                $(target).collapse('toggle');
+                $(target).on('shown.bs.collapse', function() {
+                    $(`a[data-target="${target}"]`).text('Show less ▲'); // Change the button text
+                });
+                $(target).on('hidden.bs.collapse', function() {
+                    $(`a[data-target="${target}"]`).text('Show more ▼'); // Change the button text
+                });
+            } else {
+                console.warn("Collapse target not found:", target);
+            }
+        });
+    });
+</script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.js"></script>
@@ -599,10 +592,6 @@
     }
     async function myFunction() {
         var res = <?php echo $res; ?>;
-        //var fname = res.fname_en;
-        //var fname = res.fname_en.substr(0, 1); 
-        //console.log(fname);
-        //const response = await fetch('https://api.elsevier.com/content/search/scopus?query=AUTHOR-NAME('+ res.lname_en +','+fname+')%20&apikey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson');
         const response = await fetch('https://api.elsevier.com/content/search/author?query=authlast(' + res.lname_en +
             ')%20and%20authfirst(' + res.fname_en +
             ')%20&apiKey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson');
@@ -777,15 +766,4 @@
         }
     });
 </script>
-<!-- <script>
-    // get the p element
-    $(document).ready(function() {
-    const a = document.getElementById('authtd');
-    console.log(a.text)
-    const myArray =  a.text.toString().split(" ");
-    console.log(myArray)
-    document.getElementById("authtd").innerHTML = "name :"+ myArray;
-    
-});
-</script> -->
 @endsection
