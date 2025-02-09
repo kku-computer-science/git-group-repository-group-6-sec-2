@@ -71,7 +71,7 @@
                     <h6 class="card-text2" id="doc_count">Document count</h6>
                     <h6 class="card-text2" id="cite_count">Cited By count</h6>
                     <h6 class="card-text2" id="h-index">H-index </h6> -->
-
+                    <h3>H-Index: <span id="h-index-result">กำลังคำนวณ...</span></h3>
                 </div>
             </div>
 
@@ -776,6 +776,43 @@
             $this.countTo(options);
         }
     });
+    
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        function calculateHIndex() {
+            let citations = [];
+
+            // ดึงค่าจำนวน Citation จากคอลัมน์ที่ 8 (Citations)
+            document.querySelectorAll("#example1 tbody tr").forEach(row => {
+                let citationCell = row.cells[7]; // คอลัมน์ที่ 8 (Citations)
+                if (citationCell) {
+                    let citation = parseInt(citationCell.textContent.trim()) || 0;
+                    citations.push(citation);
+                }
+            });
+
+            // เรียงลำดับ Citation จากมากไปน้อย
+            citations.sort((a, b) => b - a);
+
+            // คำนวณค่า H-Index
+            let h_index = 0;
+            for (let i = 0; i < citations.length; i++) {
+                if (citations[i] >= i + 1) {
+                    h_index = i + 1;
+                } else {
+                    break;
+                }
+            }
+
+            // แสดงผลลัพธ์ H-Index บนหน้าเว็บ
+            document.getElementById("h-index-result").textContent = h_index;
+        }
+
+        // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
+        calculateHIndex();
+    });
+
 </script>
 <!-- <script>
     // get the p element
