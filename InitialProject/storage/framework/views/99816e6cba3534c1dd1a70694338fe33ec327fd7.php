@@ -117,304 +117,329 @@
     <br>
     <div class="tab-content" id="myTabContent">
 
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="table-responsive">
-                <table id="papersTable" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Paper Name</th>
-                            <th>Citations</th>
-                            <th>Year</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="table-responsive">
+        <table id="papersTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Paper Name</th>
+                    <th>Citations</th>
+                    <th>Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $__currentLoopData = $papers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr>
+                    <td style="width:50%;">
+                        <?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?>
 
-                    <tbody>
-                        <?php $__currentLoopData = $papers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <tr>
-                            <td style="width:50%;">
-                                <?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?>
-
-                                <div id="collapse-<?php echo e($paper->id); ?>" class="collapse">
-                                    <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                                    <p>Author: 
-                                        <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <span>
-                                            <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
-                                        </span>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <span >
-                                            <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
-                                                <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
-                                        </span>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </p>
-                                    <p>Document Type: <?php echo e($paper->paper_type); ?></p>
-                                    <p>Page: <?php echo e($paper->paper_page); ?></p>
-                                    <p>Journals/Transactions: <?php echo e($paper->paper_sourcetitle); ?></p>
-                                    <p>Ciations: <?php echo e($paper->paper_citation); ?></p>
-                                    <p>Doi: <?php echo e($paper->paper_doi); ?></p>
-                                    <p>Source: 
-                                        <?php $__currentLoopData = $paper->source; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <span>
-                                            <a><?php echo e($s -> source_name); ?><?php if(!$loop->last): ?> , <?php endif; ?></a>
-                                        </span>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </p>
-                                </div>
-                            </td>
-                            <td><?php echo e($paper->paper_citation); ?></td>
-                            <td><?php echo e($paper->paper_yearpub); ?></td>
-                            <td>
-                                <a href="#" class="show-more" data-target="#collapse-<?php echo e($paper->id); ?>" data-id="<?php echo e($paper->id); ?>">Show more ▼</a>
-                            </td>
-                        </tr>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="tab-pane fade" id="scopus" role="tabpanel" aria-labelledby="scopus-tab">
-
-            <table id="example2" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $__currentLoopData = $papers_scopus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <tr>
-                        <td> <?php echo e($n+1); ?></td>
-                        <td><?php echo e($paper->paper_yearpub); ?></td>
-                        <!-- <td style="width:90%;"><?php echo e($paper->paper_name); ?></td> -->
-                        <td style="width:90%;"><?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?></td>
-                        <td>
-                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
-                            </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
-                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
-                            </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </td>
-                        <td><?php echo e($paper->paper_type); ?></td>
-                        <td style="width:100%;"><?php echo e($paper->paper_page); ?></td>
-                        <td><?php echo e($paper->paper_sourcetitle); ?></td>
-                        <td><?php echo e($paper->paper_citation); ?></td>
-                        <td><?php echo e($paper->paper_doi); ?></td>
-
-
-                    </tr>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </tbody>
-
-            </table>
-
-
-        </div>
-        <div class="tab-pane fade" id="wos" role="tabpanel" aria-labelledby="wos-tab">
-
-            <table id="example3" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <?php $__currentLoopData = $papers_wos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <tr>
-                        <td> <?php echo e($n+1); ?></td>
-                        <td><?php echo e($paper->paper_yearpub); ?></td>
-                        <!-- <td style="width:90%;"><?php echo e($paper->paper_name); ?></td> -->
-                        <td style="width:90%;"><?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?></td>
-                        <td>
-                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
-                            </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
-                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
-                            </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </td>
-                        <td><?php echo e($paper->paper_type); ?></td>
-                        <td style="width:100%;"><?php echo e($paper->paper_page); ?></td>
-                        <td><?php echo e($paper->paper_sourcetitle); ?></td>
-                        <td><?php echo e($paper->paper_citation); ?></td>
-                        <td><?php echo e($paper->paper_doi); ?></td>
-
-
-                    </tr>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </tbody>
-
-            </table>
-
-
-        </div>
-
-        <div class="tab-pane fade" id="tci" role="tabpanel" aria-labelledby="tci-tab">
-            <table id="example4" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <?php $__currentLoopData = $papers_tci; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <tr>
-                        <td> <?php echo e($n+1); ?></td>
-                        <td><?php echo e($paper->paper_yearpub); ?></td>
-                        <!-- <td style="width:90%;"><?php echo e($paper->paper_name); ?></td> -->
-                        <td style="width:90%;"><?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?></td>
-                        <td>
-                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
-                            </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
-                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
-                            </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </td>
-                        <td><?php echo e($paper->paper_type); ?></td>
-                        <td style="width:100%;"><?php echo e($paper->paper_page); ?></td>
-                        <td><?php echo e($paper->paper_sourcetitle); ?></td>
-                        <td><?php echo e($paper->paper_citation); ?></td>
-                        <td><?php echo e($paper->paper_doi); ?></td>
-
-
-                    </tr>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </tbody>
-            </table>
-        </div>
-        <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
-            <table id="example5" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">สถานที่พิมพ์</th>
-                        <th scope="col">Page</th>
-
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <?php $__currentLoopData = $book_chapter; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <tr>
-                        <td><?php echo e($n+1); ?></td>
-                        <td style="width:80px"><?php echo e(date('Y', strtotime($paper->ac_year))+543); ?></td>
-                        <td><?php echo e($paper->ac_name); ?></td>
-                        <td>
-                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
-
-                            </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php $__currentLoopData = $paper->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a> <?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></a>
-                            </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </td>
-                        <td><?php echo e($paper->ac_sourcetitle); ?></td>
-                        <td><?php echo e($paper->ac_page); ?></td>
-
-                    </tr>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="tab-pane fade" id="patent" role="tabpanel" aria-labelledby="patent-tab">
-            <table id="example6" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">ประเภท</th>
-                        <th scope="col">หมายเลขทะเบียน</th>
-                        <th scope="col">วันที่จดทะเบียน</th>
-
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <?php $__currentLoopData = $patent; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <tr>
-                        <td><?php echo e($n+1); ?></td>
-                        <td><?php echo e($paper->ac_name); ?></td>
-                        <td>
-                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
-
-                            </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php $__currentLoopData = $paper->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <span>
-                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
-                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
-
-                            </span>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </td>
-                        <td><?php echo e($paper->ac_type); ?></td>
-                        <td><?php echo e($paper->ac_refnumber); ?></td>
-                        <td><?php echo e($paper->ac_year); ?></td>
-
-                    </tr>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </tbody>
-            </table>
-        </div>
-
+                        <div id="collapse-<?php echo e($paper->id); ?>" class="collapse">
+                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
+                            <p>Author: 
+                                <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span >
+                                    <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
+                                        <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>
+                            <p>Document Type: <?php echo e($paper->paper_type); ?></p>
+                            <p>Page: <?php echo e($paper->paper_page); ?></p>
+                            <p>Journals/Transactions: <?php echo e($paper->paper_sourcetitle); ?></p>
+                            <p>Ciations: <?php echo e($paper->paper_citation); ?></p>
+                            <p>Doi: <?php echo e($paper->paper_doi); ?></p>
+                            <p>Source: 
+                                <?php $__currentLoopData = $paper->source; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a><?php echo e($s -> source_name); ?><?php if(!$loop->last): ?> , <?php endif; ?></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>
+                        </div>
+                    </td>
+                    <td><?php echo e($paper->paper_citation); ?></td>
+                    <td><?php echo e($paper->paper_yearpub); ?></td>
+                    <td>
+                        <a href="#" class="show-more" data-target="#collapse-<?php echo e($paper->id); ?>" data-id="<?php echo e($paper->id); ?>">Show more ▼</a>
+                    </td>
+                </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </tbody>
+        </table>
     </div>
+</div>
+
+<div class="tab-pane fade" id="scopus" role="tabpanel" aria-labelledby="scopus-tab">
+    <div class="table-responsive">
+        <table id="scopusTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Paper Name</th>
+                    <th>Citations</th>
+                    <th>Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $__currentLoopData = $papers_scopus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr>
+                    <td style="width:50%;">
+                        <?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?>
+
+                        <div id="collapse-scopus-<?php echo e($paper->id); ?>" class="collapse">
+                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
+                            <p>Author: 
+                                <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span >
+                                    <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
+                                        <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>
+                            <p>Document Type: <?php echo e($paper->paper_type); ?></p>
+                            <p>Page: <?php echo e($paper->paper_page); ?></p>
+                            <p>Journals/Transactions: <?php echo e($paper->paper_sourcetitle); ?></p>
+                            <p>Ciations: <?php echo e($paper->paper_citation); ?></p>
+                            <p>Doi: <?php echo e($paper->paper_doi); ?></p>
+                            <p>Source: 
+                                <?php $__currentLoopData = $paper->source; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a><?php echo e($s -> source_name); ?><?php if(!$loop->last): ?> , <?php endif; ?></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>
+                        </div>
+                    </td>
+                    <td><?php echo e($paper->paper_citation); ?></td>
+                    <td><?php echo e($paper->paper_yearpub); ?></td>
+                    <td>
+                        <a href="#" class="show-more" data-target="#collapse-scopus-<?php echo e($paper->id); ?>" data-id="<?php echo e($paper->id); ?>">Show more ▼</a>
+                    </td>
+                </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="tab-pane fade" id="wos" role="tabpanel" aria-labelledby="wos-tab">
+    <div class="table-responsive">
+        <table id="wosTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Paper Name</th>
+                    <th>Citations</th>
+                    <th>Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $__currentLoopData = $papers_wos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr>
+                    <td style="width:50%;">
+                        <?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?>
+
+                        <div id="collapse-wos-<?php echo e($paper->id); ?>" class="collapse">
+                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
+                            <p>Author: 
+                                <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span >
+                                    <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
+                                        <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>
+                            <p>Document Type: <?php echo e($paper->paper_type); ?></p>
+                            <p>Page: <?php echo e($paper->paper_page); ?></p>
+                            <p>Journals/Transactions: <?php echo e($paper->paper_sourcetitle); ?></p>
+                            <p>Ciations: <?php echo e($paper->paper_citation); ?></p>
+                            <p>Doi: <?php echo e($paper->paper_doi); ?></p>
+                            <p>Source: 
+                                <?php $__currentLoopData = $paper->source; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a><?php echo e($s -> source_name); ?><?php if(!$loop->last): ?> , <?php endif; ?></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>
+                        </div>
+                    </td>
+                    <td><?php echo e($paper->paper_citation); ?></td>
+                    <td><?php echo e($paper->paper_yearpub); ?></td>
+                    <td>
+                        <a href="#" class="show-more" data-target="#collapse-wos-<?php echo e($paper->id); ?>" data-id="<?php echo e($paper->id); ?>">Show more ▼</a>
+                    </td>
+                </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="tab-pane fade" id="tci" role="tabpanel" aria-labelledby="tci-tab">
+    <div class="table-responsive">
+        <table id="tciTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Paper Name</th>
+                    <th>Citations</th>
+                    <th>Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $__currentLoopData = $papers_tci; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr>
+                    <td style="width:50%;">
+                        <?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?>
+
+                        <div id="collapse-tci-<?php echo e($paper->id); ?>" class="collapse">
+                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
+                            <p>Author: 
+                                <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span >
+                                    <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
+                                        <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>
+                            <p>Document Type: <?php echo e($paper->paper_type); ?></p>
+                            <p>Page: <?php echo e($paper->paper_page); ?></p>
+                            <p>Journals/Transactions: <?php echo e($paper->paper_sourcetitle); ?></p>
+                            <p>Ciations: <?php echo e($paper->paper_citation); ?></p>
+                            <p>Doi: <?php echo e($paper->paper_doi); ?></p>
+                            <p>Source: 
+                                <?php $__currentLoopData = $paper->source; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a><?php echo e($s -> source_name); ?><?php if(!$loop->last): ?> , <?php endif; ?></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>
+                        </div>
+                    </td>
+                    <td><?php echo e($paper->paper_citation); ?></td>
+                    <td><?php echo e($paper->paper_yearpub); ?></td>
+                    <td>
+                        <a href="#" class="show-more" data-target="#collapse-tci-<?php echo e($paper->id); ?>" data-id="<?php echo e($paper->id); ?>">Show more ▼</a>
+                    </td>
+                </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
+    <div class="table-responsive">
+        <table id="bookTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $__currentLoopData = $book_chapter; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr>
+                    <td style="width:50%;">
+                        <?php echo e($paper->ac_name); ?>
+
+                        <div id="collapse-book-<?php echo e($paper->id); ?>" class="collapse">
+                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
+                            <p>Author: 
+                                <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $paper->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a> <?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>
+                            <p>สถานที่พิมพ์: <?php echo e($paper->ac_sourcetitle); ?></p>
+                            <p>Page: <?php echo e($paper->ac_page); ?></p>
+                        </div>
+                    </td>
+                    <td><?php echo e(date('Y', strtotime($paper->ac_year)) + 543); ?></td>
+                    <td>
+                        <a href="#" class="show-more" data-target="#collapse-book-<?php echo e($paper->id); ?>" data-id="<?php echo e($paper->id); ?>">Show more ▼</a>
+                    </td>
+                </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="tab-pane fade" id="patent" role="tabpanel" aria-labelledby="patent-tab">
+    <div class="table-responsive">
+        <table id="patentTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>ประเภท</th>
+                    <th>วันที่จดทะเบียน</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $__currentLoopData = $patent; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr>
+                    <td style="width:50%;">
+                        <?php echo e($paper->ac_name); ?>
+
+                        <div id="collapse-patent-<?php echo e($paper->id); ?>" class="collapse">
+                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
+                            <p>Author: 
+                                <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $paper->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <span>
+                                    <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
+                                        <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
+                                </span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>
+                            <p>ประเภท: <?php echo e($paper->ac_type); ?></p>
+                            <p>หมายเลขทะเบียน: <?php echo e($paper->ac_refnumber); ?></p>
+                        </div>
+                    </td>
+                    <td><?php echo e($paper->ac_type); ?></td>
+                    <td><?php echo e($paper->ac_year); ?></td>
+                    <td>
+                        <a href="#" class="show-more" data-target="#collapse-patent-<?php echo e($paper->id); ?>" data-id="<?php echo e($paper->id); ?>">Show more ▼</a>
+                    </td>
+                </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </tbody>
+        </table>
+    </div>
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -430,25 +455,61 @@
             autoWidth: false
         });
 
-        // ใช้ on() แทน .on("click") เพื่อรองรับการโหลดของ DataTable
+        $('#scopusTable').DataTable({
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false
+        });
+
+        $('#wosTable').DataTable({
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false
+        });
+
+        $('#tciTable').DataTable({
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false
+        });
+
+        $('#bookTable').DataTable({
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false
+        });
+
+        $('#patentTable').DataTable({
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false
+        });
+
         $(document).on("click", ".show-more", function(e) {
             e.preventDefault();
             let target = $(this).data("target");
-            
-            console.log("Clicked Show More:", target);
-            console.log("Element exists:", $(target).length > 0);
-
-            if ($(target).length) {
-                $(target).collapse('toggle');
-                $(target).on('shown.bs.collapse', function() {
-                    $(`a[data-target="${target}"]`).text('Show less ▲'); // Change the button text
-                });
-                $(target).on('hidden.bs.collapse', function() {
-                    $(`a[data-target="${target}"]`).text('Show more ▼'); // Change the button text
-                });
-            } else {
-                console.warn("Collapse target not found:", target);
-            }
+            $(target).collapse('toggle');
+            $(target).on('shown.bs.collapse', function() {
+                $(`a[data-target="${target}"]`).text('Show less ▲');
+            });
+            $(target).on('hidden.bs.collapse', function() {
+                $(`a[data-target="${target}"]`).text('Show more ▼');
+            });
         });
     });
 </script>
