@@ -11,9 +11,11 @@
 
 namespace RenanBr\BibTexParser\Processor;
 
+use Composer\InstalledVersions;
+use Exception;
 use Pandoc\Pandoc;
-use Pandoc\PandocException;
 use RenanBr\BibTexParser\Exception\ProcessorException;
+use RuntimeException;
 
 /**
  * Translates LaTeX texts to unicode.
@@ -22,8 +24,8 @@ class LatexToUnicodeProcessor
 {
     use TagCoverageTrait;
 
-    /** @var Pandoc|null */
-    private $pandoc;
+    /** @var (callable(string): string)|null */
+    private $converter;
 
     /**
      * @return array
@@ -59,17 +61,44 @@ class LatexToUnicodeProcessor
     private function decode($text)
     {
         try {
-            if (!$this->pandoc) {
-                $this->pandoc = new Pandoc();
-            }
-
-            return $this->pandoc->runWith($text, [
-                'from' => 'latex',
-                'to' => 'plain',
-                'wrap' => 'none',
-            ]);
-        } catch (PandocException $exception) {
+            return \call_user_func($this->getConverter(), $text);
+        } catch (Exception $exception) {
             throw new ProcessorException(sprintf('Error while processing LaTeX to Unicode: %s', $exception->getMessage()), 0, $exception);
         }
+    }
+
+    /**
+     * @return (callable(string): string)
+     */
+    private function getConverter()
+    {
+        if ($this->converter) {
+            return $this->converter;
+        }
+
+        if (InstalledVersions::isInstalled('ueberdosis/pandoc')) {
+            $pandoc = new Pandoc();
+
+            return $this->converter = static function ($text) use ($pandoc) {
+                // @phpstan-ignore-next-line
+                return mb_substr($pandoc->input($text)->execute([
+                    '--from', 'latex',
+                    '--to', 'plain',
+                    '--wrap', 'none',
+                ]), 0, -1);
+            };
+        } elseif (InstalledVersions::isInstalled('ryakad/pandoc-php')) {
+            $pandoc = new Pandoc();
+
+            return $this->converter = static function ($text) use ($pandoc) {
+                return $pandoc->runWith($text, [
+                    'from' => 'latex',
+                    'to' => 'plain',
+                    'wrap' => 'none',
+                ]);
+            };
+        }
+
+        throw new RuntimeException('Pandoc wrapper not installed. Try running "composer require ueberdosis/pandoc"');
     }
 }
