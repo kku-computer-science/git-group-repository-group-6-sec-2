@@ -120,19 +120,19 @@ class ScopuscallController extends Controller
                         }else{
                             $paper->paper_funder = null;
                         }
-                        
+
                         //$paper->paper_funder = $all['abstracts-retrieval-response']['item']['xocs:meta']['xocs:funding-list']['xocs:funding-text'];
                         $paper->abstract = $all['abstracts-retrieval-response']['item']['bibrecord']['head']['abstracts'];
                         //$key = $all['abstracts-retrieval-response']['item']['bibrecord']['head']['citation-info']['author-keywords']['author-keyword'];
-                        
+
                         if (array_key_exists('author-keywords', $all['abstracts-retrieval-response']['item']['bibrecord']['head']['citation-info'])) {
                             $key = $all['abstracts-retrieval-response']['item']['bibrecord']['head']['citation-info']['author-keywords']['author-keyword'];
                             $paper->keyword = json_encode($key);
-                            
+
                         }else{
                             $paper->keyword = null;
                         }
-                        
+
                     } else {
                         $paper->paper_funder = null;
                         $paper->abstract = null;
@@ -197,7 +197,7 @@ class ScopuscallController extends Controller
                                 }
 
                             } else {
-                               
+
                                 if (User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first() == null) { //เช็คว่าคนนี้อยู่ใน user ไหม ถ้าไม่มี
                                     $author = Author::where([['author_fname', '=', $i['ce:given-name']], ['author_lname', '=', $i['ce:surname']]])->first();
                                     $authorid = $author->id;
@@ -223,13 +223,13 @@ class ScopuscallController extends Controller
                                 //$paper->author()->attach($authorid);
                                 //$user = User::find($id);
                             }*/
-                            if (array_key_exists('ce:given-name', $i)) {
-                                $i['ce:given-name'] = $i['ce:given-name'];
-                            }else{
-                                $i['ce:given-name'] = $i['preferred-name']['ce:given-name'];
-                            }
-                            
-                        if (User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first() == null) {  //เช็คว่าคนนี้อยู่ใน user ไหม ถ้าไม่มี 
+                        if (array_key_exists('ce:given-name', $i)) {
+                            $i['ce:given-name'] = $i['ce:given-name'];
+                        }else{
+                            $i['ce:given-name'] = $i['preferred-name']['ce:given-name'];
+                        }
+
+                        if (User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first() == null) {  //เช็คว่าคนนี้อยู่ใน user ไหม ถ้าไม่มี
 
                             if (Author::where([['author_fname', '=', $i['ce:given-name']], ['author_lname', '=', $i['ce:surname']]])->first() == null) { //เช็คว่ามีชื่อผู้แต่งคนนี้มีหรือยังในฐานข้อมูล ถ้ายังให้
                                 //$comp = User::select(DB::raw("concat(left(fname_en,1),'.') as name"))->get();
@@ -260,7 +260,7 @@ class ScopuscallController extends Controller
                             $us = User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first();
                             //return $us->id;
                             //$usid = $us->id;
-                            //return 
+                            //return
                             if ($x === 1) {
                                 $paper->teacher()->attach($us, ['author_type' => 1]);
                             } else if ($x === $length) {
@@ -271,7 +271,7 @@ class ScopuscallController extends Controller
                         }
                         $x++;
                     }
-                
+
                 } else { //ถ้ามี ให้ทำต่อไปนี้
                     $paper = Paper::where('paper_name', '=', $item['dc:title'])->first();
                     $paperid = $paper->id;
@@ -284,14 +284,14 @@ class ScopuscallController extends Controller
                             $$user->paper()->sync($paper);*/
                         $paper = Paper::find($paperid);
                         $useaut=Author::where([['author_fname', '=', $user->fname_en], ['author_lname', '=', $user->lname_en]])->first();
-                        if ($useaut != null) {  
-                            $paper->author()->detach($useaut); 
+                        if ($useaut != null) {
+                            $paper->author()->detach($useaut);
                             $paper->teacher()->attach($id);
                         }else {
                             $paper->teacher()->attach($id);
                         }
-                        
-                       
+
+
                     } else {
                         continue;
                     }
