@@ -37,7 +37,7 @@ class ScopuscallController extends Controller
 
         $url = Http::get('https://api.elsevier.com/content/search/scopus?', [
             'query' => "AUTHOR-NAME(" . "$lname" . "," . "$fname" . ")",
-            'apikey' => '6ab3c2a01c29f0e36b00c8fa1d013f83',
+            'apikey' => '41b94ea1f9dd77ae38c5a383e3e79950',
         ])->json();
 
 
