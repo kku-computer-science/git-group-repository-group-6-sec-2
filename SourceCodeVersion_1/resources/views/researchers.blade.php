@@ -4,9 +4,9 @@
     <p class="title"> Researchers </p>
     <div class="d-flex justify-content-between">
         <div>
-            <button class="btn btn-outline-primary" onclick="filterCategory(1)">CS</button>
-            <button class="btn btn-outline-primary" onclick="filterCategory(2)">IT</button>
-            <button class="btn btn-outline-primary" onclick="filterCategory(3)">GIF</button>
+            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/1') }}'">CS</button>
+            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/2') }}'">IT</button>
+            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/3') }}'">GIF</button>
         </div>
     </div>
     @foreach($request as $res)
