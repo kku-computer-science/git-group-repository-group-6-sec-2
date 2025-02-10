@@ -76,126 +76,37 @@
             </div>
 
             <div class="col-md-4">
-                <h6 class="title-pub">{{ trans('message.publications2') }}</h6>
+                <h6 class="title-pub">{{ __('message.publications2') }}</h6>
                 <div class="col-xs-12 text-center bt">
                     <div class="clearfix"></div>
                     <div class="row text-center">
                         <div class="col">
-                            <div class="count" id='all'>
-                            </div>
+                            <div class="count" id="all"></div>
                         </div>
                         <div class="col">
-                            <div class="count" id='scopus_sum'>
-                            </div>
+                            <div class="count" id="scopus_sum"></div>
                         </div>
                         <div class="col">
-                            <div class="count" id='wos_sum'>
-                            </div>
+                            <div class="count" id="wos_sum"></div>
                         </div>
                         <div class="col">
-                            <div class="count" id='tci_sum'>
-                            </div>
+                            <div class="count" id="tci_sum"></div>
                         </div>
-
                     </div>
                     <br>
                     <div class="chart">
                         <canvas id="barChart"></canvas>
+                        <div class="text-center mt-4">
+                            <a href="{{ url('/citation-h-index') }}" class="btn btn-outline-primary btn-lg hover-shadow">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#historyChartModal">
+                    <a href="{{ route('history.chart') }}" class="btn btn-secondary">
                         ดูกราฟย้อนหลัง
-                    </button>
+                    </a>
                 </div>
             </div>
-<!-- Modal กราฟย้อนหลัง -->
-<div class="modal fade" id="historyChartModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">สถิติย้อนหลัง</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <canvas id="historyChart"></canvas>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Bootstrap JS and dependencies -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    var barChart, historyChart;
-
-    function updateChart(source) {
-        var datasets = {
-            all: {!! json_encode($paper_scopus) !!},
-            scopus: {!! json_encode($paper_scopus) !!},
-            wos: {!! json_encode($paper_wos) !!},
-            tci: {!! json_encode($paper_tci) !!},
-            google: {!! json_encode($paper_google) !!},
-        };
-
-        barChart.data.datasets[0].data = datasets[source];
-        barChart.update();
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        var ctx = document.getElementById("barChart").getContext("2d");
-        barChart = new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: {!! json_encode($year) !!},
-                datasets: [{
-                    label: "จำนวนงานวิจัย",
-                    data: {!! json_encode($paper_scopus) !!},
-                    backgroundColor: "rgba(75, 192, 192, 0.6)",
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: { y: { beginAtZero: true } }
-            }
-        });
-
-        var ctx2 = document.getElementById("historyChart").getContext("2d");
-        historyChart = new Chart(ctx2, {
-            type: "line",
-            data: {
-                labels: {!! json_encode($year2) !!},
-                datasets: [
-                    { label: "Scopus", data: {!! json_encode($paper_scopus_s) !!}, borderColor: "rgba(75, 192, 192, 1)", fill: false },
-                    { label: "WOS", data: {!! json_encode($paper_wos_s) !!}, borderColor: "rgba(255, 99, 132, 1)", fill: false },
-                    { label: "TCI", data: {!! json_encode($paper_tci_s) !!}, borderColor: "rgba(54, 162, 235, 1)", fill: false },
-                    { label: "Google Scholar", data: {!! json_encode($paper_google_s) !!}, borderColor: "rgba(255, 165, 0, 1)", fill: false }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false, // ป้องกันไม่ให้กราฟมีสัดส่วนที่ผิด
-                scales: {
-                    y: { beginAtZero: true }
-                }
-            }
-        });
-
-        // เพิ่ม event listener สำหรับการเปิด modal เพื่อรีเฟรชขนาดกราฟ
-        $('#historyChartModal').on('shown.bs.modal', function () {
-            setTimeout(function() {
-                historyChart.update(); // อัพเดตกราฟให้ตรงขนาด
-            }, 500);
-        });
-    });
-</script>
-
-
-
-
         </div>
     </div>
     <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

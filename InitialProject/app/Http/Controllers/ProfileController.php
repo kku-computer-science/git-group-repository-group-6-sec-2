@@ -136,4 +136,48 @@ class ProfileController extends Controller
         );
     }
 
+    public function showHistoryChart()
+    {
+        // ข้อมูลปี
+        $year2 = ['2020', '2021', '2022', '2023'];
+
+        // ข้อมูลตีพิมพ์แต่ละแหล่ง
+        $paper_scopus_s = [50, 60, 70, 80];
+        $paper_wos_s = [30, 40, 50, 60];
+        $paper_tci_s = [20, 30, 40, 50];
+        $paper_google_s = [10, 20, 30, 40];
+
+        return view('history-chart', compact('year2', 'paper_scopus_s', 'paper_wos_s', 'paper_tci_s', 'paper_google_s'));
+    }
+
+    public function citationchart()
+    {
+        // ใช้ข้อมูลจาก showHistoryChart
+        $year2 = ['2020', '2021', '2022', '2023'];
+
+        $paper_scopus_s = [50, 60, 70, 80];
+        $paper_wos_s = [30, 40, 50, 60];
+        $paper_tci_s = [20, 30, 40, 50];
+        $paper_google_s = [10, 20, 30, 40];
+
+        // คำนวณ citations (จำลอง)
+        $citations = [];
+        foreach ($year2 as $index => $year) {
+            $citations[] = $paper_scopus_s[$index] + $paper_wos_s[$index] +
+                           $paper_tci_s[$index] + $paper_google_s[$index];
+        }
+
+        // คำนวณ h-index (จำลอง)
+        $hIndex = array_map(function ($citation) {
+            return floor($citation / 10);
+        }, $citations);
+
+        return view('citation_chart', compact('year2', 'citations', 'hIndex'));
+    }
+
+
+
+
+
+
 }
