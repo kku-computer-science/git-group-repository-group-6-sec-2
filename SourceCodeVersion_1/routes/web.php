@@ -38,6 +38,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+
+use App\Http\Controllers\ErrorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,7 +72,8 @@ Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
     Auth::routes();
 });
 
-
+Route::post('api/scopus/error/{statusCode}/{apiName}', [ErrorController::class, 'apiScopusErrorHandling']);
+Route::get('/test-api-error', [ErrorController::class, 'apiScopusErrorHandling']);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/researchers',[ResearcherController::class,'index'])->name('researchers');
