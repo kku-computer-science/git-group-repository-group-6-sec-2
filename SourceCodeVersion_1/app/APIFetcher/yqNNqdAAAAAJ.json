@@ -1,0 +1,56 @@
+{
+    "author_name": "Sarun Apichontrakul",
+    "interests": [
+        "Geoinformatics",
+        "GIS",
+        "Remote Sensing",
+        "Spatial data analysis"
+    ],
+    "articles": [
+        {
+            "title": "Rotation Invariant Binary Gradient Contour for Geographic Object-based Image Analysis",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=yqNNqdAAAAAJ&pagesize=100&citation_for_view=yqNNqdAAAAAJ:u-x6o8ySG0sC",
+            "citation_id": "yqNNqdAAAAAJ:u-x6o8ySG0sC",
+            "authors": "S Apichontrakul, R Suwanweerakamtorn",
+            "publication": "Asia-Pacific Journal of Science and Technology 27 (4), 2022",
+            "cited_by": 0,
+            "year": "2022"
+        },
+        {
+            "title": "Workshop: Introduction to PostGIS for Spatial Analysis and Management",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=yqNNqdAAAAAJ&pagesize=100&citation_for_view=yqNNqdAAAAAJ:u5HHmVD_uO8C",
+            "citation_id": "yqNNqdAAAAAJ:u5HHmVD_uO8C",
+            "authors": "S Apichontrakul",
+            "publication": null,
+            "cited_by": 0,
+            "year": "2021"
+        },
+        {
+            "title": "Urban Land Cover Extraction of Thaichote Satellite Imagery Using Geographic Object-Based Image Analysis",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=yqNNqdAAAAAJ&pagesize=100&citation_for_view=yqNNqdAAAAAJ:d1gkVwhDpl0C",
+            "citation_id": "yqNNqdAAAAAJ:d1gkVwhDpl0C",
+            "authors": "S Apichontrakul, R Suwanweerakamtorn",
+            "publication": "The 9th International Graduate Research Conference Proceeding, Chiang Mai …, 2018",
+            "cited_by": 0,
+            "year": "2018"
+        },
+        {
+            "title": "Assessing Off-the-Shelf UAV Capability for Monitoring Plant Growth",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=yqNNqdAAAAAJ&pagesize=100&citation_for_view=yqNNqdAAAAAJ:9yKSN-GCB0IC",
+            "citation_id": "yqNNqdAAAAAJ:9yKSN-GCB0IC",
+            "authors": "S Apichontrakul, R Suwanweerakamtorn",
+            "publication": "GeoInfotech 2018, Bangkok, Thailand, 2018",
+            "cited_by": 0,
+            "year": "2018"
+        },
+        {
+            "title": "An Application of Artificial Neural Network and Geographic Information System for Temperature Trend Prediction in Northeastern Thailand",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=yqNNqdAAAAAJ&pagesize=100&citation_for_view=yqNNqdAAAAAJ:2osOgNQ5qMEC",
+            "citation_id": "yqNNqdAAAAAJ:2osOgNQ5qMEC",
+            "authors": "S Apichontrakul, R Suwanweerakamtorn",
+            "publication": "GeoInfotech 2014, Bangkok, Thailand, 2014",
+            "cited_by": 0,
+            "year": "2014"
+        }
+    ]
+}

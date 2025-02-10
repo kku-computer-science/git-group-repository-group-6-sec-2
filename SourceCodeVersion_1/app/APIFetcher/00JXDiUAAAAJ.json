@@ -1,0 +1,235 @@
+{
+    "author_name": "Punyaphol Horata",
+    "interests": [
+        "Neural Network",
+        "Extreme Learning Machine",
+        "Soft Computing"
+    ],
+    "articles": [
+        {
+            "title": "Robust extreme learning machine",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:u5HHmVD_uO8C",
+            "citation_id": "00JXDiUAAAAJ:u5HHmVD_uO8C",
+            "authors": "P Horata, S Chiewchanwattana, K Sunat",
+            "publication": "Neurocomputing 102, 31-44, 2013",
+            "cited_by": 197,
+            "year": "2013"
+        },
+        {
+            "title": "Handwritten character recognition using histograms of oriented gradient features in deep learning of artificial neural network",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:HDshCWvjkbEC",
+            "citation_id": "00JXDiUAAAAJ:HDshCWvjkbEC",
+            "authors": "S Iamsa-at, P Horata",
+            "publication": "2013 international conference on IT convergence and security (ICITCS), 1-5, 2013",
+            "cited_by": 62,
+            "year": "2013"
+        },
+        {
+            "title": "Kernel extreme learning machine based on fuzzy set theory for multi-label classification",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:k_IJM867U9cC",
+            "citation_id": "00JXDiUAAAAJ:k_IJM867U9cC",
+            "authors": "Y Kongsorot, P Horata, P Musikawan, K Sunat",
+            "publication": "International Journal of Machine Learning and Cybernetics 10, 979-989, 2019",
+            "cited_by": 31,
+            "year": "2019"
+        },
+        {
+            "title": "License plate recognition application using extreme learning machines",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:R3hNpaxXUhUC",
+            "citation_id": "00JXDiUAAAAJ:R3hNpaxXUhUC",
+            "authors": "S Subhadhira, U Juithonglang, P Sakulkoo, P Horata",
+            "publication": "2014 Third ICT International Student Project Conference (ICT-ISPC), 103-106, 2014",
+            "cited_by": 29,
+            "year": "2014"
+        },
+        {
+            "title": "Multi-label classification with extreme learning machine",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:TQgYirikUcIC",
+            "citation_id": "00JXDiUAAAAJ:TQgYirikUcIC",
+            "authors": "Y Kongsorot, P Horata",
+            "publication": "2014 6th International Conference on Knowledge and Smart Technology (KST), 81-86, 2014",
+            "cited_by": 26,
+            "year": "2014"
+        },
+        {
+            "title": "Parallelized metaheuristic-ensemble of heterogeneous feedforward neural networks for regression problems",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:M3NEmzRMIkIC",
+            "citation_id": "00JXDiUAAAAJ:M3NEmzRMIkIC",
+            "authors": "P Musikawan, K Sunat, Y Kongsorot, P Horata, S Chiewchanwattana",
+            "publication": "IEEE Access 7, 26909-26932, 2019",
+            "cited_by": 18,
+            "year": "2019"
+        },
+        {
+            "title": "A comparative study of pseudo-inverse computing for the extreme learning machine classifier",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:u-x6o8ySG0sC",
+            "citation_id": "00JXDiUAAAAJ:u-x6o8ySG0sC",
+            "authors": "P Horata, S Chiewchanwattana, K Sunat",
+            "publication": "The 3rd International Conference on Data Mining and Intelligent Information …, 2011",
+            "cited_by": 14,
+            "year": "2011"
+        },
+        {
+            "title": "An incremental kernel extreme learning machine for multi-label learning with emerging new labels",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:blknAaTinKkC",
+            "citation_id": "00JXDiUAAAAJ:blknAaTinKkC",
+            "authors": "Y Kongsorot, P Horata, P Musikawan",
+            "publication": "IEEE Access 8, 46055-46070, 2020",
+            "cited_by": 13,
+            "year": "2020"
+        },
+        {
+            "title": "Extended hierarchical extreme learning machine with multilayer perceptron",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:bEWYMUwI8FkC",
+            "citation_id": "00JXDiUAAAAJ:bEWYMUwI8FkC",
+            "authors": "K Phurattanaprapin, P Horata",
+            "publication": "2016 13th International Joint Conference on Computer Science and Software …, 2016",
+            "cited_by": 11,
+            "year": "2016"
+        },
+        {
+            "title": "Harmonic extreme learning machine for data clustering",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:r0BpntZqJG4C",
+            "citation_id": "00JXDiUAAAAJ:r0BpntZqJG4C",
+            "authors": "S Boriratrit, S Chiewchanwattana, K Sunat, P Musikawan, P Horata",
+            "publication": "2016 13th International Joint Conference on Computer Science and Software …, 2016",
+            "cited_by": 10,
+            "year": "2016"
+        },
+        {
+            "title": "Enhancement of online sequential extreme learning machine based on the householder block exact inverse QRD recursive least squares",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:e5wmG9Sq2KIC",
+            "citation_id": "00JXDiUAAAAJ:e5wmG9Sq2KIC",
+            "authors": "P Horata, S Chiewchanwattana, K Sunat",
+            "publication": "Neurocomputing 149, 239-252, 2015",
+            "cited_by": 10,
+            "year": "2015"
+        },
+        {
+            "title": "Evolutionary circular-ELM for the reduced-reference assessment of perceived image quality",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:RHpTSmoSYBkC",
+            "citation_id": "00JXDiUAAAAJ:RHpTSmoSYBkC",
+            "authors": "S Atsawaraungsuk, P Horata",
+            "publication": "Information Science and Applications, 657-664, 2015",
+            "cited_by": 9,
+            "year": "2015"
+        },
+        {
+            "title": "Evolutionary circular extreme learning machine",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:mB3voiENLucC",
+            "citation_id": "00JXDiUAAAAJ:mB3voiENLucC",
+            "authors": "S Atsawaraungsuk, P Horata, K Sunat, S Chiewchanwattana, ...",
+            "publication": "2013 International Computer Science and Engineering Conference (ICSEC), 292-297, 2013",
+            "cited_by": 7,
+            "year": "2013"
+        },
+        {
+            "title": "Improvement flower pollination extreme learning machine based on meta-learning",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:iH-uZ7U-co4C",
+            "citation_id": "00JXDiUAAAAJ:iH-uZ7U-co4C",
+            "authors": "S Boriratrit, S Chiewchanwattana, K Sunat, P Musikawan, P Horata",
+            "publication": "2016 13th International Joint Conference on Computer Science and Software …, 2016",
+            "cited_by": 6,
+            "year": "2016"
+        },
+        {
+            "title": "Improving butterfly family classification using past separating features extraction in extreme learning machine",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:4JMBOYKVnBMC",
+            "citation_id": "00JXDiUAAAAJ:4JMBOYKVnBMC",
+            "authors": "S Iamsa-ata, P Horataa, K Sunata, N Thipayanga",
+            "publication": "Proceedings of the 2nd International Conference on Intelligent Systems and …, 2014",
+            "cited_by": 5,
+            "year": "2014"
+        },
+        {
+            "title": "Improved convex incremental extreme learning machine based on ridgelet and PSO algorithm",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:j3f4tGmQtD8C",
+            "citation_id": "00JXDiUAAAAJ:j3f4tGmQtD8C",
+            "authors": "P Musikawan, K Sunat, S Chiewchanwattana, P Horata, Y Kongsorot",
+            "publication": "2016 13th International Joint Conference on Computer Science and Software …, 2016",
+            "cited_by": 4,
+            "year": "2016"
+        },
+        {
+            "title": "Applying regularization least squares canonical correlation analysis in extreme learning machine for multi-label classification problems",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:_Qo2XoVZTnwC",
+            "citation_id": "00JXDiUAAAAJ:_Qo2XoVZTnwC",
+            "authors": "Y Kongsorot, P Horata, K Sunat",
+            "publication": "Proceedings of ELM-2014 Volume 1: Algorithms and Theories, 377-396, 2015",
+            "cited_by": 4,
+            "year": "2015"
+        },
+        {
+            "title": "Ensemble extreme learning machine for multi-instance learning",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:isC4tDSrTZIC",
+            "citation_id": "00JXDiUAAAAJ:isC4tDSrTZIC",
+            "authors": "S Sastrawaha, P Horata",
+            "publication": "Proceedings of the 9th International Conference on Machine Learning and …, 2017",
+            "cited_by": 3,
+            "year": "2017"
+        },
+        {
+            "title": "Incident Task Sequence for Service Priority using Cosine Similarity",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:NMxIlDl6LWMC",
+            "citation_id": "00JXDiUAAAAJ:NMxIlDl6LWMC",
+            "authors": "T Boonprapapan, P Horata, P Seresangtakul",
+            "publication": "2022 1st International Conference on Technology Innovation and Its …, 2022",
+            "cited_by": 2,
+            "year": "2022"
+        },
+        {
+            "title": "A fast convolutional denoising autoencoder based extreme learning machine",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:maZDTaKrznsC",
+            "citation_id": "00JXDiUAAAAJ:maZDTaKrznsC",
+            "authors": "J Sawaengchob, P Horata, P Musikawan, Y Kongsorot",
+            "publication": "2017 21st International Computer Science and Engineering Conference (ICSEC), 1-5, 2017",
+            "cited_by": 2,
+            "year": "2017"
+        },
+        {
+            "title": "Bias-Boosted ELM for Knowledge Transfer in Brain Emotional Learning for Time Series Forecasting",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:BqipwSGYUEgC",
+            "citation_id": "00JXDiUAAAAJ:BqipwSGYUEgC",
+            "authors": "S Iamsa-At, P Horata, K Sunat",
+            "publication": "IEEE Access, 2024",
+            "cited_by": 1,
+            "year": "2024"
+        },
+        {
+            "title": "Generalized stability of artificial emotional neural network in predicting domestic power peak demand",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:YFjsv_pBGBYC",
+            "citation_id": "00JXDiUAAAAJ:YFjsv_pBGBYC",
+            "authors": "S Iamsa-at, P Horata, K Sunat",
+            "publication": "Science, Engineering and Health Studies, 22020004-22020004, 2022",
+            "cited_by": 1,
+            "year": "2022"
+        },
+        {
+            "title": "Enhancement of Artificial Emotional Neural Network Using JAYA Algorithm and the Investigation of Expanded Feature Selected for Wind Power Forecasting",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:JV2RwH3_ST0C",
+            "citation_id": "00JXDiUAAAAJ:JV2RwH3_ST0C",
+            "authors": "S Iamsa-at, P Horata, K Sunat",
+            "publication": "Proceedings of the 7th International Conference on Computer and …, 2019",
+            "cited_by": 1,
+            "year": "2019"
+        },
+        {
+            "title": "Service priority classification using machine learning",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:GnPB-g6toBAC",
+            "citation_id": "00JXDiUAAAAJ:GnPB-g6toBAC",
+            "authors": "T Boonprapapan, P Seresangtakul, P Horata",
+            "publication": "Science, Engineering and Health Studies, 24020002-24020002, 2024",
+            "cited_by": 0,
+            "year": "2024"
+        },
+        {
+            "title": "Enhanced Local Receptive Fields based Extreme Learning Machine using Dominant Patterns Selection",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=00JXDiUAAAAJ&pagesize=100&citation_for_view=00JXDiUAAAAJ:hMod-77fHWUC",
+            "citation_id": "00JXDiUAAAAJ:hMod-77fHWUC",
+            "authors": "P Keawbor, P Horata",
+            "publication": "2021 25th International Computer Science and Engineering Conference (ICSEC …, 2021",
+            "cited_by": 0,
+            "year": "2021"
+        }
+    ]
+}
