@@ -1,0 +1,480 @@
+{
+    "author_name": "Wararat Songpan",
+    "interests": [
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Ensemble Models",
+        "Sentiment Analysis",
+        "Applied Intelligence"
+    ],
+    "articles": [
+        {
+            "title": "The analysis and prediction of customer review rating using opinion mining",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:UeHWp8X0CEIC",
+            "citation_id": "VfmVWLIAAAAJ:UeHWp8X0CEIC",
+            "authors": "W Songpan",
+            "publication": "2017 IEEE 15th International Conference on Software Engineering Research …, 2017",
+            "cited_by": 58,
+            "year": "2017"
+        },
+        {
+            "title": "Improved ensemble learning for classification techniques based on majority voting",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:qjMakFHDy7sC",
+            "citation_id": "VfmVWLIAAAAJ:qjMakFHDy7sC",
+            "authors": "A Rojarath, W Songpan, C Pong-inwong",
+            "publication": "2016 7th IEEE international conference on software engineering and service …, 2016",
+            "cited_by": 55,
+            "year": "2016"
+        },
+        {
+            "title": "Sentiment analysis in teaching evaluations using sentiment phrase pattern matching (SPPM) based on association mining",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:IjCSPb-OGe4C",
+            "citation_id": "VfmVWLIAAAAJ:IjCSPb-OGe4C",
+            "authors": "C Pong-Inwong, W Songpan",
+            "publication": "International journal of machine learning and cybernetics 10, 2177-2186, 2019",
+            "cited_by": 42,
+            "year": "2019"
+        },
+        {
+            "title": "Teaching senti-lexicon for automated sentiment polarity definition in teaching evaluation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:Y0pCki6q_DkC",
+            "citation_id": "VfmVWLIAAAAJ:Y0pCki6q_DkC",
+            "authors": "C Pong-Inwong, WS Rungworawut",
+            "publication": "2014 10th International Conference on Semantics, Knowledge and Grids, 84-91, 2014",
+            "cited_by": 32,
+            "year": "2014"
+        },
+        {
+            "title": "Using ontology search in the design of class diagram from business process model",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:kNdYIx-mwKoC",
+            "citation_id": "VfmVWLIAAAAJ:kNdYIx-mwKoC",
+            "authors": "W Rungworawut, T Senivongse",
+            "publication": "PWASET 12, 165-170, 2006",
+            "cited_by": 30,
+            "year": "2006"
+        },
+        {
+            "title": "Cost-sensitive probability for weighted voting in an ensemble model for multi-class classification problems",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:l7t_Zn2s7bgC",
+            "citation_id": "VfmVWLIAAAAJ:l7t_Zn2s7bgC",
+            "authors": "A Rojarath, W Songpan",
+            "publication": "Applied Intelligence 51, 4908-4932, 2021",
+            "cited_by": 25,
+            "year": "2021"
+        },
+        {
+            "title": "A guideline to mapping business processes to UML class diagrams",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:8k81kl-MbHgC",
+            "citation_id": "VfmVWLIAAAAJ:8k81kl-MbHgC",
+            "authors": "W Rungworawut, T Senivongse",
+            "publication": "WSEAS Trans. on Computers 4 (11), 1526-1533, 2005",
+            "cited_by": 20,
+            "year": "2005"
+        },
+        {
+            "title": "Improved skin lesion image classification using clustering with local-GLCM normalization",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:YsMSGLbcyi4C",
+            "citation_id": "VfmVWLIAAAAJ:YsMSGLbcyi4C",
+            "authors": "W Songpan",
+            "publication": "2018 2nd European Conference on Electrical Engineering and Computer Science …, 2018",
+            "cited_by": 18,
+            "year": "2018"
+        },
+        {
+            "title": "Teaching evaluation using data mining on moodle LMS forum",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:GnPB-g6toBAC",
+            "citation_id": "VfmVWLIAAAAJ:GnPB-g6toBAC",
+            "authors": "C Pong-inwong, W Rungworawut",
+            "publication": "2012 6th international conference on new trends in information science …, 2012",
+            "cited_by": 16,
+            "year": "2012"
+        },
+        {
+            "title": "From business world to software world: deriving class diagrams from business process models",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:geHnlv5EZngC",
+            "citation_id": "VfmVWLIAAAAJ:geHnlv5EZngC",
+            "authors": "W Rungworawut, T Senivongse",
+            "publication": "Proceedings of the 5th WSEAS International Conference on Applied Informatics …, 2005",
+            "cited_by": 14,
+            "year": "2005"
+        },
+        {
+            "title": "Emotion analysis and classification of movie reviews using data mining",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:WbkHhVStYXYC",
+            "citation_id": "VfmVWLIAAAAJ:WbkHhVStYXYC",
+            "authors": "K Moolthaisong, W Songpan",
+            "publication": "2020 international conference on data science, artificial intelligence, and …, 2020",
+            "cited_by": 12,
+            "year": "2020"
+        },
+        {
+            "title": "Probability-Weighted Voting Ensemble Learning for Classification Model",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:8AbLer7MMksC",
+            "citation_id": "VfmVWLIAAAAJ:8AbLer7MMksC",
+            "authors": "A Rojarath, W Songpan",
+            "publication": "Journal of Advances in Information Technology 11 (4), 2020",
+            "cited_by": 12,
+            "year": "2020"
+        },
+        {
+            "title": "Advancing Facial Expression Recognition in Online Learning Education Using a Homogeneous Ensemble Convolutional Neural Network Approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:AXPGKjj_ei8C",
+            "citation_id": "VfmVWLIAAAAJ:AXPGKjj_ei8C",
+            "authors": "R Lawpanom, W Songpan, J Kaewyotha",
+            "publication": "Applied Sciences 14 (3), 1156, 2024",
+            "cited_by": 8,
+            "year": "2024"
+        },
+        {
+            "title": "Mutation‐Based Harmony Search Algorithm for Hybrid Testing of Web Service Composition",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:2osOgNQ5qMEC",
+            "citation_id": "VfmVWLIAAAAJ:2osOgNQ5qMEC",
+            "authors": "E Maythaisong, W Songpan",
+            "publication": "Computational Intelligence and Neuroscience 2018 (1), 4759405, 2018",
+            "cited_by": 8,
+            "year": "2018"
+        },
+        {
+            "title": "Achieving managerial goals in business process components design using genetic algorithms",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:_Qo2XoVZTnwC",
+            "citation_id": "VfmVWLIAAAAJ:_Qo2XoVZTnwC",
+            "authors": "W Rungworawut, T Senivongse, K Cox",
+            "publication": "5th ACIS International Conference on Software Engineering Research …, 2007",
+            "cited_by": 6,
+            "year": "2007"
+        },
+        {
+            "title": "Feature selection and reduction based on SMOTE and information gain for sentiment mining",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:eQOLeE2rZwMC",
+            "citation_id": "VfmVWLIAAAAJ:eQOLeE2rZwMC",
+            "authors": "P Pongthanoo, W Songpan",
+            "publication": "2020 5th International Conference on Computer and Communication Systems …, 2020",
+            "cited_by": 5,
+            "year": "2020"
+        },
+        {
+            "title": "A study on the optimization algorithm for solving the supermarket shopping path problem",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:u5HHmVD_uO8C",
+            "citation_id": "VfmVWLIAAAAJ:u5HHmVD_uO8C",
+            "authors": "J Kaewyotha, W Songpan",
+            "publication": "2018 3rd International Conference on Computer and Communication Systems …, 2018",
+            "cited_by": 5,
+            "year": "2018"
+        },
+        {
+            "title": "Classification model for skin lesion image",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:d1gkVwhDpl0C",
+            "citation_id": "VfmVWLIAAAAJ:d1gkVwhDpl0C",
+            "authors": "N Danpakdee, W Songpan",
+            "publication": "Information Science and Applications 2017: ICISA 2017 8, 553-561, 2017",
+            "cited_by": 5,
+            "year": "2017"
+        },
+        {
+            "title": "Solving bird image overlapping for automatic population counts of birds using image processing",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:Tyk-4Ss8FVUC",
+            "citation_id": "VfmVWLIAAAAJ:Tyk-4Ss8FVUC",
+            "authors": "N Tidmerng, W Songpan, M Wattana",
+            "publication": "2016 Management and Innovation Technology International Conference (MITicon …, 2016",
+            "cited_by": 5,
+            "year": "2016"
+        },
+        {
+            "title": "Multi-objective design of profit volumes and closeness ratings using mbhs optimizing based on the prefixspan mining approach (Psma) for product layout in supermarkets",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:08ZZubdj9fEC",
+            "citation_id": "VfmVWLIAAAAJ:08ZZubdj9fEC",
+            "authors": "J Kaewyotha, W Songpan",
+            "publication": "Applied Sciences 11 (22), 10683, 2021",
+            "cited_by": 4,
+            "year": "2021"
+        },
+        {
+            "title": "Edge Detection and Symmetry Method for Cleft Lip and Palate Children Using Image Processing",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:u-x6o8ySG0sC",
+            "citation_id": "VfmVWLIAAAAJ:u-x6o8ySG0sC",
+            "authors": "N Choolikhit, W Songpan, M Wattana, N Arch-in",
+            "publication": "Information Science and Applications 2018: ICISA 2018, 443-455, 2019",
+            "cited_by": 3,
+            "year": "2019"
+        },
+        {
+            "title": "Features Extraction Based on Probability Weighting for Fake News Classification on Social Media",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:VOx2b1Wkg3QC",
+            "citation_id": "VfmVWLIAAAAJ:VOx2b1Wkg3QC",
+            "authors": "S Valentina, W Songpan",
+            "publication": "Current Applied Science and Technology 23 (2), 1-18, 2022",
+            "cited_by": 2,
+            "year": "2022"
+        },
+        {
+            "title": "Hybrid testing approach for web services composition using genetic algorithm",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:9yKSN-GCB0IC",
+            "citation_id": "VfmVWLIAAAAJ:9yKSN-GCB0IC",
+            "authors": "E Maythaisong, W Songpan",
+            "publication": "2016 IEEE Conference on e-Learning, e-Management and e-Services (IC3e), 188-193, 2016",
+            "cited_by": 2,
+            "year": "2016"
+        },
+        {
+            "title": "Association Rule Discovery for Rosewood Crime Arrest Planning",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:W7OEmFMy1HYC",
+            "citation_id": "VfmVWLIAAAAJ:W7OEmFMy1HYC",
+            "authors": "R Lawpanom, W Songpan",
+            "publication": "Information Science and Applications (ICISA) 2016, 1025-1032, 2016",
+            "cited_by": 2,
+            "year": "2016"
+        },
+        {
+            "title": "Finding the critical path with loop structure for a basis path testing using genetic algorithm",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:zYLM7Y9cAGgC",
+            "citation_id": "VfmVWLIAAAAJ:zYLM7Y9cAGgC",
+            "authors": "J Kaewyotha, W Songpan",
+            "publication": "Recent Advances in Information and Communication Technology 2015 …, 2015",
+            "cited_by": 2,
+            "year": "2015"
+        },
+        {
+            "title": "Applying ontology-based personal profile for product search system",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:Tiz5es2fbqcC",
+            "citation_id": "VfmVWLIAAAAJ:Tiz5es2fbqcC",
+            "authors": "W Rungworawut, S Kachonsri",
+            "publication": "2012 International Conference on Information Science and Applications, 1-5, 2012",
+            "cited_by": 2,
+            "year": "2012"
+        },
+        {
+            "title": "Multi-dimensional assessment on free-text answers to enhance learners' activities and collaborations",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:olpn-zPbct0C",
+            "citation_id": "VfmVWLIAAAAJ:olpn-zPbct0C",
+            "authors": "W Hoang, L.P. , Arch-Int, N. , Arch-Int, S. , Rungworawut",
+            "publication": "Proceedings of the 2012 IEEE 16th International Conference on Computer …, 2012",
+            "cited_by": 2,
+            "year": "2012"
+        },
+        {
+            "title": "A Framework for UML Class Diagrams and Software Patterns Integration",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:70eg2SAEIzsC",
+            "citation_id": "VfmVWLIAAAAJ:70eg2SAEIzsC",
+            "authors": "W Rungworawut",
+            "publication": "Journal of Electronics and Computer Science 12 (1), 53-59, 2010",
+            "cited_by": 2,
+            "year": "2010"
+        },
+        {
+            "title": "Automated classification in turtles genus Malayemys using ensemble multiview image based on improved YOLOv8 with CNN",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:Y5dfb0dijaUC",
+            "citation_id": "VfmVWLIAAAAJ:Y5dfb0dijaUC",
+            "authors": "W Songpan, T Chaianunporn, K Lomthaisong, S Keithmaleesatti",
+            "publication": "Scientific Reports 14 (1), 24993, 2024",
+            "cited_by": 1,
+            "year": "2024"
+        },
+        {
+            "title": "Factor analysis and prediction of startups and ways to exit based on decision tree classification models with adaptive k with SMOTE method for imbalance problem",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:WA5NYHcadZ8C",
+            "citation_id": "VfmVWLIAAAAJ:WA5NYHcadZ8C",
+            "authors": "W Songpan, K Ploypailin",
+            "publication": "Science Engineering and Health Studies, 2023",
+            "cited_by": 1,
+            "year": "2023"
+        },
+        {
+            "title": "Enhancing Education Process Through Intelligent Association Mining (IAM) System Conversations: Chatbot Services in Educational Settings",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:Mojj43d5GZwC",
+            "citation_id": "VfmVWLIAAAAJ:Mojj43d5GZwC",
+            "authors": "N Thongda, W Songpan",
+            "publication": "Proceedings of the 2023 5th World Symposium on Software Engineering, 261-266, 2023",
+            "cited_by": 1,
+            "year": "2023"
+        },
+        {
+            "title": "Building a needs-based curriculum in data science and artificial intelligence: Case studies in Indonesia, Sri Lanka, and Thailand",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:XiVPGOgt02cC",
+            "citation_id": "VfmVWLIAAAAJ:XiVPGOgt02cC",
+            "authors": "C Anutariya, M Bonsangue, TF Abidin, M Dailey, K Fraidaki, TMR Gomes, ...",
+            "publication": "PAEE Association, 2020",
+            "cited_by": 1,
+            "year": "2020"
+        },
+        {
+            "title": "New Patterns Discovery for Web Services Composition from mining Execution Logs.",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:NhqRSupF_l8C",
+            "citation_id": "VfmVWLIAAAAJ:NhqRSupF_l8C",
+            "authors": "T Ritcharoenwattu, W Rungworawut",
+            "publication": "International Journal of Computer and Electrical Engineering 5 (1), 88-92, 2013",
+            "cited_by": 1,
+            "year": "2013"
+        },
+        {
+            "title": "AI-Driven Prompt Templates for User Acceptance Test Case Generation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:tkaPQYYpVKoC",
+            "citation_id": "VfmVWLIAAAAJ:tkaPQYYpVKoC",
+            "authors": "W Sisomboon, J Kaewyotha, P Dansakulcharoenkit, W Songpan",
+            "publication": "International Conference on Data Science and Artificial Intelligence, 78-92, 2024",
+            "cited_by": 0,
+            "year": "2024"
+        },
+        {
+            "title": "Prediction of Undergraduate Success Through Machine Learning Models",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:_B80troHkn4C",
+            "citation_id": "VfmVWLIAAAAJ:_B80troHkn4C",
+            "authors": "S Chaiya, W Songpan",
+            "publication": "Proceedings of the 2024 12th International Conference on Computer and …, 2024",
+            "cited_by": 0,
+            "year": "2024"
+        },
+        {
+            "title": "Building a Needs-based Curriculum in Data Science and Artificial Intelligence: Case Studies in Indonesia, Sri Lanka, and Thailand",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:D_sINldO8mEC",
+            "citation_id": "VfmVWLIAAAAJ:D_sINldO8mEC",
+            "authors": "",
+            "publication": "PAEE/ALE’ 2020, 2020",
+            "cited_by": 0,
+            "year": "2020"
+        },
+        {
+            "title": "Redundant Association-rule Mining Reduction for Rosewood Crime Arrest Planning",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:kRWSkSYxWN8C",
+            "citation_id": "VfmVWLIAAAAJ:kRWSkSYxWN8C",
+            "authors": "W Songpan, N Arch-in, R Loaphanom",
+            "publication": "JP Journal of Heat and Mass Transfer Special Volume, Issue I, Advances in …, 2018",
+            "cited_by": 0,
+            "year": "2018"
+        },
+        {
+            "title": "Solving Garbage Truck Routing Problem Using Ant Colony Optimization",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:J-pR_7NvFogC",
+            "citation_id": "VfmVWLIAAAAJ:J-pR_7NvFogC",
+            "authors": "P Sangviman, W Songpan",
+            "publication": "Proceeding of the 6th 2014 International Conference on Knowledge and Smart …, 2014",
+            "cited_by": 0,
+            "year": "2014"
+        },
+        {
+            "title": "Clustering Analysis of Quality Seed in Seed Business Using K-MEAN Clustering Technique",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:1qzjygNMrQYC",
+            "citation_id": "VfmVWLIAAAAJ:1qzjygNMrQYC",
+            "authors": "M Phakote, W Songpan",
+            "publication": "Proceeding of the 6th 2014 International Conference on Knowledge and Smart …, 2014",
+            "cited_by": 0,
+            "year": "2014"
+        },
+        {
+            "title": "Question Classification for Answer Searching Using Semantic Web and Data Mining",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:V3AGJWp-ZtQC",
+            "citation_id": "VfmVWLIAAAAJ:V3AGJWp-ZtQC",
+            "authors": "S Bualerng, W Songpan",
+            "publication": "Proceeding of the 9th National Conference on Computing and Information …, 2014",
+            "cited_by": 0,
+            "year": "2014"
+        },
+        {
+            "title": "Pattern Discovery for Course Enrollment Planning of Undergrad Students Using Association Mining: A Case Study of Information and Communication Technology Curriculum",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:bnK-pcrLprsC",
+            "citation_id": "VfmVWLIAAAAJ:bnK-pcrLprsC",
+            "authors": "A Rojarath, W Rungworawut",
+            "publication": "Proceeding of the 9th National Conference on Computing and Information …, 2013",
+            "cited_by": 0,
+            "year": "2013"
+        },
+        {
+            "title": "Semantic Search for Mekong River Fish using Ontology",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:5ugPr518TE4C",
+            "citation_id": "VfmVWLIAAAAJ:5ugPr518TE4C",
+            "authors": "M Kotawee, W Rungworawut",
+            "publication": "Proceeding of the 9th National Conference on Computing and Information …, 2013",
+            "cited_by": 0,
+            "year": "2013"
+        },
+        {
+            "title": "Analysis of Factor for Prediction of Credit Bank Loan Using Bayesian Learning",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:wbdj-CoPYUoC",
+            "citation_id": "VfmVWLIAAAAJ:wbdj-CoPYUoC",
+            "authors": "W Kajohn, W Rungworawut",
+            "publication": "Proceeding of the 9th National Conference on Computing and Information …, 2013",
+            "cited_by": 0,
+            "year": "2013"
+        },
+        {
+            "title": "Epidemiological Alert System by Using Business Intelligence",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:mvPsJ3kp5DgC",
+            "citation_id": "VfmVWLIAAAAJ:mvPsJ3kp5DgC",
+            "authors": "Mungsang, C, N Arch-Int, S Arch-Int, W Songpan",
+            "publication": "Proceeding of the 2013 International Computer Science and Engineering …, 2013",
+            "cited_by": 0,
+            "year": "2013"
+        },
+        {
+            "title": "Ontology Reconciliation for Learning Resource Interoperability",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:B3FOqHPlNUQC",
+            "citation_id": "VfmVWLIAAAAJ:B3FOqHPlNUQC",
+            "authors": "K Jetinai, N Archint, W Rungworawut, S Arch-int",
+            "publication": "International Journal of Digital Content Technology and its Applications 7 …, 2013",
+            "cited_by": 0,
+            "year": "2013"
+        },
+        {
+            "title": "Analysis of Factors Affecting the Criminal Behavior and Planning from Prisoners Using Data Mining Techniques",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:LPZeul_q3PIC",
+            "citation_id": "VfmVWLIAAAAJ:LPZeul_q3PIC",
+            "authors": "S Threeaphibanvongsa, W Rungworawut, K Lomthaisong",
+            "publication": "Proceeding of International Conference on Knowledge Smart Technology, 2012",
+            "cited_by": 0,
+            "year": "2012"
+        },
+        {
+            "title": "Automating a Design Methodology for Reusable Business Process Components through a Genetic Algorithm",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:Zph67rFs4hoC",
+            "citation_id": "VfmVWLIAAAAJ:Zph67rFs4hoC",
+            "authors": "W Rungworawut, T Senivongse",
+            "publication": "International Journal of Software Engineering and Knowledge Engineering 20 …, 2010",
+            "cited_by": 0,
+            "year": "2010"
+        },
+        {
+            "title": "Improving of Pre-Processing Image for Child Cleft Lip by Image Processing",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:t6usbXjVLHcC",
+            "citation_id": "VfmVWLIAAAAJ:t6usbXjVLHcC",
+            "authors": "J Charoenrit, W Songpan, A Pattanachak",
+            "publication": "The 15th International Joint Symposium on Artificial Intelligence and …, 0",
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "iSAI-NLP Committee",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:tS2w5q8j5-wC",
+            "citation_id": "VfmVWLIAAAAJ:tS2w5q8j5-wC",
+            "authors": "T Theeramunkong, C Pradabpet, R Kongkachandra, C Anutariya, ...",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "Honorary Board",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:vRqMK49ujn8C",
+            "citation_id": "VfmVWLIAAAAJ:vRqMK49ujn8C",
+            "authors": "M Dailey, PM Dung, V Esichaikul, C Anutariya, C Soomlek, K Sunat, ...",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "AIAM 2020",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:tOudhMTPpwUC",
+            "citation_id": "VfmVWLIAAAAJ:tOudhMTPpwUC",
+            "authors": "W Hu, KT Mya, S Zhou, KM Nwe, JJ Wook, B Wu, L Song, E Pesch, J Li, ...",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "Honorary Board Runtung Rector of Universitas Sumatera Utara Mahyuddin KM Nasution Vice Rector III for Research, Community Service, and Cooperation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VfmVWLIAAAAJ&pagesize=100&citation_for_view=VfmVWLIAAAAJ:738O_yMBCRsC",
+            "citation_id": "VfmVWLIAAAAJ:738O_yMBCRsC",
+            "authors": "M Dailey, PM Dung, V Esichaikul, C Anutariya, C Soomlek, K Sunat, ...",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        }
+    ]
+}

@@ -1,0 +1,234 @@
+{
+    "author_name": "Warunya Wunnasri",
+    "interests": [
+        "Learning Engineering",
+        "Information Technology"
+    ],
+    "articles": [
+        {
+            "title": "The practical use of Kit-Build concept map on formative assessment",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:UeHWp8X0CEIC",
+            "citation_id": "_YT1Se0AAAAJ:UeHWp8X0CEIC",
+            "authors": "J Pailai, W Wunnasri, K Yoshida, Y Hayashi, T Hirashima",
+            "publication": "Research and Practice in Technology Enhanced Learning 12 (1), 20, 2017",
+            "cited_by": 63,
+            "year": "2017"
+        },
+        {
+            "title": "Validity of kit-build method for assessment of learner-build map by comparing with manual methods",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:Tyk-4Ss8FVUC",
+            "citation_id": "_YT1Se0AAAAJ:Tyk-4Ss8FVUC",
+            "authors": "W Wunnasri, J Pailai, Y Hayashi, T Hirashima",
+            "publication": "IEICE Transactions on Information and Systems 101 (4), 1141-1150, 2018",
+            "cited_by": 30,
+            "year": "2018"
+        },
+        {
+            "title": "Reciprocal Kit-Build Concept Map: An Approach for Encouraging Pair Discussion to Share Each Other's Understanding",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:2osOgNQ5qMEC",
+            "citation_id": "_YT1Se0AAAAJ:2osOgNQ5qMEC",
+            "authors": "W Wunnasri, J Pailai, Y Hayashi, T Hirashima",
+            "publication": "IEICE Transactions on Information and Systems 101 (9), 2356-2367, 2018",
+            "cited_by": 29,
+            "year": "2018"
+        },
+        {
+            "title": "HotelOpinion: An opinion mining system on hotel reviews in Thailand",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:Y0pCki6q_DkC",
+            "citation_id": "_YT1Se0AAAAJ:Y0pCki6q_DkC",
+            "authors": "A Kongthon, C Haruechaiyasak, C Sangkeettrakarn, P Palingoon, ...",
+            "publication": "2011 Proceedings of PICMET'11: Technology Management in the Energy Smart …, 2011",
+            "cited_by": 21,
+            "year": "2011"
+        },
+        {
+            "title": "Collaborative concept mapping with reciprocal kit-build: a practical use in linear algebra course",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:Se3iqnhoufwC",
+            "citation_id": "_YT1Se0AAAAJ:Se3iqnhoufwC",
+            "authors": "L Sadita, T Hirashima, Y Hayashi, W Wunnasri, J Pailai, K Junus, ...",
+            "publication": "Research and Practice in Technology Enhanced Learning 15 (1), 1-22, 2020",
+            "cited_by": 15,
+            "year": "2020"
+        },
+        {
+            "title": "Reliability investigation of automatic assessment of learner-build concept map with Kit-Build method by comparing with manual methods",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:zYLM7Y9cAGgC",
+            "citation_id": "_YT1Se0AAAAJ:zYLM7Y9cAGgC",
+            "authors": "W Wunnasri, J Pailai, Y Hayashi, T Hirashima",
+            "publication": "Artificial Intelligence in Education: 18th International Conference, AIED …, 2017",
+            "cited_by": 14,
+            "year": "2017"
+        },
+        {
+            "title": "Reciprocal Kit-Building of concept map to share each other’s understanding as preparation for collaboration",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:d1gkVwhDpl0C",
+            "citation_id": "_YT1Se0AAAAJ:d1gkVwhDpl0C",
+            "authors": "W Wunnasri, J Pailai, Y Hayashi, T Hirashima",
+            "publication": "Artificial Intelligence in Education: 19th International Conference, AIED …, 2018",
+            "cited_by": 11,
+            "year": "2018"
+        },
+        {
+            "title": "Solving unbalanced data for Thai sentiment analysis",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:WF5omc3nYNoC",
+            "citation_id": "_YT1Se0AAAAJ:WF5omc3nYNoC",
+            "authors": "W Wunnasri, T Theeramunkong, C Haruechaiyasak",
+            "publication": "The 2013 10th International Joint Conference on Computer Science and …, 2013",
+            "cited_by": 10,
+            "year": "2013"
+        },
+        {
+            "title": "A Two-Phase Ensemble-Based Method for Predicting Learners’ Grade in MOOCs",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:UebtZRa9Y70C",
+            "citation_id": "_YT1Se0AAAAJ:UebtZRa9Y70C",
+            "authors": "W Wunnasri, P Musikawan, C So-In",
+            "publication": "Applied Sciences 13 (3), 1492, 2023",
+            "cited_by": 8,
+            "year": "2023"
+        },
+        {
+            "title": "Correctness-and Confidence-Based Adaptive Feedback of Kit-Build Concept Map with Confidence Tagging",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:u-x6o8ySG0sC",
+            "citation_id": "_YT1Se0AAAAJ:u-x6o8ySG0sC",
+            "authors": "J Pailai, W Wunnasri, Y Hayashi, T Hirashima",
+            "publication": "International Conference on Artificial Intelligence in Education, 395-408, 2018",
+            "cited_by": 7,
+            "year": "2018"
+        },
+        {
+            "title": "Preliminary Study on the Use of Reciprocal Kit Build for Collaborative Learning",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:LkGwnXOMwfcC",
+            "citation_id": "_YT1Se0AAAAJ:LkGwnXOMwfcC",
+            "authors": "L SADITA, T HIRASHIMA, Y HAYASHI, W WUNNASRI, J PAILAI, ...",
+            "publication": null,
+            "cited_by": 6,
+            "year": ""
+        },
+        {
+            "title": "Kit-build concept map with confidence tagging in practical uses for assessing the understanding of learners",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:IjCSPb-OGe4C",
+            "citation_id": "_YT1Se0AAAAJ:IjCSPb-OGe4C",
+            "authors": "J Pailai, W Wunnasri, Y Hayashi, T Hirashima",
+            "publication": "INTERNATIONAL JOURNAL OF ADVANCED COMPUTER SCIENCE AND APPLICATIONS 9 (1), 79-91, 2018",
+            "cited_by": 4,
+            "year": "2018"
+        },
+        {
+            "title": "Ongoing formative assessment with concept map in proposition level exact matching",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:qjMakFHDy7sC",
+            "citation_id": "_YT1Se0AAAAJ:qjMakFHDy7sC",
+            "authors": "J Pailai, W Wunnasri, Y Hayashi, T Hirashima",
+            "publication": "Proc. of ICCE2016, 79-81, 2016",
+            "cited_by": 3,
+            "year": "2016"
+        },
+        {
+            "title": "Comparative Investigation on the Reliability of Concept Map Assessment with Kit-Build Method and Manual Methods",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:u5HHmVD_uO8C",
+            "citation_id": "_YT1Se0AAAAJ:u5HHmVD_uO8C",
+            "authors": "W Warunya, P Jaruwat, H Yusuke, H Tsukasa",
+            "publication": "SIG-ALST 5 (02), 6-11, 2017",
+            "cited_by": 1,
+            "year": "2017"
+        },
+        {
+            "title": "Comparison of Concept Map Evaluation between Kit-Build Method and Handmade Method",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:_FxGoFyzp5QC",
+            "citation_id": "_YT1Se0AAAAJ:_FxGoFyzp5QC",
+            "authors": "W WUNNASRI, J PAILAI, Y HAYASHI, T HIRASHIMA",
+            "publication": "Proceeding of International Conference on Work in Progress Posters of …, 2016",
+            "cited_by": 1,
+            "year": "2016"
+        },
+        {
+            "title": "A Knowledge-Driven Approach for Automatic Semantic Aspect Term Extraction using the Semantic Power of Linked Open Data",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:8k81kl-MbHgC",
+            "citation_id": "_YT1Se0AAAAJ:8k81kl-MbHgC",
+            "authors": "W Suwanpipob, N Arch-Int, W Wunnasri",
+            "publication": "Applied Sciences 14 (13), 5866, 2024",
+            "cited_by": 0,
+            "year": "2024"
+        },
+        {
+            "title": "Investigating on Discussion for Sharing Understanding by Using Reciprocal Kit-Build Concept Map",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:roLk4NBRz8UC",
+            "citation_id": "_YT1Se0AAAAJ:roLk4NBRz8UC",
+            "authors": "W Wunnasri, J Pailai, Y Hayashi, T Hirashima",
+            "publication": "Artificial Intelligence in Education: 20th International Conference, AIED …, 2019",
+            "cited_by": 0,
+            "year": "2019"
+        },
+        {
+            "title": "VALIDITY INVESTIGATION OF RECONSTRUCTIONAL CONCEPT MAP AND ITS COLLABORATIVE USE FOR SHARING UNDERSTANDING",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:5nxA0vEk-isC",
+            "citation_id": "_YT1Se0AAAAJ:5nxA0vEk-isC",
+            "authors": "W Wunnasri",
+            "publication": "広島大学 (Hiroshima University), 2018",
+            "cited_by": 0,
+            "year": "2018"
+        },
+        {
+            "title": "Comparison between Scratch-and Kit-Build concept map with several evaluation methods",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:eQOLeE2rZwMC",
+            "citation_id": "_YT1Se0AAAAJ:eQOLeE2rZwMC",
+            "authors": "W Warunya, P Jaruwat, H Yusuke, H Tsukasa",
+            "publication": "SIG-ALST 5 (03), 54-59, 2016",
+            "cited_by": 0,
+            "year": "2016"
+        },
+        {
+            "title": "Automatic Concept Map Assessment in Formative Assessment Approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:YsMSGLbcyi4C",
+            "citation_id": "_YT1Se0AAAAJ:YsMSGLbcyi4C",
+            "authors": "P Jaruwat, W Warunya, H Yusuke, H Tsukasa",
+            "publication": "SIG-ALST 5 (03), 48-53, 2016",
+            "cited_by": 0,
+            "year": "2016"
+        },
+        {
+            "title": "Reference Information Model of Concept Map for Improving Learning Achievements",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:ufrVoPGSRksC",
+            "citation_id": "_YT1Se0AAAAJ:ufrVoPGSRksC",
+            "authors": "J PAILAI, W WUNNASRI, Y HAYASHI, T HIRASHIMA",
+            "publication": "Copyright 2016 Asia-Pacific Society for Computers in Education All rights …, 2016",
+            "cited_by": 0,
+            "year": "2016"
+        },
+        {
+            "title": "Investigation of Reliability of Kit-Build Concept Map and Collaborative Approach to Build Sharable Knowledge",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:W7OEmFMy1HYC",
+            "citation_id": "_YT1Se0AAAAJ:W7OEmFMy1HYC",
+            "authors": "W WUNNASRI, J PAILAI, Y HAYASHI, T HIRASHIMA",
+            "publication": "Copyright 2016 Asia-Pacific Society for Computers in Education All rights …, 2016",
+            "cited_by": 0,
+            "year": "2016"
+        },
+        {
+            "title": "Intention and sentiment analysis by using syntactic feature in Thai social network",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:0EnyYjriUFMC",
+            "citation_id": "_YT1Se0AAAAJ:0EnyYjriUFMC",
+            "authors": "W Wunnasri, T Theeramunkong, C Haruechaiyasak",
+            "publication": "Thammasat University, 2013",
+            "cited_by": 0,
+            "year": "2013"
+        },
+        {
+            "title": "Adaptive design of two-phase quick response codes for contact tracing and surveillance application: A case study of COVID-19",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:hqOjcs7Dif8C",
+            "citation_id": "_YT1Se0AAAAJ:hqOjcs7Dif8C",
+            "authors": "J Pailai, W Wunnasri, S Sansri, M Chaipayuan",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "Reliability Investigation of Automatic Evaluation of Kit-Build Concept Map by Comparing with Handmade Evaluation Methods",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=_YT1Se0AAAAJ&pagesize=100&citation_for_view=_YT1Se0AAAAJ:9yKSN-GCB0IC",
+            "citation_id": "_YT1Se0AAAAJ:9yKSN-GCB0IC",
+            "authors": "W WUNNASRI, J PAILAI, Y HAYASHI, T HIRASHIMA",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        }
+    ]
+}

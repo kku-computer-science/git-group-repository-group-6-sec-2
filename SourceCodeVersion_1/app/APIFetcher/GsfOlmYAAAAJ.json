@@ -1,0 +1,604 @@
+{
+    "author_name": "Somjit Arch-int",
+    "interests": [
+        "Semantic Web",
+        "Information Integration",
+        "Logistics and Supply Chain"
+    ],
+    "articles": [
+        {
+            "title": "Development of industrial information systems on the Web using business components",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:u5HHmVD_uO8C",
+            "citation_id": "GsfOlmYAAAAJ:u5HHmVD_uO8C",
+            "authors": "S Arch-int, DN Batanov",
+            "publication": "Computers in Industry 50 (2), 231-250, 2003",
+            "cited_by": 133,
+            "year": "2003"
+        },
+        {
+            "title": "Association rule hiding in risk management for retail supply chain collaboration",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:d1gkVwhDpl0C",
+            "citation_id": "GsfOlmYAAAAJ:d1gkVwhDpl0C",
+            "authors": "HQ Le, S Arch-Int, HX Nguyen, N Arch-Int",
+            "publication": "Computers in Industry 64 (7), 776-784, 2013",
+            "cited_by": 109,
+            "year": "2013"
+        },
+        {
+            "title": "Business process analysis and simulation for the RFID and EPCglobal Network enabled supply chain: A proof-of-concept approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:u-x6o8ySG0sC",
+            "citation_id": "GsfOlmYAAAAJ:u-x6o8ySG0sC",
+            "authors": "W Jakkhupan, S Arch-int, Y Li",
+            "publication": "Journal of Network and Computer Applications 34 (3), 949-957, 2011",
+            "cited_by": 81,
+            "year": "2011"
+        },
+        {
+            "title": "Semantic Ontology Mapping for Interoperability of Learning Resource Systems using a rule-based reasoning approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:zYLM7Y9cAGgC",
+            "citation_id": "GsfOlmYAAAAJ:zYLM7Y9cAGgC",
+            "authors": "N Arch-Int, S Arch-Int",
+            "publication": "Expert Systems with Applications 40 (18), 7428-7443, 2013",
+            "cited_by": 77,
+            "year": "2013"
+        },
+        {
+            "title": "An adaptive multi bit-plane image steganography using block data-hiding",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:4DMP91E08xMC",
+            "citation_id": "GsfOlmYAAAAJ:4DMP91E08xMC",
+            "authors": "TD Nguyen, S Arch-Int, N Arch-Int",
+            "publication": "Multimedia tools and applications 75, 8319-8345, 2016",
+            "cited_by": 66,
+            "year": "2016"
+        },
+        {
+            "title": "Determination of the appropriate parameters for K‐means clustering using selection of region clusters based on density DBSCAN (SRCD‐DBSCAN)",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:qUcmZB5y_30C",
+            "citation_id": "GsfOlmYAAAAJ:qUcmZB5y_30C",
+            "authors": "O Limwattanapibool, S Arch‐int",
+            "publication": "Expert Systems 34 (3), e12204, 2017",
+            "cited_by": 39,
+            "year": "2017"
+        },
+        {
+            "title": "An RFID-based traceability system: A case study of rice supply chain",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:ULOm3_A8WrAC",
+            "citation_id": "GsfOlmYAAAAJ:ULOm3_A8WrAC",
+            "authors": "W Jakkhupan, S Arch-Int, Y Li",
+            "publication": "Telecommunication Systems 58, 243-258, 2015",
+            "cited_by": 39,
+            "year": "2015"
+        },
+        {
+            "title": "Association rule hiding based on intersection lattice",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:eQOLeE2rZwMC",
+            "citation_id": "GsfOlmYAAAAJ:eQOLeE2rZwMC",
+            "authors": "H Quoc Le, S Arch-Int, N Arch-Int",
+            "publication": "Mathematical Problems in Engineering 2013 (1), 210405, 2013",
+            "cited_by": 23,
+            "year": "2013"
+        },
+        {
+            "title": "A semantic interoperability approach to health‐care data: Resolving data‐level conflicts",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:dhFuZR0502QC",
+            "citation_id": "GsfOlmYAAAAJ:dhFuZR0502QC",
+            "authors": "S Sonsilphong, N Arch‐int, S Arch‐int, C Pattarapongsin",
+            "publication": "Expert Systems 33 (6), 531-547, 2016",
+            "cited_by": 19,
+            "year": "2016"
+        },
+        {
+            "title": "FUSE: a fuzzy-semantic framework for personalizing learning recommendations",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:_Qo2XoVZTnwC",
+            "citation_id": "GsfOlmYAAAAJ:_Qo2XoVZTnwC",
+            "authors": "NDH Cuong, N Arch-Int, S Arch-Int",
+            "publication": "International Journal of Information Technology & Decision Making 17 (04 …, 2018",
+            "cited_by": 17,
+            "year": "2018"
+        },
+        {
+            "title": "A rough set approach for approximating differential dependencies",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:4JMBOYKVnBMC",
+            "citation_id": "GsfOlmYAAAAJ:4JMBOYKVnBMC",
+            "authors": "AD Tran, S Arch-int, N Arch-int",
+            "publication": "Expert Systems with Applications 114, 488-502, 2018",
+            "cited_by": 16,
+            "year": "2018"
+        },
+        {
+            "title": "Graph‐Based Semantic Web Service Composition for Healthcare Data Integration",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:-f6ydRqryjwC",
+            "citation_id": "GsfOlmYAAAAJ:-f6ydRqryjwC",
+            "authors": "N Arch-Int, S Arch-Int, S Sonsilphong, P Wanchai",
+            "publication": "Journal of healthcare engineering 2017 (1), 4271273, 2017",
+            "cited_by": 14,
+            "year": "2017"
+        },
+        {
+            "title": "Ontology mapping and rule-based inference for learning resource integration",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:ZeXyd9-uunAC",
+            "citation_id": "GsfOlmYAAAAJ:ZeXyd9-uunAC",
+            "authors": "K Jetinai, N Arch-Int, S Arch-Int",
+            "publication": "Journal of information and communication convergence engineering 14 (2), 97-105, 2016",
+            "cited_by": 14,
+            "year": "2016"
+        },
+        {
+            "title": "Personalized care recommendation approach for diabetes patients using ontology and SWRL",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:4TOpqqG69KYC",
+            "citation_id": "GsfOlmYAAAAJ:4TOpqqG69KYC",
+            "authors": "B Hempo, N Arch-int, S Arch-int, C Pattarapongsin",
+            "publication": "Information science and applications, 959-966, 2015",
+            "cited_by": 14,
+            "year": "2015"
+        },
+        {
+            "title": "A conceptual framework for privacy preserving of association rule mining in e-commerce",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:Y0pCki6q_DkC",
+            "citation_id": "GsfOlmYAAAAJ:Y0pCki6q_DkC",
+            "authors": "HQ Le, S Arch-int",
+            "publication": "2012 7th IEEE Conference on Industrial Electronics and Applications (ICIEA …, 2012",
+            "cited_by": 14,
+            "year": "2012"
+        },
+        {
+            "title": "Customer behavior analysis using data mining techniques",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:bEWYMUwI8FkC",
+            "citation_id": "GsfOlmYAAAAJ:bEWYMUwI8FkC",
+            "authors": "P Ponyiam, S Arch-int",
+            "publication": "2018 International Seminar on Application for Technology of Information and …, 2018",
+            "cited_by": 13,
+            "year": "2018"
+        },
+        {
+            "title": "The personalized traditional medicine recommendation system using ontology and rule inference approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:k_IJM867U9cC",
+            "citation_id": "GsfOlmYAAAAJ:k_IJM867U9cC",
+            "authors": "A Promkot, S Arch-int, N Arch-int",
+            "publication": "2019 IEEE 4th International Conference on Computer and Communication Systems …, 2019",
+            "cited_by": 12,
+            "year": "2019"
+        },
+        {
+            "title": "Semantic web service discovery and integration using service search crawler",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:IjCSPb-OGe4C",
+            "citation_id": "GsfOlmYAAAAJ:IjCSPb-OGe4C",
+            "authors": "V Kaewmarin, N Arch-int, S Arch-int",
+            "publication": "2008 International Conference on Computational Intelligence for Modelling …, 2008",
+            "cited_by": 11,
+            "year": "2008"
+        },
+        {
+            "title": "Multidimensional assessment of open-ended questions for enhancing the quality of peer assessment in e-learning environments",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:RHpTSmoSYBkC",
+            "citation_id": "GsfOlmYAAAAJ:RHpTSmoSYBkC",
+            "authors": "LP Hoang, S Arch-Int, N Arch-Int",
+            "publication": "Handbook of Research on Applied e-Learning in Engineering and Architecture …, 2016",
+            "cited_by": 10,
+            "year": "2016"
+        },
+        {
+            "title": "Semantic information integration for electronic patient records using ontology and web services model",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:9yKSN-GCB0IC",
+            "citation_id": "GsfOlmYAAAAJ:9yKSN-GCB0IC",
+            "authors": "N Arch-int, S Arch-int",
+            "publication": "2011 International Conference on Information Science and Applications, 1-7, 2011",
+            "cited_by": 10,
+            "year": "2011"
+        },
+        {
+            "title": "Ontology-based metadata integration approach for learning resource interoperability",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:Tyk-4Ss8FVUC",
+            "citation_id": "GsfOlmYAAAAJ:Tyk-4Ss8FVUC",
+            "authors": "K Banlue, N Arch-int, S Arch-int",
+            "publication": "2010 Sixth International Conference on Semantics, Knowledge and Grids, 195-202, 2010",
+            "cited_by": 9,
+            "year": "2010"
+        },
+        {
+            "title": "A novel secure block data-hiding algorithm using cellular automata to enhance the performance of JPEG steganography",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:hqOjcs7Dif8C",
+            "citation_id": "GsfOlmYAAAAJ:hqOjcs7Dif8C",
+            "authors": "TD Nguyen, S Arch-Int, N Arch-Int",
+            "publication": "Multimedia tools and applications 74, 5661-5682, 2015",
+            "cited_by": 8,
+            "year": "2015"
+        },
+        {
+            "title": "Computers in industry association rule hiding in risk management for retail supply chain collaboration",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:maZDTaKrznsC",
+            "citation_id": "GsfOlmYAAAAJ:maZDTaKrznsC",
+            "authors": "H Quoc, S Arch-int, H Xuan, N Arch-int",
+            "publication": "Comput Ind 64 (7), 776-784, 2013",
+            "cited_by": 8,
+            "year": "2013"
+        },
+        {
+            "title": "Design and implement of the EPC discovery services with confidentiality for multiple data owners",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:YFjsv_pBGBYC",
+            "citation_id": "GsfOlmYAAAAJ:YFjsv_pBGBYC",
+            "authors": "J Worapot, Y Li, AI Somjit",
+            "publication": "2010 IEEE International Conference on RFID-Technology and Applications, 19-25, 2010",
+            "cited_by": 8,
+            "year": "2010"
+        },
+        {
+            "title": "A semantic framework for extracting taxonomic relations from text corpus.",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:isC4tDSrTZIC",
+            "citation_id": "GsfOlmYAAAAJ:isC4tDSrTZIC",
+            "authors": "PTH Doan, N Arch-int, S Arch-int",
+            "publication": "Int. Arab J. Inf. Technol. 17 (3), 325-337, 2020",
+            "cited_by": 7,
+            "year": "2020"
+        },
+        {
+            "title": "A novel lightweight hybrid intrusion detection method using a combination of data mining techniques",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:M3ejUd6NZC8C",
+            "citation_id": "GsfOlmYAAAAJ:M3ejUd6NZC8C",
+            "authors": "J Juanchaiyaphum, N Arch-int, S Arch-int, S Saiyod",
+            "publication": "International Journal of Security and Its Applications 9 (4), 91-106, 2015",
+            "cited_by": 7,
+            "year": "2015"
+        },
+        {
+            "title": "Rule-based semantic web services annotation for healthcare information integration",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:YsMSGLbcyi4C",
+            "citation_id": "GsfOlmYAAAAJ:YsMSGLbcyi4C",
+            "authors": "S Sonsilphong, N Arch-int, S Arch-int",
+            "publication": "2012 8th International Conference on Computing and Networking Technology …, 2012",
+            "cited_by": 7,
+            "year": "2012"
+        },
+        {
+            "title": "Introducing fuzzy temporal description logic",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:mB3voiENLucC",
+            "citation_id": "GsfOlmYAAAAJ:mB3voiENLucC",
+            "authors": "LTT Ho, S Arch-int, N Arch-int",
+            "publication": "Proceedings of the 3rd International Conference on Industrial and Business …, 2017",
+            "cited_by": 6,
+            "year": "2017"
+        },
+        {
+            "title": "RESTful economic-ADS model for cost-effective chain-wide traceability system-based cloud computing",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:GnPB-g6toBAC",
+            "citation_id": "GsfOlmYAAAAJ:GnPB-g6toBAC",
+            "authors": "K Satit, A Somjit",
+            "publication": "Computers and Electronics in Agriculture 139, 164-179, 2017",
+            "cited_by": 6,
+            "year": "2017"
+        },
+        {
+            "title": "Design and Development of an Integrated Online System Support for C/C++ Programming",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:L8Ckcad2t8MC",
+            "citation_id": "GsfOlmYAAAAJ:L8Ckcad2t8MC",
+            "authors": "U Kokaew",
+            "publication": "Science & Technology Asia, 47-58, 2015",
+            "cited_by": 6,
+            "year": "2015"
+        },
+        {
+            "title": "A new mobile phone system architecture for the navigational travelling blind",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:KlAtU1dfN6UC",
+            "citation_id": "GsfOlmYAAAAJ:KlAtU1dfN6UC",
+            "authors": "C So-In, S Arch-Int, C Phaudphut, K Rujirakul, N Weeramongkonlert",
+            "publication": "2012 Ninth International Conference on Computer Science and Software …, 2012",
+            "cited_by": 6,
+            "year": "2012"
+        },
+        {
+            "title": "A semantic approach for question answering using DBpedia and WordNet",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:hFOr9nPyWt4C",
+            "citation_id": "GsfOlmYAAAAJ:hFOr9nPyWt4C",
+            "authors": "K Sengloiluean, N Arch-int, S Arch-int, T Thongkrau",
+            "publication": "2017 14th International Joint Conference on Computer Science and Software …, 2017",
+            "cited_by": 5,
+            "year": "2017"
+        },
+        {
+            "title": "Semag: A novel semantic-agent learning recommendation mechanism for enhancing learner-system interaction",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:TQgYirikUcIC",
+            "citation_id": "GsfOlmYAAAAJ:TQgYirikUcIC",
+            "authors": "CDH Nguyen, N Arch-Int, S Arch-Int",
+            "publication": "Computing and Informatics 36 (6), 1312-1334, 2017",
+            "cited_by": 5,
+            "year": "2017"
+        },
+        {
+            "title": "Improving key concept extraction using word association measurement",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:QIV2ME_5wuYC",
+            "citation_id": "GsfOlmYAAAAJ:QIV2ME_5wuYC",
+            "authors": "PTH Doan, N Arch-int, S Arch-int",
+            "publication": "2015 7th International Conference on Information Technology and Electrical …, 2015",
+            "cited_by": 5,
+            "year": "2015"
+        },
+        {
+            "title": "LEARNING RESOURCES RECOMMENDATION FRAMEWORK USING RULE-BASED REASONING APPROACH.",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:YOwf2qJgpHMC",
+            "citation_id": "GsfOlmYAAAAJ:YOwf2qJgpHMC",
+            "authors": "S Thaiklang, N ARCH-INT, S ARCH-INT",
+            "publication": "Journal of Theoretical & Applied Information Technology 69 (1), 2014",
+            "cited_by": 5,
+            "year": "2014"
+        },
+        {
+            "title": "Association rule hiding based on distance and intersection lattice",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:BqipwSGYUEgC",
+            "citation_id": "GsfOlmYAAAAJ:BqipwSGYUEgC",
+            "authors": "LQ Hai, A Somjit, A Ngamnij",
+            "publication": "Proceedings of the 4th international conference on computer technology and …, 2012",
+            "cited_by": 5,
+            "year": "2012"
+        },
+        {
+            "title": "Detecting cluster numbers based on density changes using density-index enhanced Scale-invariant density-based clustering initialization algorithm",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:e5wmG9Sq2KIC",
+            "citation_id": "GsfOlmYAAAAJ:e5wmG9Sq2KIC",
+            "authors": "O Limwattanapibool, S Arch-int",
+            "publication": "2017 9th International Conference on Information Technology and Electrical …, 2017",
+            "cited_by": 4,
+            "year": "2017"
+        },
+        {
+            "title": "An argumentative approach for handling inconsistency in prioritized Datalog±ontologies",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:NMxIlDl6LWMC",
+            "citation_id": "GsfOlmYAAAAJ:NMxIlDl6LWMC",
+            "authors": "L Ho, S Arch-Int, E Acar, S Schlobach, N Arch-Int",
+            "publication": "AI Communications 35 (3), 243-267, 2022",
+            "cited_by": 3,
+            "year": "2022"
+        },
+        {
+            "title": "Sentiment Analysis Process for Product's Customer Reviews Using Ontology-Based Approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:iH-uZ7U-co4C",
+            "citation_id": "GsfOlmYAAAAJ:iH-uZ7U-co4C",
+            "authors": "T Polsawat, N Arch-int, S Arch-int, A Pattanachak",
+            "publication": "2018 International Conference on System Science and Engineering (ICSSE), 1-6, 2018",
+            "cited_by": 3,
+            "year": "2018"
+        },
+        {
+            "title": "Ldl-cholesterol levels measurement using hybrid genetic algorithm and multiple linear regression",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:LkGwnXOMwfcC",
+            "citation_id": "GsfOlmYAAAAJ:LkGwnXOMwfcC",
+            "authors": "K Phiwhorm, S Arch-int",
+            "publication": "2013 International Conference on Information Science and Applications (ICISA …, 2013",
+            "cited_by": 3,
+            "year": "2013"
+        },
+        {
+            "title": "The improvement of logistic management using lean and RFID technology",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:W7OEmFMy1HYC",
+            "citation_id": "GsfOlmYAAAAJ:W7OEmFMy1HYC",
+            "authors": "S Kravenkit, S Arch-int",
+            "publication": "2013 International Conference on Information Science and Applications (ICISA …, 2013",
+            "cited_by": 3,
+            "year": "2013"
+        },
+        {
+            "title": "Symbolic data conversion method using the knowledge-based extraction in anomaly intrusion detection system",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:roLk4NBRz8UC",
+            "citation_id": "GsfOlmYAAAAJ:roLk4NBRz8UC",
+            "authors": "J Juanchaiyaphum",
+            "publication": "International Conference on Modeling, 2011",
+            "cited_by": 3,
+            "year": "2011"
+        },
+        {
+            "title": "Web document clustering using semantic link analysis",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:2osOgNQ5qMEC",
+            "citation_id": "GsfOlmYAAAAJ:2osOgNQ5qMEC",
+            "authors": "S Arch-int",
+            "publication": "International Conference on Computational Intelligence for Modelling …, 2005",
+            "cited_by": 3,
+            "year": "2005"
+        },
+        {
+            "title": "Towards construction of business components: an approach to development of web-based application systems",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:qjMakFHDy7sC",
+            "citation_id": "GsfOlmYAAAAJ:qjMakFHDy7sC",
+            "authors": "DN Batanov, S Arch-int",
+            "publication": "Practicing Software Engineering in the 21st Century, 178-194, 2003",
+            "cited_by": 3,
+            "year": "2003"
+        },
+        {
+            "title": "A semantically hybrid framework of personalizing news recommendations",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:9ZlFYXVOiuMC",
+            "citation_id": "GsfOlmYAAAAJ:9ZlFYXVOiuMC",
+            "authors": "CDH Nguyen, N Arch-Int, S Arch-Int",
+            "publication": "International Journal of Innovative Computing, Information and Control 11 (6 …, 2015",
+            "cited_by": 2,
+            "year": "2015"
+        },
+        {
+            "title": "A novel secure channel selection rule for spatial image steganography",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:mVmsd5A6BfQC",
+            "citation_id": "GsfOlmYAAAAJ:mVmsd5A6BfQC",
+            "authors": "TD Nguyen, S Arch-int, N Arch-int",
+            "publication": "2015 12th International Joint Conference on Computer Science and Software …, 2015",
+            "cited_by": 2,
+            "year": "2015"
+        },
+        {
+            "title": "Multi-dimensional assessment on free-text answers to enhance learners' activities and collaborations",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:MXK_kJrjxJIC",
+            "citation_id": "GsfOlmYAAAAJ:MXK_kJrjxJIC",
+            "authors": "LP Hoang, N Arch-int, S Arch-int, W Rungworawut",
+            "publication": "Proceedings of the 2012 IEEE 16th international conference on computer …, 2012",
+            "cited_by": 2,
+            "year": "2012"
+        },
+        {
+            "title": "Business Objects and Components for Web-based Information Systems Development",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:UeHWp8X0CEIC",
+            "citation_id": "GsfOlmYAAAAJ:UeHWp8X0CEIC",
+            "authors": "DN Batanov, S Arch-int",
+            "publication": "Proceedings of IRMA’2002 Seattle, 2002",
+            "cited_by": 2,
+            "year": "2002"
+        },
+        {
+            "title": "Erratum to: An RFID-based traceability system",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:qxL8FJ1GzNcC",
+            "citation_id": "GsfOlmYAAAAJ:qxL8FJ1GzNcC",
+            "authors": "W Jakkhupan, S Arch-Int, Y Li",
+            "publication": "Telecommunication Systems 58 (3), 273-273, 2015",
+            "cited_by": 1,
+            "year": "2015"
+        },
+        {
+            "title": "An optimized genetic routing approach for constrained shortest path selections",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:kNdYIx-mwKoC",
+            "citation_id": "GsfOlmYAAAAJ:kNdYIx-mwKoC",
+            "authors": "C Poonriboon, C So-In, S Arch-Int, K Rujirakul",
+            "publication": "2014 Fourth International Conference on Digital Information and …, 2014",
+            "cited_by": 1,
+            "year": "2014"
+        },
+        {
+            "title": "A secure steganographic algorithm based on cellular automata using Fibonacci representation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:UebtZRa9Y70C",
+            "citation_id": "GsfOlmYAAAAJ:UebtZRa9Y70C",
+            "authors": "TD Nguyen, S Arch-int",
+            "publication": "2013 International Conference on Information Science and Applications (ICISA …, 2013",
+            "cited_by": 1,
+            "year": "2013"
+        },
+        {
+            "title": "Reasoning in inconsistent prioritized knowledge bases: an argumentative approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:blknAaTinKkC",
+            "citation_id": "GsfOlmYAAAAJ:blknAaTinKkC",
+            "authors": "LTT Ho, S Arch-Int, N Arch-Int",
+            "publication": "International Journal of Electrical and Computer Engineering (IJECE) 12 (3 …, 2022",
+            "cited_by": 0,
+            "year": "2022"
+        },
+        {
+            "title": "Measures of dependency in metric decision systems and databases",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:HDshCWvjkbEC",
+            "citation_id": "GsfOlmYAAAAJ:HDshCWvjkbEC",
+            "authors": "AD Tran, S Arch-int, N Arch-int",
+            "publication": "2017 International Conference on Soft Computing, Intelligent System and …, 2017",
+            "cited_by": 0,
+            "year": "2017"
+        },
+        {
+            "title": "Approximation Measures for Conditional Functional Dependencies Using Stripped Conditional Partitions",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:hC7cP41nSMkC",
+            "citation_id": "GsfOlmYAAAAJ:hC7cP41nSMkC",
+            "authors": "AD Tran, S Arch-Int, N Arch-Int",
+            "publication": "International Journal of Electrical and Computer Engineering 7 (3), 1385, 2017",
+            "cited_by": 0,
+            "year": "2017"
+        },
+        {
+            "title": "The cost-effective traceability system in the federated clouds",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:IWHjjKOFINEC",
+            "citation_id": "GsfOlmYAAAAJ:IWHjjKOFINEC",
+            "authors": "S Kravenkit, S Arch-int, N Arch-int",
+            "publication": "2016 14th International Conference on ICT and Knowledge Engineering (ICT&KE …, 2016",
+            "cited_by": 0,
+            "year": "2016"
+        },
+        {
+            "title": "An Adaptive Multi-Layer Block Data-Hiding Algorithm that uses Edge Areas of Gray-Scale Images",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:Wp0gIr-vW9MC",
+            "citation_id": "GsfOlmYAAAAJ:Wp0gIr-vW9MC",
+            "authors": "TD Nguyen, S Arch-int, N Arch-int",
+            "publication": "International Journal of Security and Its Applications 9 (6), 279-298, 2015",
+            "cited_by": 0,
+            "year": "2015"
+        },
+        {
+            "title": "SEMU: A semantic knowledge management system of musical information",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:aqlVkmm33-oC",
+            "citation_id": "GsfOlmYAAAAJ:aqlVkmm33-oC",
+            "authors": "DHC Nguyen, N Arch-int, S Arch-int",
+            "publication": "Entertainment Computing 9, 11-18, 2015",
+            "cited_by": 0,
+            "year": "2015"
+        },
+        {
+            "title": "PRIORITIZATION OF CENTRALITY MEASURES IN PROTEIN-PROTEIN INTERACTON NETWORK FOR DISEASE GENE IDENTIFICATION",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:_kc_bZDykSQC",
+            "citation_id": "GsfOlmYAAAAJ:_kc_bZDykSQC",
+            "authors": "A SURATANEE, KJ ANOOP, SR DEVI, V RAJINI, K KUMARASAMY, ...",
+            "publication": "Journal of Theoretical and Applied Information Technology 69 (1), 2014",
+            "cited_by": 0,
+            "year": "2014"
+        },
+        {
+            "title": "Enhancement of the RFID Data Management using EPCIS and e-Transaction",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:_FxGoFyzp5QC",
+            "citation_id": "GsfOlmYAAAAJ:_FxGoFyzp5QC",
+            "authors": "W Jakkhupan, S Arch-int",
+            "publication": "Proceedings of the First International Conference on Advanced Data and …, 2014",
+            "cited_by": 0,
+            "year": "2014"
+        },
+        {
+            "title": "Research Article Association Rule Hiding Based on Intersection Lattice",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:hMod-77fHWUC",
+            "citation_id": "GsfOlmYAAAAJ:hMod-77fHWUC",
+            "authors": "HQ Le, S Arch-int, N Arch-int",
+            "publication": null,
+            "cited_by": 0,
+            "year": "2013"
+        },
+        {
+            "title": "Clustering ICT Indicators of Bhutan using Two Level HSOM Algorithm",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:ufrVoPGSRksC",
+            "citation_id": "GsfOlmYAAAAJ:ufrVoPGSRksC",
+            "authors": "S Arch-int",
+            "publication": "2008 Ninth ACIS International Conference on Software Engineering, Artificial …, 2008",
+            "cited_by": 0,
+            "year": "2008"
+        },
+        {
+            "title": "B2B E-MARKETPLACE MODEL FOR SUPPLY CHAIN MANAGEMENT USING ROSETTANET AND WEB SERVICE STANDARD: A CASE STUDY OF MOTORCYCLE PARTS INDUSTRY IN THAILAND",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:R3hNpaxXUhUC",
+            "citation_id": "GsfOlmYAAAAJ:R3hNpaxXUhUC",
+            "authors": "S Arch-int, N Arch-int, W Jakkuphan",
+            "publication": "e-Society 2009, 379, 0",
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "Abel, Marie-Hélène 221 Aburukba, Raafat 583 Aguas, Rodrigo 387 Al-Arif, SM MasudurRahman 698,709",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:3fE2CSJIrl8C",
+            "citation_id": "GsfOlmYAAAAJ:3fE2CSJIrl8C",
+            "authors": "X An, SO Apolonio, F Araujo, N Arch-Int, S Arch-Int, BC Ávi, Y Bai, ...",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "SNPD 2008",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:5nxA0vEk-isC",
+            "citation_id": "GsfOlmYAAAAJ:5nxA0vEk-isC",
+            "authors": "H Abachi, MS Abdullah, A Abraham, T Achalakul, S Ahktar, K Akingbehin, ...",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "The Multi-agent-based Model for Community Forest Management·∫∫®”≈ Õß” À√—∫“√®—¥“√ ªÉ “™ ÿ¡™ π ‚¥¬„™ âÀ≈“¬‡ Õ‡® π∑ å",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:0EnyYjriUFMC",
+            "citation_id": "GsfOlmYAAAAJ:0EnyYjriUFMC",
+            "authors": "T Thongtan, S Arch-Int",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "Dempewolf, Chris Deng, Mingzhu",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GsfOlmYAAAAJ&pagesize=100&citation_for_view=GsfOlmYAAAAJ:WF5omc3nYNoC",
+            "citation_id": "GsfOlmYAAAAJ:WF5omc3nYNoC",
+            "authors": "H Aboalsamh, S Adam, A Adepetu, RB Ahmad, A Ahmed, M Ahmed, ...",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        }
+    ]
+}

@@ -1,0 +1,640 @@
+{
+    "author_name": "Sartra Wongthanavasu",
+    "interests": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Cellular Automata"
+    ],
+    "articles": [
+        {
+            "title": "Speech emotion recognition using support vector machines",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:UeHWp8X0CEIC",
+            "citation_id": "brgiVtgAAAAJ:UeHWp8X0CEIC",
+            "authors": "T Seehapoch, S Wongthanavasu",
+            "publication": "2013 5th international conference on Knowledge and smart technology (KST), 86-91, 2013",
+            "cited_by": 153,
+            "year": "2013"
+        },
+        {
+            "title": "A CA-based edge operator and its performance evaluation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:u5HHmVD_uO8C",
+            "citation_id": "brgiVtgAAAAJ:u5HHmVD_uO8C",
+            "authors": "S Wongthanavasu, R Sadananda",
+            "publication": "Journal of Visual Communication and Image Representation 14 (2), 83-96, 2003",
+            "cited_by": 70,
+            "year": "2003"
+        },
+        {
+            "title": "An efficient brain tumor segmentation based on cellular automata and improved tumor-cut algorithm",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:L8Ckcad2t8MC",
+            "citation_id": "brgiVtgAAAAJ:L8Ckcad2t8MC",
+            "authors": "C Sompong, S Wongthanavasu",
+            "publication": "Expert Systems with Applications 72, 231-244, 2017",
+            "cited_by": 51,
+            "year": "2017"
+        },
+        {
+            "title": "A novel feature selection method for high-dimensional mixed decision tables",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:maZDTaKrznsC",
+            "citation_id": "brgiVtgAAAAJ:maZDTaKrznsC",
+            "authors": "NN Thuy, S Wongthanavasu",
+            "publication": "IEEE Transactions on Neural Networks and Learning Systems 33 (7), 3024-3037, 2021",
+            "cited_by": 37,
+            "year": "2021"
+        },
+        {
+            "title": "Brain tumor segmentation using cellular automata-based fuzzy c-means",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:IWHjjKOFINEC",
+            "citation_id": "brgiVtgAAAAJ:IWHjjKOFINEC",
+            "authors": "C Sompong, S Wongthanavasu",
+            "publication": "2016 13th International Joint Conference on Computer Science and Software …, 2016",
+            "cited_by": 32,
+            "year": "2016"
+        },
+        {
+            "title": "A novel temporal recommender system based on multiple transitions in user preference drift and topic review evolution",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:JV2RwH3_ST0C",
+            "citation_id": "brgiVtgAAAAJ:JV2RwH3_ST0C",
+            "authors": "C Wangwatcharakul, S Wongthanavasu",
+            "publication": "Expert Systems with Applications 185, 115626, 2021",
+            "cited_by": 27,
+            "year": "2021"
+        },
+        {
+            "title": "Cellular automata for medical image processing",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:qjMakFHDy7sC",
+            "citation_id": "brgiVtgAAAAJ:qjMakFHDy7sC",
+            "authors": "S Wongthanavasu",
+            "publication": "Cellular Automata-Innovative Modelling for Science and Engineering, 395-410, 2011",
+            "cited_by": 26,
+            "year": "2011"
+        },
+        {
+            "title": "Cellular automata-based algorithm and its application in medical image processing",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:u-x6o8ySG0sC",
+            "citation_id": "brgiVtgAAAAJ:u-x6o8ySG0sC",
+            "authors": "S Wongthanavasu, V Tangvoraphonkchai",
+            "publication": "2007 IEEE International Conference on Image Processing 3, III-41-III-44, 2007",
+            "cited_by": 26,
+            "year": "2007"
+        },
+        {
+            "title": "On reduction of attributes in inconsistent decision tables based on information entropies and stripped quotient sets",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:4JMBOYKVnBMC",
+            "citation_id": "brgiVtgAAAAJ:4JMBOYKVnBMC",
+            "authors": "NN Thuy, S Wongthanavasu",
+            "publication": "Expert Systems with Applications 137, 308-323, 2019",
+            "cited_by": 25,
+            "year": "2019"
+        },
+        {
+            "title": "A new approach for reduction of attributes based on stripped quotient sets",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:j3f4tGmQtD8C",
+            "citation_id": "brgiVtgAAAAJ:j3f4tGmQtD8C",
+            "authors": "NN Thuy, S Wongthanavasu",
+            "publication": "Pattern Recognition 97, 106999, 2020",
+            "cited_by": 23,
+            "year": "2020"
+        },
+        {
+            "title": "Information extraction for deep web using repetitive subject pattern",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:YsMSGLbcyi4C",
+            "citation_id": "brgiVtgAAAAJ:YsMSGLbcyi4C",
+            "authors": "W Thamviset, S Wongthanavasu",
+            "publication": "World Wide Web 17, 1109-1139, 2014",
+            "cited_by": 23,
+            "year": "2014"
+        },
+        {
+            "title": "Single image haze removal using deep cellular automata learning",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:isC4tDSrTZIC",
+            "citation_id": "brgiVtgAAAAJ:isC4tDSrTZIC",
+            "authors": "S Tangsakul, S Wongthanavasu",
+            "publication": "IEEE Access 8, 103181-103199, 2020",
+            "cited_by": 18,
+            "year": "2020"
+        },
+        {
+            "title": "Dynamic collaborative filtering based on user preference drift and topic evolution",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:TFP_iSt0sucC",
+            "citation_id": "brgiVtgAAAAJ:TFP_iSt0sucC",
+            "authors": "C Wangwatcharakul, S Wongthanavasu",
+            "publication": "IEEE Access 8, 86433-86447, 2020",
+            "cited_by": 17,
+            "year": "2020"
+        },
+        {
+            "title": "Hybrid filter–wrapper attribute selection with alpha-level fuzzy rough sets",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:blknAaTinKkC",
+            "citation_id": "brgiVtgAAAAJ:blknAaTinKkC",
+            "authors": "NN Thuy, S Wongthanavasu",
+            "publication": "Expert Systems with Applications 193, 116428, 2022",
+            "cited_by": 16,
+            "year": "2022"
+        },
+        {
+            "title": "A cellular automata-based learning method for classification",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:YOwf2qJgpHMC",
+            "citation_id": "brgiVtgAAAAJ:YOwf2qJgpHMC",
+            "authors": "S Wongthanavasu, J Ponkaew",
+            "publication": "Expert Systems with Applications 49, 99-111, 2016",
+            "cited_by": 16,
+            "year": "2016"
+        },
+        {
+            "title": "MRI brain tumor segmentation using GLCM cellular automata-based texture feature",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:UebtZRa9Y70C",
+            "citation_id": "brgiVtgAAAAJ:UebtZRa9Y70C",
+            "authors": "C Sompong, S Wongthanavasu",
+            "publication": "2014 International Computer Science and Engineering Conference (ICSEC), 192-197, 2014",
+            "cited_by": 16,
+            "year": "2014"
+        },
+        {
+            "title": "A 3D CA-based edge operator for 3D images",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:d1gkVwhDpl0C",
+            "citation_id": "brgiVtgAAAAJ:d1gkVwhDpl0C",
+            "authors": "S Wongthanavasu, C Lursinsap",
+            "publication": "2004 International Conference on Image Processing, 2004. ICIP'04. 1, 235-238, 2004",
+            "cited_by": 14,
+            "year": "2004"
+        },
+        {
+            "title": "A hybrid recommender system for improving rating prediction of movie recommendation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:hMod-77fHWUC",
+            "citation_id": "brgiVtgAAAAJ:hMod-77fHWUC",
+            "authors": "N Kannikaklang, S Wongthanavasu, W Thamviset",
+            "publication": "2022 19th International Joint Conference on Computer Science and Software …, 2022",
+            "cited_by": 13,
+            "year": "2022"
+        },
+        {
+            "title": "Pixel-level edge detection using a cellular automata-based model",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:9yKSN-GCB0IC",
+            "citation_id": "brgiVtgAAAAJ:9yKSN-GCB0IC",
+            "authors": "S Wongthanavasu, R Sadananda",
+            "publication": "Advances in Intelligent Systems: Theory and Applications 59, 343-351, 2000",
+            "cited_by": 13,
+            "year": "2000"
+        },
+        {
+            "title": "An efficient stripped cover-based accelerator for reduction of attributes in incomplete decision tables",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:r0BpntZqJG4C",
+            "citation_id": "brgiVtgAAAAJ:r0BpntZqJG4C",
+            "authors": "NN Thuy, S Wongthanavasu",
+            "publication": "Expert Systems with applications 143, 113076, 2020",
+            "cited_by": 11,
+            "year": "2020"
+        },
+        {
+            "title": "Cellular automata for pattern recognition",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:eQOLeE2rZwMC",
+            "citation_id": "brgiVtgAAAAJ:eQOLeE2rZwMC",
+            "authors": "S Wongthanavasu, J Ponkaew",
+            "publication": "Emerging Applications of Cellular Automata, 53-67, 2013",
+            "cited_by": 10,
+            "year": "2013"
+        },
+        {
+            "title": "Speech recognition-based control system for drone",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:3fE2CSJIrl8C",
+            "citation_id": "brgiVtgAAAAJ:3fE2CSJIrl8C",
+            "authors": "S Supimros, S Wongthanavasu",
+            "publication": "2014 Third ICT International Student Project Conference (ICT-ISPC), 107-110, 2014",
+            "cited_by": 9,
+            "year": "2014"
+        },
+        {
+            "title": "Forecasting number of dengue patients using cellular automata model",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:kNdYIx-mwKoC",
+            "citation_id": "brgiVtgAAAAJ:kNdYIx-mwKoC",
+            "authors": "T Soemsap, S Wongthanavasu, W Satimai",
+            "publication": "2014 International electrical engineering congress (iEECON), 1-4, 2014",
+            "cited_by": 9,
+            "year": "2014"
+        },
+        {
+            "title": "Bottom-up region extractor for semi-structured web pages",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:5nxA0vEk-isC",
+            "citation_id": "brgiVtgAAAAJ:5nxA0vEk-isC",
+            "authors": "W Thamviset, S Wongthanavasu",
+            "publication": "2014 International Computer Science and Engineering Conference (ICSEC), 284-289, 2014",
+            "cited_by": 8,
+            "year": "2014"
+        },
+        {
+            "title": "Structured web information extraction using repetitive subject pattern",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:IjCSPb-OGe4C",
+            "citation_id": "brgiVtgAAAAJ:IjCSPb-OGe4C",
+            "authors": "W Thamviset, S Wongthanavasu",
+            "publication": "2012 9th International Conference on Electrical Engineering/Electronics …, 2012",
+            "cited_by": 8,
+            "year": "2012"
+        },
+        {
+            "title": "Facial age estimation using a hybrid of SVM and Fuzzy Logic",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:Zph67rFs4hoC",
+            "citation_id": "brgiVtgAAAAJ:Zph67rFs4hoC",
+            "authors": "P Hadchum, S Wongthanavasu",
+            "publication": "2015 12th International Conference on Electrical Engineering/Electronics …, 2015",
+            "cited_by": 7,
+            "year": "2015"
+        },
+        {
+            "title": "BiLSTCAN: A novel SRS-based bidirectional long short-term capsule attention network for dynamic user preference and next-item recommendation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:ns9cj8rnVeAC",
+            "citation_id": "brgiVtgAAAAJ:ns9cj8rnVeAC",
+            "authors": "N Kannikaklang, W Thamviset, S Wongthanavasu",
+            "publication": "IEEE Access, 2024",
+            "cited_by": 6,
+            "year": "2024"
+        },
+        {
+            "title": "Improving dynamic recommender system based on item clustering for preference drifts",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:e5wmG9Sq2KIC",
+            "citation_id": "brgiVtgAAAAJ:e5wmG9Sq2KIC",
+            "authors": "C Wangwatcharakul, S Wongthanavasu",
+            "publication": "2018 15th International Joint Conference on Computer Science and Software …, 2018",
+            "cited_by": 6,
+            "year": "2018"
+        },
+        {
+            "title": "A nonlinear classifier using an evolution of Cellular Automata",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:Y0pCki6q_DkC",
+            "citation_id": "brgiVtgAAAAJ:Y0pCki6q_DkC",
+            "authors": "J Ponkaew, S Wongthanavasu, C Lursinsap",
+            "publication": "2011 International Symposium on Intelligent Signal Processing and …, 2011",
+            "cited_by": 6,
+            "year": "2011"
+        },
+        {
+            "title": "Two-class classifier cellular automata",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:Tyk-4Ss8FVUC",
+            "citation_id": "brgiVtgAAAAJ:Tyk-4Ss8FVUC",
+            "authors": "J Ponkaew, S Wongthanavasu, C Lursinsap",
+            "publication": "2011 IEEE Symposium on Industrial Electronics and Applications, 354-359, 2011",
+            "cited_by": 6,
+            "year": "2011"
+        },
+        {
+            "title": "Deep cellular automata-based feature extraction for classification of the breast cancer image",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:O3NaXMp0MMsC",
+            "citation_id": "brgiVtgAAAAJ:O3NaXMp0MMsC",
+            "authors": "S Tangsakul, S Wongthanavasu",
+            "publication": "Applied Sciences 13 (10), 6081, 2023",
+            "cited_by": 5,
+            "year": "2023"
+        },
+        {
+            "title": "Cellular automata-based identification of the pectoral muscle in mammograms",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:zYLM7Y9cAGgC",
+            "citation_id": "brgiVtgAAAAJ:zYLM7Y9cAGgC",
+            "authors": "S Wongthanavasu, S Tanvoraphonkchai",
+            "publication": "Proceedings of ISBME 2008 3rd international symposium on biomedical …, 2008",
+            "cited_by": 5,
+            "year": "2008"
+        },
+        {
+            "title": "Attribute reduction with fuzzy divergence-based weighted neighborhood rough sets",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:RGFaLdJalmkC",
+            "citation_id": "brgiVtgAAAAJ:RGFaLdJalmkC",
+            "authors": "NN Thuy, S Wongthanavasu",
+            "publication": "International Journal of Approximate Reasoning 173, 109256, 2024",
+            "cited_by": 4,
+            "year": "2024"
+        },
+        {
+            "title": "An efficient cellular automata-based classifier with variance decision table",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:GnPB-g6toBAC",
+            "citation_id": "brgiVtgAAAAJ:GnPB-g6toBAC",
+            "authors": "P Wanna, S Wongthanavasu",
+            "publication": "Applied Sciences 13 (7), 4346, 2023",
+            "cited_by": 4,
+            "year": "2023"
+        },
+        {
+            "title": "An improved cellular automata-based classifier with soft decision",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:k_IJM867U9cC",
+            "citation_id": "brgiVtgAAAAJ:k_IJM867U9cC",
+            "authors": "P Wanna, S Wongthanavasu",
+            "publication": "Journal of Internet Technology 21 (6), 1701-1715, 2020",
+            "cited_by": 4,
+            "year": "2020"
+        },
+        {
+            "title": "Cellular Automata learning algorithm for classification",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:MXK_kJrjxJIC",
+            "citation_id": "brgiVtgAAAAJ:MXK_kJrjxJIC",
+            "authors": "S Wongthanavasu, J Ponkaew",
+            "publication": "2014 International Electrical Engineering Congress (iEECON), 1-5, 2014",
+            "cited_by": 4,
+            "year": "2014"
+        },
+        {
+            "title": "A Bayesian Belief Network Model for Breast Cancer Diagnosis",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:ufrVoPGSRksC",
+            "citation_id": "brgiVtgAAAAJ:ufrVoPGSRksC",
+            "authors": "S Wongthanavasu",
+            "publication": "Operations Research Proceedings 2010: Selected Papers of the Annual …, 2011",
+            "cited_by": 4,
+            "year": "2011"
+        },
+        {
+            "title": "Image Compression using Modified Haar Wavelet-Base Vector Quantization",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:4DMP91E08xMC",
+            "citation_id": "brgiVtgAAAAJ:4DMP91E08xMC",
+            "authors": "A Jitkam, S Wongthanavasu",
+            "publication": "ECTI Transactions on Computer and Information Technology (ECTI-CIT) 3 (1), 72-76, 2007",
+            "cited_by": 4,
+            "year": "2007"
+        },
+        {
+            "title": "Alternative adaptive fuzzy c-means clustering",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:2osOgNQ5qMEC",
+            "citation_id": "brgiVtgAAAAJ:2osOgNQ5qMEC",
+            "authors": "S Champathong, S Wongthanavasu, K Sunat",
+            "publication": "Proceedings of 7th WSEAS International Conference on Evolutionary Computing …, 2006",
+            "cited_by": 4,
+            "year": "2006"
+        },
+        {
+            "title": "Hybrid linear matrix factorization for topic-coherent terms clustering",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:QIV2ME_5wuYC",
+            "citation_id": "brgiVtgAAAAJ:QIV2ME_5wuYC",
+            "authors": "P Liang, S Wongthanavasu",
+            "publication": "Expert Systems with Applications 62, 358-372, 2016",
+            "cited_by": 3,
+            "year": "2016"
+        },
+        {
+            "title": "Packet header anomaly detection using bayesian belief network",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:7PzlFSSx8tAC",
+            "citation_id": "brgiVtgAAAAJ:7PzlFSSx8tAC",
+            "authors": "M Thakong, S Wongthanavasu",
+            "publication": "ECTI Transactions on Computer and Information Technology (ECTI-CIT) 3 (1), 26-30, 2007",
+            "cited_by": 3,
+            "year": "2007"
+        },
+        {
+            "title": "BiHGCA: A Novel SRS-Based Bidirectional Hyperbolic Graph Capsule Co-Attention Network for User Preference Drift",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:NaGl4SEjCO4C",
+            "citation_id": "brgiVtgAAAAJ:NaGl4SEjCO4C",
+            "authors": "N Kannikaklang, W Thamviset, S Wongthanavasu",
+            "publication": "IEEE Access, 2024",
+            "cited_by": 2,
+            "year": "2024"
+        },
+        {
+            "title": "Face recognition in unconstrained environment",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:R3hNpaxXUhUC",
+            "citation_id": "brgiVtgAAAAJ:R3hNpaxXUhUC",
+            "authors": "W Srisawasd, S Wongthanavasu",
+            "publication": "2018 15th international joint conference on computer science and software …, 2018",
+            "cited_by": 2,
+            "year": "2018"
+        },
+        {
+            "title": "Improving single image haze removal based on cellular automata model",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:TQgYirikUcIC",
+            "citation_id": "brgiVtgAAAAJ:TQgYirikUcIC",
+            "authors": "S Tangsakul, S Wongthanavasu",
+            "publication": "2018 15th International Joint Conference on Computer Science and Software …, 2018",
+            "cited_by": 2,
+            "year": "2018"
+        },
+        {
+            "title": "BiGCAN: A novel SRS-based bidirectional graph Convolution Attention Network for dynamic user preference and next-item recommendation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:J_g5lzvAfSwC",
+            "citation_id": "brgiVtgAAAAJ:J_g5lzvAfSwC",
+            "authors": "N Kannikaklang, W Thamviset, S Wongthanavasu",
+            "publication": "Expert Systems with Applications 265, 126016, 2025",
+            "cited_by": 1,
+            "year": "2025"
+        },
+        {
+            "title": "SET Index Forecast Using Bayesian Belief Networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:iH-uZ7U-co4C",
+            "citation_id": "brgiVtgAAAAJ:iH-uZ7U-co4C",
+            "authors": "T Chawlom, S Wongthanavasu",
+            "publication": "2020 12th International Conference on Knowledge and Smart Technology (KST …, 2020",
+            "cited_by": 1,
+            "year": "2020"
+        },
+        {
+            "title": "A Differential Evolution-based Rule Ordering of Cellular Automata for Classification",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:HDshCWvjkbEC",
+            "citation_id": "brgiVtgAAAAJ:HDshCWvjkbEC",
+            "authors": "P Wanna, S Wongthanavasu, J Ponkaew",
+            "publication": "2018 10th International Conference on Knowledge and Smart Technology (KST …, 2018",
+            "cited_by": 1,
+            "year": "2018"
+        },
+        {
+            "title": "Image cellular automata coding based on resolution progressive experiments with color spaces and file formats",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:KlAtU1dfN6UC",
+            "citation_id": "brgiVtgAAAAJ:KlAtU1dfN6UC",
+            "authors": "P Claiboon, S Wongthanavasu",
+            "publication": "2014 International Computer Science and Engineering Conference (ICSEC), 458-462, 2014",
+            "cited_by": 1,
+            "year": "2014"
+        },
+        {
+            "title": "A novel segmentation method for isointense MRI brain tumor",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:WF5omc3nYNoC",
+            "citation_id": "brgiVtgAAAAJ:WF5omc3nYNoC",
+            "authors": "C Sompong, S Wongthanavasu",
+            "publication": "2014 11th International Joint Conference on Computer Science and Software …, 2014",
+            "cited_by": 1,
+            "year": "2014"
+        },
+        {
+            "title": "Scalable resolution-based image coding algorithm",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:W7OEmFMy1HYC",
+            "citation_id": "brgiVtgAAAAJ:W7OEmFMy1HYC",
+            "authors": "P Claiboon, S Wongthanavasu",
+            "publication": "2014 11th International Joint Conference on Computer Science and Software …, 2014",
+            "cited_by": 1,
+            "year": "2014"
+        },
+        {
+            "title": "Cellular automata for edge detection",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:_FxGoFyzp5QC",
+            "citation_id": "brgiVtgAAAAJ:_FxGoFyzp5QC",
+            "authors": "S Wongthanavasu",
+            "publication": "Asian Institute of Technology, 2001",
+            "cited_by": 1,
+            "year": "2001"
+        },
+        {
+            "title": "BiG: Bidirectional Graph Convolutional Networks for Social and Sequential Recommendation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:RYcK_YlVTxYC",
+            "citation_id": "brgiVtgAAAAJ:RYcK_YlVTxYC",
+            "authors": "N Kannikaklang, S Wongthanavasu",
+            "publication": "2024 28th International Computer Science and Engineering Conference (ICSEC), 1-6, 2024",
+            "cited_by": 0,
+            "year": "2024"
+        },
+        {
+            "title": "การ พยากรณ์ ดัชนี หุ้น ตลาดหลักทรัพย์ แห่ง ประเทศไทย และ ดัชนี หุ้น บริษัท ป ต ท. สำรวจ และ ผลิต ปิโตรเลียม จำกัด (มหาชน) โดย เครือ ข่าย ความ เชื่อ เบ ส์",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:M3NEmzRMIkIC",
+            "citation_id": "brgiVtgAAAAJ:M3NEmzRMIkIC",
+            "authors": "T Chawlom, S Wongthanavasu",
+            "publication": "KKU Research Journal (Graduate Studies) 21 (1), 162-179, 2021",
+            "cited_by": 0,
+            "year": "2021"
+        },
+        {
+            "title": "Lagrangian Duality with ELM for Word Sense Multiprototype Discovery",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:_Qo2XoVZTnwC",
+            "citation_id": "brgiVtgAAAAJ:_Qo2XoVZTnwC",
+            "authors": "P Liang, S Wongthanavasu",
+            "publication": "Applied Artificial Intelligence 32 (9-10), 979-990, 2018",
+            "cited_by": 0,
+            "year": "2018"
+        },
+        {
+            "title": "Foreword: Special Issue for JCSSE 2016",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:mB3voiENLucC",
+            "citation_id": "brgiVtgAAAAJ:mB3voiENLucC",
+            "authors": "BK Mishra, SL Peng, S Wongthanavasu",
+            "publication": "Journal of Internet Technology 18 (7), 1649-1650, 2017",
+            "cited_by": 0,
+            "year": "2017"
+        },
+        {
+            "title": "Stochastic Forward-Looking Prediction for Entropy-Based Multimodal Fused Data",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:hFOr9nPyWt4C",
+            "citation_id": "brgiVtgAAAAJ:hFOr9nPyWt4C",
+            "authors": "P Liang, S Wongthanavasu",
+            "publication": "網際網路技術學刊 18 (4), 935-943, 2017",
+            "cited_by": 0,
+            "year": "2017"
+        },
+        {
+            "title": "Subsequence-Based Dynamic Web Service Composition",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:ULOm3_A8WrAC",
+            "citation_id": "brgiVtgAAAAJ:ULOm3_A8WrAC",
+            "authors": "P Liang, S Wongthanavasu",
+            "publication": "International Journal of Future Computer and Communication 5 (4), 172, 2016",
+            "cited_by": 0,
+            "year": "2016"
+        },
+        {
+            "title": "ระบบ ให้ คำ แนะนำ ราย บุคคล เพื่อ การ วางแผน การ ท่องเที่ยว",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:RHpTSmoSYBkC",
+            "citation_id": "brgiVtgAAAAJ:RHpTSmoSYBkC",
+            "authors": "A Namvong, S Wongthanavasu",
+            "publication": "Information Technology Journal 12 (2), 24-32, 2016",
+            "cited_by": 0,
+            "year": "2016"
+        },
+        {
+            "title": "An Efficient Cellular Automata-based Error-Correcting Capability",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:_kc_bZDykSQC",
+            "citation_id": "brgiVtgAAAAJ:_kc_bZDykSQC",
+            "authors": "J Ponkaew, S Wongthanavasu, C Lursinsap",
+            "publication": "Information: an international Interdisciplinary journal 17 (6), 2925-2942, 2014",
+            "cited_by": 0,
+            "year": "2014"
+        },
+        {
+            "title": "Medical diagnosis model using cellular automata-based image processing and bayesian belief network",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:NMxIlDl6LWMC",
+            "citation_id": "brgiVtgAAAAJ:NMxIlDl6LWMC",
+            "authors": "S Wongthanavasu, V Tangvoraphongchai",
+            "publication": "Thailand Science Research and Innovation, 2014",
+            "cited_by": 0,
+            "year": "2014"
+        },
+        {
+            "title": "Data Regions Extraction for Semi-Structured Web Pages Using Bottom-up Approach (การ สกัด พื้นที่ ข้อมูล จาก หน้า เว็บ กึ่ง โครงสร้าง โดย ใช้ วิธี การ แบบ ล่าง ขึ้น บน)",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:Wp0gIr-vW9MC",
+            "citation_id": "brgiVtgAAAAJ:Wp0gIr-vW9MC",
+            "authors": "W Thamviset, S Wongthanavasu",
+            "publication": "KKU Research Journal (Graduate Studies) 14 (4), 1-16, 2014",
+            "cited_by": 0,
+            "year": "2014"
+        },
+        {
+            "title": "3D Face Recognition Using Cellular Automata Model and Support Vector Machines",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:Se3iqnhoufwC",
+            "citation_id": "brgiVtgAAAAJ:Se3iqnhoufwC",
+            "authors": "A Namvong, S Wongthanavasu",
+            "publication": null,
+            "cited_by": 0,
+            "year": "2008"
+        },
+        {
+            "title": "Adaptive data clustering using weighted alternative fuzzy clustering algorithms.",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:0EnyYjriUFMC",
+            "citation_id": "brgiVtgAAAAJ:0EnyYjriUFMC",
+            "authors": "S Champathong, S Wongthanavasu, K Sunat",
+            "publication": "WSEAS Transactions on Information Science and Applications 3 (9), 1646-1653, 2006",
+            "cited_by": 0,
+            "year": "2006"
+        },
+        {
+            "title": "Advances in Intelligent Systems: 343 Theory and Applications M. Mohammadian (Ed.) IOS Press, 2000 Pixel-Level Edge Detection Using a Cellular",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:BqipwSGYUEgC",
+            "citation_id": "brgiVtgAAAAJ:BqipwSGYUEgC",
+            "authors": "AB Model, S Wongthanavasu, R Sadananda",
+            "publication": "Advances in Intelligent Systems: Theory and Applications 59, 343, 2000",
+            "cited_by": 0,
+            "year": "2000"
+        },
+        {
+            "title": "A cellular automata-based model for edge detection",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:roLk4NBRz8UC",
+            "citation_id": "brgiVtgAAAAJ:roLk4NBRz8UC",
+            "authors": "S Wongthanavasu, R Sadananda, Y Qi",
+            "publication": "Machine Graphics and Vision 9 (4), 775-796, 2000",
+            "cited_by": 0,
+            "year": "2000"
+        },
+        {
+            "title": "TSA 2016 Program Committee",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:hC7cP41nSMkC",
+            "citation_id": "brgiVtgAAAAJ:hC7cP41nSMkC",
+            "authors": "A Cechich, TY Chen, Z Chen, T Dohi, R Greenlaw, X He, PA Hsiung, ...",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "Honorary Committee",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:ZeXyd9-uunAC",
+            "citation_id": "brgiVtgAAAAJ:ZeXyd9-uunAC",
+            "authors": "C Lursinsap, K Triratanasirichai, K Malaiwongs, N Lorwattanatakul, ...",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "Diss CS-01-1",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:9ZlFYXVOiuMC",
+            "citation_id": "brgiVtgAAAAJ:9ZlFYXVOiuMC",
+            "authors": "S Wongthanavasu, R Sadananda",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "การ รู้ จำ อารมณ์ จาก เสียง พูด โดย ใช้ ซัพพอร์ต เวคเตอร์ แมชชีน",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:mVmsd5A6BfQC",
+            "citation_id": "brgiVtgAAAAJ:mVmsd5A6BfQC",
+            "authors": "ฐา ป นี สี หา โภชน์",
+            "publication": "มหาวิทยาลัย ขอนแก่น. สำนัก วิทย บริการ, 0",
+            "cited_by": 0,
+            "year": ""
+        },
+        {
+            "title": "ECTI Transaction on Computer and Information Technology, Vol 3, No 1 (2007)",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=brgiVtgAAAAJ&pagesize=100&citation_for_view=brgiVtgAAAAJ:qxL8FJ1GzNcC",
+            "citation_id": "brgiVtgAAAAJ:qxL8FJ1GzNcC",
+            "authors": "A Jitkam, S Wongthanavasu",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        }
+    ]
+}

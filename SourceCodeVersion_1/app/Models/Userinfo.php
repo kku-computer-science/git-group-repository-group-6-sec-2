@@ -11,14 +11,11 @@ class Userinfo extends Model
     protected $fillable = [
         'fname',
         'lname',
-        'stdid',   
-        'position',     
+        'stdid',
+        'position',
         'role',
         'picture',
         'password',
     ];
 
-    
-
-    
 }
