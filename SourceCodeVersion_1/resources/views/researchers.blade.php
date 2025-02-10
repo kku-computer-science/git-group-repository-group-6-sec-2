@@ -2,6 +2,13 @@
 @section('content')
 <div class="container card-2">
     <p class="title"> Researchers </p>
+    <div class="d-flex justify-content-between">
+        <div>
+            <button class="btn btn-outline-primary" onclick="filterCategory(1)">CS</button>
+            <button class="btn btn-outline-primary" onclick="filterCategory(2)">IT</button>
+            <button class="btn btn-outline-primary" onclick="filterCategory(3)">GIF</button>
+        </div>
+    </div>
     @foreach($request as $res)
     <span>
         <ion-icon name="caret-forward-outline" size="small"></ion-icon> {{$res->program_name_en}}
