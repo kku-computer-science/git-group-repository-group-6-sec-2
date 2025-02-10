@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
         "barryvdh/laravel-dompdf": "2.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -22,7 +22,11 @@
         "spatie/laravel-permission": "^5.4",
         "symfony/mailer": "^6.1",
         "symfony/process": "^5.4",
-        "yajra/laravel-datatables-oracle": "^9.19"
+        "yajra/laravel-datatables-oracle": "^9.19",
+        "ext-libxml": "*",
+        "ext-dom": "*",
+        "ext-json": "*",
+        "ext-curl": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
