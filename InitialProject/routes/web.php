@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\WosApiController;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
@@ -70,6 +70,7 @@ Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
     Auth::routes();
 });
 
+Route::get('/researchers/data/{id}', [WosApiController::class, 'getResearcherData']);
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
