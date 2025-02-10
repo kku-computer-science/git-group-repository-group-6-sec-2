@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\File;
 
