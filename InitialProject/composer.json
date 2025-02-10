@@ -28,7 +28,7 @@
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.12",
-        "mockery/mockery": "^1.4.2",
+        "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.6"
     },
