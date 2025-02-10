@@ -169,28 +169,4 @@
             }
             return view('test')->with('year', json_encode($year, JSON_NUMERIC_CHECK))->with('paper', json_encode($paper, JSON_NUMERIC_CHECK));
         }
-
-        public function store(Request $request)
-        {
-            //
-        }
-
-        public function show($id)
-        {
-        }
-
-        public function edit($id)
-        {
-            //
-        }
-
-        public function update(Request $request, $id)
-        {
-            //
-        }
-
-        public function destroy($id)
-        {
-            //
-        }
     }
