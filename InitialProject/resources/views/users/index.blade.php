@@ -102,12 +102,6 @@
             <h4 class="card-title">Users</h4>
             <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>New User</a>
             <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>Import New User</a>
-            <!-- <div class="search-box">
-                <div class="input-group">
-                    <input type="text" id="search" class="form-control" placeholder="Search by Name">
-                    <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
-                </div>
-            </div> -->
 
             <div class="table-responsive">
                 <table id="example1" class="table table-striped">
