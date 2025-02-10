@@ -44,40 +44,6 @@ class DemoCron extends Command
      *
      * @return mixed
      */
-
-     /**
-     * Handle API errors by logging the error and sending an email notification.
-     *
-     * @param  int  $statusCode
-     * @param  string  $apiName
-     * @return void
-     */
-
-    public function apiScopusErrorHandling($statusCode, $apiName)
-    {
-        // บันทึกข้อผิดพลาดลง log file
-        Log::error("API Error: $apiName returned status code $statusCode");
-
-        // กำหนดอีเมลผู้ดูแลระบบ
-        $adminEmail = 'keerati.d@kkumail.com';
-
-        // หัวข้ออีเมล
-        $subject = "🚨 API Error Notification: {$apiName}";
-
-        // เนื้อหาข้อความอีเมล
-        $message = "An error occurred while calling the API: {$apiName}.\n\n"
-                . "Status Code: {$statusCode}\n"
-                . "Timestamp: " . now()->toDateTimeString() . "\n\n"
-                . "Please check the system logs for more details.";
-
-        // ส่งอีเมลแจ้งเตือน
-        Mail::raw($message, function ($mail) use ($adminEmail, $subject) {
-            $mail->to($adminEmail)
-                ->subject($subject);
-        });
-    }
-
-
     public function handle()
     {
         #Log::info("Cron is working fine!");
@@ -95,7 +61,7 @@ class DemoCron extends Command
 
             $url = Http::get('https://api.elsevier.com/content/search/scopus?', [
                 'query' => "AUTHOR-NAME(" . "$lname" . "," . "$fname" . ")",
-                'apikey' => '41b94ea1f9dd77ae38c5a383e3e79950',
+                'apikey' => '6ab3c2a01c29f0e36b00c8fa1d013f83',
             ])->json();
 
 
@@ -129,7 +95,7 @@ class DemoCron extends Command
                         $scoid = explode(":", $scoid);
                         $scoid = $scoid[1];
     
-                        $all = Http::get("https://api.elsevier.com/content/abstract/scopus_id/" . $scoid . "?filed=authors&apiKey=41b94ea1f9dd77ae38c5a383e3e79950&httpAccept=application%2Fjson");
+                        $all = Http::get("https://api.elsevier.com/content/abstract/scopus_id/" . $scoid . "?filed=authors&apiKey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson");
                         //$all = Http::get("https://api.crossref.org/works/"."");
                         //$all = Http::get("https://api.crossref.org/works?query.title=" . $item['dc:title'] . "&rows=2");
                         $paper = new Paper;
