@@ -1617,6 +1617,7 @@
 [stacktrace]
 #0 {main}
 "} 
+<<<<<<< HEAD
 [2025-02-09 16:23:54] local.ERROR: Too few arguments to function App\Http\Controllers\ErrorController::apiScopusErrorHandling(), 0 passed in D:\653380263-0\SoftEn_Group6\git-group-repository-group-6-sec-2\InitialProject\vendor\laravel\framework\src\Illuminate\Routing\Controller.php on line 54 and exactly 2 expected {"exception":"[object] (ArgumentCountError(code: 0): Too few arguments to function App\\Http\\Controllers\\ErrorController::apiScopusErrorHandling(), 0 passed in D:\\653380263-0\\SoftEn_Group6\\git-group-repository-group-6-sec-2\\InitialProject\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php on line 54 and exactly 2 expected at D:\\653380263-0\\SoftEn_Group6\\git-group-repository-group-6-sec-2\\InitialProject\\app\\Http\\Controllers\\ErrorController.php:11)
 [stacktrace]
 #0 D:\\653380263-0\\SoftEn_Group6\\git-group-repository-group-6-sec-2\\InitialProject\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\ErrorController->apiScopusErrorHandling()
@@ -1741,3 +1742,5 @@ unomaduro\\collision\\src\\Handler.php(39): NunoMaduro\\Collision\\Writer->write
 [stacktrace]
 #0 {main}
 "} 
+=======
+>>>>>>> parent of 30efc66c (Update laravel.log)
