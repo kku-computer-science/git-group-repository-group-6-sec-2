@@ -76,7 +76,7 @@ class WosAPIService
         return $result;
     }
 
-    public function insertDataWOS(array $papers): void
+    public function saveWOSPublications(array $papers): void
     {
         foreach ($papers as $paper) {$existingPaper = Paper::where('paper_name', $paper['title'])->first();
             if ($existingPaper === null) {
