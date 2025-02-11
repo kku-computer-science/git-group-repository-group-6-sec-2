@@ -84,6 +84,6 @@ class WosAPIService
 
 $wos = new WosAPIService('4e58ee08d1f6ba5b493b7dc227cc59d21c84e8f3');
 $jsonData = json_encode($wos->getResearcherPublications('Kokaew Urachart'));
-print_r($wos->extractPuclicationsData($jsonData));
+print_r(json_decode($jsonData, true));
 
 
