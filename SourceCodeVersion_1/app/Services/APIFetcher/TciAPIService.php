@@ -71,7 +71,6 @@ class TciFetcher
     public static function extractRelevantData(string $researcherName): array
     {
         $articles = self::getArticles($researcherName);
-
         if (empty($articles)) {
             return [
                 'author_name' => $researcherName,
@@ -80,44 +79,42 @@ class TciFetcher
         }
     
         $formattedArticles = [];
-        $i=0;
         foreach ($articles as $articleId) {
             $articleInfo = self::getArticleInfo($articleId, $researcherName);
             $authors = self::getAllAuthorsName($articleId);
 
+            // print_r($articleInfo);
+
             $authorNames = array_map(fn($author) => $author['name'], $authors ?? []);
             $articleInfo['authors'] = implode(', ', $authorNames);
 
-            if ($articleInfo[$i]['document_type_id'] == 1) {
-                $articleInfo[$i]['document_type'] = 'Journal';
+            if ($articleInfo[0]['document_type_id'] == 1) {
+                $articleInfo[0]['document_type'] = 'Journal';
             }
 
             $formattedArticles[] = [
                 'authors' => $articleInfo['authors'] ?? '',
-                'article_loc' => $articleInfo[$i]['article_loc'] ?? 'Unknown Title', // Title in Thai (empty in the response)
-                'article_eng' => $articleInfo[$i]['article_eng'] ?? 'Unknown Title', // Fallback to title_eng
-                'journal_loc' => $articleInfo[$i]['journal_loc'] ?? '', // Journal in Thai (empty in the response)
-                'journal_eng' => $articleInfo[$i]['journal_eng'] ?? '', // Journal in English
-                'volume' => $articleInfo[$i]['volume'] ?? 'N/A', // Volume number
-                'page_number' => $articleInfo[$i]['page_number'] ?? 'N/A', // Page numbers
-                'year' => $articleInfo[$i]['year'] ?? 'Unknown Year', // Year of publication
-                'cited' => $articleInfo[$i]['cited'] ?? 0, // Number of citations
-                'document_type' => $articleInfo[$i]['document_type'] ?? ''
+                'article_loc' => $articleInfo[0]['article_loc'] ?? 'Unknown Title',
+                'article_eng' => $articleInfo[0]['article_eng'] ?? 'Unknown Title', 
+                'journal_loc' => $articleInfo[0]['journal_loc'] ?? '', 
+                'journal_eng' => $articleInfo[0]['journal_eng'] ?? '', 
+                'volume' => $articleInfo[0]['volume'] ?? 'N/A', 
+                'page_number' => $articleInfo[0]['page_number'] ?? 'N/A', 
+                'year' => $articleInfo[0]['year'] ?? 'Unknown Year', 
+                'cited' => $articleInfo[0]['cited'] ?? 0, 
+                'document_type' => $articleInfo[0]['document_type'] ?? ''
             ];
-
-        // Return the final formatted result
-        return [
-            'author_name' => $researcherName,
-            'articles' => $formattedArticles
-            ];
-            $i++;
-        }
+    }
+    return [
+        'author_name' => $researcherName,
+        'articles' => $formattedArticles
+        ];
     }
 }
 
-    // $researcherName = "";
-    // $result = TciFetcher::extractRelevantData($researcherName);
-    // echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+     $researcherName = "Pusadee";
+     $result = TciFetcher::extractRelevantData($researcherName);
+     echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 
 
