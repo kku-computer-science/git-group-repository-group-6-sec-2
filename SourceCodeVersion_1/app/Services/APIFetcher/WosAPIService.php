@@ -76,10 +76,54 @@ class WosAPIService
         return $result;
     }
 
+    public function insertData(array $papers): void
+    {
+        foreach ($papers as $paper) {
+            $paperModel = new Paper;
+            $paperModel->paper_name = $paper['title'];
+            $paperModel->paper_type = json_encode($paper['types'][0]); // convert to JSON for get array
+            $paperModel->paper_subtype = json_encode($paper['sourceTypes'][0]);
+            $paperModel->paper_sourcetitle = $paper['source']['sourceTitle'] ?? null;
+            $paperModel->paper_url = $paper['links']['record'] ?? null;
+            $paperModel->paper_yearpub = $paper['source']['publishYear'] ?? null;
+            'paper_volume',
+            'paper_issue',
+            'paper_citation',
+            $paperModel->paper_page = $paper['source']['pages']['count'] ?? null;
+            'paper_doi',
+            'paper_funder',
+            'patent_date',
+            'abstract',
+            $paperModel->keyword = json_encode($paper['keywords']['authorKeywords'] ?? []);
+            'publication'
 
-    public function extractAuthor(){}
+            $paperModel->save();
 
+            // ดึงแหล่งที่มา (Source_data) แล้วเชื่อมความสัมพันธ์
+            $source = Source_data::findOrFail(1);
+            $paperModel->source()->sync($source);
 
+            // ดึงรายชื่อผู้แต่ง
+            $totalAuthors = count($paper['names']['authors']);
+            foreach ($paper['names']['authors'] as $index => $author) {
+                $authorModel = Author::firstOrCreate(
+                    ['full_name' => $author['displayName']],
+                    ['standard_name' => $author['wosStandard']]
+                );
+
+                // กำหนดบทบาทผู้แต่ง
+                if ($index === 0) {
+                    $role = 1; // First Author
+                } elseif ($index === $totalAuthors - 1) {
+                    $role = 2; // Last Author
+                } else {
+                    $role = 3; // Middle Author
+                }
+
+                $paperModel->authors()->attach($authorModel, ['role' => $role]);
+            }
+        }
+    }
 }
 
 $wos = new WosAPIService('4e58ee08d1f6ba5b493b7dc227cc59d21c84e8f3');
