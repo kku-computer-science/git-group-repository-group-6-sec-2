@@ -76,10 +76,66 @@ class WosAPIService
         return $result;
     }
 
+    public function insertDataWOS(array $papers): void
+    {
+        foreach ($papers as $paper) {$existingPaper = Paper::where('paper_name', $paper['title'])->first();
+            if ($existingPaper === null) {
+                $paperModel = new Paper;
+                $paperModel->paper_name = $paper['title'];
+                $paperModel->paper_type = json_encode($paper['types'][0]); // convert to JSON for get array
+                $paperModel->paper_subtype = json_encode($paper['sourceTypes'][0]);
+                $paperModel->paper_sourcetitle = $paper['source']['sourceTitle'] ?? null;
+                $paperModel->paper_url = $paper['links']['record'] ?? null;
+                $paperModel->paper_yearpub = $paper['source']['publishYear'] ?? null;
+                $paperModel->paper_volume = $paper['source']['volume'] ?? null;
+                $paperModel->paper_issue = $paper['source']['issue'] ?? null;
+                $paperModel->paper_citation = $paper['citations'][0]['count'] ?? 0;
+                $paperModel->paper_page = $paper['source']['pages']['range'] ?? null;
+                $paperModel->paper_doi = $paper['identifiers']['doi'] ?? null;
+                $paperModel->paper_funder = $paper['names']['sponsors']['displayName'] ?? null;
+                $paperModel->keyword = json_encode($paper['keywords']['authorKeywords'] ?? []);
 
-    public function extractAuthor(){}
+                $paperModel->save();
 
+                $source = Source_data::findOrFail(1);
+                $paperModel->source()->sync($source);
 
+                $authorsArray = $paper['names']['authors'];
+                $authorCount = count($authorsArray);
+                $authors = array_map(function($author) {
+                    $parts = explode(', ', $author, 2);
+                    return [
+                        'fname' => $parts[1] ?? '',
+                        'lname' => $parts[0] ?? ''
+                    ];
+                }, $authorsArray);
+
+                foreach ($authorsArray as $index => $author) {
+                    $authorModel = Author::firstOrCreate(
+                        ['full_name' => $author['displayName']],
+                        ['standard_name' => $author['wosStandard']]
+                    );
+
+                    $authorType = ($index === 0) ? 1 : (($index === $authorCount - 1) ? 3 : 2);
+                    $paperModel->authors()->attach($authorModel, ['role' => $authorType]);
+                }
+            } else {
+                $user = User::findOrFail($userId);
+                if (!$user->papers()->where('paper_id', $existingPaper->id)->exists()) {
+                    $author = Author::where([
+                        ['full_name', '=', $user->fname_en . ' ' . $user->lname_en],
+                        ['paper_id', '=', $existingPaper->id]
+                    ])->first();
+                    
+                    if ($author) {
+                        $existingPaper->authors()->detach($author->id);
+                    }
+                    
+                    $existingPaper->teachers()->attach($user->id);
+                }
+            }
+        }
+    }
 }
 
 $wos = new WosAPIService('4e58ee08d1f6ba5b493b7dc227cc59d21c84e8f3');
