@@ -65,7 +65,7 @@
                 <span class="summary-value" id="totalCitations">0</span> Citations
             </div>
             <div class="summary-item">
-                <span class="summary-value" id="hIndexValue">0</span> h-index
+                <span class="summary-value" id="hIndexValue"></span>
             </div>
         </div>
     </div>
@@ -104,9 +104,11 @@
     var totalCitations = sortedCitationData.reduce((acc, val) => acc + val, 0);
     var maxHIndex = Math.max(...hIndex);
 
+    
+
     // Update summary values (handle if no data is available)
     document.getElementById("totalCitations").textContent = totalCitations || 0;
-    document.getElementById("hIndexValue").textContent = maxHIndex || 0;
+    // document.getElementById("hIndexValue").textContent = maxHIndex || 0;
 
     // Calculate suggestedMax for y-axis scaling
     var suggestedMax = Math.max(...sortedCitationData) + 1;

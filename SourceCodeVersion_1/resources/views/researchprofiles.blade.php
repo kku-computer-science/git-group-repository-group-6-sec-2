@@ -60,7 +60,11 @@
             </div>
 
             <div class="col-md-4">
-                <h6 class="title-pub">{{ trans('message.publications2') }}</h6>
+                <div class="d-flex align-items-end">
+                    <h6 class="title-pub mb-0 mr-5" style="font-size: 16px;">{{ trans('message.publications2') }}</h6>
+                    <h6 class="mb-0 ml-3" style="font-size: 16px;">h-index: <span id="h-index-result">กำลังคำนวณ...</span></h6>
+                </div>
+
                 <div class="col-xs-12 text-center bt">
                     <div class="clearfix"></div>
                     <div class="row text-center">
@@ -89,7 +93,7 @@
                     </div>
                     <div class="text-center mt-4">
                         <a href="{{ route('citation-h-index', ['userId' => $res->id]) }}" class="btn btn-primary btn-lg shadow rounded-pill px-4 py-3">
-                            <i class="fas fa-chart-line me-2"></i> แสดงกราฟ Citations H-Index
+                            <i class="fas fa-chart-line me-2"></i> แสดงกราฟ Citations
                         </a>
                     </div>
                 </div>
@@ -829,5 +833,35 @@
             $this.countTo(options);
         }
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        function calculateHIndex() {
+            let citations = [];
+            // ดึงค่าจำนวน Citation จากคอลัมน์ที่ 8 (Citations)
+            document.querySelectorAll("#papersTable  tbody tr").forEach(row => {
+                let citationCell = row.cells[1]; // คอลัมน์ที่ 8 (Citations)
+                if (citationCell) {
+                    let citation = parseInt(citationCell.textContent.trim()) || 0;
+                    citations.push(citation);
+                }
+            });
+            // เรียงลำดับ Citation จากมากไปน้อย
+            citations.sort((a, b) => b - a);
+            // คำนวณค่า H-Index
+            let h_index = 0;
+            for (let i = 0; i < citations.length; i++) {
+                if (citations[i] >= i + 1) {
+                    h_index = i + 1;
+                } else {
+                    break;
+                }
+            }
+            // แสดงผลลัพธ์ H-Index บนหน้าเว็บ
+            document.getElementById("h-index-result").textContent = h_index;
+        }
+        // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
+        calculateHIndex();
+    });
+
 </script>
 @endsection
