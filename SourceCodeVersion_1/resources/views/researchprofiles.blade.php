@@ -82,8 +82,15 @@
                         </div>
                     </div>
                     <br>
-                    <div class="chart">
-                        <canvas id="barChart"></canvas>
+                    <div class="text-center mt-3">
+                        <a href="{{ route('history.chart', ['userId' => $res->id]) }}" class="btn btn-dark btn-lg shadow rounded-pill px-4 py-3">
+                            <i class="fas fa-chart-line me-2"></i>แสดงกราฟการตีพิมพ์ทั้งหมด
+                        </a>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="{{ route('citation-h-index', ['userId' => $res->id]) }}" class="btn btn-primary btn-lg shadow rounded-pill px-4 py-3">
+                            <i class="fas fa-chart-line me-2"></i> แสดงกราฟ Citations H-Index
+                        </a>
                     </div>
                 </div>
             </div>
