@@ -1,46 +1,12 @@
 @extends('layouts.layout')
 @section('content')
 <div class="container card-2">
-    <p class="title"> Researchers </p>
-    <div class="d-flex justify-content-between">
-        <div>
-        <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/all') }}'">All</button>
-            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/1') }}'">CS</button>
-            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/2') }}'">IT</button>
-            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/3') }}'">GIF</button>
-        </div>
-    </div>
-    @foreach($request as $res)
-    <span>
-        <ion-icon name="caret-forward-outline" size="small"></ion-icon> {{$res->program_name_en}}
-    </span>
-    <div class="d-flex">
-        <div class="ml-auto">
-            <form class="row row-cols-lg-auto g-3" method="GET" action="{{ route('searchresearchers',['id'=>$res->id])}}">
-                <div class="col-md-8">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="textsearch" placeholder="Research interests">
-                    </div>
-                </div>
-                <!-- <div class="col-12">
-                        <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-                        <select class="form-select" id="inlineFormSelectPref">
-                            <option selected> Choose...</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-outline-primary">Search</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-
+    <p class="title"> All Researchers </p>
+    @if($allResearchers->isEmpty())
+    <p>No researchers found.</p>
+    @else
     <div class="row row-cols-1 row-cols-md-2 g-0">
-        @foreach($users as $r)
+        @foreach($allResearchers as $r)
         <a href=" {{ route('detail',Crypt::encrypt($r->id))}}">
             <div class="card mb-3">
                 <div class="row g-0">
@@ -77,8 +43,7 @@
             </div>
         </a>
         @endforeach
-        @endforeach
     </div>
+    @endif
 </div>
-
 @stop
