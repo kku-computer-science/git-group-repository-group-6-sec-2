@@ -7,12 +7,6 @@ use App\Models\User;
 use Exception;
 use GoogleSearchResults;
 use Illuminate\Support\Facades\DB;
-
-require 'app/WebScraper/IDScraper.php';
-
-require /** @lang text */
-'vendor/autoload.php';
-
 class GoogleScholarAPIService {
     private string $apiKey;
 
