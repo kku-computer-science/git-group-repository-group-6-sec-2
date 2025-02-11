@@ -1,9 +1,6 @@
 <?php
 namespace App\Services\WebScraper;
 
-require /** @lang text */
-'vendor/autoload.php';
-
 use DOMDocument;
 use DOMXPath;
 use Exception;
