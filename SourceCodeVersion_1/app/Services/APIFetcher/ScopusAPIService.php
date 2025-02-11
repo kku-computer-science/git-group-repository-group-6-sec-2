@@ -98,7 +98,7 @@ class ScopusAPIService {
         return $processedAuthors;
     }
 
-    public function insertData($papers): void
+    public function insertData(array $papers): void
     {
         foreach ($papers as $paper) {
             $paperModel = new Paper;
