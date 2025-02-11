@@ -88,7 +88,7 @@ Route::get('excel', [PDFController::class, 'generateInvoiceExcel'])->name('excel
 Route::get('/history-chart/{userId}', [ProfileController::class, 'showHistoryChart'])->name('history.chart');
 Route::get('/citation-h-index/{userId}', [ProfileController::class, 'citationchart'])->name('citation-h-index');
 
-
+Route::get('researchers/all', [ResearcherController::class, 'showAllResearchers']);
 
 
 Route::get('detail/{id}', [ProfileController::class, 'request'])->name('detail');

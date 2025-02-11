@@ -2,6 +2,14 @@
 @section('content')
 <div class="container card-2">
     <p class="title"> Researchers </p>
+    <div class="d-flex justify-content-between">
+        <div>
+        <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/all') }}'">All</button>
+            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/1') }}'">Computer Science</button>
+            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/2') }}'">Infomation Technology</button>
+            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/3') }}'">Geo-Informatics</button>
+        </div>
+    </div>
     @foreach($request as $res)
     <span>
         <ion-icon name="caret-forward-outline" size="small"></ion-icon> {{$res->program_name_en}}
