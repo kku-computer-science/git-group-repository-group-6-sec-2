@@ -1,0 +1,236 @@
+{
+    "author_name": "Praisan Padungweang",
+    "interests": [
+        "Computer vision",
+        "Deep learning",
+        "Machine learning",
+        "Artificial Intelligence"
+    ],
+    "articles": [
+        {
+            "title": "Auto-scaling microservices on IaaS under SLA with cost-effective framework",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:0EnyYjriUFMC",
+            "citation_id": "bzF_BIkAAAAJ:0EnyYjriUFMC",
+            "authors": "I Prachitmutita, W Aittinonmongkol, N Pojjanasuksakul, M Supattatham, ...",
+            "publication": "2018 Tenth International Conference on Advanced Computational Intelligence …, 2018",
+            "cited_by": 48,
+            "year": "2018"
+        },
+        {
+            "title": "Big data in smart-cities: Current research and challenges",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:WF5omc3nYNoC",
+            "citation_id": "bzF_BIkAAAAJ:WF5omc3nYNoC",
+            "authors": "D Pal, T Triyason, P Padungweang",
+            "publication": "Indonesian Journal of Electrical Engineering and Informatics (IJEEI) 6 (4 …, 2018",
+            "cited_by": 47,
+            "year": "2018"
+        },
+        {
+            "title": "A discrimination analysis for unsupervised feature selection via optic diffraction principle",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:hqOjcs7Dif8C",
+            "citation_id": "bzF_BIkAAAAJ:hqOjcs7Dif8C",
+            "authors": "P Padungweang, C Lursinsap, K Sunat",
+            "publication": "IEEE transactions on neural networks and learning systems 23 (10), 1587-1600, 2012",
+            "cited_by": 31,
+            "year": "2012"
+        },
+        {
+            "title": "Univariate filter technique for unsupervised feature selection using a new Laplacian score based local nearest neighbors",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:d1gkVwhDpl0C",
+            "citation_id": "bzF_BIkAAAAJ:d1gkVwhDpl0C",
+            "authors": "P Padungweang, C Lursinsap, K Sunat",
+            "publication": "2009 Asia-Pacific Conference on Information Processing 2, 196-200, 2009",
+            "cited_by": 16,
+            "year": "2009"
+        },
+        {
+            "title": "Face recognition using transferred deep learning for feature extraction",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:qjMakFHDy7sC",
+            "citation_id": "bzF_BIkAAAAJ:qjMakFHDy7sC",
+            "authors": "A Phornchaicharoen, P Padungweang",
+            "publication": "2019 joint international conference on digital arts, media and technology …, 2019",
+            "cited_by": 14,
+            "year": "2019"
+        },
+        {
+            "title": "Enhancing metabolic event extraction performance with multitask learning concept",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:UebtZRa9Y70C",
+            "citation_id": "bzF_BIkAAAAJ:UebtZRa9Y70C",
+            "authors": "W Kongburan, P Padungweang, W Krathu, JH Chan",
+            "publication": "Journal of Biomedical Informatics 93, 103156, 2019",
+            "cited_by": 10,
+            "year": "2019"
+        },
+        {
+            "title": "Semi-automatic construction of thyroid cancer intervention corpus from biomedical abstracts",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:ufrVoPGSRksC",
+            "citation_id": "bzF_BIkAAAAJ:ufrVoPGSRksC",
+            "authors": "W Kongburan, P Padungweang, W Krathu, JH Chan",
+            "publication": "2016 Eighth International Conference on Advanced Computational Intelligence …, 2016",
+            "cited_by": 10,
+            "year": "2016"
+        },
+        {
+            "title": "Stock selection using association rules on cash flow and accrual financial indicators",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:2osOgNQ5qMEC",
+            "citation_id": "bzF_BIkAAAAJ:2osOgNQ5qMEC",
+            "authors": "A Wijitcharoen, P Padungweang, S Sirisawatvatana, B Watanapa",
+            "publication": "Proceedings of the 10th International Conference on Advances in Information …, 2018",
+            "cited_by": 5,
+            "year": "2018"
+        },
+        {
+            "title": "Dog cough sound classification using artificial neural network and the selected relevant features from discrete wavelet transform",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:IjCSPb-OGe4C",
+            "citation_id": "bzF_BIkAAAAJ:IjCSPb-OGe4C",
+            "authors": "P Kakabutr, KS Chen, V Wangvisavawit, P Padungweang, ...",
+            "publication": "2017 9th International Conference on Knowledge and Smart Technology (KST …, 2017",
+            "cited_by": 5,
+            "year": "2017"
+        },
+        {
+            "title": "Metabolite named entity recognition: A hybrid approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:Y0pCki6q_DkC",
+            "citation_id": "bzF_BIkAAAAJ:Y0pCki6q_DkC",
+            "authors": "W Kongburan, P Padungweang, W Krathu, JH Chan",
+            "publication": "Neural Information Processing: 23rd International Conference, ICONIP 2016 …, 2016",
+            "cited_by": 5,
+            "year": "2016"
+        },
+        {
+            "title": "Logistic Principle Component Analysis (L-PCA) for Feature Selection in Classification",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:UeHWp8X0CEIC",
+            "citation_id": "bzF_BIkAAAAJ:UeHWp8X0CEIC",
+            "authors": "J Rapeepongpan, P Padungweang, K Lavangnananda",
+            "publication": "2018 14th International Conference on Natural Computation, Fuzzy Systems and …, 2018",
+            "cited_by": 4,
+            "year": "2018"
+        },
+        {
+            "title": "A linear discriminant analysis using weighted local structure information",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:roLk4NBRz8UC",
+            "citation_id": "bzF_BIkAAAAJ:roLk4NBRz8UC",
+            "authors": "R Ketsuwan, P Padungweang",
+            "publication": "2017 14th International Joint Conference on Computer Science and Software …, 2017",
+            "cited_by": 4,
+            "year": "2017"
+        },
+        {
+            "title": "Automatic discovering success factor relationship entities in articles using named entity recognition",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:W7OEmFMy1HYC",
+            "citation_id": "bzF_BIkAAAAJ:W7OEmFMy1HYC",
+            "authors": "S Niboonkit, W Krathu, P Padungweang",
+            "publication": "2017 9th International Conference on Knowledge and Smart Technology (KST …, 2017",
+            "cited_by": 4,
+            "year": "2017"
+        },
+        {
+            "title": "Data mining approach for automatic discovering success factors relationship statements in full text articles",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:eQOLeE2rZwMC",
+            "citation_id": "bzF_BIkAAAAJ:eQOLeE2rZwMC",
+            "authors": "W Krathu, P Padungweang, C Nukoolkit",
+            "publication": "2016 Eighth International Conference on Advanced Computational Intelligence …, 2016",
+            "cited_by": 4,
+            "year": "2016"
+        },
+        {
+            "title": "Enhancing Diabetic Retinopathy Classification for Small Sample Training Data Through Supervised Feature Attention: Transfer and Multitask Learning Approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:MXK_kJrjxJIC",
+            "citation_id": "bzF_BIkAAAAJ:MXK_kJrjxJIC",
+            "authors": "R Sanguantrakool, P Padungweang",
+            "publication": "2023 10th International Conference on Electrical Engineering, Computer …, 2023",
+            "cited_by": 2,
+            "year": "2023"
+        },
+        {
+            "title": "Cluster validity index for big Data based on density discriminant analysis",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:8k81kl-MbHgC",
+            "citation_id": "bzF_BIkAAAAJ:8k81kl-MbHgC",
+            "authors": "T Weerapong, S Sathapornvajana, P Padungweang, W Krathu",
+            "publication": "2020 1st International conference on big data analytics and practices (IBDAP …, 2020",
+            "cited_by": 2,
+            "year": "2020"
+        },
+        {
+            "title": "Incremental Object Detection Using Ensemble Modeling and Deep Transfer Learning",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:zYLM7Y9cAGgC",
+            "citation_id": "bzF_BIkAAAAJ:zYLM7Y9cAGgC",
+            "authors": "P Huayhongthong, S Rerk-u-suk, S Booddee, P Padungweang, ...",
+            "publication": "Recent Advances in Information and Communication Technology 2020 …, 2020",
+            "cited_by": 2,
+            "year": "2020"
+        },
+        {
+            "title": "ICA-DEODA: An independent feature extraction model for stock index forecasting",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:5nxA0vEk-isC",
+            "citation_id": "bzF_BIkAAAAJ:5nxA0vEk-isC",
+            "authors": "A Wijitcharoen, B Watanapa, P Padungweang, W Anantasabkit",
+            "publication": "2016 International Computer Science and Engineering Conference (ICSEC), 1-4, 2016",
+            "cited_by": 2,
+            "year": "2016"
+        },
+        {
+            "title": "A Density Discriminant Index for Cluster Validation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:LkGwnXOMwfcC",
+            "citation_id": "bzF_BIkAAAAJ:LkGwnXOMwfcC",
+            "authors": "S Thanarattananakin, P Padungweang, W Krathu",
+            "publication": "2019 11th International Conference on Information Technology and Electrical …, 2019",
+            "cited_by": 1,
+            "year": "2019"
+        },
+        {
+            "title": "Relevant Feature Selection for Predicting the Severity of Motorcycle Accident in Thailand",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:Se3iqnhoufwC",
+            "citation_id": "bzF_BIkAAAAJ:Se3iqnhoufwC",
+            "authors": "S Samerbut, P Padungweang, W Krathu",
+            "publication": "Proceedings of the 11th International Conference on Advances in Information …, 2020",
+            "cited_by": 0,
+            "year": "2020"
+        },
+        {
+            "title": "A Comparison of Destination Clustering using Density-based Algorithm on The Trip Planning Optimization for Last-Mile Parcel Delivery",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:Tyk-4Ss8FVUC",
+            "citation_id": "bzF_BIkAAAAJ:Tyk-4Ss8FVUC",
+            "authors": "I Prachitmutita, P Padungweang, O Rojanapornpun",
+            "publication": "Proceedings of the 11th International Conference on Advances in Information …, 2020",
+            "cited_by": 0,
+            "year": "2020"
+        },
+        {
+            "title": "Network analysis of inter-organizational success factor relationships",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:u-x6o8ySG0sC",
+            "citation_id": "bzF_BIkAAAAJ:u-x6o8ySG0sC",
+            "authors": "W Kongburan, P Padungweang, W Krathu, J Chan",
+            "publication": "Proceedings of the 10th International Symposium on Visual Information …, 2017",
+            "cited_by": 0,
+            "year": "2017"
+        },
+        {
+            "title": "TNorm: An Unsupervised Batch Effects Correction Method for Gene Expression Data Classification",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:YsMSGLbcyi4C",
+            "citation_id": "bzF_BIkAAAAJ:YsMSGLbcyi4C",
+            "authors": "P Padungweang, W Engchuan, JH Chan",
+            "publication": "Neural Information Processing: 22nd International Conference, ICONIP 2015 …, 2015",
+            "cited_by": 0,
+            "year": "2015"
+        },
+        {
+            "title": "Feature selection applicable to classification and clustering by the analysis of optical diffraction and entropy score discrimination",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:u5HHmVD_uO8C",
+            "citation_id": "bzF_BIkAAAAJ:u5HHmVD_uO8C",
+            "authors": "P Padungweang",
+            "publication": "Chulalongkorn University, 2011",
+            "cited_by": 0,
+            "year": "2011"
+        },
+        {
+            "title": "Development of Hybrid Deep Learning in Sentence Classification",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bzF_BIkAAAAJ&pagesize=100&citation_for_view=bzF_BIkAAAAJ:9yKSN-GCB0IC",
+            "citation_id": "bzF_BIkAAAAJ:9yKSN-GCB0IC",
+            "authors": "T Phongwattana, P Padungweang, JH Chan",
+            "publication": null,
+            "cited_by": 0,
+            "year": ""
+        }
+    ]
+}

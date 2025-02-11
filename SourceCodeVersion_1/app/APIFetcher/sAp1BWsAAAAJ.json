@@ -1,0 +1,84 @@
+{
+    "author_name": "Boonsup Waikham",
+    "interests": [
+        "MANET",
+        "VANET",
+        "WSN",
+        "Route Optimization",
+        "Geographic Routing"
+    ],
+    "articles": [
+        {
+            "title": "Parallel KNN and neighborhood classification implementations on GPU for network intrusion detection",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sAp1BWsAAAAJ&pagesize=100&citation_for_view=sAp1BWsAAAAJ:In6cVmBjs0IC",
+            "citation_id": "sAp1BWsAAAAJ:In6cVmBjs0IC",
+            "authors": "P Kuttranont, K Boonprakob, C Phaudphut, S Permpol, ...",
+            "publication": "Journal of Telecommunication, Electronic and Computer Engineering (JTEC) 9 …, 2017",
+            "cited_by": 33,
+            "year": "2017"
+        },
+        {
+            "title": "Mobile animal tracking systems using light sensor for efficient power and cost saving motion detection",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sAp1BWsAAAAJ&pagesize=100&citation_for_view=sAp1BWsAAAAJ:iyewoVqAXLQC",
+            "citation_id": "sAp1BWsAAAAJ:iyewoVqAXLQC",
+            "authors": "C So-In, C Phaudphut, S Tesana, N Weeramongkonlert, K Wijitsopon, ...",
+            "publication": "2012 8th International Symposium on Communication Systems, Networks …, 2012",
+            "cited_by": 25,
+            "year": "2012"
+        },
+        {
+            "title": "MAP: An optimized energy-efficient cluster header selection technique for wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sAp1BWsAAAAJ&pagesize=100&citation_for_view=sAp1BWsAAAAJ:sfnaS5RM6jYC",
+            "citation_id": "sAp1BWsAAAAJ:sfnaS5RM6jYC",
+            "authors": "K Udompongsuk, C So-In, C Phaudphut, K Rujirakul, C Soomlek, ...",
+            "publication": "Advances in Computer Science and its Applications: CSA 2013, 191-199, 2014",
+            "cited_by": 13,
+            "year": "2014"
+        },
+        {
+            "title": "H-FCD: hybrid fuzzy centroid and DV-Hop localization algorithm in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sAp1BWsAAAAJ&pagesize=100&citation_for_view=sAp1BWsAAAAJ:Azgs6IHzeyYC",
+            "citation_id": "sAp1BWsAAAAJ:Azgs6IHzeyYC",
+            "authors": "W Katekaew, C So-In, K Rujirakul, B Waikham",
+            "publication": "2014 5th International conference on intelligent systems, modelling and …, 2014",
+            "cited_by": 9,
+            "year": "2014"
+        },
+        {
+            "title": "Android OS mobile monitoring systems using an efficient transmission technique over Tmote sky WSNs",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sAp1BWsAAAAJ&pagesize=100&citation_for_view=sAp1BWsAAAAJ:ji7lAbPyDbYC",
+            "citation_id": "sAp1BWsAAAAJ:ji7lAbPyDbYC",
+            "authors": "C So-In, N Weeramongkonlert, C Phaudphut, B Waikham, C Khunboa, ...",
+            "publication": "2012 8th International Symposium on Communication Systems, Networks …, 2012",
+            "cited_by": 7,
+            "year": "2012"
+        },
+        {
+            "title": "Brain Cancer Cell Detection Optimization Schemes Using Image Processing and Soft Computing",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sAp1BWsAAAAJ&pagesize=100&citation_for_view=sAp1BWsAAAAJ:QoJ_w57xiyAC",
+            "citation_id": "sAp1BWsAAAAJ:QoJ_w57xiyAC",
+            "authors": "C Thammasakorn, C So-In, W Punjaruk, U Kokaew, B Waikham, ...",
+            "publication": "Advanced Computer and Communication Engineering Technology: Proceedings of …, 2016",
+            "cited_by": 4,
+            "year": "2016"
+        },
+        {
+            "title": "A novel architecture for mobile ECG recognition systems using hybrid wavelet transform feature extraction schemes",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sAp1BWsAAAAJ&pagesize=100&citation_for_view=sAp1BWsAAAAJ:4e5Qn2KL_jwC",
+            "citation_id": "sAp1BWsAAAAJ:4e5Qn2KL_jwC",
+            "authors": "C So-In, C Phaudphut, K Rujirakul, N Phokaped, S Poolsanguan, ...",
+            "publication": "J. Converg. Info. Technol. 8 (11), 471-484, 2013",
+            "cited_by": 3,
+            "year": "2013"
+        },
+        {
+            "title": "DNA forensic system for police forensic science center cooperation: Architectural design and implementation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sAp1BWsAAAAJ&pagesize=100&citation_for_view=sAp1BWsAAAAJ:tz746QTLzJkC",
+            "citation_id": "sAp1BWsAAAAJ:tz746QTLzJkC",
+            "authors": "A Rattanamuang, S Chiewchanwattana, K Sunat, B Waikham",
+            "publication": "2016 International Computer Science and Engineering Conference (ICSEC), 1-5, 2016",
+            "cited_by": 1,
+            "year": "2016"
+        }
+    ]
+}

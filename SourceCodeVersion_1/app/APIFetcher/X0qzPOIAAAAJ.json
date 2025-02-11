@@ -1,0 +1,912 @@
+{
+    "author_name": "Chakchai So-In",
+    "interests": [
+        "Computer Networks",
+        "Wireless Networks",
+        "Internet of Things",
+        "Cybersecurity",
+        "Artificial Intelligence"
+    ],
+    "articles": [
+        {
+            "title": "Scheduling in IEEE 802.16 e mobile WiMAX networks: key issues and a survey",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:u5HHmVD_uO8C",
+            "citation_id": "X0qzPOIAAAAJ:u5HHmVD_uO8C",
+            "authors": "C So-In, R Jain, AK Tamimi",
+            "publication": "IEEE Journal on selected areas in communications 27 (2), 156-171, 2009",
+            "cited_by": 508,
+            "year": "2009"
+        },
+        {
+            "title": "Capacity evaluation for IEEE 802.16 e mobile WiMAX",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:u-x6o8ySG0sC",
+            "citation_id": "X0qzPOIAAAAJ:u-x6o8ySG0sC",
+            "authors": "C So-In, R Jain, AK Tamimi",
+            "publication": "Journal of Computer Networks and Communications 2010 (1), 279807, 2010",
+            "cited_by": 154,
+            "year": "2010"
+        },
+        {
+            "title": "Search: A collaborative and intelligent nids architecture for sdn-based cloud iot networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:sSrBHYA8nusC",
+            "citation_id": "X0qzPOIAAAAJ:sSrBHYA8nusC",
+            "authors": "TG Nguyen, TV Phan, BT Nguyen, C So-In, ZA Baig, S Sanguanpong",
+            "publication": "IEEE access 7, 107678-107694, 2019",
+            "cited_by": 140,
+            "year": "2019"
+        },
+        {
+            "title": "Averaged dependence estimators for DoS attack detection in IoT networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:geHnlv5EZngC",
+            "citation_id": "X0qzPOIAAAAJ:geHnlv5EZngC",
+            "authors": "ZA Baig, S Sanguanpong, SN Firdous, TG Nguyen, C So-In",
+            "publication": "Future Generation Computer Systems 102, 198-209, 2020",
+            "cited_by": 122,
+            "year": "2020"
+        },
+        {
+            "title": "A hybrid model using fuzzy logic and an extreme learning machine with vector particle swarm optimization for wireless sensor network localization",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:dfsIfKJdRG4C",
+            "citation_id": "X0qzPOIAAAAJ:dfsIfKJdRG4C",
+            "authors": "S Phoemphon, C So-In, DT Niyato",
+            "publication": "Applied Soft Computing 65, 101-120, 2018",
+            "cited_by": 115,
+            "year": "2018"
+        },
+        {
+            "title": "MILSA: A new evolutionary architecture for scalability, mobility, and multihoming in the future internet",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:2osOgNQ5qMEC",
+            "citation_id": "X0qzPOIAAAAJ:2osOgNQ5qMEC",
+            "authors": "J Pan, R Jain, S Paul, C So-In",
+            "publication": "IEEE journal on selected areas in communications 28 (8), 1344-1362, 2010",
+            "cited_by": 99,
+            "year": "2010"
+        },
+        {
+            "title": "System-level modeling of IEEE 802.16 E mobile WiMAX networks: key issues",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:9yKSN-GCB0IC",
+            "citation_id": "X0qzPOIAAAAJ:9yKSN-GCB0IC",
+            "authors": "R Jain, C So-In",
+            "publication": "IEEE Wireless Communications 15 (5), 73-79, 2008",
+            "cited_by": 99,
+            "year": "2008"
+        },
+        {
+            "title": "eOCSA: An algorithm for burst mapping with strict QoS requirements in IEEE 802.16 e mobile WiMAX networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:d1gkVwhDpl0C",
+            "citation_id": "X0qzPOIAAAAJ:d1gkVwhDpl0C",
+            "authors": "C So-In, R Jain, AK Al Tamimi",
+            "publication": "2009 2nd IFIP Wireless Days (WD), 1-5, 2009",
+            "cited_by": 91,
+            "year": "2009"
+        },
+        {
+            "title": "A survey of network traffic monitoring and analysis tools",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:zYLM7Y9cAGgC",
+            "citation_id": "X0qzPOIAAAAJ:zYLM7Y9cAGgC",
+            "authors": "C So-In",
+            "publication": "Cse 576m computer system analysis project, Washington University in St. Louis, 2009",
+            "cited_by": 81,
+            "year": "2009"
+        },
+        {
+            "title": "Efficient SDN-Based Traffic Monitoring in IoT Networks with Double Deep Q-Network",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:J-pR_7NvFogC",
+            "citation_id": "X0qzPOIAAAAJ:J-pR_7NvFogC",
+            "authors": "TG Nguyen, TV Phan, DT Hoang, TN Nguyen, C So-In",
+            "publication": "International conference on computational data and social networks, 26-38, 2020",
+            "cited_by": 71,
+            "year": "2020"
+        },
+        {
+            "title": "A hybrid localization model using node segmentation and improved particle swarm optimization with obstacle-awareness for wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:VOx2b1Wkg3QC",
+            "citation_id": "X0qzPOIAAAAJ:VOx2b1Wkg3QC",
+            "authors": "S Phoemphon, C So-In, N Leelathakul",
+            "publication": "Expert Systems with Applications 143, 113044, 2020",
+            "cited_by": 69,
+            "year": "2020"
+        },
+        {
+            "title": "Modeling and resource allocation for mobile video over WiMAX broadband wireless networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:qjMakFHDy7sC",
+            "citation_id": "X0qzPOIAAAAJ:qjMakFHDy7sC",
+            "authors": "AK Al Tamimi, C So-In, R Jain",
+            "publication": "IEEE Journal on Selected Areas in Communications 28 (3), 354-365, 2010",
+            "cited_by": 68,
+            "year": "2010"
+        },
+        {
+            "title": "Federated deep reinforcement learning for traffic monitoring in SDN-based IoT networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:_B80troHkn4C",
+            "citation_id": "X0qzPOIAAAAJ:_B80troHkn4C",
+            "authors": "TG Nguyen, TV Phan, DT Hoang, TN Nguyen, C So-In",
+            "publication": "IEEE Transactions on Cognitive Communications and Networking 7 (4), 1048-1065, 2021",
+            "cited_by": 66,
+            "year": "2021"
+        },
+        {
+            "title": "Secrecy performance analysis of energy harvesting wireless sensor networks with a friendly jammer",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:fPk4N6BV_jEC",
+            "citation_id": "X0qzPOIAAAAJ:fPk4N6BV_jEC",
+            "authors": "TG Nguyen, C So-In, DB Ha",
+            "publication": "IEEE Access 5, 25196-25206, 2017",
+            "cited_by": 64,
+            "year": "2017"
+        },
+        {
+            "title": "A hybrid mobile environmental and population density management system for smart poultry farms",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:3fE2CSJIrl8C",
+            "citation_id": "X0qzPOIAAAAJ:3fE2CSJIrl8C",
+            "authors": "C So-In, S Poolsanguan, K Rujirakul",
+            "publication": "Computers and Electronics in Agriculture 109, 287-301, 2014",
+            "cited_by": 62,
+            "year": "2014"
+        },
+        {
+            "title": "Secrecy outage performance analysis for energy harvesting sensor networks with a jammer using relay selection strategy",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:pyW8ca7W8N0C",
+            "citation_id": "X0qzPOIAAAAJ:pyW8ca7W8N0C",
+            "authors": "TG Nguyen, C So-In, ZA Baig, S Sanguanpong",
+            "publication": "IEEE Access 6, 23406-23419, 2018",
+            "cited_by": 61,
+            "year": "2018"
+        },
+        {
+            "title": "Fuzzy weighted centroid localization with virtual node approximation in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:a0OBvERweLwC",
+            "citation_id": "X0qzPOIAAAAJ:a0OBvERweLwC",
+            "authors": "S Phoemphon, C So-In, N Leelathakul",
+            "publication": "IEEE Internet of Things Journal 5 (6), 4728-4752, 2018",
+            "cited_by": 61,
+            "year": "2018"
+        },
+        {
+            "title": "An evaluation of data mining classification models for network intrusion detection",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:WF5omc3nYNoC",
+            "citation_id": "X0qzPOIAAAAJ:WF5omc3nYNoC",
+            "authors": "C So-In, N Mongkonchai, P Aimtongkham, K Wijitsopon, K Rujirakul",
+            "publication": "2014 fourth international conference on digital information and …, 2014",
+            "cited_by": 52,
+            "year": "2014"
+        },
+        {
+            "title": "Soft computing-based localizations in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:0EnyYjriUFMC",
+            "citation_id": "X0qzPOIAAAAJ:0EnyYjriUFMC",
+            "authors": "C So-In, S Permpol, K Rujirakul",
+            "publication": "Pervasive and Mobile Computing 29, 17-37, 2016",
+            "cited_by": 49,
+            "year": "2016"
+        },
+        {
+            "title": "An enhanced deep learning neural network for the detection and identification of android malware",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:ZfRJV9d4-WMC",
+            "citation_id": "X0qzPOIAAAAJ:ZfRJV9d4-WMC",
+            "authors": "P Musikawan, Y Kongsorot, I You, C So-In",
+            "publication": "IEEE Internet of Things Journal 10 (10), 8560-8577, 2022",
+            "cited_by": 46,
+            "year": "2022"
+        },
+        {
+            "title": "Two energy-efficient cluster head selection techniques based on distance for wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:ULOm3_A8WrAC",
+            "citation_id": "X0qzPOIAAAAJ:ULOm3_A8WrAC",
+            "authors": "TG Nguyen, C So-In, NG Nguyen",
+            "publication": "2014 international computer science and engineering conference (ICSEC), 33-38, 2014",
+            "cited_by": 46,
+            "year": "2014"
+        },
+        {
+            "title": "Capacity estimation and TCP performance enhancement over mobile WiMAX networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:IjCSPb-OGe4C",
+            "citation_id": "X0qzPOIAAAAJ:IjCSPb-OGe4C",
+            "authors": "BH Kim, J Yun, Y Hur, C So-In, R Jain",
+            "publication": "IEEE Communications Magazine 47 (6), 132-141, 2009",
+            "cited_by": 46,
+            "year": "2009"
+        },
+        {
+            "title": "OCSA: An algorithm for burst mapping in IEEE 802.16 e mobile WiMAX networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:UeHWp8X0CEIC",
+            "citation_id": "X0qzPOIAAAAJ:UeHWp8X0CEIC",
+            "authors": "C So-In, R Jain, AK Al Tamimi",
+            "publication": "2009 15th Asia-Pacific Conference on Communications, 52-58, 2009",
+            "cited_by": 45,
+            "year": "2009"
+        },
+        {
+            "title": "An energy-efficient fuzzy-based scheme for unequal multihop clustering in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:q3oQSFYPqjQC",
+            "citation_id": "X0qzPOIAAAAJ:q3oQSFYPqjQC",
+            "authors": "S Phoemphon, C So-In, P Aimtongkham, TG Nguyen",
+            "publication": "Journal of Ambient Intelligence and Humanized Computing 12 (1), 873-895, 2021",
+            "cited_by": 44,
+            "year": "2021"
+        },
+        {
+            "title": "Enhanced forward explicit congestion notification (E-FECN) scheme for datacenter Ethernet networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:Y0pCki6q_DkC",
+            "citation_id": "X0qzPOIAAAAJ:Y0pCki6q_DkC",
+            "authors": "C So-In, R Jain, J Jiang",
+            "publication": "2008 international symposium on performance evaluation of computer and …, 2008",
+            "cited_by": 43,
+            "year": "2008"
+        },
+        {
+            "title": "Improved distance estimation with node selection localization and particle swarm optimization for obstacle-aware wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:olpn-zPbct0C",
+            "citation_id": "X0qzPOIAAAAJ:olpn-zPbct0C",
+            "authors": "S Phoemphon, C So-In, N Leelathakul",
+            "publication": "Expert Systems with Applications 175, 114773, 2021",
+            "cited_by": 41,
+            "year": "2021"
+        },
+        {
+            "title": "Performance Analysis of DF/AF Cooperative MISO Wireless Sensor Networks With NOMA and SWIPT Over Nakagami- Fading",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:nb7KW1ujOQ8C",
+            "citation_id": "X0qzPOIAAAAJ:nb7KW1ujOQ8C",
+            "authors": "DD Tran, DB Ha, C So-In, H Tran, TG Nguyen, ZA Baig, S Sanguanpong",
+            "publication": "IEEE access 6, 56142-56161, 2018",
+            "cited_by": 41,
+            "year": "2018"
+        },
+        {
+            "title": "Barrier coverage deployment algorithms for mobile sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:cFHS6HbyZ2cC",
+            "citation_id": "X0qzPOIAAAAJ:cFHS6HbyZ2cC",
+            "authors": "TG Nguyen, C So-In, NG Nguyen",
+            "publication": "網際網路技術學刊 18 (7), 1689-1699, 2017",
+            "cited_by": 41,
+            "year": "2017"
+        },
+        {
+            "title": "Optimized hop angle relativity for DV-hop localization in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:XiSMed-E-HIC",
+            "citation_id": "X0qzPOIAAAAJ:XiSMed-E-HIC",
+            "authors": "S Phoemphon, C So-In, N Leelathakul",
+            "publication": "IEEE Access 6, 78149-78172, 2018",
+            "cited_by": 38,
+            "year": "2018"
+        },
+        {
+            "title": "A novel energy-efficient clustering protocol with area coverage awareness for wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:2P1L_qKh6hAC",
+            "citation_id": "X0qzPOIAAAAJ:2P1L_qKh6hAC",
+            "authors": "TG Nguyen, C So-In, NG Nguyen, S Phoemphon",
+            "publication": "Peer-to-Peer Networking and Applications 10, 519-536, 2017",
+            "cited_by": 36,
+            "year": "2017"
+        },
+        {
+            "title": "Distributed image compression architecture over wireless multimedia sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:4OULZ7Gr8RgC",
+            "citation_id": "X0qzPOIAAAAJ:4OULZ7Gr8RgC",
+            "authors": "S Heng, C So-In, TG Nguyen",
+            "publication": "Wireless Communications and Mobile Computing 2017 (1), 5471721, 2017",
+            "cited_by": 35,
+            "year": "2017"
+        },
+        {
+            "title": "Performance analysis and optimization for IoT mobile edge computing networks with RF energy harvesting and UAV relaying",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:ye4kPcJQO24C",
+            "citation_id": "X0qzPOIAAAAJ:ye4kPcJQO24C",
+            "authors": "AN Nguyen, DB Ha, VT Truong, DT Do, C So-In",
+            "publication": "IEEE Access 10, 21526-21540, 2022",
+            "cited_by": 33,
+            "year": "2022"
+        },
+        {
+            "title": "Parallel KNN and neighborhood classification implementations on GPU for network intrusion detection",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:R3hNpaxXUhUC",
+            "citation_id": "X0qzPOIAAAAJ:R3hNpaxXUhUC",
+            "authors": "P Kuttranont, K Boonprakob, C Phaudphut, S Permpol, ...",
+            "publication": "Journal of Telecommunication, Electronic and Computer Engineering (JTEC) 9 …, 2017",
+            "cited_by": 33,
+            "year": "2017"
+        },
+        {
+            "title": "A scheduler for unsolicited grant service (UGS) in IEEE 802.16 e mobile WiMAX networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:Tyk-4Ss8FVUC",
+            "citation_id": "X0qzPOIAAAAJ:Tyk-4Ss8FVUC",
+            "authors": "C So-In, R Jain, AK Al-Tamimi",
+            "publication": "IEEE Systems Journal 4 (4), 487-494, 2010",
+            "cited_by": 33,
+            "year": "2010"
+        },
+        {
+            "title": "An explicit rate control framework for lossless ethernet operation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:W7OEmFMy1HYC",
+            "citation_id": "X0qzPOIAAAAJ:W7OEmFMy1HYC",
+            "authors": "J Jiang, R Jain, C So-In",
+            "publication": "2008 ieee international conference on communications, 5914-5918, 2008",
+            "cited_by": 33,
+            "year": "2008"
+        },
+        {
+            "title": "System Performance Analysis for an Energy Harvesting IoT System Using a DF/AF UAV-Enabled Relay with Downlink NOMA under Nakagami-m Fading",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:5ugPr518TE4C",
+            "citation_id": "X0qzPOIAAAAJ:5ugPr518TE4C",
+            "authors": "AN Nguyen, VN Vo, C So-In, DB Ha",
+            "publication": "Sensors 21 (1), 285, 2021",
+            "cited_by": 32,
+            "year": "2021"
+        },
+        {
+            "title": "An efficient coverage hole-healing algorithm for area-coverage improvements in mobile sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:EUQCXRtRnyEC",
+            "citation_id": "X0qzPOIAAAAJ:EUQCXRtRnyEC",
+            "authors": "C So-In, TG Nguyen, NG Nguyen",
+            "publication": "Peer-to-Peer Networking and Applications 12, 541-552, 2019",
+            "cited_by": 32,
+            "year": "2019"
+        },
+        {
+            "title": "Congestion control and prediction schemes using Fuzzy logic system with adaptive membership function in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:_xSYboBqXhAC",
+            "citation_id": "X0qzPOIAAAAJ:_xSYboBqXhAC",
+            "authors": "P Aimtongkham, TG Nguyen, C So-In",
+            "publication": "Wireless Communications and Mobile Computing 2018 (1), 6421717, 2018",
+            "cited_by": 32,
+            "year": "2018"
+        },
+        {
+            "title": "A novel IoT authorization architecture on hyperledger fabric with optimal consensus using genetic algorithm",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:SP6oXDckpogC",
+            "citation_id": "X0qzPOIAAAAJ:SP6oXDckpogC",
+            "authors": "N Klaokliang, P Teawtim, P Aimtongkham, C So-In, A Niruntasukrat",
+            "publication": "2018 Seventh ICT International Student Project Conference (ICT-ISPC), 1-5, 2018",
+            "cited_by": 31,
+            "year": "2018"
+        },
+        {
+            "title": "Histogram equalized deep PCA with ELM classification for expressive face recognition",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:yD5IFk8b50cC",
+            "citation_id": "X0qzPOIAAAAJ:yD5IFk8b50cC",
+            "authors": "K Rujirakul, C So-In",
+            "publication": "2018 international workshop on advanced image technology (IWAIT), 1-4, 2018",
+            "cited_by": 31,
+            "year": "2018"
+        },
+        {
+            "title": "On the System Performance of Mobile Edge Computing in an Uplink NOMA WSN With a Multiantenna Access Point Over Nakagami- Fading",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:ZuybSZzF8UAC",
+            "citation_id": "X0qzPOIAAAAJ:ZuybSZzF8UAC",
+            "authors": "VT Truong, DB Ha, C So-In",
+            "publication": "IEEE/CAA Journal of Automatica Sinica 9 (4), 668-685, 2022",
+            "cited_by": 30,
+            "year": "2022"
+        },
+        {
+            "title": "Outage performance analysis of energy harvesting wireless sensor networks for NOMA transmissions",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:WbkHhVStYXYC",
+            "citation_id": "X0qzPOIAAAAJ:WbkHhVStYXYC",
+            "authors": "VN Vo, TG Nguyen, C So-In, H Tran",
+            "publication": "Mobile networks and Applications 25, 23-41, 2020",
+            "cited_by": 30,
+            "year": "2020"
+        },
+        {
+            "title": "Virtual id: a technique for mobility, multi-homing, and location privacy in next generation wireless networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:Se3iqnhoufwC",
+            "citation_id": "X0qzPOIAAAAJ:Se3iqnhoufwC",
+            "authors": "C So-In, R Jain, S Paul, J Pan",
+            "publication": "2010 7th IEEE Consumer Communications and Networking Conference, 1-5, 2010",
+            "cited_by": 30,
+            "year": "2010"
+        },
+        {
+            "title": "On security and throughput for energy harvesting untrusted relays in IoT systems using NOMA",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:fQNAKQ3IYiAC",
+            "citation_id": "X0qzPOIAAAAJ:fQNAKQ3IYiAC",
+            "authors": "C So-In, H Tran, DD Tran, S Heng, P Aimtongkham, AN Nguyen",
+            "publication": "IEEE Access 7, 149341-149354, 2019",
+            "cited_by": 29,
+            "year": "2019"
+        },
+        {
+            "title": "Resource allocation in IEEE 802.16 mobile WiMAX",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:UebtZRa9Y70C",
+            "citation_id": "X0qzPOIAAAAJ:UebtZRa9Y70C",
+            "authors": "C So-In, R Jain, AK Al-Tamimi",
+            "publication": "Orthogonal Frequency Division Multiple Access Fundamentals and Applications 189, 2010",
+            "cited_by": 28,
+            "year": "2010"
+        },
+        {
+            "title": "A deficit round robin with fragmentation scheduler for IEEE 802.16 e mobile WiMAX",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:YsMSGLbcyi4C",
+            "citation_id": "X0qzPOIAAAAJ:YsMSGLbcyi4C",
+            "authors": "C So-In, R Jain, AK Tamimi",
+            "publication": "2009 IEEE Sarnoff Symposium, 1-7, 2009",
+            "cited_by": 28,
+            "year": "2009"
+        },
+        {
+            "title": "Optimal system performance in multihop energy harvesting WSNs using cooperative NOMA and friendly jammers",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:5Ul4iDaHHb8C",
+            "citation_id": "X0qzPOIAAAAJ:5Ul4iDaHHb8C",
+            "authors": "C So-In, DD Tran, H Tran",
+            "publication": "IEEE Access 7, 125494-125510, 2019",
+            "cited_by": 26,
+            "year": "2019"
+        },
+        {
+            "title": "Future wireless networks: key issues and a survey (ID/locator split perspective)",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:eQOLeE2rZwMC",
+            "citation_id": "X0qzPOIAAAAJ:eQOLeE2rZwMC",
+            "authors": "C So-In, R Jain, S Paul, J Pan",
+            "publication": "International Journal of Communication Networks and Distributed Systems 8 (1 …, 2012",
+            "cited_by": 26,
+            "year": "2012"
+        },
+        {
+            "title": "An enhanced wireless sensor network localization scheme for radio irregularity models using hybrid fuzzy deep extreme learning machines",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:YFjsv_pBGBYC",
+            "citation_id": "X0qzPOIAAAAJ:YFjsv_pBGBYC",
+            "authors": "S Phoemphon, C So-In, TG Nguyen",
+            "publication": "Wireless networks 24, 799-819, 2018",
+            "cited_by": 25,
+            "year": "2018"
+        },
+        {
+            "title": "Mobile animal tracking systems using light sensor for efficient power and cost saving motion detection",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:_kc_bZDykSQC",
+            "citation_id": "X0qzPOIAAAAJ:_kc_bZDykSQC",
+            "authors": "C So-In, C Phaudphut, S Tesana, N Weeramongkonlert, K Wijitsopon, ...",
+            "publication": "2012 8th International Symposium on Communication Systems, Networks …, 2012",
+            "cited_by": 25,
+            "year": "2012"
+        },
+        {
+            "title": "Distributed deployment algorithm for barrier coverage in mobile sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:D03iK_w7-QYC",
+            "citation_id": "X0qzPOIAAAAJ:D03iK_w7-QYC",
+            "authors": "TG Nguyen, C So-In",
+            "publication": "IEEE Access 6, 21042-21052, 2018",
+            "cited_by": 24,
+            "year": "2018"
+        },
+        {
+            "title": "An enhanced obstacle-aware deployment scheme with an opposition-based competitive swarm optimizer for mobile WSNs",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:9vf0nzSNQJEC",
+            "citation_id": "X0qzPOIAAAAJ:9vf0nzSNQJEC",
+            "authors": "P Musikawan, Y Kongsorot, P Muneesawang, C So-In",
+            "publication": "Expert Systems with Applications 189, 116035, 2022",
+            "cited_by": 23,
+            "year": "2022"
+        },
+        {
+            "title": "Performance analysis of an energy-harvesting IoT system using a UAV friendly jammer and NOMA under cooperative attack",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:V3AGJWp-ZtQC",
+            "citation_id": "X0qzPOIAAAAJ:V3AGJWp-ZtQC",
+            "authors": "C So-In, H Tran, DD Tran, TP Huu",
+            "publication": "IEEE Access 8, 221986-222000, 2020",
+            "cited_by": 23,
+            "year": "2020"
+        },
+        {
+            "title": "Modeling and prediction of high defninition video traffic: A real-world case study",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:hqOjcs7Dif8C",
+            "citation_id": "X0qzPOIAAAAJ:hqOjcs7Dif8C",
+            "authors": "AK Al Tamimi, R Jain, C So-In",
+            "publication": "2010 Second International Conferences on Advances in Multimedia, 168-173, 2010",
+            "cited_by": 23,
+            "year": "2010"
+        },
+        {
+            "title": "Secrecy performance analysis for fixed-gain energy harvesting in an Internet of Things with untrusted relays",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:b0M2c_1WBrUC",
+            "citation_id": "X0qzPOIAAAAJ:b0M2c_1WBrUC",
+            "authors": "DD Tran, C So-In, H Tran",
+            "publication": "IEEE Access 6, 48247-48258, 2018",
+            "cited_by": 22,
+            "year": "2018"
+        },
+        {
+            "title": "PEM‐PCA: A Parallel Expectation‐Maximization PCA Face Recognition Architecture",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:KlAtU1dfN6UC",
+            "citation_id": "X0qzPOIAAAAJ:KlAtU1dfN6UC",
+            "authors": "K Rujirakul, C So-In, B Arnonkijpanich",
+            "publication": "The Scientific World Journal 2014 (1), 468176, 2014",
+            "cited_by": 22,
+            "year": "2014"
+        },
+        {
+            "title": "Modeling and generation of AVC and SVC-TS mobile video traces for broadband access networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:roLk4NBRz8UC",
+            "citation_id": "X0qzPOIAAAAJ:roLk4NBRz8UC",
+            "authors": "AK Al Tamimi, R Jain, C So-In",
+            "publication": "Proceedings of the first annual ACM SIGMM conference on Multimedia systems …, 2010",
+            "cited_by": 22,
+            "year": "2010"
+        },
+        {
+            "title": "Outage probability minimization in secure NOMA cognitive radio systems with UAV relay: a machine learning approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:evX43VCCuoAC",
+            "citation_id": "X0qzPOIAAAAJ:evX43VCCuoAC",
+            "authors": "H Tran, VH Dang, D Niyato, DN Cuong, NC Luong, C So-In",
+            "publication": "IEEE Transactions on Cognitive Communications and Networking 9 (2), 435-451, 2022",
+            "cited_by": 21,
+            "year": "2022"
+        },
+        {
+            "title": "Throughput optimization for noma energy harvesting cognitive radio with multi-UAV-assisted relaying under security constraints",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:2KloaMYe4IUC",
+            "citation_id": "X0qzPOIAAAAJ:2KloaMYe4IUC",
+            "authors": "VH Dang, H Tran, TD Ho, C So-In, S Sanguanpong",
+            "publication": "IEEE Transactions on Cognitive Communications and Networking 9 (1), 82-98, 2022",
+            "cited_by": 21,
+            "year": "2022"
+        },
+        {
+            "title": "A novel cloud architecture for internet of space things (IoST)",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:eq2jaN3J8jMC",
+            "citation_id": "X0qzPOIAAAAJ:eq2jaN3J8jMC",
+            "authors": "I Priyadarshini, B Bhola, R Kumar, C So-In",
+            "publication": "Ieee Access 10, 15118-15134, 2022",
+            "cited_by": 20,
+            "year": "2022"
+        },
+        {
+            "title": "PFP-PCA: parallel fixed point PCA face recognition",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:kNdYIx-mwKoC",
+            "citation_id": "X0qzPOIAAAAJ:kNdYIx-mwKoC",
+            "authors": "K Rujirakul, C So-In, B Arnonkijpanich, K Sunat, S Poolsanguan",
+            "publication": "2013 4th International Conference on Intelligent Systems, Modelling and …, 2013",
+            "cited_by": 20,
+            "year": "2013"
+        },
+        {
+            "title": "Dynamic resource allocation based on online traffic prediction for video streams",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:MXK_kJrjxJIC",
+            "citation_id": "X0qzPOIAAAAJ:MXK_kJrjxJIC",
+            "authors": "AK Al-Tamimi, R Jain, C So-In",
+            "publication": "2010 IEEE 4th International Conference on Internet Multimedia Services …, 2010",
+            "cited_by": 20,
+            "year": "2010"
+        },
+        {
+            "title": "SAM: A simplified seasonal ARIMA model for mobile video over wireless broadband networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:_FxGoFyzp5QC",
+            "citation_id": "X0qzPOIAAAAJ:_FxGoFyzp5QC",
+            "authors": "AK Al Tamimi, R Jain, C So-In",
+            "publication": "2008 Tenth IEEE International Symposium on Multimedia, 178-183, 2008",
+            "cited_by": 20,
+            "year": "2008"
+        },
+        {
+            "title": "Fuzzy logic-based path planning for data gathering mobile sinks in WSNs",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:AXPGKjj_ei8C",
+            "citation_id": "X0qzPOIAAAAJ:AXPGKjj_ei8C",
+            "authors": "C Punriboon, C So-In, P Aimtongkham, N Leelathakul",
+            "publication": "IEEE Access 9, 96002-96020, 2021",
+            "cited_by": 19,
+            "year": "2021"
+        },
+        {
+            "title": "Physical layer security in cognitive radio networks for IoT using UAV with reconfigurable intelligent surfaces",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:tkaPQYYpVKoC",
+            "citation_id": "X0qzPOIAAAAJ:tkaPQYYpVKoC",
+            "authors": "NQ Long, VH Dang, C So-In, AN Nguyen, H Tran",
+            "publication": "2021 18th international joint conference on computer science and software …, 2021",
+            "cited_by": 19,
+            "year": "2021"
+        },
+        {
+            "title": "Generalized weighted fairness and its application for resource allocation in IEEE 802.16 e mobile WiMAX",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:LkGwnXOMwfcC",
+            "citation_id": "X0qzPOIAAAAJ:LkGwnXOMwfcC",
+            "authors": "C So-In, R Jain, AK Al Tamimi",
+            "publication": "2010 The 2nd International Conference on Computer and Automation Engineering …, 2010",
+            "cited_by": 19,
+            "year": "2010"
+        },
+        {
+            "title": "Development of an internet-of-healthcare system using blockchain",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:PELIpwtuRlgC",
+            "citation_id": "X0qzPOIAAAAJ:PELIpwtuRlgC",
+            "authors": "S Yongjoh, C So-In, P Kompunt, P Muneesawang, RI Morien",
+            "publication": "IEEE Access 9, 113017-113031, 2021",
+            "cited_by": 18,
+            "year": "2021"
+        },
+        {
+            "title": "A novel web caching scheme using hybrid least frequently used and support vector machine",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:SeFeTyx0c_EC",
+            "citation_id": "X0qzPOIAAAAJ:SeFeTyx0c_EC",
+            "authors": "P Aimtongkham, C So-In, S Sanguanpong",
+            "publication": "2016 13th International Joint Conference on Computer Science and Software …, 2016",
+            "cited_by": 18,
+            "year": "2016"
+        },
+        {
+            "title": "Flood warning and management schemes with drone emulator using ultrasonic and image processing",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:4DMP91E08xMC",
+            "citation_id": "X0qzPOIAAAAJ:4DMP91E08xMC",
+            "authors": "B Srikudkao, T Khundate, C So-In, P Horkaew, C Phaudphut, K Rujirakul",
+            "publication": "Recent Advances in Information and Communication Technology 2015 …, 2015",
+            "cited_by": 18,
+            "year": "2015"
+        },
+        {
+            "title": "Performance evaluation of LEACH on cluster head selection techniques in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:Zph67rFs4hoC",
+            "citation_id": "X0qzPOIAAAAJ:Zph67rFs4hoC",
+            "authors": "C So-In, K Udompongsuk, C Phudphut, K Rujirakul, C Khunboa",
+            "publication": "The 9th International Conference on Computing and InformationTechnology …, 2013",
+            "cited_by": 18,
+            "year": "2013"
+        },
+        {
+            "title": "On secure wireless sensor networks with cooperative energy harvesting relaying",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:LPZeul_q3PIC",
+            "citation_id": "X0qzPOIAAAAJ:LPZeul_q3PIC",
+            "authors": "AN Nguyen, C So-In, DB Ha, S Sanguanpong, ZA Baig",
+            "publication": "IEEE Access 7, 139212-139225, 2019",
+            "cited_by": 17,
+            "year": "2019"
+        },
+        {
+            "title": "Smart mobile poultry farming systems in Tmote sky WSNs",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:qxL8FJ1GzNcC",
+            "citation_id": "X0qzPOIAAAAJ:qxL8FJ1GzNcC",
+            "authors": "C So-In, S Poolsanguan, C Poonriboon, K Rujirakul, Y Phasuk, T Haitook",
+            "publication": "International Journal Of Digital Content Technology And Its Applications 7 …, 2013",
+            "cited_by": 17,
+            "year": "2013"
+        },
+        {
+            "title": "Multistage fuzzy logic congestion-aware routing using dual-stage notification and the relative barring distance in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:1qzjygNMrQYC",
+            "citation_id": "X0qzPOIAAAAJ:1qzjygNMrQYC",
+            "authors": "P Aimtongkham, P Horkaew, C So-In",
+            "publication": "Wireless Networks 27 (2), 1287-1308, 2021",
+            "cited_by": 16,
+            "year": "2021"
+        },
+        {
+            "title": "A parallel probabilistic neural network ECG recognition architecture over GPU platforms",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:JV2RwH3_ST0C",
+            "citation_id": "X0qzPOIAAAAJ:JV2RwH3_ST0C",
+            "authors": "C Phaudphut, C So-In, W Phusomsai",
+            "publication": "2016 13th International Joint Conference on Computer Science and Software …, 2016",
+            "cited_by": 16,
+            "year": "2016"
+        },
+        {
+            "title": "Real-time ECG noise reduction with QRS complex detection for mobile health services",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:7PzlFSSx8tAC",
+            "citation_id": "X0qzPOIAAAAJ:7PzlFSSx8tAC",
+            "authors": "C So-In, C Phaudphut, K Rujirakul",
+            "publication": "Arabian Journal for Science and Engineering 40, 2503-2514, 2015",
+            "cited_by": 16,
+            "year": "2015"
+        },
+        {
+            "title": "Secrecy performance analysis and optimization for UAV-relay-enabled WPT and cooperative NOMA MEC in IoT networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:uc_IGeMz5qoC",
+            "citation_id": "X0qzPOIAAAAJ:uc_IGeMz5qoC",
+            "authors": "AN Nguyen, DB Ha, T Van Truong, S Sanguanpong, C So-In",
+            "publication": "IEEE Access 11, 127800-127816, 2023",
+            "cited_by": 15,
+            "year": "2023"
+        },
+        {
+            "title": "Investigation on security risk of LoRaWAN: Compatibility scenarios",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:tzM49s52ZIMC",
+            "citation_id": "X0qzPOIAAAAJ:tzM49s52ZIMC",
+            "authors": "S Loukil, LC Fourati, A Nayyar, C So-In",
+            "publication": "IEEE Access 10, 101825-101843, 2022",
+            "cited_by": 15,
+            "year": "2022"
+        },
+        {
+            "title": "Enhanced intrusion detection system for an EH IoT architecture using a cooperative UAV relay and friendly UAV jammer",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:JoZmwDi-zQgC",
+            "citation_id": "X0qzPOIAAAAJ:JoZmwDi-zQgC",
+            "authors": "H Tran, C So-In",
+            "publication": "IEEE/CAA Journal of Automatica Sinica 8 (11), 1786-1799, 2021",
+            "cited_by": 15,
+            "year": "2021"
+        },
+        {
+            "title": "Performance analysis in UAV-enabled relay with NOMA under Nakagami-m fading considering adaptive power splitting",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:Y5dfb0dijaUC",
+            "citation_id": "X0qzPOIAAAAJ:Y5dfb0dijaUC",
+            "authors": "AN Nguyen, C So-In, DB Ha, VT Truong",
+            "publication": "2021 18th International Joint Conference on Computer Science and Software …, 2021",
+            "cited_by": 14,
+            "year": "2021"
+        },
+        {
+            "title": "An enhanced CoAP scheme using fuzzy logic with adaptive timeout for IoT congestion control",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:WA5NYHcadZ8C",
+            "citation_id": "X0qzPOIAAAAJ:WA5NYHcadZ8C",
+            "authors": "P Aimtongkham, P Horkaew, C So-In",
+            "publication": "IEEE Access 9, 58967-58981, 2021",
+            "cited_by": 14,
+            "year": "2021"
+        },
+        {
+            "title": "Enhanced DDoS detection using hybrid genetic algorithm and decision tree for SDN",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:eJXPG6dFmWUC",
+            "citation_id": "X0qzPOIAAAAJ:eJXPG6dFmWUC",
+            "authors": "P Preamthaisong, A Auyporntrakool, P Aimtongkham, T Sriwuttisap, ...",
+            "publication": "2019 16th International Joint Conference on Computer Science and Software …, 2019",
+            "cited_by": 14,
+            "year": "2019"
+        },
+        {
+            "title": "Hybrid fuzzy centroid with MDV-Hop BAT localization algorithms in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:M3ejUd6NZC8C",
+            "citation_id": "X0qzPOIAAAAJ:M3ejUd6NZC8C",
+            "authors": "C So-In, W Katekaew",
+            "publication": "International Journal of Distributed Sensor Networks 11 (10), 894560, 2015",
+            "cited_by": 14,
+            "year": "2015"
+        },
+        {
+            "title": "PETS: persistent TCP using simple freeze",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:5nxA0vEk-isC",
+            "citation_id": "X0qzPOIAAAAJ:5nxA0vEk-isC",
+            "authors": "C So-In, R Jain, G Dommety",
+            "publication": "2009 First International Conference on Future Information Networks, 97-102, 2009",
+            "cited_by": 14,
+            "year": "2009"
+        },
+        {
+            "title": "MAP: An optimized energy-efficient cluster header selection technique for wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:YOwf2qJgpHMC",
+            "citation_id": "X0qzPOIAAAAJ:YOwf2qJgpHMC",
+            "authors": "K Udompongsuk, C So-In, C Phaudphut, K Rujirakul, C Soomlek, ...",
+            "publication": "Advances in Computer Science and its Applications: CSA 2013, 191-199, 2014",
+            "cited_by": 13,
+            "year": "2014"
+        },
+        {
+            "title": "Blockchain-based traceability system for product recall",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:_Re3VWB3Y0AC",
+            "citation_id": "X0qzPOIAAAAJ:_Re3VWB3Y0AC",
+            "authors": "S Kravenkit, C So-In",
+            "publication": "IEEE Access 10, 95132-95150, 2022",
+            "cited_by": 12,
+            "year": "2022"
+        },
+        {
+            "title": "Throughput analysis and optimization for NOMA Multi-UAV assisted disaster communication using CMA-ES",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:dTyEYWd-f8wC",
+            "citation_id": "X0qzPOIAAAAJ:dTyEYWd-f8wC",
+            "authors": "LMD Nguyen, VN Vo, C So-In, VH Dang",
+            "publication": "Wireless Networks 27 (7), 4889-4902, 2021",
+            "cited_by": 11,
+            "year": "2021"
+        },
+        {
+            "title": "On communication performance in energy harvesting WSNs under a cooperative jamming attack",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:D_sINldO8mEC",
+            "citation_id": "X0qzPOIAAAAJ:D_sINldO8mEC",
+            "authors": "H Tran, VL Dao, C So-In, DD Tran, E Uhlemann",
+            "publication": "IEEE Systems Journal 14 (4), 4955-4966, 2020",
+            "cited_by": 11,
+            "year": "2020"
+        },
+        {
+            "title": "Using backpropagation neural networks for flood forecasting in PhraNakhon Si Ayutthaya, Thailand",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:-f6ydRqryjwC",
+            "citation_id": "X0qzPOIAAAAJ:-f6ydRqryjwC",
+            "authors": "C Soomlek, N Kaewchainam, T Simano, C So-In",
+            "publication": "2015 International Computer Science and Engineering Conference (ICSEC), 1-6, 2015",
+            "cited_by": 11,
+            "year": "2015"
+        },
+        {
+            "title": "An efficient distributed algorithm for target-coverage preservation in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:mvPsJ3kp5DgC",
+            "citation_id": "X0qzPOIAAAAJ:mvPsJ3kp5DgC",
+            "authors": "TG Nguyen, TV Phan, HH Nguyen, P Aimtongkham, C So-In",
+            "publication": "Peer-to-Peer Networking and Applications 14, 453-466, 2021",
+            "cited_by": 10,
+            "year": "2021"
+        },
+        {
+            "title": "Fuzzy logic rate adjustment controls using a circuit breaker for persistent congestion in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:eflP2zaiRacC",
+            "citation_id": "X0qzPOIAAAAJ:eflP2zaiRacC",
+            "authors": "P Aimtongkham, S Heng, P Horkaew, TG Nguyen, C So-In",
+            "publication": "Wireless Networks 26, 3603-3627, 2020",
+            "cited_by": 10,
+            "year": "2020"
+        },
+        {
+            "title": "A Bio-Inspired Capacitated Vehicle-Routing Problem Scheme Using Artificial Bee Colony with Crossover Optimizations.",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:BrmTIyaxlBUC",
+            "citation_id": "X0qzPOIAAAAJ:BrmTIyaxlBUC",
+            "authors": "C Punriboon, C So-In, P Aimtongkham, K Rujirakul",
+            "publication": "J. Internet Serv. Inf. Secur. 9 (3), 21-40, 2019",
+            "cited_by": 10,
+            "year": "2019"
+        },
+        {
+            "title": "Brain tumor cell recognition schemes using image processing with parallel ELM classifications on GPU",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:M05iB0D1s5AC",
+            "citation_id": "X0qzPOIAAAAJ:M05iB0D1s5AC",
+            "authors": "W Phusomsai, C So-In, C Phaudphut, C Thammasakorn, W Punjaruk",
+            "publication": "2016 13th International Joint Conference on Computer Science and Software …, 2016",
+            "cited_by": 10,
+            "year": "2016"
+        },
+        {
+            "title": "A policy oriented multi-interface selection framework for mobile IPv6 using the ID/locator split concepts in the next generation wireless networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:8k81kl-MbHgC",
+            "citation_id": "X0qzPOIAAAAJ:8k81kl-MbHgC",
+            "authors": "C So-In, R Jain, S Paul, J Pan",
+            "publication": "2010 The 2nd International Conference on Computer and Automation Engineering …, 2010",
+            "cited_by": 10,
+            "year": "2010"
+        },
+        {
+            "title": "An enhanced fuzzy-based clustering protocol with an improved shuffled frog leaping algorithm for WSNs",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:N5tVd3kTz84C",
+            "citation_id": "X0qzPOIAAAAJ:N5tVd3kTz84C",
+            "authors": "Y Kongsorot, P Musikawan, P Muneesawang, C So-In",
+            "publication": "Expert Systems with Applications 198, 116767, 2022",
+            "cited_by": 9,
+            "year": "2022"
+        },
+        {
+            "title": "Video steganography with LSB color detection",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:BqipwSGYUEgC",
+            "citation_id": "X0qzPOIAAAAJ:BqipwSGYUEgC",
+            "authors": "A Suttichaiya, Y Sombatkiripaiboon, P Imtongkhua, C Poonriboon, ...",
+            "publication": "Journal of Telecommunication, Electronic and Computer Engineering (JTEC) 9 …, 2017",
+            "cited_by": 9,
+            "year": "2017"
+        },
+        {
+            "title": "H-FCD: hybrid fuzzy centroid and DV-Hop localization algorithm in wireless sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:dhFuZR0502QC",
+            "citation_id": "X0qzPOIAAAAJ:dhFuZR0502QC",
+            "authors": "W Katekaew, C So-In, K Rujirakul, B Waikham",
+            "publication": "2014 5th International conference on intelligent systems, modelling and …, 2014",
+            "cited_by": 9,
+            "year": "2014"
+        },
+        {
+            "title": "Statistical analysis and modeling of high definition video traces",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:9ZlFYXVOiuMC",
+            "citation_id": "X0qzPOIAAAAJ:9ZlFYXVOiuMC",
+            "authors": "AK Al Tamimi, R Jain, C So-In",
+            "publication": "2010 IEEE International Conference on Multimedia and Expo, 596-601, 2010",
+            "cited_by": 9,
+            "year": "2010"
+        },
+        {
+            "title": "A two-phase ensemble-based method for predicting learners’ grade in MOOCs",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:-_dYPAW6P2MC",
+            "citation_id": "X0qzPOIAAAAJ:-_dYPAW6P2MC",
+            "authors": "W Wunnasri, P Musikawan, C So-In",
+            "publication": "Applied Sciences 13 (3), 1492, 2023",
+            "cited_by": 8,
+            "year": "2023"
+        },
+        {
+            "title": "On secrecy analysis of uav-enabled relaying noma systems with rf energy harvesting",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:hkOj_22Ku90C",
+            "citation_id": "X0qzPOIAAAAJ:hkOj_22Ku90C",
+            "authors": "AN Nguyen, DB Ha, VT Truong, C So-In, P Aimtongkham, ...",
+            "publication": "International Conference on Industrial Networks and Intelligent Systems, 267-281, 2022",
+            "cited_by": 8,
+            "year": "2022"
+        },
+        {
+            "title": "Fuzzy adaptive-sampling block compressed sensing for wireless multimedia sensor networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=X0qzPOIAAAAJ&pagesize=100&citation_for_view=X0qzPOIAAAAJ:kRWSkSYxWN8C",
+            "citation_id": "X0qzPOIAAAAJ:kRWSkSYxWN8C",
+            "authors": "S Heng, P Aimtongkham, VN Vo, TG Nguyen, C So-In",
+            "publication": "Sensors 20 (21), 6217, 2020",
+            "cited_by": 8,
+            "year": "2020"
+        }
+    ]
+}

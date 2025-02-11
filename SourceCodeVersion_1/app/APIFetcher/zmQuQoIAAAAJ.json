@@ -1,0 +1,181 @@
+{
+    "author_name": "Wachirawut Thamviset",
+    "interests": [
+        "Information Extraction",
+        "Web Mining",
+        "Computer Education"
+    ],
+    "articles": [
+        {
+            "title": "Information extraction for deep web using repetitive subject pattern",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:u-x6o8ySG0sC",
+            "citation_id": "zmQuQoIAAAAJ:u-x6o8ySG0sC",
+            "authors": "W Thamviset, S Wongthanavasu",
+            "publication": "World Wide Web 17 (5), 1109-1139, 2014",
+            "cited_by": 23,
+            "year": "2014"
+        },
+        {
+            "title": "A hybrid recommender system for improving rating prediction of movie recommendation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:HoB7MX3m0LUC",
+            "citation_id": "zmQuQoIAAAAJ:HoB7MX3m0LUC",
+            "authors": "N Kannikaklang, S Wongthanavasu, W Thamviset",
+            "publication": "2022 19th International Joint Conference on Computer Science and Software …, 2022",
+            "cited_by": 13,
+            "year": "2022"
+        },
+        {
+            "title": "Bottom-up region extractor for semi-structured web pages",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:qjMakFHDy7sC",
+            "citation_id": "zmQuQoIAAAAJ:qjMakFHDy7sC",
+            "authors": "W Thamviset, S Wongthanavasu",
+            "publication": "Computer Science and Engineering Conference (ICSEC), 2014 International, 284 …, 2014",
+            "cited_by": 8,
+            "year": "2014"
+        },
+        {
+            "title": "Structured web information extraction using repetitive subject pattern",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:u5HHmVD_uO8C",
+            "citation_id": "zmQuQoIAAAAJ:u5HHmVD_uO8C",
+            "authors": "W Thamviset, S Wongthanavasu",
+            "publication": "2012 9th International Conference on Electrical Engineering/Electronics …, 2012",
+            "cited_by": 8,
+            "year": "2012"
+        },
+        {
+            "title": "BiLSTCAN: A novel SRS-based bidirectional long short-term capsule attention network for dynamic user preference and next-item recommendation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:SeFeTyx0c_EC",
+            "citation_id": "zmQuQoIAAAAJ:SeFeTyx0c_EC",
+            "authors": "N Kannikaklang, W Thamviset, S Wongthanavasu",
+            "publication": "IEEE Access, 2024",
+            "cited_by": 6,
+            "year": "2024"
+        },
+        {
+            "title": "Brain Wave Pattern Recognition of Two-Task Imagination by Using Single-Electrode EEG",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:Y0pCki6q_DkC",
+            "citation_id": "zmQuQoIAAAAJ:Y0pCki6q_DkC",
+            "authors": "S Wannajam, W Thamviset",
+            "publication": "Recent Advances in Information and Communication Technology 2018 …, 2019",
+            "cited_by": 3,
+            "year": "2019"
+        },
+        {
+            "title": "BiHGCA: A Novel SRS-Based Bidirectional Hyperbolic Graph Capsule Co-Attention Network for User Preference Drift",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:ZHo1McVdvXMC",
+            "citation_id": "zmQuQoIAAAAJ:ZHo1McVdvXMC",
+            "authors": "N Kannikaklang, W Thamviset, S Wongthanavasu",
+            "publication": "IEEE Access, 2024",
+            "cited_by": 2,
+            "year": "2024"
+        },
+        {
+            "title": "BiGCAN: A novel SRS-based bidirectional graph Convolution Attention Network for dynamic user preference and next-item recommendation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:3s1wT3WcHBgC",
+            "citation_id": "zmQuQoIAAAAJ:3s1wT3WcHBgC",
+            "authors": "N Kannikaklang, W Thamviset, S Wongthanavasu",
+            "publication": "Expert Systems with Applications 265, 126016, 2025",
+            "cited_by": 1,
+            "year": "2025"
+        },
+        {
+            "title": "Automatic Unit Testing-Based Assessments for Online C++ Programming Classroom",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:pqnbT2bcN3wC",
+            "citation_id": "zmQuQoIAAAAJ:pqnbT2bcN3wC",
+            "authors": "W Thamviset",
+            "publication": "2022 19th International Joint Conference on Computer Science and Software …, 2022",
+            "cited_by": 1,
+            "year": "2022"
+        },
+        {
+            "title": "Supplement Products Data Extraction and Classification Using Web Mining",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:M05iB0D1s5AC",
+            "citation_id": "zmQuQoIAAAAJ:M05iB0D1s5AC",
+            "authors": "N Thongmaun, W Thamviset",
+            "publication": "Recent Advances in Information and Communication Technology 2020 …, 2020",
+            "cited_by": 1,
+            "year": "2020"
+        },
+        {
+            "title": "การ ประเมิน ผล สัมฤทธิ์ ใน การ ใช้ หลักสูตร ต้าน ทุจริต ศึกษา สำหรับ การ เรียน การ สอน ของ การ ศึกษา ขั้น พื้นฐาน และ อุดมศึกษา ของ ประเทศไทย",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:g5m5HwL7SMYC",
+            "citation_id": "zmQuQoIAAAAJ:g5m5HwL7SMYC",
+            "authors": "S Wongthanavasu, C Ruangthamsing, J Ketchatturat, W Thamviset",
+            "publication": "Journal of Modern Learning Development 7 (3), 83-99, 2022",
+            "cited_by": 0,
+            "year": "2022"
+        },
+        {
+            "title": "Smartphone Information Extraction and Integration from Web",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:ldfaerwXgEUC",
+            "citation_id": "zmQuQoIAAAAJ:ldfaerwXgEUC",
+            "authors": "S Khamsom, W Thamviset",
+            "publication": "Recent Advances in Information and Communication Technology 2020 …, 2020",
+            "cited_by": 0,
+            "year": "2020"
+        },
+        {
+            "title": "Augmented Reality Enhanced Learning in Phylum/Division Basidiomycota",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:Tyk-4Ss8FVUC",
+            "citation_id": "zmQuQoIAAAAJ:Tyk-4Ss8FVUC",
+            "authors": "NA Urachart Kokaew, Monlica Wattana, Wachirawut Thamviset, Sutita Faungfoo",
+            "publication": "The 4th International Conference for Science Educators and Teachers (ISET …, 2016",
+            "cited_by": 0,
+            "year": "2016"
+        },
+        {
+            "title": "Data Regions Extraction for Semi-Structured Web Pages Using Bottom-up Approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:zYLM7Y9cAGgC",
+            "citation_id": "zmQuQoIAAAAJ:zYLM7Y9cAGgC",
+            "authors": "W Thamviset",
+            "publication": "KKU Research Journal (Graduate Studies) 14 (4), 1-16, 2014",
+            "cited_by": 0,
+            "year": "2014"
+        },
+        {
+            "title": "An Integrated Training Environment for Introduction to Programming",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:d1gkVwhDpl0C",
+            "citation_id": "zmQuQoIAAAAJ:d1gkVwhDpl0C",
+            "authors": "วชิราวุธ ธรรมวิเศษ, อุรฉัตร โคแก้ว",
+            "publication": "2nd Conference on Application Research and Development (ECTI-CARD 2010), 75 - 80, 2010",
+            "cited_by": 0,
+            "year": "2010"
+        },
+        {
+            "title": "ผลการใช้งานโปรแกรมสภาวะแวดล้อมการฝึกแบบเบ็ดเสร็จในวิชาการเขียนโปรแกรมขั้นแนะนำ",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:IjCSPb-OGe4C",
+            "citation_id": "zmQuQoIAAAAJ:IjCSPb-OGe4C",
+            "authors": "TW Kokaew Urachart",
+            "publication": "วารสารนวัตกรรมการเรียนการสอน 7 (2), 1-7, 2010",
+            "cited_by": 0,
+            "year": "2010"
+        },
+        {
+            "title": "Development of Software Agent for Epidemiological Surveillance Alert System",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:2osOgNQ5qMEC",
+            "citation_id": "zmQuQoIAAAAJ:2osOgNQ5qMEC",
+            "authors": "วชิราวุธ ธรรมวิเศษ, เกรียงศักดิ์ เวทีวุฒาจารย์, วีระ ระวีกุล",
+            "publication": "1st Conference on Application Research and Development (ECTI-CARD 2009), 31-36, 2009",
+            "cited_by": 0,
+            "year": "2009"
+        },
+        {
+            "title": "SMS Voting Management System",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:9yKSN-GCB0IC",
+            "citation_id": "zmQuQoIAAAAJ:9yKSN-GCB0IC",
+            "authors": "ไกรสร สืบบุญ, ดารณี หอมดี, วชิราวุธ ธรรมวิเศษ",
+            "publication": "1st Conference on Application Research and Development (ECTI-CARD 2009), 213-218, 2009",
+            "cited_by": 0,
+            "year": "2009"
+        },
+        {
+            "title": "A design and development of a Java programming technique by the method variable",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zmQuQoIAAAAJ&pagesize=100&citation_for_view=zmQuQoIAAAAJ:UeHWp8X0CEIC",
+            "citation_id": "zmQuQoIAAAAJ:UeHWp8X0CEIC",
+            "authors": "W Thamviset",
+            "publication": "Chulalongkorn University, 2000",
+            "cited_by": 0,
+            "year": "2000"
+        }
+    ]
+}
