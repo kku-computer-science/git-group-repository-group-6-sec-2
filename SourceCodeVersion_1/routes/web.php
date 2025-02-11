@@ -62,6 +62,8 @@ Route::get('bib/{id}', [BibtexController::class, 'getbib'])->name('bibtex');
 
 Route::get('/callscopus/{id}', [App\Http\Controllers\ScopuscallController::class, 'create'])->name('callscopus');
 
+//Route::get('/callscopus/{id}', [App\Http\Controllers\CallPublicationController::class, 'callPublications'])->name('callscopus');
+
 Route::group(['middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], function () {
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);

@@ -29,7 +29,6 @@ class IDScraper
         $this->minDelay = $minDelay;
         $this->maxDelay = $maxDelay;
     }
-
     private function getRandomUserAgent(): string
     {
         $userAgents = [
@@ -42,7 +41,6 @@ class IDScraper
         ];
         return $userAgents[array_rand($userAgents)];
     }
-
     /**
      * @throws Exception
      */
@@ -64,12 +62,10 @@ class IDScraper
         }
         return  $authorScholarId;
     }
-
     private function delay(): void
     {
         sleep(rand($this->minDelay, $this->maxDelay));
     }
-
     /**
      * @throws Exception
      */
@@ -88,7 +84,6 @@ class IDScraper
             throw new Exception("HTTP request failed: " . $e->getMessage(), 0, $e);
         }
     }
-
     public function getProfileLink(string $html): ?string
     {
         $dom = $this->createDomDocument($html);

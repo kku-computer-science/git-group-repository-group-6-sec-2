@@ -3,7 +3,12 @@
 namespace App\Services\APIFetcher;
 require 'vendor/autoload.php';
 
+use App\Models\Author;
+use App\Models\Paper;
+use App\Models\Source_data;
+use App\Models\User;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\DB;
 
 class WosAPIService
 {
@@ -78,12 +83,15 @@ class WosAPIService
 
     public function saveWOSPublications(array $papers, string $userId): void
     {
-        foreach ($papers as $paper) {$existingPaper = Paper::where('paper_name', $paper['title'])->first();
+        foreach ($papers['hits'] as $paper) {
+            $existingPaper = Paper::where('paper_name', $paper['title'])->first();
+
             if ($existingPaper === null) {
-                $paperModel = new Paper;
+                // ✅ สร้าง Paper ใหม่
+                $paperModel = new Paper();
                 $paperModel->paper_name = $paper['title'];
-                $paperModel->paper_type = json_encode($paper['types'][0]); // convert to JSON for get array
-                $paperModel->paper_subtype = json_encode($paper['sourceTypes'][0]);
+                $paperModel->paper_type = $paper['types'][0];
+                $paperModel->paper_subtype = $paper['sourceTypes'][0];
                 $paperModel->paper_sourcetitle = $paper['source']['sourceTitle'] ?? null;
                 $paperModel->paper_url = $paper['links']['record'] ?? null;
                 $paperModel->paper_yearpub = $paper['source']['publishYear'] ?? null;
@@ -97,49 +105,72 @@ class WosAPIService
 
                 $paperModel->save();
 
+                // ✅ เชื่อมกับ Source_data
                 $source = Source_data::findOrFail(1);
                 $paperModel->source()->sync($source);
 
-                $authorsArray = $paper['names']['authors'];
+                // ✅ จัดการ Authors
+                $authorsArray = [];
+                foreach ($paper['names']['authors'] as $author) {
+                    $authorData = explode(', ', $author['displayName']);
+                    $fname = isset($authorData[1]) ? trim($authorData[1]) : '';
+                    $lname = isset($authorData[0]) ? trim($authorData[0]) : '';
+                    $authorsArray[] = ['fname' => $fname, 'lname' => $lname];
+                }
+
                 $authorCount = count($authorsArray);
-                $authors = array_map(function($author) {
-                    $parts = explode(', ', $author, 2);
-                    return [
-                        'fname' => $parts[1] ?? '',
-                        'lname' => $parts[0] ?? ''
-                    ];
-                }, $authorsArray);
+                foreach ($authorsArray as $index => $authorData) {
+                    $user = User::where([
+                        ['fname_en', '=', $authorData['fname']],
+                        ['lname_en', '=', $authorData['lname']]
+                    ])
+                        ->orWhere([
+                            [DB::raw("concat(left(fname_en,1),'.')"), '=', $authorData['fname']],
+                            ['lname_en', '=', $authorData['lname']]
+                        ])
+                        ->orWhere([
+                            [DB::raw("left(fname_en,1)"), '=', $authorData['fname']],
+                            ['lname_en', '=', $authorData['lname']]
+                        ])
+                        ->first();
 
-                foreach ($authorsArray as $index => $author) {
-                    $authorModel = Author::firstOrCreate(
-                        ['full_name' => $author['displayName']],
-                        ['standard_name' => $author['wosStandard']]
-                    );
-
+                    /* ✅ กำหนด Author Type */
                     $authorType = ($index === 0) ? 1 : (($index === $authorCount - 1) ? 3 : 2);
-                    $paperModel->authors()->attach($authorModel, ['role' => $authorType]);
+
+                    if ($user) {
+                        // ✅ แก้ไข `$paper->teacher()->attach(...)` เป็น `$paperModel`
+                        $paperModel->teacher()->attach($user->id, ['author_type' => $authorType]);
+                    } else {
+                        $author = $this->findOrCreateAuthor($authorData['fname'], $authorData['lname']);
+                        $paperModel->authors()->attach($author->id, ['author_type' => $authorType]);
+                    }
                 }
             } else {
+                // ✅ อัปเดต Paper ที่มีอยู่
+                $paperModel = $existingPaper;
                 $user = User::findOrFail($userId);
-                if (!$user->papers()->where('paper_id', $existingPaper->id)->exists()) {
+
+                if (!$user->paper()->where('paper_id', $paperModel->id)->exists()) {
                     $author = Author::where([
-                        ['full_name', '=', $user->fname_en . ' ' . $user->lname_en],
-                        ['paper_id', '=', $existingPaper->id]
+                        ['author_fname', '=', $user->fname_en],
+                        ['author_lname', '=', $user->lname_en]
                     ])->first();
 
                     if ($author) {
-                        $existingPaper->authors()->detach($author->id);
+                        $paperModel->authors()->detach($author->id);
                     }
 
-                    $existingPaper->teachers()->attach($user->id);
+                    // ✅ แก้ไข `$paper->teacher()->attach($user->id)` เป็น `$paperModel`
+                    $paperModel->teacher()->attach($user->id);
                 }
             }
         }
     }
+
+    private function findOrCreateAuthor($fname, $lname) {
+        return Author::firstOrCreate(
+            ['author_fname' => $fname, 'author_lname' => $lname]
+        );
+    }
+
 }
-
-$wos = new WosAPIService('4e58ee08d1f6ba5b493b7dc227cc59d21c84e8f3');
-$jsonData = json_encode($wos->getResearcherPublications('Kokaew Urachart'));
-print_r(json_decode($jsonData, true));
-
-

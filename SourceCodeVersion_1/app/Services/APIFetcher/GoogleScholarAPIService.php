@@ -69,7 +69,7 @@ class GoogleScholarAPIService {
     public function saveGoogleScholarPublications(array $data, string $userId): void
     {
         foreach ($data['articles'] as $article) {
-            if(Paper::Where('title', $article['title'])->first() == null) {
+            if(Paper::Where('paper_name', $article['title'])->first() == null) {
                 $paper = new Paper();
                 $paper->paper_name = $article['title'] ?? null;
                 $paper->paper_url = $article['link'] ?? null;
@@ -120,18 +120,17 @@ class GoogleScholarAPIService {
 
             }
             else{
-                $paper = Paper::where('title', $article['title'])->firstOrFail();
+                $paper = Paper::where('paper_name', $article['title'])->firstOrFail();
                 $user = User::findOrFail($userId);
-                if (!$user->papers()->where('paper_id', $paper->id)->exists()) {
+                if (!$user->paper()->where('paper_id', $paper->id)->exists()) {
                     $author = Author::where([
                         ['author_fname', $user->fname_en],
-                        ['author_lname', $user->lname_en],
-                        ['paper_id', $paper->id]
+                        ['author_lname', $user->lname_en]
                     ])->first();
                     if ($author) {
                         $paper->authors()->detach($author->id);
                     }
-                    $paper->teachers()->attach($user->id);
+                    $paper->teacher()->attach($user->id);
                 }
             }
         }

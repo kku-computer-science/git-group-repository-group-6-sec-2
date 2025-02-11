@@ -105,7 +105,7 @@ class ScopusAPIService {
     public function saveScopusPublications(array $papers, string $userId): void
     {
         foreach ($papers as $paper) {
-            if(Paper::Where('title', $paper['title'])->first() == null) {
+            if(Paper::Where('paper_name', $paper['title'])->first() == null) {
                 $paperModel = new Paper();
                 $paperModel->paper_name = $paper['title'];
                 $paperModel->paper_type = $paper['type'];
@@ -164,18 +164,17 @@ class ScopusAPIService {
                 }
             }
             else{
-                $paper = Paper::where('title', $paper['title'])->firstOrFail();
+                $paper = Paper::where('paper_name', $paper['title'])->firstOrFail();
                 $user = User::findOrFail($userId);
-                if (!$user->papers()->where('paper_id', $paper->id)->exists()) {
+                if (!$user->paper()->where('paper_id', $paper->id)->exists()) {
                     $author = Author::where([
                         ['author_fname', $user->fname_en],
-                        ['author_lname', $user->lname_en],
-                        ['paper_id', $paper->id]
+                        ['author_lname', $user->lname_en]
                     ])->first();
                     if ($author) {
                         $paper->authors()->detach($author->id);
                     }
-                    $paper->teachers()->attach($user->id);
+                    $paper->teacher()->attach($user->id);
                 }
             }
         }
