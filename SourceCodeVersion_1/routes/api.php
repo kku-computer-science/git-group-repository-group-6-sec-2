@@ -1,6 +1,6 @@
 <?php
 
-use Http\Controllers\WosApiController;
+use App\Http\Controllers\WosApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
