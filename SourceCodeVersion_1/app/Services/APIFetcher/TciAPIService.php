@@ -67,20 +67,49 @@ class TciFetcher
         $url = "https://search.tci-thailand.org/php/search/search_result.php?get_article_info=true&article_id=$articleId&advance_search%5B%5D=" . urlencode($keyword);
         return self::fetchData($url);
     }
+
+    public static function extractRelevantData(string $profName): array
+    {
+        $articles = self::getArticles($profName);
+        $formattedArticles = [];
+        $i=0;
+        foreach ($articles as $articleId) {
+            $articleInfo = self::getArticleInfo($articleId, $profName);
+            $authors = self::getAllAuthorsName($articleId);
+
+            $authorNames = array_map(fn($author) => $author['name'], $authors ?? []);
+            $articleInfo['authors'] = implode(', ', $authorNames);
+
+            if ($articleInfo[$i]['document_type_id'] == 1) {
+                $articleInfo[$i]['document_type'] = 'Journal';
+            }
+
+            $formattedArticles[] = [
+                'authors' => $articleInfo['authors'] ?? '',
+                'article_loc' => $articleInfo[$i]['article_loc'] ?? 'Unknown Title', // Title in Thai (empty in the response)
+                'article_eng' => $articleInfo[$i]['article_eng'] ?? 'Unknown Title', // Fallback to title_eng
+                'journal_loc' => $articleInfo[$i]['journal_loc'] ?? '', // Journal in Thai (empty in the response)
+                'journal_eng' => $articleInfo[$i]['journal_eng'] ?? '', // Journal in English
+                'volume' => $articleInfo[$i]['volume'] ?? 'N/A', // Volume number
+                'page_number' => $articleInfo[$i]['page_number'] ?? 'N/A', // Page numbers
+                'year' => $articleInfo[$i]['year'] ?? 'Unknown Year', // Year of publication
+                'cited' => $articleInfo[$i]['cited'] ?? 0, // Number of citations
+                'document_type' => $articleInfo[$i]['document_type'] ?? ''
+            ];
+
+        // Return the final formatted result
+        return [
+            'author_name' => $profName,
+            'articles' => $formattedArticles
+            ];
+            $i++;
+        }
+    }
 }
 
-// Example Usage
-// try {
-//     $profName = "S. Tintanai";
-//     $articles = TciFetcher::getArticles($profName);
-
-//     foreach ($articles as $articleId) {
-//         $articleInfo = TciFetcher::getArticleInfo($articleId, $profName);
-//         print_r(TciFetcher::getAllAuthorsName($articleId));
-//         print_r($articleInfo);
-//     }
-// } catch (Exception $e) {
-//     echo "Error: " . $e->getMessage();
-// }
+// // Example Usage
+// $profName = "Santi t";
+// $result = TciFetcher::extractRelevantData($profName);
+// echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 ?>
