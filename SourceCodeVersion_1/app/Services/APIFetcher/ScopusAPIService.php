@@ -15,12 +15,9 @@ class ScopusAPIService {
 
     public function fetchData($userId): array
     {
-        $userId = Crypt::decrypt($userId);
         $user = User::find($userId);
-
         $firstName = substr($user['fname_en'], 0, 1);
         $lastName = $user['lname_en'];
-
 
         $apiResponse = Http::get('https://api.elsevier.com/content/search/scopus?', [
                 'query' => "AUTHOR-NAME($lastName,$firstName)",
@@ -126,29 +123,22 @@ class ScopusAPIService {
                 $source = Source_data::findOrFail(1);
                 $paperModel->source()->sync($source);
 
-                $authorsArray = explode(', ', $paper['authors']);
-                $authors = array_map(function ($author) {
-                    $parts = explode(' ', $author, 2);
-                    return [
-                        'fname' => $parts[0] ?? '',
-                        'lname' => $parts[1] ?? ''
-                    ];
-                }, $authorsArray);
-
-                $authorCount = count($authorsArray);
+                /* I want fName lName */
+                $authors = $paper['authors'];
+                $authorCount = count($authors);
 
                 foreach ($authors as $index => $authorData) {
                     $user = User::where([
-                        ['fname_en', '=', $authorData['fname']],
-                        ['lname_en', '=', $authorData['lname']]
+                        ['fname_en', '=', $authorData['firstName']],
+                        ['lname_en', '=', $authorData['lastName']]
                     ])
                         ->orWhere([
-                            [DB::raw("concat(left(fname_en,1),'.')"), '=', $authorData['fname']],
-                            ['lname_en', '=', $authorData['lname']]
+                            [DB::raw("concat(left(fname_en,1),'.')"), '=', $authorData['firstName']],
+                            ['lname_en', '=', $authorData['lastName']]
                         ])
                         ->orWhere([
-                            [DB::raw("left(fname_en,1)"), '=', $authorData['fname']],
-                            ['lname_en', '=', $authorData['lname']]
+                            [DB::raw("left(fname_en,1)"), '=', $authorData['firstName']],
+                            ['lname_en', '=', $authorData['lastName']]
                         ])
                         ->first();
 
@@ -156,35 +146,37 @@ class ScopusAPIService {
                     $authorType = ($index === 0) ? 1 : (($index === $authorCount - 1) ? 3 : 2);
 
                     if ($user) {
-                        $paper->teacher()->attach($user, ['author_type' => $authorType]);
+                        $paperModel->teacher()->attach($user->id, ['author_type' => $authorType]);
                     } else {
-                        $author = $this->findOrCreateAuthor($authorData['fname'], $authorData['lname']);
-                        $paper->author()->attach($author, ['author_type' => $authorType]);
+                        $author = Author::where([['author_fname', '=', $authorData['firstName']],
+                                                ['author_lname', '=', $authorData['lastName']]]
+                                                )->first();
+                        if(!$author){
+                            $author = new Author;
+                            $author->author_fname = $authorData['firstName'];
+                            $author->author_lname = $authorData['lastName'];
+                            $author->save();
+                        }
+                        $paperModel->author()->attach($author->id, ['author_type' => $authorType]);
                     }
                 }
             }
             else{
-                $paper = Paper::where('paper_name', $paper['title'])->firstOrFail();
+                $paper = Paper::Where('paper_name', $paper['title'])->first();
                 $user = User::findOrFail($userId);
                 if (!$user->paper()->where('paper_id', $paper->id)->exists()) {
                     $author = Author::where([
                         ['author_fname', $user->fname_en],
                         ['author_lname', $user->lname_en]
                     ])->first();
+
                     if ($author) {
-                        $paper->authors()->detach($author->id);
+                        $paper->author()->detach($author->id);
                     }
                     $paper->teacher()->attach($user->id);
                 }
             }
         }
-    }
-
-    private function findOrCreateAuthor($fname, $lname) {
-        return Author::firstOrCreate(
-            ['author_fname' => $fname, 'author_lname' => $lname],
-            ['author_fname' => $fname, 'author_lname' => $lname]
-        );
     }
 
 }
