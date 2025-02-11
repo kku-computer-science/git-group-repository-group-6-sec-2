@@ -84,8 +84,12 @@ Route::get('loadindex', [PDFController::class, 'index']);
 Route::get('pdf', [PDFController::class, 'generateInvoicePDF'])->name('pdf');
 Route::get('docx', [PDFController::class, 'generateInvoiceDOCX'])->name('docx');
 Route::get('excel', [PDFController::class, 'generateInvoiceExcel'])->name('excel');
-Route::get('/history-chart', [ProfileController::class, 'showHistoryChart'])->name('history.chart');
-Route::get('/citation-h-index', [ProfileController::class, 'citationchart']);
+
+Route::get('/history-chart/{userId}', [ProfileController::class, 'showHistoryChart'])->name('history.chart');
+Route::get('/citation-h-index/{userId}', [ProfileController::class, 'citationchart']);
+
+
+
 Route::get('detail/{id}', [ProfileController::class, 'request'])->name('detail');
 Route::get('index', [LocalizationController::class, 'index']);
 Route::get('lang/{lang}', ['as' => 'langswitch', 'uses' => 'App\Http\Controllers\LocalizationController@switchLang']);

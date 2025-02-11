@@ -16,8 +16,8 @@
 
     <style>
         #chartContainer {
-            width: 80%;
-            height: 400px;
+            width: 90%;
+            height: 450px; /* เพิ่มความสูงกราฟ */
             margin: auto;
         }
 
@@ -64,24 +64,19 @@
 <div class="container mt-4">
     <h3 class="text-center">Publication History</h3>
 
-
     <!-- ปุ่มสำหรับเลือกแหล่งตีพิมพ์ -->
     <div class="btn-group">
-        <!-- Summary Button First -->
-        <button class="btn btn-success" onclick="updateChart('summary')"><i class="fas fa-chart-pie"></i> Summary</button>
-        <button class="btn btn-primary" onclick="updateChart('scopus')"><i class="fas fa-book"></i> Scopus</button>
-        <button class="btn btn-danger" onclick="updateChart('wos')"><i class="fas fa-book"></i> WOS</button>
-        <button class="btn btn-info" onclick="updateChart('google')"><i class="fas fa-search"></i> Google Scholar</button>
-        <button class="btn btn-warning" onclick="updateChart('tci')"><i class="fas fa-bookmark"></i> TCI</button>
+        <button class="btn btn-success" onclick="updateChart('summary')" title="Show Summary"><i class="fas fa-chart-pie"></i> Summary</button>
+        <button class="btn btn-primary" onclick="updateChart('scopus')" title="Show Scopus Publications"><i class="fas fa-book"></i> Scopus</button>
+        <button class="btn btn-danger" onclick="updateChart('wos')" title="Show WOS Publications"><i class="fas fa-book"></i> WOS</button>
+        <button class="btn btn-info" onclick="updateChart('google')" title="Show Google Scholar Publications"><i class="fas fa-search"></i> Google Scholar</button>
+        <button class="btn btn-warning" onclick="updateChart('tci')" title="Show TCI Publications"><i class="fas fa-bookmark"></i> TCI</button>
     </div>
-
 
     <!-- Canvas สำหรับแสดงกราฟ -->
     <div id="chartContainer">
         <canvas id="publicationChart"></canvas>
     </div>
-
-
 
     <!-- Summary Card -->
     <div id="summaryCard" class="summary-card">
@@ -100,12 +95,34 @@
 
     // ข้อมูลตีพิมพ์จาก Blade
     var chartData = {
-        labels: {!! json_encode($year2) !!},
+        labels: {!! json_encode($years) !!},  // ปี
         scopus: {!! json_encode($paper_scopus_s) !!},
         wos: {!! json_encode($paper_wos_s) !!},
         google: {!! json_encode($paper_google_s) !!},
         tci: {!! json_encode($paper_tci_s) !!},
     };
+
+    // เรียงข้อมูลจากปีน้อยไปมาก
+    var sortedData = chartData.labels
+        .map(function(year, index) {
+            return {
+                year: year,
+                scopus: chartData.scopus[index],
+                wos: chartData.wos[index],
+                google: chartData.google[index],
+                tci: chartData.tci[index],
+            };
+        })
+        .sort(function(a, b) {
+            return a.year - b.year;
+        });
+
+    // รีเซ็ตข้อมูลเรียงลำดับใหม่
+    chartData.labels = sortedData.map(function(item) { return item.year; });
+    chartData.scopus = sortedData.map(function(item) { return item.scopus; });
+    chartData.wos = sortedData.map(function(item) { return item.wos; });
+    chartData.google = sortedData.map(function(item) { return item.google; });
+    chartData.tci = sortedData.map(function(item) { return item.tci; });
 
     // สีของแต่ละแหล่งตีพิมพ์
     var colors = {
@@ -115,6 +132,14 @@
         tci: "rgba(255, 255, 0, 0.6)",       // สีเหลือง
         summary: "rgba(0, 128, 0, 0.6)",     // สีเขียวสำหรับ Summary
     };
+
+    // ฟังก์ชันคำนวณค่าสูงสุดและเพิ่ม 1 สำหรับ suggestedMax
+    function calculateSuggestedMax() {
+        var maxValue = Math.max(
+            ...chartData.scopus.concat(chartData.wos, chartData.google, chartData.tci)
+        );
+        return Math.ceil(maxValue) + 1;
+    }
 
     // กราฟเริ่มต้น (Summary)
     var publicationChart = new Chart(ctx, {
@@ -133,9 +158,21 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: false,  // ปรับสัดส่วนกราฟได้
             scales: {
-                y: { beginAtZero: true }
+                y: {
+                    beginAtZero: true,
+                    suggestedMax: calculateSuggestedMax()+1,  // ใช้ค่าที่คำนวณแล้ว
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.raw + " publications";
+                        }
+                    }
+                }
             }
         }
     });
@@ -157,44 +194,36 @@
             borderColor = colors.summary;
         } else {
             data = chartData[source];
-            label = source === 'google' ? 'Google Scholar' : source.charAt(0).toUpperCase() + source.slice(1);
+            label = source.charAt(0).toUpperCase() + source.slice(1);
             backgroundColor = colors[source];
             borderColor = colors[source];
         }
 
-        publicationChart.data.datasets[0].label = label;
+        // อัพเดตข้อมูลกราฟ
         publicationChart.data.datasets[0].data = data;
+        publicationChart.data.datasets[0].label = label;
         publicationChart.data.datasets[0].backgroundColor = backgroundColor;
         publicationChart.data.datasets[0].borderColor = borderColor;
-        publicationChart.update(); // อัปเดตกราฟ
+        publicationChart.update();
 
-        // อัปเดต Summary
-        updateSummary(source);
+        // อัพเดตเนื้อหาของ Summary Card
+        updateSummaryCard(label, data);
     }
 
-    // ฟังก์ชันอัปเดต Summary
-    function updateSummary(source) {
-        var totalPublications;
-        if (source === 'summary') {
-            totalPublications = chartData.labels.map(function(_, index) {
-                return chartData.scopus[index] + chartData.wos[index] + chartData.google[index] + chartData.tci[index];
-            }).reduce((a, b) => a + b, 0);
-        } else {
-            totalPublications = chartData[source].reduce((a, b) => a + b, 0);
-        }
-
-        var summaryHtml = `
-            <p>Total publications from <strong>${source === 'summary' ? 'All Sources' : source === 'google' ? 'Google Scholar' : source.charAt(0).toUpperCase() + source.slice(1)}</strong>: <strong>${totalPublications}</strong></p>
-            <p>Breakdown by year:</p>
-            <ul>
-                ${chartData.labels.map((year, index) => `
-                    <li><strong>${year}</strong>: ${source === 'summary' ? chartData.scopus[index] + chartData.wos[index] + chartData.google[index] + chartData.tci[index] : chartData[source][index]} publications</li>
-                `).join('')}
-            </ul>
+    // อัพเดตเนื้อหาใน Summary Card
+    function updateSummaryCard(label, data) {
+        var total = data.reduce((sum, value) => sum + value, 0);
+        var summaryContent = `
+            <p><strong>${label}:</strong></p>
+            <p>Total Publications: ${total}</p>
         `;
-        document.getElementById("summaryContent").innerHTML = summaryHtml;
+        document.getElementById("summaryContent").innerHTML = summaryContent;
     }
+
+    // เริ่มต้นด้วยแสดงข้อมูล Summary
+    updateChart('summary');
 </script>
+
 
 </body>
 </html>

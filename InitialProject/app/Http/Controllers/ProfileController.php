@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 
+
+
 class ProfileController extends Controller
 {
     public function request($id)
@@ -136,44 +138,115 @@ class ProfileController extends Controller
         );
     }
 
-    public function showHistoryChart()
+    public function showHistoryChart($id)
     {
-        // ข้อมูลปี
-        $year2 = ['2020', '2021', '2022', '2023'];
+        // ดึงข้อมูลปีทั้งหมดจากฐานข้อมูล
+        $years = DB::table('papers')->select('paper_yearpub')->distinct()->get()->pluck('paper_yearpub');
 
-        // ข้อมูลตีพิมพ์แต่ละแหล่ง
-        $paper_scopus_s = [50, 60, 70, 80];
-        $paper_wos_s = [30, 40, 50, 60];
-        $paper_tci_s = [20, 30, 40, 50];
-        $paper_google_s = [10, 20, 30, 40];
+        // ดึงข้อมูล publication ตาม user_id และ source_data_id พร้อมกับปีที่มีข้อมูล
+        $papers = DB::table('papers')
+            ->join('user_papers', 'papers.id', '=', 'user_papers.paper_id')
+            ->leftJoin('source_papers', 'papers.id', '=', 'source_papers.paper_id')
+            ->where('user_papers.user_id', $id)
+            ->select('papers.paper_yearpub', 'source_papers.source_data_id', DB::raw('count(*) as aggregate'))
+            ->groupBy('papers.paper_yearpub', 'source_papers.source_data_id')
+            ->orderBy('papers.paper_yearpub')
+            ->get();
 
-        return view('history-chart', compact('year2', 'paper_scopus_s', 'paper_wos_s', 'paper_tci_s', 'paper_google_s'));
-    }
+        // เตรียมข้อมูลเพื่อส่งให้ Blade
+        $paper_scopus_s = [];
+        $paper_wos_s = [];
+        $paper_google_s = [];
+        $paper_tci_s = [];
 
-    public function citationchart()
-    {
-        // ใช้ข้อมูลจาก showHistoryChart
-        $year2 = ['2020', '2021', '2022', '2023'];
+        // เตรียมข้อมูลให้พร้อมในรูปแบบที่ใช้งานง่าย (ถ้าข้อมูลไม่มีในบางปีให้ใส่ 0)
+        foreach ($years as $year) {
+            $scopus = $papers->where('paper_yearpub', $year)->where('source_data_id', 1)->sum('aggregate');
+            $wos = $papers->where('paper_yearpub', $year)->where('source_data_id', 2)->sum('aggregate');
+            $google = $papers->where('paper_yearpub', $year)->where('source_data_id', 4)->sum('aggregate');
+            $tci = $papers->where('paper_yearpub', $year)->where('source_data_id', 3)->sum('aggregate');
 
-        $paper_scopus_s = [50, 60, 70, 80];
-        $paper_wos_s = [30, 40, 50, 60];
-        $paper_tci_s = [20, 30, 40, 50];
-        $paper_google_s = [10, 20, 30, 40];
-
-        // คำนวณ citations (จำลอง)
-        $citations = [];
-        foreach ($year2 as $index => $year) {
-            $citations[] = $paper_scopus_s[$index] + $paper_wos_s[$index] +
-                           $paper_tci_s[$index] + $paper_google_s[$index];
+            // ใส่ค่าใน array
+            $paper_scopus_s[] = $scopus ?: 0;
+            $paper_wos_s[] = $wos ?: 0;
+            $paper_google_s[] = $google ?: 0;
+            $paper_tci_s[] = $tci ?: 0;
         }
 
-        // คำนวณ h-index (จำลอง)
-        $hIndex = array_map(function ($citation) {
-            return floor($citation / 10);
-        }, $citations);
-
-        return view('citation_chart', compact('year2', 'citations', 'hIndex'));
+        return view('history-chart', compact('years', 'paper_scopus_s', 'paper_wos_s', 'paper_google_s', 'paper_tci_s'));
     }
+
+    public function citationchart($id)
+    {
+        // ดึงข้อมูลปีทั้งหมดจากฐานข้อมูล
+        $years = DB::table('papers')->select('paper_yearpub')->distinct()->get()->pluck('paper_yearpub');
+
+        // ดึงข้อมูล publication ตาม user_id และ source_data_id
+        $papers = DB::table('papers')
+            ->join('user_papers', 'papers.id', '=', 'user_papers.paper_id')
+            ->leftJoin('source_papers', 'papers.id', '=', 'source_papers.paper_id')
+            ->where('user_papers.user_id', $id)
+            ->select('papers.paper_yearpub', 'source_papers.source_data_id')
+            ->get();
+
+        // เตรียมข้อมูลเพื่อส่งให้ Blade
+        $paper_scopus_s = [];
+        $paper_wos_s = [];
+        $paper_google_s = [];
+        $paper_tci_s = [];
+        $citations = [];
+        $h_index = [];
+
+        // ค่าหนักของแต่ละแหล่งข้อมูล
+        $source_weights = [
+            1 => 2, // Scopus
+            2 => 3, // WoS
+            3 => 2, // TCI
+            4 => 1  // Google Scholar
+        ];
+
+        // เตรียมข้อมูลให้พร้อมในรูปแบบที่ใช้งานง่าย (ถ้าข้อมูลไม่มีในบางปีให้ใส่ 0)
+        foreach ($years as $year) {
+            // คำนวณจำนวน publication สำหรับแต่ละ source
+            $scopus = $papers->where('paper_yearpub', $year)->where('source_data_id', 1)->count();
+            $wos = $papers->where('paper_yearpub', $year)->where('source_data_id', 2)->count();
+            $google = $papers->where('paper_yearpub', $year)->where('source_data_id', 4)->count();
+            $tci = $papers->where('paper_yearpub', $year)->where('source_data_id', 3)->count();
+
+            // คำนวณ citations (แค่ตัวอย่างที่ใช้คำนวณจากจำนวน publication)
+            $total_citations = $scopus * $source_weights[1] + $wos * $source_weights[2] + $google * $source_weights[4] + $tci * $source_weights[3]; // ตัวอย่างการคำนวณ citations
+
+            // คำนวณ h-index (การคำนวณง่ายๆ โดยใช้จำนวน citations)
+            $citation_counts = [
+                $scopus * $source_weights[1],
+                $wos * $source_weights[2],
+                $google * $source_weights[4],
+                $tci * $source_weights[3]
+            ]; // ตัวอย่าง citation count
+            $citation_counts = array_filter($citation_counts, fn($count) => $count > 0); // กรองค่าที่ไม่เป็น 0
+            rsort($citation_counts); // เรียงจากมากไปน้อย
+
+            $h_index_value = 0;
+            foreach ($citation_counts as $index => $citation_count) {
+                if ($citation_count >= $index + 1) {
+                    $h_index_value = $index + 1;
+                }
+            }
+
+            // ใส่ค่าใน array
+            $paper_scopus_s[] = $scopus ?: 0;
+            $paper_wos_s[] = $wos ?: 0;
+            $paper_google_s[] = $google ?: 0;
+            $paper_tci_s[] = $tci ?: 0;
+            $citations[] = $total_citations ?: 0;
+            $h_index[] = $h_index_value;
+        }
+
+        return view('citation_chart', compact('years', 'paper_scopus_s', 'paper_wos_s', 'paper_google_s', 'paper_tci_s', 'citations', 'h_index'));
+    }
+
+
+
 
 
 

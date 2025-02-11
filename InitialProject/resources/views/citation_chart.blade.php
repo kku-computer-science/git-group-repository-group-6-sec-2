@@ -83,26 +83,42 @@
     var ctx = document.getElementById("citationChart").getContext("2d");
 
     // Citation and H-index data from backend
-    var citationData = @json($citations ?? []);
-    var hIndexData = @json($hIndex ?? []);
-    var yearLabels = @json($year2 ?? []);
+    var paperScopus = @json($paper_scopus_s ?? []);
+    var paperWos = @json($paper_wos_s ?? []);
+    var paperGoogle = @json($paper_google_s ?? []);
+    var paperTci = @json($paper_tci_s ?? []);
+    var yearLabels = @json($years ?? []);
+    var hIndex = @json($h_index ?? []);
 
-    // Calculate total citations
-    var totalCitations = citationData.reduce((acc, val) => acc + val, 0);
-    var maxHIndex = Math.max(...hIndexData);
+    // Sort yearLabels and citationData by year in ascending order
+    var sortedYearsData = yearLabels.map((year, index) => ({
+        year: year,
+        citations: paperScopus[index] + paperWos[index] + paperGoogle[index] + paperTci[index]
+    })).sort((a, b) => a.year - b.year);
 
-    // Update summary values
-    document.getElementById("totalCitations").textContent = totalCitations;
-    document.getElementById("hIndexValue").textContent = maxHIndex;
+    // Extract sorted data for chart
+    var sortedYears = sortedYearsData.map(item => item.year);
+    var sortedCitationData = sortedYearsData.map(item => item.citations);
+
+    // Calculate total citations and h-index
+    var totalCitations = sortedCitationData.reduce((acc, val) => acc + val, 0);
+    var maxHIndex = Math.max(...hIndex);
+
+    // Update summary values (handle if no data is available)
+    document.getElementById("totalCitations").textContent = totalCitations || 0;
+    document.getElementById("hIndexValue").textContent = maxHIndex || 0;
+
+    // Calculate suggestedMax for y-axis scaling
+    var suggestedMax = Math.max(...sortedCitationData) + 1;
 
     var citationChart = new Chart(ctx, {
         type: "bar",
         data: {
-            labels: yearLabels,
+            labels: sortedYears,
             datasets: [
                 {
                     label: "Citations",
-                    data: citationData,
+                    data: sortedCitationData,
                     backgroundColor: "rgba(255, 255, 0, 0.6)",
                     borderColor: "rgba(255, 255, 0, 0.6)",
                     borderWidth: 1
@@ -113,14 +129,24 @@
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                y: { beginAtZero: true }
+                y: {
+                    beginAtZero: true,
+                    suggestedMax: suggestedMax,
+                    title: {
+                        display: true,
+                        text: 'Citations Count'
+                    }
+                }
             },
             plugins: {
-                legend: { display: false } // Hide legend for cleaner UI
+                legend: {
+                    display: false // Hide legend for cleaner UI
+                }
             }
         }
     });
 </script>
+
 
 </body>
 </html>
