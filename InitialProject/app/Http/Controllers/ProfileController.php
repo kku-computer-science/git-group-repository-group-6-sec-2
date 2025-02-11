@@ -186,7 +186,7 @@ class ProfileController extends Controller
             ->join('user_papers', 'papers.id', '=', 'user_papers.paper_id')
             ->leftJoin('source_papers', 'papers.id', '=', 'source_papers.paper_id')
             ->where('user_papers.user_id', $id)
-            ->select('papers.paper_yearpub', 'source_papers.source_data_id')
+            ->select('papers.paper_yearpub', 'source_papers.source_data_id', 'papers.paper_citation')
             ->get();
 
         // เตรียมข้อมูลเพื่อส่งให้ Blade
@@ -205,33 +205,35 @@ class ProfileController extends Controller
             4 => 1  // Google Scholar
         ];
 
-        // เตรียมข้อมูลให้พร้อมในรูปแบบที่ใช้งานง่าย (ถ้าข้อมูลไม่มีในบางปีให้ใส่ 0)
-        foreach ($years as $year) {
-            // คำนวณจำนวน publication สำหรับแต่ละ source
-            $scopus = $papers->where('paper_yearpub', $year)->where('source_data_id', 1)->count();
-            $wos = $papers->where('paper_yearpub', $year)->where('source_data_id', 2)->count();
-            $google = $papers->where('paper_yearpub', $year)->where('source_data_id', 4)->count();
-            $tci = $papers->where('paper_yearpub', $year)->where('source_data_id', 3)->count();
-
-            // คำนวณ citations (แค่ตัวอย่างที่ใช้คำนวณจากจำนวน publication)
-            $total_citations = $scopus * $source_weights[1] + $wos * $source_weights[2] + $google * $source_weights[4] + $tci * $source_weights[3]; // ตัวอย่างการคำนวณ citations
-
-            // คำนวณ h-index (การคำนวณง่ายๆ โดยใช้จำนวน citations)
-            $citation_counts = [
-                $scopus * $source_weights[1],
-                $wos * $source_weights[2],
-                $google * $source_weights[4],
-                $tci * $source_weights[3]
-            ]; // ตัวอย่าง citation count
-            $citation_counts = array_filter($citation_counts, fn($count) => $count > 0); // กรองค่าที่ไม่เป็น 0
-            rsort($citation_counts); // เรียงจากมากไปน้อย
+        // คำนวณ h-index
+        function calculateHIndex($citations_per_paper) {
+            rsort($citations_per_paper); // เรียงลำดับ citations จากมากไปน้อย
 
             $h_index_value = 0;
-            foreach ($citation_counts as $index => $citation_count) {
+            foreach ($citations_per_paper as $index => $citation_count) {
                 if ($citation_count >= $index + 1) {
                     $h_index_value = $index + 1;
                 }
             }
+            return $h_index_value;
+        }
+
+        // เตรียมข้อมูลให้พร้อมในรูปแบบที่ใช้งานง่าย (ถ้าข้อมูลไม่มีในบางปีให้ใส่ 0)
+        foreach ($years as $year) {
+            // คำนวณจำนวน publication สำหรับแต่ละ source
+            $scopus = $papers->where('paper_yearpub', $year)->where('source_data_id', 1)->sum('paper_citation');
+            $wos = $papers->where('paper_yearpub', $year)->where('source_data_id', 2)->sum('paper_citation');
+            $google = $papers->where('paper_yearpub', $year)->where('source_data_id', 4)->sum('paper_citation');
+            $tci = $papers->where('paper_yearpub', $year)->where('source_data_id', 3)->sum('paper_citation');
+
+            // ดึงการอ้างอิงของแต่ละ paper ในปีนั้น
+            $citations_per_paper = $papers->where('paper_yearpub', $year)->pluck('paper_citation')->toArray();
+
+            // คำนวณ h-index จาก citations ของแต่ละ paper
+            $h_index_value = calculateHIndex($citations_per_paper);
+
+            // รวม citation ทั้งหมด
+            $total_citations = $scopus + $wos + $google + $tci;
 
             // ใส่ค่าใน array
             $paper_scopus_s[] = $scopus ?: 0;
@@ -242,8 +244,17 @@ class ProfileController extends Controller
             $h_index[] = $h_index_value;
         }
 
+        // ส่งข้อมูลไปที่ Blade
         return view('citation_chart', compact('years', 'paper_scopus_s', 'paper_wos_s', 'paper_google_s', 'paper_tci_s', 'citations', 'h_index'));
     }
+
+
+
+
+
+
+
+
 
 
 
