@@ -246,14 +246,3 @@
          return $publications;
      }
  }
-
-
- //Usage example:
-// $client = new Client(['timeout' => 10, 'verify' => false]);
-// $scraper = new GoogleScholarScraper($client);
-// try {
-//     $results = $scraper->search("Pusadee Seresangtakul");
-//     file_put_contents('results.json', json_encode($results, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
-// } catch (Exception | InvalidArgumentException $e) {
-//     echo "Error: " . $e->getMessage() . "\n";
-// }

@@ -77,7 +77,7 @@ class TciFetcher
                 'articles' => []
             ];
         }
-    
+
         $formattedArticles = [];
         foreach ($articles as $articleId) {
             $articleInfo = self::getArticleInfo($articleId, $researcherName);
@@ -95,13 +95,13 @@ class TciFetcher
             $formattedArticles[] = [
                 'authors' => $articleInfo['authors'] ?? '',
                 'article_loc' => $articleInfo[0]['article_loc'] ?? 'Unknown Title',
-                'article_eng' => $articleInfo[0]['article_eng'] ?? 'Unknown Title', 
-                'journal_loc' => $articleInfo[0]['journal_loc'] ?? '', 
-                'journal_eng' => $articleInfo[0]['journal_eng'] ?? '', 
-                'volume' => $articleInfo[0]['volume'] ?? 'N/A', 
-                'page_number' => $articleInfo[0]['page_number'] ?? 'N/A', 
-                'year' => $articleInfo[0]['year'] ?? 'Unknown Year', 
-                'cited' => $articleInfo[0]['cited'] ?? 0, 
+                'article_eng' => $articleInfo[0]['article_eng'] ?? 'Unknown Title',
+                'journal_loc' => $articleInfo[0]['journal_loc'] ?? '',
+                'journal_eng' => $articleInfo[0]['journal_eng'] ?? '',
+                'volume' => $articleInfo[0]['volume'] ?? 'N/A',
+                'page_number' => $articleInfo[0]['page_number'] ?? 'N/A',
+                'year' => $articleInfo[0]['year'] ?? 'Unknown Year',
+                'cited' => $articleInfo[0]['cited'] ?? 0,
                 'document_type' => $articleInfo[0]['document_type'] ?? ''
             ];
     }
@@ -115,7 +115,3 @@ class TciFetcher
      $researcherName = "Pusadee";
      $result = TciFetcher::extractRelevantData($researcherName);
      echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-
-
-
-?>

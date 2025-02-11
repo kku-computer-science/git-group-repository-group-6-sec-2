@@ -14,8 +14,8 @@ class CallPublicationController extends Controller
         $lName_fName = $user->lname . ' ' . $user->fname;
         $wosAPI = new WosAPIService('4e58ee08d1f6ba5b493b7dc227cc59d21c84e8f3');
         $wosPublications = $wosAPI->getResearcherPublications($lName_fName);
+        $wosAPI->saveWOSPublications($wosPublications, $userId);
 
-        $googleScholarAPI = new GoogleScholarAPIService('AIzaSyD7J9Q1Q');
     }
 
 

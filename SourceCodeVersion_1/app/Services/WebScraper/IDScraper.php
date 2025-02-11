@@ -111,15 +111,3 @@ class IDScraper
         return $dom;
     }
 }
-
-
-// Example usage:
-// $client = new Client(['timeout' => 10, 'verify' => false]);
-// $scraper = new IDScraper($client);
-// $authorNames = array("Pusadee Seresangtakul");
-// try {
-//     $authorScholarId = $scraper->search($authorNames);
-//     print_r($authorScholarId);
-// } catch (Exception $e) {
-//     echo $e->getMessage();
-// }

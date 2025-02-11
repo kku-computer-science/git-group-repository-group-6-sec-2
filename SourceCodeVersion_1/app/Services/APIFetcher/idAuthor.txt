@@ -28,24 +28,40 @@ Array
 )
 
 
-paper_name
-abstract
-paper_type
-paper_subtype
-paper_sourcetitle
-keyword
-paper_url
-publication
-paper_yearpub
-paper_volume
-paper_issue
-paper_citation
-paper_page
-paper_doi
-paper_funder
-reference_number
-created_at
-updated_at
+$names = array("Ngamnij Arch-int",
+    "Chakchai So-In",
+    "Somjit Arch-int",
+    "Chaiyapon Keeratikasikorn",
+    "Punyaphol Horata",
+    "Sartra Wongthanavasu",
+    "Sirapat Chiewchanwattana",
+    "Khamron Sunat",
+    "Chitsutha Soomlek",
+    "Nagon Watanakij",
+    "Boonsup Waikham",
+    "Paweena Wanchai",
+    "Pipat Reungsang",
+    "Pusadee Seresangtakul",
+    "Monlica Wattana",
+    "Wararat Songpan",
+    "Sunti Tintanai",
+    "Saiyan Saiyod",
+    "Silada Intarasothonchun",
+    "Urachart Kokaew",
+    "Urawan Chanket",
+    "Phet Aimtongkham",
+    "Wachirawut Thamviset",
+    "Warunya Wunnasri",
+    "Rapassit Chinnapatjee",
+    "Sakpod Tongleamnak",
+    "Thanaphon Tangchoopong",
+    "Sarun Apichontrakul",
+    "Rasamee Suwanwerakamtorn",
+    "Chanon Dechsupa",
+    "Praisan Padungweang",
+    "Sumonta Kasemvilas",
+    "Pakarat Musikawan",
+    "Yanika Kongsorot");
 
 
 [hits] => Array

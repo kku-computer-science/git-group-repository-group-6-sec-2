@@ -76,7 +76,7 @@ class WosAPIService
         return $result;
     }
 
-    public function saveWOSPublications(array $papers): void
+    public function saveWOSPublications(array $papers, string $userId): void
     {
         foreach ($papers as $paper) {$existingPaper = Paper::where('paper_name', $paper['title'])->first();
             if ($existingPaper === null) {
@@ -126,11 +126,11 @@ class WosAPIService
                         ['full_name', '=', $user->fname_en . ' ' . $user->lname_en],
                         ['paper_id', '=', $existingPaper->id]
                     ])->first();
-                    
+
                     if ($author) {
                         $existingPaper->authors()->detach($author->id);
                     }
-                    
+
                     $existingPaper->teachers()->attach($user->id);
                 }
             }
