@@ -46,3 +46,135 @@ paper_funder
 reference_number
 created_at
 updated_at
+
+
+[hits] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [uid] => WOS:000346139000154
+                    [title] => Mobile Animal Tracking Systems Using Light Sensor for Efficient Power and Cost Saving Motion Detection
+                    [types] => Array
+                        (
+                            [0] => Meeting
+                        )
+
+                    [sourceTypes] => Array
+                        (
+                            [0] => Proceedings Paper
+                        )
+
+                    [source] => stdClass Object
+                        (
+                            [sourceTitle] => PROCEEDINGS OF THE 2012 8TH INTERNATIONAL SYMPOSIUM ON COMMUNICATION SYSTEMS, NETWORKS & DIGITAL SIGNAL PROCESSING (CSNDSP)
+                            [publishYear] => 2012
+                            [pages] => stdClass Object
+                                (
+                                    [count] => 6
+                                )
+
+                        )
+
+                    [names] => stdClass Object
+                        (
+                            [authors] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [displayName] => So-In, Chakchai
+                                            [wosStandard] => So-In, C
+                                            [researcherId] => I-7907-2012
+                                        )
+
+                                    [1] => stdClass Object
+                                        (
+                                            [displayName] => Phaudphut, Comdet
+                                            [wosStandard] => Phaudphut, C
+                                            [researcherId] => FQW-0870-2022
+                                        )
+
+                                    [2] => stdClass Object
+                                        (
+                                            [displayName] => Tesana, Smarn
+                                            [wosStandard] => Tesana, S
+                                            [researcherId] => EAO-3093-2022
+                                        )
+
+                                    [3] => stdClass Object
+                                        (
+                                            [displayName] => Weeramongkonlert, Nutnicha
+                                            [wosStandard] => Weeramongkonlert, N
+                                            [researcherId] => EEH-4508-2022
+                                        )
+
+                                    [4] => stdClass Object
+                                        (
+                                            [displayName] => Wijitsopon, Kasidit
+                                            [wosStandard] => Wijitsopon, K
+                                            [researcherId] => EFM-1615-2022
+                                        )
+
+                                    [5] => stdClass Object
+                                        (
+                                            [displayName] => KoKaew, Urachart
+                                            [wosStandard] => KoKaew, U
+                                            [researcherId] => AAQ-1863-2021
+                                        )
+
+                                    [6] => stdClass Object
+                                        (
+                                            [displayName] => Waikham, Boonsup
+                                            [wosStandard] => Waikham, B
+                                            [researcherId] => GGS-9750-2022
+                                        )
+
+                                    [7] => stdClass Object
+                                        (
+                                            [displayName] => Saiyod, Saiyan
+                                            [wosStandard] => Saiyod, S
+                                            [researcherId] => AAY-6509-2021
+                                        )
+
+                                )
+
+                            [bookCorp] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [displayName] => IEEE
+                                        )
+
+                                )
+
+                        )
+
+                    [links] => stdClass Object
+                        (
+                            [record] => https://www.webofscience.com/api/gateway?GWVersion=2&SrcApp=soften_project06&SrcAuth=WosAPI&KeyUT=WOS:000346139000154&DestLinkType=FullRecord&DestApp=WOS_CPL
+                            [references] => https://www.webofscience.com/api/gateway?GWVersion=2&SrcApp=soften_project06&SrcAuth=WosAPI&KeyUT=WOS:000346139000154&DestLinkType=CitedReferences&DestApp=WOS
+                            [related] => https://www.webofscience.com/api/gateway?GWVersion=2&SrcApp=soften_project06&SrcAuth=WosAPI&KeyUT=WOS:000346139000154&DestLinkType=RelatedRecords&DestApp=WOS_CPL
+                        )
+
+                    [citations] => Array
+                        (
+                        )
+
+                    [identifiers] => stdClass Object
+                        (
+                            [eisbn] => 978-1-4577-1473-3
+                        )
+
+                    [keywords] => stdClass Object
+                        (
+                            [authorKeywords] => Array
+                                (
+                                    [0] => Analog Light Sensor
+                                    [1] => Android OS
+                                    [2] => Mobile Animal Tracking
+                                    [3] => Motion Detection
+                                    [4] => Power Saving
+                                )
+
+                        )
+
+                )
