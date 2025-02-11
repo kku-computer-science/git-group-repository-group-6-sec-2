@@ -54,24 +54,11 @@
                         <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}</b>
                             @endif</h6>
                         <h6 class="card-text1"><b>{{$res->academic_ranks_en}}</b></h6>
-                        <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
-                        <!-- <h6 class="card-text1">College of Computing</h6>
-                    <h6 class="card-text1">Khon Kaen University</h6> -->
                         <h6 class="card-text1">E-mail: {{$res->email}}</h6>
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
                         @foreach( $res->education as $edu)
                         <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
                         @endforeach
-                        <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            {{ trans('message.expertise') }}
-                        </button> -->
-                        <!-- <h6 class="card-title">Metrics overview</h6>
-                    <h6 class="card-text2" id="citation">Citation count</h6>
-                    <h6 class="card-text2" id="doc_count">Document count</h6>
-                    <h6 class="card-text2" id="cite_count">Cited By count</h6>
-                    <h6 class="card-text2" id="h-index">H-index </h6> -->
-
                 </div>
             </div>
 
@@ -97,18 +84,20 @@
                     <div class="chart">
                         <canvas id="barChart"></canvas>
                         <div class="text-center mt-4">
-                            <a href="{{ url('/citation-h-index') }}" class="btn btn-outline-primary btn-lg hover-shadow">
+                            <a href="{{ route('citation-h-index', ['userId' => $res->id]) }}" class="btn btn-outline-primary btn-lg hover-shadow">
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
-                    <a href="{{ route('history.chart') }}" class="btn btn-secondary">
+                    <a href="{{ route('history.chart', ['userId' => $res->id]) }}" class="btn btn-secondary">
                         ดูกราฟย้อนหลัง
                     </a>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
     <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
