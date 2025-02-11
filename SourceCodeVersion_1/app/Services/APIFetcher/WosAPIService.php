@@ -23,7 +23,7 @@ class WosAPIService
         try {
             $response = $client->request('GET', 'https://api.clarivate.com/apis/wos-starter/v1/documents', [
                 'headers' => [
-                    'X-ApiKey' => $this->apiKey | '4e58ee08d1f6ba5b493b7dc227cc59d21c84e8f3',
+                    'X-ApiKey' => "17edd46abea64599993f929a865e6bc9c36b3a2a",
                     'Accept' => 'application/json',
                 ],
                 'query' => [
