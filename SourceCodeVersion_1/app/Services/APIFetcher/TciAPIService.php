@@ -68,13 +68,21 @@ class TciFetcher
         return self::fetchData($url);
     }
 
-    public static function extractRelevantData(string $profName): array
+    public static function extractRelevantData(string $researcherName): array
     {
-        $articles = self::getArticles($profName);
+        $articles = self::getArticles($researcherName);
+
+        if (empty($articles)) {
+            return [
+                'author_name' => $researcherName,
+                'articles' => []
+            ];
+        }
+    
         $formattedArticles = [];
         $i=0;
         foreach ($articles as $articleId) {
-            $articleInfo = self::getArticleInfo($articleId, $profName);
+            $articleInfo = self::getArticleInfo($articleId, $researcherName);
             $authors = self::getAllAuthorsName($articleId);
 
             $authorNames = array_map(fn($author) => $author['name'], $authors ?? []);
@@ -99,7 +107,7 @@ class TciFetcher
 
         // Return the final formatted result
         return [
-            'author_name' => $profName,
+            'author_name' => $researcherName,
             'articles' => $formattedArticles
             ];
             $i++;
@@ -107,9 +115,10 @@ class TciFetcher
     }
 }
 
-// // Example Usage
-// $profName = "Santi t";
-// $result = TciFetcher::extractRelevantData($profName);
-// echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    // $researcherName = "";
+    // $result = TciFetcher::extractRelevantData($researcherName);
+    // echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+
 
 ?>
