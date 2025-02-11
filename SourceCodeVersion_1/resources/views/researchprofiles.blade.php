@@ -60,10 +60,18 @@
             </div>
 
             <div class="col-md-4">
+<<<<<<< HEAD
             <div class="d-flex align-items-end">
                 <h6 class="title-pub mb-0 mr-5" style="font-size: 16px;">{{ trans('message.publications2') }}</h6>
                 <h6 class="mb-0 ml-3" style="font-size: 16px;">h-index: <span id="h-index-result">กำลังคำนวณ...</span></h6>
             </div>
+=======
+                <div class="d-flex align-items-end">
+                    <h6 class="title-pub mb-0 mr-5" style="font-size: 16px;">{{ trans('message.publications2') }}</h6>
+                    <h6 class="mb-0 ml-3" style="font-size: 16px;">h-index: <span id="h-index-result">กำลังคำนวณ...</span></h6>
+                </div>
+
+>>>>>>> main_3
                 <div class="col-xs-12 text-center bt">
                     <div class="clearfix"></div>
                     <div class="row text-center">
@@ -85,8 +93,15 @@
                         </div>
                     </div>
                     <br>
-                    <div class="chart">
-                        <canvas id="barChart"></canvas>
+                    <div class="text-center mt-3">
+                        <a href="{{ route('history.chart', ['userId' => $res->id]) }}" class="btn btn-dark btn-lg shadow rounded-pill px-4 py-3">
+                            <i class="fas fa-chart-line me-2"></i>แสดงกราฟการตีพิมพ์ทั้งหมด
+                        </a>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="{{ route('citation-h-index', ['userId' => $res->id]) }}" class="btn btn-primary btn-lg shadow rounded-pill px-4 py-3">
+                            <i class="fas fa-chart-line me-2"></i> แสดงกราฟ Citations
+                        </a>
                     </div>
                 </div>
             </div>
@@ -825,11 +840,18 @@
             $this.countTo(options);
         }
     });
+<<<<<<< HEAD
     
     document.addEventListener("DOMContentLoaded", function () {
         function calculateHIndex() {
             let citations = [];
 
+=======
+
+    document.addEventListener("DOMContentLoaded", function () {
+        function calculateHIndex() {
+            let citations = [];
+>>>>>>> main_3
             // ดึงค่าจำนวน Citation จากคอลัมน์ที่ 8 (Citations)
             document.querySelectorAll("#papersTable  tbody tr").forEach(row => {
                 let citationCell = row.cells[1]; // คอลัมน์ที่ 8 (Citations)
@@ -838,10 +860,15 @@
                     citations.push(citation);
                 }
             });
+<<<<<<< HEAD
 
             // เรียงลำดับ Citation จากมากไปน้อย
             citations.sort((a, b) => b - a);
 
+=======
+            // เรียงลำดับ Citation จากมากไปน้อย
+            citations.sort((a, b) => b - a);
+>>>>>>> main_3
             // คำนวณค่า H-Index
             let h_index = 0;
             for (let i = 0; i < citations.length; i++) {
@@ -851,6 +878,7 @@
                     break;
                 }
             }
+<<<<<<< HEAD
 
             // แสดงผลลัพธ์ H-Index บนหน้าเว็บ
             document.getElementById("h-index-result").textContent = h_index;
@@ -859,5 +887,14 @@
         // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
         calculateHIndex();
     });
+=======
+            // แสดงผลลัพธ์ H-Index บนหน้าเว็บ
+            document.getElementById("h-index-result").textContent = h_index;
+        }
+        // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
+        calculateHIndex();
+    });
+
+>>>>>>> main_3
 </script>
 @endsection
