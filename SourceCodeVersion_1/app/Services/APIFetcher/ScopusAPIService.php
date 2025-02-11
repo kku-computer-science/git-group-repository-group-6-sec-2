@@ -97,4 +97,51 @@ class ScopusAPIService {
 
         return $processedAuthors;
     }
+
+    public function insertData($papers): void
+    {
+        foreach ($papers as $paper) {
+            $paperModel = new Paper;
+            $paperModel->paper_name = $paper['title'];
+            $paperModel->paper_type = $paper['type'];
+            $paperModel->paper_subtype = $paper['subtype'];
+            $paperModel->paper_sourcetitle = $paper['sourceTitle'];
+            $paperModel->paper_url = $paper['url'];
+            $paperModel->paper_yearpub = $paper['year'];
+            $paperModel->paper_volume = $paper['volume'];
+            $paperModel->paper_issue = $paper['issue'];
+            $paperModel->paper_citation = $paper['citationCount'];
+            $paperModel->paper_page = $paper['pageRange'];
+            $paperModel->paper_doi = $paper['doi'];
+            $paperModel->paper_funder = json_encode($paper['funding']);
+            $paperModel->abstract = $paper['abstract'];
+            $paperModel->keyword = json_encode($paper['keywords']);
+            $paperModel->save();
+
+            $source = Source_data::findOrFail(1);
+            $paperModel->source()->sync($source);
+
+            $totalAuthors = count($paper['authors']);
+
+            foreach ($paper['authors'] as $index => $author) {
+                $authorModel = new Author;
+                $authorModel->first_name = $author['firstName'];
+                $authorModel->last_name = $author['lastName'];
+                $authorModel->save();
+
+                if ($index === 0) {
+                    $role = 1; // First Author
+                } elseif ($index === $totalAuthors - 1) {
+                    $role = 3; // Last Author
+                } else {
+                    $role = 2; // Co-author
+                }
+    
+                // Link Author to Paper and set author_role
+                $paperModel->authors()->attach($authorModel, ['author_role' => $role]);
+            }
+        }
+    }
+
+
 }
