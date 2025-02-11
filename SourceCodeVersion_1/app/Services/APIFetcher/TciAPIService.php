@@ -2,9 +2,14 @@
 
 namespace App\Services\APIFetcher;
 
+use App\Models\Author;
+use App\Models\Paper;
+use App\Models\Source_data;
+use App\Models\User;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
-class TciFetcher
+class TciAPIService
 {
     private static function fetchData(string $url, array $payload = null, bool $isPost = false): ?array
     {
@@ -110,8 +115,83 @@ class TciFetcher
         'articles' => $formattedArticles
         ];
     }
-}
 
-     $researcherName = "Pusadee";
-     $result = TciFetcher::extractRelevantData($researcherName);
-     echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    public static function saveTCIPublications(array $papers, string $userId): void
+    {
+        foreach ($papers['articles'] as $paper){
+            if(Paper::Where('paper_name', $paper['article_eng'])->first() == null){
+                $paperModel = new Paper();
+                $paperModel->paper_name = $paper['article_eng'];
+                $paperModel->paper_type = $paper['document_type'];
+                $paperModel->paper_subtype = $paper['journal_eng'];
+                $paperModel->paper_yearpub = $paper['year'];
+                $paperModel->paper_volume = $paper['volume'];
+                $paperModel->paper_citation = $paper['cited'];
+                $paperModel->paper_page = $paper['page_number'];
+                $paperModel->save();
+
+                $source = Source_data::findOrFail(3);
+                $paperModel->source()->sync($source);
+
+                $authorsArray = explode(', ', $paper['authors']);
+                $authors = array_map(function($author) {
+                    $parts = explode(' ', $author, 2);
+                    return [
+                        'fname' => $parts[0] ?? '',
+                        'lname' => $parts[1] ?? ''
+                    ];
+                }, $authorsArray);
+
+                $authorCount = count($authorsArray);
+                foreach ($authors as $index => $authorData) {
+                    $user = User::where([
+                        ['fname_en', '=', $authorData['fname']],
+                        ['lname_en', '=', $authorData['lname']]
+                    ])
+                        ->orWhere([
+                            [DB::raw("concat(left(fname_en,1),'.')"), '=', $authorData['fname']],
+                            ['lname_en', '=', $authorData['lname']]
+                        ])
+                        ->orWhere([
+                            [DB::raw("left(fname_en,1)"), '=', $authorData['fname']],
+                            ['lname_en', '=', $authorData['lname']]
+                        ])
+                        ->first();
+
+                    /* Author_type (1 = first, 2 = middle, 3 = last) */
+                    $authorType = ($index === 0) ? 1 : (($index === $authorCount - 1) ? 3 : 2);
+
+                    if ($user) {
+                        $paperModel->teacher()->attach($user, ['author_type' => $authorType]);
+                    } else {
+                        $author = TciAPIService::findOrCreateAuthor($authorData['fname'], $authorData['lname']);
+                        $paperModel->author()->attach($author, ['author_type' => $authorType]);
+                    }
+                }
+
+            }
+            else{
+                $findPaper = Paper::where('paper_name', $paper['article_eng'])->firstOrFail();
+                $user = User::findOrFail($userId);
+                if (!$user->paper()->where('paper_id', $findPaper->id)->exists()) {
+                    $author = Author::where([
+                        ['author_fname', $user->fname_en],
+                        ['author_lname', $user->lname_en]
+                    ])->first();
+                    if ($author) {
+                        $findPaper->authors()->detach($author->id);
+                    }
+                    $findPaper->teacher()->attach($user->id);
+                }
+            }
+
+        }
+    }
+
+    private static function findOrCreateAuthor($fname, $lname) {
+        return Author::firstOrCreate(
+            ['author_fname' => $fname, 'author_lname' => $lname],
+            ['author_fname' => $fname, 'author_lname' => $lname]
+        );
+    }
+}
