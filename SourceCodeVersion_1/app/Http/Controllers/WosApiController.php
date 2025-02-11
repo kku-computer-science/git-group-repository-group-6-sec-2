@@ -1,15 +1,15 @@
 <?php
 
-namespace Http\Controllers;
-
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
+require 'vendor/autoload.php';
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\File;
 
-class WosApiController extends Controller
+class WosApiController
 {
-    public function getResearcherData($id): JsonResponse
+    public function getResearcherData($id)
     {
         $client = new Client();
         try {
@@ -21,18 +21,22 @@ class WosApiController extends Controller
                 'query' => [
                     'db' => 'WOS',
                     'q' => 'AU=' . $id,
-                    'limit' => 10,
+                    'limit' => 50,
                     'page' => 1,
                 ],
             ]);
 
-            $data = json_decode($response->getBody()->getContents(), true);
-            File::put(storage_path('app/public/researcher_data.json'), json_encode($data, JSON_PRETTY_PRINT));
+            //            File::put(storage_path('app/public/researcher_data.json'), json_encode($data, JSON_PRETTY_PRINT));
 
-            return response()->json($data);
+            return json_decode($response->getBody()->getContents(), true);
 
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Unable to fetch data from WOS'], 500);
+        } catch (GuzzleException $e) {
+            return ;
         }
     }
 }
+
+$wos = new WosApiController();
+$data = $wos->getResearcherData('Kokaew Urachart');
+
+print_r($data);

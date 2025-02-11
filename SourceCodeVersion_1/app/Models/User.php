@@ -93,12 +93,10 @@ class User extends Authenticatable
     public function department() {
         return $this->belongsTo(department::class);
     }
-
     public function expertise()
     {
         return $this->hasMany(Expertise::class);
     }
-
     public function education()
     {
         return $this->hasMany(Education::class);

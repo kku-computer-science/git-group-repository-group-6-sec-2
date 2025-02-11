@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Services\ScopusService;
+use App\APIFetcher\ScopusService;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Mockery;

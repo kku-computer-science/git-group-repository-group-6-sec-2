@@ -1,19 +1,21 @@
 <?php
 
 namespace App\Services;
+require 'vendor/autoload.php';
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 
 class ScopusService
 {
-    protected $client;
+    protected Client $client;
     protected $apiKey;
 
     public function __construct(Client $client)
     {
         $this->client = $client;
-        $this->apiKey = config('services.scopus.api_key');
+        $this->apiKey = '6ab3c2a01c29f0e36b00c8fa1d013f83';
     }
 
     public function searchByAuthor($lastName, $firstInitial)
@@ -31,7 +33,7 @@ class ScopusService
             ]);
 
             return json_decode($response->getBody(), true);
-        } catch (RequestException $e) {
+        } catch (GuzzleException $e) {
             return ['error' => $e->getMessage()];
         }
     }
@@ -55,3 +57,8 @@ class ScopusService
         }
     }
 }
+
+$sc = new ScopusService(new Client());
+$data = $sc->searchByAuthor('Horata', 'Punyaphol');
+print_r($data);
+
