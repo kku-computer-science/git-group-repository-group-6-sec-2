@@ -26,3 +26,23 @@ Array
     [23] => dxQuB2QAAAAJ
     [24] => zdBo3cwAAAAJ
 )
+
+
+paper_name
+abstract
+paper_type
+paper_subtype
+paper_sourcetitle
+keyword
+paper_url
+publication
+paper_yearpub
+paper_volume
+paper_issue
+paper_citation
+paper_page
+paper_doi
+paper_funder
+reference_number
+created_at
+updated_at

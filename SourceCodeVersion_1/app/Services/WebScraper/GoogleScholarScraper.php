@@ -1,5 +1,5 @@
 <?php
- namespace WebScraper;
+ namespace App\Services\WebScraper;
 
  require /** @lang text */
  'vendor/autoload.php';

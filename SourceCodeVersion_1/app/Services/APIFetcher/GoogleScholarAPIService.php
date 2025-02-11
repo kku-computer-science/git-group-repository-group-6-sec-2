@@ -1,31 +1,28 @@
 <?php
-namespace APIFetcher;
+namespace App\Services\APIFetcher;
+use App\Models\Paper;
+use App\Models\User;
 use Exception;
 use GoogleSearchResults;
-use Dotenv\Dotenv;
-use GuzzleHttp\Client;
-use WebScraper\IDScraper;
 
 require 'app/WebScraper/IDScraper.php';
 
 require /** @lang text */
 'vendor/autoload.php';
 
-class GoogleScholarAPI {
+class GoogleScholarAPIService {
     private string $apiKey;
-    private string $authorId;
 
-    public function __construct(string $apiKey, string $authorId) {
+    public function __construct(string $apiKey) {
         $this->apiKey = $apiKey;
-        $this->authorId = $authorId;
     }
 
-    public function fetch(): array {
+    public function getResearcherPublications(string $authorId): array|string {
         try {
             $search = new GoogleSearchResults($this->apiKey);
             $query = [
                 "engine" => "google_scholar_author",
-                "author_id" => $this->authorId,
+                "author_id" => $authorId,
                 "hl" => "en",
                 "num" => "100",
             ];
@@ -33,8 +30,8 @@ class GoogleScholarAPI {
             $result = $search->get_json($query);
             return $this->extractRelevantData(json_decode(json_encode($result), true));
         } catch (Exception $e) {
-            error_log("Error fetching data: " . $e->getMessage());
-            return [];
+            error_log("Error while fetching Google Scholar publication: " . $e->getMessage());
+            return [] | $e->getCode();
         }
     }
 
@@ -54,7 +51,8 @@ class GoogleScholarAPI {
                 'authors' => $article['authors'] ?? null,
                 'publication' => $article['publication'] ?? null,
                 'cited_by' => $article['cited_by']['value'] ?? 0,
-                'year' => $article['year'] ?? null
+                'year' => $article['year'] ?? null,
+                'source' => 'Google Scholar',
             ];
         }
 
@@ -63,6 +61,23 @@ class GoogleScholarAPI {
             'interests' => $interests,
             'articles' => $filteredArticles
         ];
+    }
+
+    public function saveGoogleScholarPublication(array $data, string $userId): void
+    {
+        foreach ($data['articles'] as $article) {
+            if(Paper::Where('title', $article['title'])->first() == null) {
+                $paper = new Paper();
+                $paper->paper_name = $article['title'] ?? null;
+                $paper->paper_url = $article['link'] ?? null;
+                $paper->paper_citation = $article['cited_by'] ?? null;
+                $paper->paper_yearpub = $article['year'] ?? null;
+                $paper->paper_sourcetitle = $article['publication'] ?? null;
+                $paper->save();
+            }
+        }
+        $user = User::find($userId);
+        $user->papers()->attach(Paper::all());
     }
 }
 
@@ -112,7 +127,7 @@ class GoogleScholarAPI {
 //    $authorIdList = $id_scraper->search($names);
 //    print_r($authorIdList);
 //    foreach ($authorIdList as $authorId) {
-//        $fetcher = new GoogleScholarAPI($apiKey, $authorId);
+//        $fetcher = new GoogleScholarAPIService($apiKey, $authorId);
 //        $data = $fetcher->fetch();
 //        file_put_contents($authorId.'.json', json_encode($data, JSON_PRETTY_PRINT |
 //            JSON_UNESCAPED_UNICODE |
