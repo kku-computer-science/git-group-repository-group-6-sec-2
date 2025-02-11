@@ -4,6 +4,8 @@
         background-color: #fff;
         padding: 2px 0;
         border-radius: 5px;
+
+
     }
 
     .count-title {
@@ -23,6 +25,8 @@
         margin-bottom: 0;
         text-align: center;
         color: #000;
+
+
     }
 
     .fa-2x {
@@ -50,11 +54,23 @@
                         <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}</b>
                             @endif</h6>
                         <h6 class="card-text1"><b>{{$res->academic_ranks_en}}</b></h6>
+                        <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
+                        <!-- <h6 class="card-text1">College of Computing</h6>
+                    <h6 class="card-text1">Khon Kaen University</h6> -->
                         <h6 class="card-text1">E-mail: {{$res->email}}</h6>
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
                         @foreach( $res->education as $edu)
                         <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
                         @endforeach
+                        <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            {{ trans('message.expertise') }}
+                        </button> -->
+                        <!-- <h6 class="card-title">Metrics overview</h6>
+                    <h6 class="card-text2" id="citation">Citation count</h6>
+                    <h6 class="card-text2" id="doc_count">Document count</h6>
+                    <h6 class="card-text2" id="cite_count">Cited By count</h6>
+                    <h6 class="card-text2" id="h-index">H-index </h6> -->
 
                 </div>
             </div>
@@ -80,6 +96,11 @@
                             <div class="count" id='tci_sum'>
                             </div>
                         </div>
+                        <div class="col">
+                            <div class="count" id='scholar_sum'>
+                            </div>
+                        </div>
+
                     </div>
                     <br>
                     <div class="chart">
@@ -87,426 +108,434 @@
                     </div>
                 </div>
             </div>
+
+
+
+        </div>
+    </div>
+    <!-- Button to trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#yearModal">
+        Show All Years
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="yearModal" tabindex="-1" aria-labelledby="yearModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="yearModalLabel">Research Works by Year</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        @foreach($years as $year)
+                        <li>{{ $year }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for graph -->
+    <div class="modal fade" id="graphModal" tabindex="-1" aria-labelledby="graphModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="graphModalLabel">Publications Graph</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <canvas id="modalBarChart"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
     <br>
 
-    <div class="d-flex justify-content-between align-items-center">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="scopus-tab" data-bs-toggle="tab" data-bs-target="#scopus" type="button" role="tab" aria-controls="scopus" aria-selected="false">SCOPUS</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="wos-tab" data-bs-toggle="tab" data-bs-target="#wos" type="button" role="tab" aria-controls="wos" aria-selected="false">Web of Science</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
-            </li>
-        </ul>
-        <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">Export To Excel</a>
-    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="scopus-tab" data-bs-toggle="tab" data-bs-target="#scopus" type="button" role="tab" aria-controls="scopus" aria-selected="false">SCOPUS</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="wos-tab" data-bs-toggle="tab" data-bs-target="#wos" type="button" role="tab" aria-controls="wos" aria-selected="false">Web of Science</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="scholar-tab" data-bs-toggle="tab" data-bs-target="#scholar" type="button" role="tab" aria-controls="scholar" aria-selected="false">Google Scholar</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
+        </li>
+    </ul>
     <br>
     <div class="tab-content" id="myTabContent">
 
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <div class="table-responsive">
-        <table id="papersTable" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Paper Name</th>
-                    <th>Citations</th>
-                    <th>Year</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($papers as $paper)
-                <tr>
-                    <td style="width:50%;">
-                        {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
-                        <div id="collapse-{{ $paper->id }}" class="collapse">
-                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
-                                @foreach ($paper->author as $author)
-                                <span>
-                                    <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-                                </span>
-                                @endforeach
-                                @foreach ($paper->teacher as $author)
-                                <span >
-                                    <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                        <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
-                                </span>
-                                @endforeach
-                            </p>
-                            <p>Document Type: {{$paper->paper_type}}</p>
-                            <p>Page: {{$paper->paper_page}}</p>
-                            <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
-                            <p>Doi: {{$paper->paper_doi}}</p>
-                            <p>Source: 
-                                @foreach ($paper->source as $s)
-                                <span>
-                                    <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
-                                </span>
-                                @endforeach
-                            </p>
-                        </div>
-                    </td>
-                    <td>{{ $paper->paper_citation }}</td>
-                    <td>{{ $paper->paper_yearpub }}</td>
-                    <td>
-                        <a href="#" class="show-more" data-target="#collapse-{{ $paper->id }}" data-id="{{ $paper->id }}">Show more ▼</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-content" style="padding-bottom: 20px;">
+                <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">Export To Excel</a>
+            </div>
+            <table id="example1" class="table table-striped" style="width:100%">
+                <thead>
+                    <!-- <tr>
+                        <th><a href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">#Export</a></td>
+                    </tr> -->
+                    <tr>
+                        <th>No.</th>
+                        <th>Year</th>
+                        <th>Paper Name</th>
+                        <th>Author</th>
+                        <th>Document Type</th>
+                        <th>Page</th>
+                        <th>Journals/Transactions</th>
+                        <th>Ciations</th>
+                        <th>Doi</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach ($papers as $n => $paper)
+                    <tr>
+                        <td> {{$n+1}}</td>
+                        <td>{{ $paper->paper_yearpub }}</td>
+                        <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
+                        <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
+                        <td>
+                            @foreach ($paper->author as $author)
+                            <span>
+                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                            </span>
+                            @endforeach
+                            @foreach ($paper->teacher as $author)
+                            <span >
+                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                            </span>
+                            @endforeach
+                        </td>
+                        <td>{{$paper->paper_type}}</td>
+                        <td style="width:100%;">{{$paper->paper_page}}</td>
+                        <td>{{$paper->paper_sourcetitle}}</td>
+                        <td>{{$paper->paper_citation}}</td>
+                        <td>{{$paper->paper_doi}}</td>
+                        <td>
+                            @foreach ($paper->source as $s)
+                            <span>
+                                <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
+                            </span>
+                            @endforeach
+                        </td>
+
+                    </tr>
+                    @endforeach
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class="tab-pane fade" id="scopus" role="tabpanel" aria-labelledby="scopus-tab">
+
+            <table id="example2" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Year</th>
+                        <th style="width:90%;">Paper Name</th>
+                        <th>Author</th>
+                        <th>Document Type</th>
+                        <th style="width:100%;">Page</th>
+                        <th>Journals/Transactions</th>
+                        <th>Ciations</th>
+                        <th>Doi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($papers_scopus as $n => $paper)
+                    <tr>
+                        <td> {{$n+1}}</td>
+                        <td>{{ $paper->paper_yearpub }}</td>
+                        <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
+                        <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
+                        <td>
+                            @foreach ($paper->author as $author)
+                            <span>
+                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                            </span>
+                            @endforeach
+                            @foreach ($paper->teacher as $author)
+                            <span>
+                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                            </span>
+                            @endforeach
+                        </td>
+                        <td>{{$paper->paper_type}}</td>
+                        <td style="width:100%;">{{$paper->paper_page}}</td>
+                        <td>{{$paper->paper_sourcetitle}}</td>
+                        <td>{{$paper->paper_citation}}</td>
+                        <td>{{$paper->paper_doi}}</td>
+
+
+                    </tr>
+                    @endforeach
+                </tbody>
+
+            </table>
+
+
+        </div>
+        <div class="tab-pane fade" id="wos" role="tabpanel" aria-labelledby="wos-tab">
+
+            <table id="example3" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Year</th>
+                        <th style="width:90%;">Paper Name</th>
+                        <th>Author</th>
+                        <th>Document Type</th>
+                        <th style="width:100%;">Page</th>
+                        <th>Journals/Transactions</th>
+                        <th>Ciations</th>
+                        <th>Doi</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach ($papers_wos as $n => $paper)
+                    <tr>
+                        <td> {{$n+1}}</td>
+                        <td>{{ $paper->paper_yearpub }}</td>
+                        <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
+                        <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
+                        <td>
+                            @foreach ($paper->author as $author)
+                            <span>
+                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                            </span>
+                            @endforeach
+                            @foreach ($paper->teacher as $author)
+                            <span>
+                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                            </span>
+                            @endforeach
+                        </td>
+                        <td>{{$paper->paper_type}}</td>
+                        <td style="width:100%;">{{$paper->paper_page}}</td>
+                        <td>{{$paper->paper_sourcetitle}}</td>
+                        <td>{{$paper->paper_citation}}</td>
+                        <td>{{$paper->paper_doi}}</td>
+
+
+                    </tr>
+                    @endforeach
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+        <div class="tab-pane fade" id="tci" role="tabpanel" aria-labelledby="tci-tab">
+            <table id="example4" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Year</th>
+                        <th style="width:90%;">Paper Name</th>
+                        <th>Author</th>
+                        <th>Document Type</th>
+                        <th style="width:100%;">Page</th>
+                        <th>Journals/Transactions</th>
+                        <th>Ciations</th>
+                        <th>Doi</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach ($papers_tci as $n => $paper)
+                    <tr>
+                        <td> {{$n+1}}</td>
+                        <td>{{ $paper->paper_yearpub }}</td>
+                        <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
+                        <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
+                        <td>
+                            @foreach ($paper->author as $author)
+                            <span>
+                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                            </span>
+                            @endforeach
+                            @foreach ($paper->teacher as $author)
+                            <span>
+                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                            </span>
+                            @endforeach
+                        </td>
+                        <td>{{$paper->paper_type}}</td>
+                        <td style="width:100%;">{{$paper->paper_page}}</td>
+                        <td>{{$paper->paper_sourcetitle}}</td>
+                        <td>{{$paper->paper_citation}}</td>
+                        <td>{{$paper->paper_doi}}</td>
+
+
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="scholar" role="tabpanel" aria-labelledby="scholar-tab">
+            <table id="example7" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Year</th>
+                        <th style="width:90%;">Paper Name</th>
+                        <th>Author</th>
+                        <th>Document Type</th>
+                        <th style="width:100%;">Page</th>
+                        <th>Journals/Transactions</th>
+                        <th>Ciations</th>
+                        <th>Doi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($papers_scholar as $n => $paper)
+                    <tr>
+                        <td> {{$n+1}}</td>
+                        <td>{{ $paper->paper_yearpub }}</td>
+                        <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
+                        <td>
+                            @foreach ($paper->author as $author)
+                            <span>
+                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                            </span>
+                            @endforeach
+                            @foreach ($paper->teacher as $author)
+                            <span>
+                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                            </span>
+                            @endforeach
+                        </td>
+                        <td>{{$paper->paper_type}}</td>
+                        <td style="width:100%;">{{$paper->paper_page}}</td>
+                        <td>{{$paper->paper_sourcetitle}}</td>
+                        <td>{{$paper->paper_citation}}</td>
+                        <td>{{$paper->paper_doi}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
+            <table id="example5" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col">Number</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">สถานที่พิมพ์</th>
+                        <th scope="col">Page</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach ($book_chapter as $n => $paper)
+                    <tr>
+                        <td>{{$n+1}}</td>
+                        <td style="width:80px">{{ date('Y', strtotime($paper->ac_year))+543 }}</td>
+                        <td>{{$paper->ac_name}}</td>
+                        <td>
+                            @foreach ($paper->author as $author)
+                            <span>
+                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+
+                            </span>
+                            @endforeach
+                            @foreach ($paper->user as $author)
+                            <span>
+                                <a> {{$author -> fname_en}} {{$author -> lname_en}}</a>
+                            </span>
+                            @endforeach
+                        </td>
+                        <td>{{$paper->ac_sourcetitle}}</td>
+                        <td>{{ $paper->ac_page }}</td>
+
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="patent" role="tabpanel" aria-labelledby="patent-tab">
+            <table id="example6" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col">Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">ประเภท</th>
+                        <th scope="col">หมายเลขทะเบียน</th>
+                        <th scope="col">วันที่จดทะเบียน</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach ($patent as $n => $paper)
+                    <tr>
+                        <td>{{$n+1}}</td>
+                        <td>{{$paper->ac_name}}</td>
+                        <td>
+                            @foreach ($paper->author as $author)
+                            <span>
+                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+
+                            </span>
+                            @endforeach
+                            @foreach ($paper->user as $author)
+                            <span>
+                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+
+                            </span>
+                            @endforeach
+                        </td>
+                        <td>{{$paper->ac_type}}</td>
+                        <td>{{$paper->ac_refnumber }}</td>
+                        <td>{{$paper->ac_year}}</td>
+
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </div>
-
-<div class="tab-pane fade" id="scopus" role="tabpanel" aria-labelledby="scopus-tab">
-    <div class="table-responsive">
-        <table id="scopusTable" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Paper Name</th>
-                    <th>Citations</th>
-                    <th>Year</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($papers_scopus as $paper)
-                <tr>
-                    <td style="width:50%;">
-                        {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
-                        <div id="collapse-scopus-{{ $paper->id }}" class="collapse">
-                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
-                                @foreach ($paper->author as $author)
-                                <span>
-                                    <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-                                </span>
-                                @endforeach
-                                @foreach ($paper->teacher as $author)
-                                <span >
-                                    <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                        <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
-                                </span>
-                                @endforeach
-                            </p>
-                            <p>Document Type: {{$paper->paper_type}}</p>
-                            <p>Page: {{$paper->paper_page}}</p>
-                            <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
-                            <p>Doi: {{$paper->paper_doi}}</p>
-                            <p>Source: 
-                                @foreach ($paper->source as $s)
-                                <span>
-                                    <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
-                                </span>
-                                @endforeach
-                            </p>
-                        </div>
-                    </td>
-                    <td>{{ $paper->paper_citation }}</td>
-                    <td>{{ $paper->paper_yearpub }}</td>
-                    <td>
-                        <a href="#" class="show-more" data-target="#collapse-scopus-{{ $paper->id }}" data-id="{{ $paper->id }}">Show more ▼</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="tab-pane fade" id="wos" role="tabpanel" aria-labelledby="wos-tab">
-    <div class="table-responsive">
-        <table id="wosTable" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Paper Name</th>
-                    <th>Citations</th>
-                    <th>Year</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($papers_wos as $paper)
-                <tr>
-                    <td style="width:50%;">
-                        {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
-                        <div id="collapse-wos-{{ $paper->id }}" class="collapse">
-                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
-                                @foreach ($paper->author as $author)
-                                <span>
-                                    <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-                                </span>
-                                @endforeach
-                                @foreach ($paper->teacher as $author)
-                                <span >
-                                    <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                        <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
-                                </span>
-                                @endforeach
-                            </p>
-                            <p>Document Type: {{$paper->paper_type}}</p>
-                            <p>Page: {{$paper->paper_page}}</p>
-                            <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
-                            <p>Doi: {{$paper->paper_doi}}</p>
-                            <p>Source: 
-                                @foreach ($paper->source as $s)
-                                <span>
-                                    <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
-                                </span>
-                                @endforeach
-                            </p>
-                        </div>
-                    </td>
-                    <td>{{ $paper->paper_citation }}</td>
-                    <td>{{ $paper->paper_yearpub }}</td>
-                    <td>
-                        <a href="#" class="show-more" data-target="#collapse-wos-{{ $paper->id }}" data-id="{{ $paper->id }}">Show more ▼</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="tab-pane fade" id="tci" role="tabpanel" aria-labelledby="tci-tab">
-    <div class="table-responsive">
-        <table id="tciTable" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Paper Name</th>
-                    <th>Citations</th>
-                    <th>Year</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($papers_tci as $paper)
-                <tr>
-                    <td style="width:50%;">
-                        {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
-                        <div id="collapse-tci-{{ $paper->id }}" class="collapse">
-                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
-                                @foreach ($paper->author as $author)
-                                <span>
-                                    <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-                                </span>
-                                @endforeach
-                                @foreach ($paper->teacher as $author)
-                                <span >
-                                    <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                        <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
-                                </span>
-                                @endforeach
-                            </p>
-                            <p>Document Type: {{$paper->paper_type}}</p>
-                            <p>Page: {{$paper->paper_page}}</p>
-                            <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
-                            <p>Doi: {{$paper->paper_doi}}</p>
-                            <p>Source: 
-                                @foreach ($paper->source as $s)
-                                <span>
-                                    <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
-                                </span>
-                                @endforeach
-                            </p>
-                        </div>
-                    </td>
-                    <td>{{ $paper->paper_citation }}</td>
-                    <td>{{ $paper->paper_yearpub }}</td>
-                    <td>
-                        <a href="#" class="show-more" data-target="#collapse-tci-{{ $paper->id }}" data-id="{{ $paper->id }}">Show more ▼</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
-    <div class="table-responsive">
-        <table id="bookTable" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Year</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($book_chapter as $paper)
-                <tr>
-                    <td style="width:50%;">
-                        {{$paper->ac_name}}
-                        <div id="collapse-book-{{ $paper->id }}" class="collapse">
-                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
-                                @foreach ($paper->author as $author)
-                                <span>
-                                    <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-                                </span>
-                                @endforeach
-                                @foreach ($paper->user as $author)
-                                <span>
-                                    <a> {{$author -> fname_en}} {{$author -> lname_en}}</a>
-                                </span>
-                                @endforeach
-                            </p>
-                            <p>สถานที่พิมพ์: {{$paper->ac_sourcetitle}}</p>
-                            <p>Page: {{$paper->ac_page}}</p>
-                        </div>
-                    </td>
-                    <td>{{ date('Y', strtotime($paper->ac_year)) + 543 }}</td>
-                    <td>
-                        <a href="#" class="show-more" data-target="#collapse-book-{{ $paper->id }}" data-id="{{ $paper->id }}">Show more ▼</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
-<div class="tab-pane fade" id="patent" role="tabpanel" aria-labelledby="patent-tab">
-    <div class="table-responsive">
-        <table id="patentTable" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>ประเภท</th>
-                    <th>วันที่จดทะเบียน</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($patent as $paper)
-                <tr>
-                    <td style="width:50%;">
-                        {{$paper->ac_name}}
-                        <div id="collapse-patent-{{ $paper->id }}" class="collapse">
-                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
-                                @foreach ($paper->author as $author)
-                                <span>
-                                    <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-                                </span>
-                                @endforeach
-                                @foreach ($paper->user as $author)
-                                <span>
-                                    <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                        <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
-                                </span>
-                                @endforeach
-                            </p>
-                            <p>ประเภท: {{$paper->ac_type}}</p>
-                            <p>หมายเลขทะเบียน: {{$paper->ac_refnumber }}</p>
-                        </div>
-                    </td>
-                    <td>{{$paper->ac_type}}</td>
-                    <td>{{$paper->ac_year}}</td>
-                    <td>
-                        <a href="#" class="show-more" data-target="#collapse-patent-{{ $paper->id }}" data-id="{{ $paper->id }}">Show more ▼</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#papersTable').DataTable({
-            paging: true,
-            lengthChange: true,
-            searching: true,
-            ordering: true,
-            info: true,
-            autoWidth: false
-        });
-
-        $('#scopusTable').DataTable({
-            paging: true,
-            lengthChange: true,
-            searching: true,
-            ordering: true,
-            info: true,
-            autoWidth: false
-        });
-
-        $('#wosTable').DataTable({
-            paging: true,
-            lengthChange: true,
-            searching: true,
-            ordering: true,
-            info: true,
-            autoWidth: false
-        });
-
-        $('#tciTable').DataTable({
-            paging: true,
-            lengthChange: true,
-            searching: true,
-            ordering: true,
-            info: true,
-            autoWidth: false
-        });
-
-        $('#bookTable').DataTable({
-            paging: true,
-            lengthChange: true,
-            searching: true,
-            ordering: true,
-            info: true,
-            autoWidth: false
-        });
-
-        $('#patentTable').DataTable({
-            paging: true,
-            lengthChange: true,
-            searching: true,
-            ordering: true,
-            info: true,
-            autoWidth: false
-        });
-
-        $(document).on("click", ".show-more", function(e) {
-            e.preventDefault();
-            let target = $(this).data("target");
-            $(target).collapse('toggle');
-            $(target).on('shown.bs.collapse', function() {
-                $(`a[data-target="${target}"]`).text('Show less ▲');
-            });
-            $(target).on('hidden.bs.collapse', function() {
-                $(`a[data-target="${target}"]`).text('Show more ▼');
-            });
-        });
-    });
-</script>
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.js"></script> -->
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.js"></script>
@@ -535,6 +564,9 @@
         var table6 = $('#example6').DataTable({
             responsive: true,
         });
+        var table7 = $('#example7').DataTable({
+            responsive: true,
+        });
 
 
         $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function(event) {
@@ -554,7 +586,36 @@
             if (tabID === '#patent') {
                 table6.columns.adjust().draw()
             }
+            if (tabID === '#scholar') {
+                table7.columns.adjust().draw()
+            }
 
+        });
+
+        // Function to update chart type
+        function updateChartType(type) {
+            barChart.destroy();
+            barChart = new Chart(barChartCanvas, {
+                type: type,
+                data: barChartData,
+                options: barChartOptions
+            });
+        }
+
+        // Event listeners for changing chart type
+        $('#barChartType').on('change', function() {
+            updateChartType($(this).val());
+        });
+
+        // Event listener for showing the graph modal
+        $('#barChart').on('click', function() {
+            $('#graphModal').modal('show');
+            var modalBarChartCanvas = $('#modalBarChart').get(0).getContext('2d');
+            new Chart(modalBarChartCanvas, {
+                type: 'bar',
+                data: barChartData,
+                options: barChartOptions
+            });
         });
 
     });
@@ -565,6 +626,7 @@
     var paper_tci = <?php echo $paper_tci; ?>;
     var paper_scopus = <?php echo $paper_scopus; ?>;
     var paper_wos = <?php echo $paper_wos; ?>;
+    var paper_scholar = <?php echo $paper_scholar; ?>;
     var areaChartData = {
 
         labels: year,
@@ -602,6 +664,17 @@
                 pointHighlightStroke: '#FCC29A',
                 data: paper_wos
             },
+            {
+                label: 'Google Scholar',
+                backgroundColor: '#FFCC00',
+                borderColor: 'rgba(255, 204, 0, 1)',
+                pointRadius: false,
+                pointColor: '#FFCC00',
+                pointStrokeColor: '#c1c7d1',
+                pointHighlightFill: '#fff',
+                pointHighlightStroke: '#FFCC00',
+                data: paper_scholar
+            },
         ]
     }
 
@@ -631,7 +704,7 @@
 
     }
 
-    new Chart(barChartCanvas, {
+    var barChart = new Chart(barChartCanvas, {
         type: 'bar',
         data: barChartData,
         options: barChartOptions
@@ -649,6 +722,10 @@
     }
     async function myFunction() {
         var res = <?php echo $res; ?>;
+        //var fname = res.fname_en;
+        //var fname = res.fname_en.substr(0, 1); 
+        //console.log(fname);
+        //const response = await fetch('https://api.elsevier.com/content/search/scopus?query=AUTHOR-NAME('+ res.lname_en +','+fname+')%20&apikey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson');
         const response = await fetch('https://api.elsevier.com/content/search/author?query=authlast(' + res.lname_en +
             ')%20and%20authfirst(' + res.fname_en +
             ')%20&apiKey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson');
@@ -680,12 +757,14 @@
     var paper_tci_s = <?php echo $paper_tci_s; ?>;
     var paper_scopus_s = <?php echo $paper_scopus_s; ?>;
     var paper_wos_s = <?php echo $paper_wos_s; ?>;
+    var paper_scholar_s = <?php echo $paper_scholar_s; ?>;
     var paper_book_s = <?php echo $paper_book_s; ?>;
     var paper_patent_s = <?php echo $paper_patent_s; ?>;
     //console.log(paper_book_s);
     let sumtci = 0;
     let sumsco = 0;
     let sumwos = 0;
+    let sumscholar = 0;
     let sumbook = 0;
     let sumpatent = 0;
     (function($) {
@@ -698,13 +777,16 @@
         for (let i = 0; i < paper_wos_s.length; i++) {
             sumwos += paper_wos_s[i];
         }
+        for (let i = 0; i < paper_scholar_s.length; i++) {
+            sumscholar += paper_scholar_s[i];
+        }
         for (let i = 0; i < paper_book_s.length; i++) {
             sumbook += paper_book_s[i];
         }
         for (let i = 0; i < paper_patent_s.length; i++) {
             sumpatent += paper_patent_s[i];
         }
-        let sum = sumsco + sumtci + sumwos + sumbook + sumpatent;
+        let sum = sumsco + sumtci + sumwos + sumscholar + sumbook + sumpatent;
 
         //$("#scopus").append('data-to="100"');
         document.getElementById("all").innerHTML += `   
@@ -722,6 +804,10 @@
         document.getElementById("tci_sum").innerHTML += `  
                 <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
                 <p class="count-text ">TCI</p>`
+
+        document.getElementById("scholar_sum").innerHTML += `  
+                <h2 class="timer count-title count-number" data-to="${sumscholar}" data-speed="1500"></h2>
+                <p class="count-text ">Google Scholar</p>`
 
 
         //document.getElementById("scopus").appendChild('data-to="100"');
@@ -823,4 +909,15 @@
         }
     });
 </script>
+<!-- <script>
+    // get the p element
+    $(document).ready(function() {
+    const a = document.getElementById('authtd');
+    console.log(a.text)
+    const myArray =  a.text.toString().split(" ");
+    console.log(myArray)
+    document.getElementById("authtd").innerHTML = "name :"+ myArray;
+    
+});
+</script> -->
 @endsection
