@@ -5,9 +5,9 @@
     <div class="d-flex justify-content-between">
         <div>
         <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/all') }}'">All</button>
-            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/1') }}'">CS</button>
-            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/2') }}'">IT</button>
-            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/3') }}'">GIF</button>
+            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/1') }}'">Computer Science</button>
+            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/2') }}'">Infomation Technology</button>
+            <button class="btn btn-outline-primary" onclick="window.location.href='{{ url('researchers/3') }}'">Geo-Informatics</button>
         </div>
     </div>
     @foreach($request as $res)
