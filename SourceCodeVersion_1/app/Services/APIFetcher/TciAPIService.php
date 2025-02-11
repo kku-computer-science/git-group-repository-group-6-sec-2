@@ -86,7 +86,7 @@ class TciFetcher
             // print_r($articleInfo);
 
             $authorNames = array_map(fn($author) => $author['name'], $authors ?? []);
-            $articleInfo['authors'] = implode(', ', $authorNames);
+            $articleInfo['authors'] = implode(',', $authorNames);
 
             if ($articleInfo[0]['document_type_id'] == 1) {
                 $articleInfo[0]['document_type'] = 'Journal';
@@ -97,8 +97,11 @@ class TciFetcher
                 'article_loc' => $articleInfo[0]['article_loc'] ?? 'Unknown Title',
                 'article_eng' => $articleInfo[0]['article_eng'] ?? 'Unknown Title', 
                 'journal_loc' => $articleInfo[0]['journal_loc'] ?? '', 
+                //'abstract_eng' => $articleInfo[0]['abstract_eng'] ?? '',
+                // 'abstract_loc' => $articleInfo[0]['avstract_loc'] ?? '',
                 'journal_eng' => $articleInfo[0]['journal_eng'] ?? '', 
                 'volume' => $articleInfo[0]['volume'] ?? 'N/A', 
+                'issue_num' => $articleInfo[0]['issue_num'] ?? 'N/A',
                 'page_number' => $articleInfo[0]['page_number'] ?? 'N/A', 
                 'year' => $articleInfo[0]['year'] ?? 'Unknown Year', 
                 'cited' => $articleInfo[0]['cited'] ?? 0, 
@@ -110,12 +113,30 @@ class TciFetcher
         'articles' => $formattedArticles
         ];
     }
+}   
+
+function saveTciPublications(array $papers): void
+{
+    foreach ($papers as $paper) {
+        $existingPaper = Paper::where('paper_name', $paper[0]['article_loc'])->first();
+        print_r($existingPaper);
+
+        if ($existingPaper === null) {
+            $paperModel = new Paper;
+            $paperModel->paper_name = $paper['article_loc']; 
+            $paperModel->paper_type = $paper['document_type']; 
+            $paperModel->paper_sourcetitle = $paper['journal_loc'] ?? '';
+            $paperModel->paper_volume = $paper['volume'] ?? null;
+            $paperModel->paper_page = $paper['page_number'] ?? null;
+            $paperModel->paper_yearpub = $paper['year'] ?? null;
+            $paperModel->paper_citation = $paper['cited'] ?? 0;
+            $paperModel->abstract = $paper['abstract_eng'] ?? '';
+            $paperModel->save();
+        }
+    }
 }
 
-     $researcherName = "Pusadee";
-     $result = TciFetcher::extractRelevantData($researcherName);
-     echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-
-
-
+// $researcherName = "Pusadee Seresangtakul";
+// $result = TciFetcher::extractRelevantData($researcherName);
+// echo json_encode($result, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 ?>
