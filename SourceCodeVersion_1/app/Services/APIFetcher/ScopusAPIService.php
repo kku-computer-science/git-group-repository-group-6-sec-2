@@ -1,9 +1,13 @@
 <?php
 namespace App\Services\APIFetcher;
 
+use App\Models\Author;
+use App\Models\Paper;
+use App\Models\Source_data;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class ScopusAPIService {
@@ -98,50 +102,90 @@ class ScopusAPIService {
         return $processedAuthors;
     }
 
-    public function insertData($papers): void
+    public function saveScopusPublications(array $papers, string $userId): void
     {
         foreach ($papers as $paper) {
-            $paperModel = new Paper;
-            $paperModel->paper_name = $paper['title'];
-            $paperModel->paper_type = $paper['type'];
-            $paperModel->paper_subtype = $paper['subtype'];
-            $paperModel->paper_sourcetitle = $paper['sourceTitle'];
-            $paperModel->paper_url = $paper['url'];
-            $paperModel->paper_yearpub = $paper['year'];
-            $paperModel->paper_volume = $paper['volume'];
-            $paperModel->paper_issue = $paper['issue'];
-            $paperModel->paper_citation = $paper['citationCount'];
-            $paperModel->paper_page = $paper['pageRange'];
-            $paperModel->paper_doi = $paper['doi'];
-            $paperModel->paper_funder = json_encode($paper['funding']);
-            $paperModel->abstract = $paper['abstract'];
-            $paperModel->keyword = json_encode($paper['keywords']);
-            $paperModel->save();
+            if(Paper::Where('title', $paper['title'])->first() == null) {
+                $paperModel = new Paper();
+                $paperModel->paper_name = $paper['title'];
+                $paperModel->paper_type = $paper['type'];
+                $paperModel->paper_subtype = $paper['subtype'];
+                $paperModel->paper_sourcetitle = $paper['sourceTitle'];
+                $paperModel->paper_url = $paper['url'];
+                $paperModel->paper_yearpub = $paper['year'];
+                $paperModel->paper_volume = $paper['volume'];
+                $paperModel->paper_issue = $paper['issue'];
+                $paperModel->paper_citation = $paper['citationCount'];
+                $paperModel->paper_page = $paper['pageRange'];
+                $paperModel->paper_doi = $paper['doi'];
+                $paperModel->paper_funder = json_encode($paper['funding']);
+                $paperModel->abstract = $paper['abstract'];
+                $paperModel->keyword = json_encode($paper['keywords']);
+                $paperModel->save();
 
-            $source = Source_data::findOrFail(1);
-            $paperModel->source()->sync($source);
+                $source = Source_data::findOrFail(1);
+                $paperModel->source()->sync($source);
 
-            $totalAuthors = count($paper['authors']);
+                $authorsArray = explode(', ', $paper['authors']);
+                $authors = array_map(function ($author) {
+                    $parts = explode(' ', $author, 2);
+                    return [
+                        'fname' => $parts[0] ?? '',
+                        'lname' => $parts[1] ?? ''
+                    ];
+                }, $authorsArray);
 
-            foreach ($paper['authors'] as $index => $author) {
-                $authorModel = new Author;
-                $authorModel->first_name = $author['firstName'];
-                $authorModel->last_name = $author['lastName'];
-                $authorModel->save();
+                $authorCount = count($authorsArray);
 
-                if ($index === 0) {
-                    $role = 1; // First Author
-                } elseif ($index === $totalAuthors - 1) {
-                    $role = 3; // Last Author
-                } else {
-                    $role = 2; // Co-author
+                foreach ($authors as $index => $authorData) {
+                    $user = User::where([
+                        ['fname_en', '=', $authorData['fname']],
+                        ['lname_en', '=', $authorData['lname']]
+                    ])
+                        ->orWhere([
+                            [DB::raw("concat(left(fname_en,1),'.')"), '=', $authorData['fname']],
+                            ['lname_en', '=', $authorData['lname']]
+                        ])
+                        ->orWhere([
+                            [DB::raw("left(fname_en,1)"), '=', $authorData['fname']],
+                            ['lname_en', '=', $authorData['lname']]
+                        ])
+                        ->first();
+
+                    /* Author_type (1 = first, 2 = middle, 3 = last) */
+                    $authorType = ($index === 0) ? 1 : (($index === $authorCount - 1) ? 3 : 2);
+
+                    if ($user) {
+                        $paper->teacher()->attach($user, ['author_type' => $authorType]);
+                    } else {
+                        $author = $this->findOrCreateAuthor($authorData['fname'], $authorData['lname']);
+                        $paper->author()->attach($author, ['author_type' => $authorType]);
+                    }
                 }
-    
-                // Link Author to Paper and set author_role
-                $paperModel->authors()->attach($authorModel, ['author_role' => $role]);
+            }
+            else{
+                $paper = Paper::where('title', $paper['title'])->firstOrFail();
+                $user = User::findOrFail($userId);
+                if (!$user->papers()->where('paper_id', $paper->id)->exists()) {
+                    $author = Author::where([
+                        ['author_fname', $user->fname_en],
+                        ['author_lname', $user->lname_en],
+                        ['paper_id', $paper->id]
+                    ])->first();
+                    if ($author) {
+                        $paper->authors()->detach($author->id);
+                    }
+                    $paper->teachers()->attach($user->id);
+                }
             }
         }
     }
 
+    private function findOrCreateAuthor($fname, $lname) {
+        return Author::firstOrCreate(
+            ['author_fname' => $fname, 'author_lname' => $lname],
+            ['author_fname' => $fname, 'author_lname' => $lname]
+        );
+    }
 
 }
