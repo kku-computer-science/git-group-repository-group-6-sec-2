@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+
 <style>
     .count {
         background-color: #fff;
@@ -37,67 +37,79 @@
     }
 </style>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="container cardprofile mt-5">
     <div class="card">
         <div class="row g-0">
             <div class="col-md-2">
-                <img class="card-image" src="{{$res->picture}}" alt="">
+                <img class="card-image" src="<?php echo e($res->picture); ?>" alt="">
             </div>
             <div class="col-md-6">
                 <div class="card-body">
-                    <h6 class="card-text"><b>{{$res->position_th}} {{$res->fname_th}} {{$res->lname_th}}</b></h6>
-                    @if($res->doctoral_degree == 'Ph.D.')
-                    <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}, {{$res->doctoral_degree}} </b>
-                        @else
-                        <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}</b>
-                            @endif</h6>
-                        <h6 class="card-text1"><b>{{$res->academic_ranks_en}}</b></h6>
-                        <h6 class="card-text1">E-mail: {{$res->email}}</h6>
-                        <h6 class="card-title">{{ trans('message.education') }}</h6>
-                        @foreach( $res->education as $edu)
-                        <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
-                        @endforeach
+                    <h6 class="card-text"><b><?php echo e($res->position_th); ?> <?php echo e($res->fname_th); ?> <?php echo e($res->lname_th); ?></b></h6>
+                    <?php if($res->doctoral_degree == 'Ph.D.'): ?>
+                    <h6 class="card-text"><b><?php echo e($res->fname_en); ?> <?php echo e($res->lname_en); ?>, <?php echo e($res->doctoral_degree); ?> </b>
+                        <?php else: ?>
+                        <h6 class="card-text"><b><?php echo e($res->fname_en); ?> <?php echo e($res->lname_en); ?></b>
+                            <?php endif; ?></h6>
+                        <h6 class="card-text1"><b><?php echo e($res->academic_ranks_en); ?></b></h6>
+                        <!-- <h6 class="card-text1">Department of <?php echo e($res->program->program_name_en); ?></h6> -->
+                        <!-- <h6 class="card-text1">College of Computing</h6>
+                    <h6 class="card-text1">Khon Kaen University</h6> -->
+                        <h6 class="card-text1">E-mail: <?php echo e($res->email); ?></h6>
+                        <h6 class="card-title"><?php echo e(trans('message.education')); ?></h6>
+                        <?php $__currentLoopData = $res->education; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $edu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <h6 class="card-text2 col-sm-10"> <?php echo e($edu->year); ?> <?php echo e($edu->qua_name); ?> <?php echo e($edu->uname); ?></h6>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            <?php echo e(trans('message.expertise')); ?>
+
+                        </button> -->
+                        <!-- <h6 class="card-title">Metrics overview</h6>
+                    <h6 class="card-text2" id="citation">Citation count</h6>
+                    <h6 class="card-text2" id="doc_count">Document count</h6>
+                    <h6 class="card-text2" id="cite_count">Cited By count</h6>
+                    <h6 class="card-text2" id="h-index">H-index </h6> -->
+
                 </div>
             </div>
 
             <div class="col-md-4">
-                <h6 class="title-pub">{{ __('message.publications2') }}</h6>
+                <h6 class="title-pub"><?php echo e(trans('message.publications2')); ?></h6>
                 <div class="col-xs-12 text-center bt">
                     <div class="clearfix"></div>
                     <div class="row text-center">
                         <div class="col">
-                            <div class="count" id="all"></div>
+                            <div class="count" id='all'>
+                            </div>
                         </div>
                         <div class="col">
-                            <div class="count" id="scopus_sum"></div>
+                            <div class="count" id='scopus_sum'>
+                            </div>
                         </div>
                         <div class="col">
-                            <div class="count" id="wos_sum"></div>
+                            <div class="count" id='wos_sum'>
+                            </div>
                         </div>
                         <div class="col">
-                            <div class="count" id="tci_sum"></div>
+                            <div class="count" id='tci_sum'>
+                            </div>
                         </div>
+
                     </div>
                     <br>
                     <div class="chart">
                         <canvas id="barChart"></canvas>
-                        <div class="text-center mt-4">
-                            <a href="{{ route('citation-h-index', ['userId' => $res->id]) }}" class="btn btn-outline-primary btn-lg hover-shadow">
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
                     </div>
-                    <a href="{{ route('history.chart', ['userId' => $res->id]) }}" class="btn btn-secondary">
-                        ดูกราฟย้อนหลัง
-                    </a>
                 </div>
             </div>
+
+
+
         </div>
     </div>
-</div>
-
     <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -106,9 +118,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                @foreach($res->expertise as $exper)
-                                <p class="card-text"> {{$exper->expert_name}}</p>
-                                @endforeach
+                <?php $__currentLoopData = $res->expertise; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $exper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <p class="card-text"> <?php echo e($exper->expert_name); ?></p>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -143,12 +155,12 @@
 
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="tab-content" style="padding-bottom: 20px;">
-                <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">Export To Excel</a>
+                <a class="btn btn-success" href="<?php echo e(route('excel', ['id' => $res->id])); ?>" target="_blank">Export To Excel</a>
             </div>
             <table id="example1" class="table table-striped" style="width:100%">
                 <thead>
                     <!-- <tr>
-                        <th><a href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">#Export</a></td>
+                        <th><a href="<?php echo e(route('excel', ['id' => $res->id])); ?>" target="_blank">#Export</a></td>
                     </tr> -->
                     <tr>
                         <th>No.</th>
@@ -165,40 +177,40 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($papers as $n => $paper)
+                    <?php $__currentLoopData = $papers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td> {{$n+1}}</td>
-                        <td>{{ $paper->paper_yearpub }}</td>
-                        <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
-                        <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
+                        <td> <?php echo e($n+1); ?></td>
+                        <td><?php echo e($paper->paper_yearpub); ?></td>
+                        <!-- <td style="width:90%;"><?php echo e($paper->paper_name); ?></td> -->
+                        <td style="width:90%;"><?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?></td>
                         <td>
-                            @foreach ($paper->author as $author)
+                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
                             </span>
-                            @endforeach
-                            @foreach ($paper->teacher as $author)
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span >
-                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
+                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
                             </span>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
-                        <td>{{$paper->paper_type}}</td>
-                        <td style="width:100%;">{{$paper->paper_page}}</td>
-                        <td>{{$paper->paper_sourcetitle}}</td>
-                        <td>{{$paper->paper_citation}}</td>
-                        <td>{{$paper->paper_doi}}</td>
+                        <td><?php echo e($paper->paper_type); ?></td>
+                        <td style="width:100%;"><?php echo e($paper->paper_page); ?></td>
+                        <td><?php echo e($paper->paper_sourcetitle); ?></td>
+                        <td><?php echo e($paper->paper_citation); ?></td>
+                        <td><?php echo e($paper->paper_doi); ?></td>
                         <td>
-                            @foreach ($paper->source as $s)
+                            <?php $__currentLoopData = $paper->source; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
+                                <a><?php echo e($s -> source_name); ?><?php if(!$loop->last): ?> , <?php endif; ?></a>
                             </span>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
 
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
 
             </table>
@@ -221,34 +233,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($papers_scopus as $n => $paper)
+                    <?php $__currentLoopData = $papers_scopus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td> {{$n+1}}</td>
-                        <td>{{ $paper->paper_yearpub }}</td>
-                        <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
-                        <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
+                        <td> <?php echo e($n+1); ?></td>
+                        <td><?php echo e($paper->paper_yearpub); ?></td>
+                        <!-- <td style="width:90%;"><?php echo e($paper->paper_name); ?></td> -->
+                        <td style="width:90%;"><?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?></td>
                         <td>
-                            @foreach ($paper->author as $author)
+                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
                             </span>
-                            @endforeach
-                            @foreach ($paper->teacher as $author)
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
+                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
                             </span>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
-                        <td>{{$paper->paper_type}}</td>
-                        <td style="width:100%;">{{$paper->paper_page}}</td>
-                        <td>{{$paper->paper_sourcetitle}}</td>
-                        <td>{{$paper->paper_citation}}</td>
-                        <td>{{$paper->paper_doi}}</td>
+                        <td><?php echo e($paper->paper_type); ?></td>
+                        <td style="width:100%;"><?php echo e($paper->paper_page); ?></td>
+                        <td><?php echo e($paper->paper_sourcetitle); ?></td>
+                        <td><?php echo e($paper->paper_citation); ?></td>
+                        <td><?php echo e($paper->paper_doi); ?></td>
 
 
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
 
             </table>
@@ -273,34 +285,34 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($papers_wos as $n => $paper)
+                    <?php $__currentLoopData = $papers_wos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td> {{$n+1}}</td>
-                        <td>{{ $paper->paper_yearpub }}</td>
-                        <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
-                        <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
+                        <td> <?php echo e($n+1); ?></td>
+                        <td><?php echo e($paper->paper_yearpub); ?></td>
+                        <!-- <td style="width:90%;"><?php echo e($paper->paper_name); ?></td> -->
+                        <td style="width:90%;"><?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?></td>
                         <td>
-                            @foreach ($paper->author as $author)
+                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
                             </span>
-                            @endforeach
-                            @foreach ($paper->teacher as $author)
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
+                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
                             </span>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
-                        <td>{{$paper->paper_type}}</td>
-                        <td style="width:100%;">{{$paper->paper_page}}</td>
-                        <td>{{$paper->paper_sourcetitle}}</td>
-                        <td>{{$paper->paper_citation}}</td>
-                        <td>{{$paper->paper_doi}}</td>
+                        <td><?php echo e($paper->paper_type); ?></td>
+                        <td style="width:100%;"><?php echo e($paper->paper_page); ?></td>
+                        <td><?php echo e($paper->paper_sourcetitle); ?></td>
+                        <td><?php echo e($paper->paper_citation); ?></td>
+                        <td><?php echo e($paper->paper_doi); ?></td>
 
 
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
 
             </table>
@@ -325,34 +337,34 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($papers_tci as $n => $paper)
+                    <?php $__currentLoopData = $papers_tci; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td> {{$n+1}}</td>
-                        <td>{{ $paper->paper_yearpub }}</td>
-                        <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
-                        <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
+                        <td> <?php echo e($n+1); ?></td>
+                        <td><?php echo e($paper->paper_yearpub); ?></td>
+                        <!-- <td style="width:90%;"><?php echo e($paper->paper_name); ?></td> -->
+                        <td style="width:90%;"><?php echo html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)); ?></td>
                         <td>
-                            @foreach ($paper->author as $author)
+                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
                             </span>
-                            @endforeach
-                            @foreach ($paper->teacher as $author)
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $paper->teacher; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
+                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
                             </span>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
-                        <td>{{$paper->paper_type}}</td>
-                        <td style="width:100%;">{{$paper->paper_page}}</td>
-                        <td>{{$paper->paper_sourcetitle}}</td>
-                        <td>{{$paper->paper_citation}}</td>
-                        <td>{{$paper->paper_doi}}</td>
+                        <td><?php echo e($paper->paper_type); ?></td>
+                        <td style="width:100%;"><?php echo e($paper->paper_page); ?></td>
+                        <td><?php echo e($paper->paper_sourcetitle); ?></td>
+                        <td><?php echo e($paper->paper_citation); ?></td>
+                        <td><?php echo e($paper->paper_doi); ?></td>
 
 
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
         </div>
@@ -371,29 +383,29 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($book_chapter as $n => $paper)
+                    <?php $__currentLoopData = $book_chapter; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td>{{$n+1}}</td>
-                        <td style="width:80px">{{ date('Y', strtotime($paper->ac_year))+543 }}</td>
-                        <td>{{$paper->ac_name}}</td>
+                        <td><?php echo e($n+1); ?></td>
+                        <td style="width:80px"><?php echo e(date('Y', strtotime($paper->ac_year))+543); ?></td>
+                        <td><?php echo e($paper->ac_name); ?></td>
                         <td>
-                            @foreach ($paper->author as $author)
+                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
 
                             </span>
-                            @endforeach
-                            @foreach ($paper->user as $author)
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $paper->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a> {{$author -> fname_en}} {{$author -> lname_en}}</a>
+                                <a> <?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></a>
                             </span>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
-                        <td>{{$paper->ac_sourcetitle}}</td>
-                        <td>{{ $paper->ac_page }}</td>
+                        <td><?php echo e($paper->ac_sourcetitle); ?></td>
+                        <td><?php echo e($paper->ac_page); ?></td>
 
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
         </div>
@@ -413,31 +425,31 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($patent as $n => $paper)
+                    <?php $__currentLoopData = $patent; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $n => $paper): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td>{{$n+1}}</td>
-                        <td>{{$paper->ac_name}}</td>
+                        <td><?php echo e($n+1); ?></td>
+                        <td><?php echo e($paper->ac_name); ?></td>
                         <td>
-                            @foreach ($paper->author as $author)
+                            <?php $__currentLoopData = $paper->author; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a><?php echo e($author -> author_fname); ?> <?php echo e($author -> author_lname); ?></a>
 
                             </span>
-                            @endforeach
-                            @foreach ($paper->user as $author)
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $paper->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $author): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <span>
-                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                <a href="<?php echo e(route('detail',Crypt::encrypt($author->id))); ?>">
+                                    <teacher><?php echo e($author -> fname_en); ?> <?php echo e($author -> lname_en); ?></teacher></a>
 
                             </span>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
-                        <td>{{$paper->ac_type}}</td>
-                        <td>{{$paper->ac_refnumber }}</td>
-                        <td>{{$paper->ac_year}}</td>
+                        <td><?php echo e($paper->ac_type); ?></td>
+                        <td><?php echo e($paper->ac_refnumber); ?></td>
+                        <td><?php echo e($paper->ac_year); ?></td>
 
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
         </div>
@@ -589,7 +601,7 @@
     async function myFunction() {
         var res = <?php echo $res; ?>;
         //var fname = res.fname_en;
-        //var fname = res.fname_en.substr(0, 1);
+        //var fname = res.fname_en.substr(0, 1); 
         //console.log(fname);
         //const response = await fetch('https://api.elsevier.com/content/search/scopus?query=AUTHOR-NAME('+ res.lname_en +','+fname+')%20&apikey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson');
         const response = await fetch('https://api.elsevier.com/content/search/author?query=authlast(' + res.lname_en +
@@ -650,19 +662,19 @@
         let sum = sumsco + sumtci + sumwos + sumbook + sumpatent;
 
         //$("#scopus").append('data-to="100"');
-        document.getElementById("all").innerHTML += `
+        document.getElementById("all").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
                 <p class="count-text ">SUMMARY</p>`
 
-        document.getElementById("scopus_sum").innerHTML += `
+        document.getElementById("scopus_sum").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
                 <p class="count-text">SCOPUS</p>`
 
-        document.getElementById("wos_sum").innerHTML += `
+        document.getElementById("wos_sum").innerHTML += `    
                 <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
                 <p class="count-text ">WOS</p>`
 
-        document.getElementById("tci_sum").innerHTML += `
+        document.getElementById("tci_sum").innerHTML += `  
                 <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
                 <p class="count-text ">TCI</p>`
 
@@ -774,7 +786,8 @@
     const myArray =  a.text.toString().split(" ");
     console.log(myArray)
     document.getElementById("authtd").innerHTML = "name :"+ myArray;
-
+    
 });
 </script> -->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\653380263-0\SoftEn_Group6\git-group-repository-group-6-sec-2\InitialProject\resources\views/researchprofiles.blade.php ENDPATH**/ ?>

@@ -1,0 +1,672 @@
+Array
+(
+    [0] => X0qzPOIAAAAJ
+    [1] => GsfOlmYAAAAJ
+    [2] => 00JXDiUAAAAJ
+    [3] => brgiVtgAAAAJ
+    [4] => TkbVWiMAAAAJ
+    [5] => eMdpRLEAAAAJ
+    [6] => ghQ1lTAAAAAJ
+    [7] => sAp1BWsAAAAJ
+    [8] => FXajoHAAAAAJ
+    [9] => E1k8_KEAAAAJ
+    [10] => E01V5gUAAAAJ
+    [11] => 6aUFvc8AAAAJ
+    [12] => VfmVWLIAAAAJ
+    [13] => ksJyxM4AAAAJ
+    [14] => eZGNz8cAAAAJ
+    [15] => HZNNCj4AAAAJ
+    [16] => zmQuQoIAAAAJ
+    [17] => _YT1Se0AAAAJ
+    [18] => xF4E8-gAAAAJ
+    [19] => yqNNqdAAAAAJ
+    [20] => -ZwgaUsAAAAJ
+    [21] => bzF_BIkAAAAJ
+    [22] => jchtQ6gAAAAJ
+    [23] => dxQuB2QAAAAJ
+    [24] => zdBo3cwAAAAJ
+)
+
+
+$names = array("Ngamnij Arch-int",
+    "Chakchai So-In",
+    "Somjit Arch-int",
+    "Chaiyapon Keeratikasikorn",
+    "Punyaphol Horata",
+    "Sartra Wongthanavasu",
+    "Sirapat Chiewchanwattana",
+    "Khamron Sunat",
+    "Chitsutha Soomlek",
+    "Nagon Watanakij",
+    "Boonsup Waikham",
+    "Paweena Wanchai",
+    "Pipat Reungsang",
+    "Pusadee Seresangtakul",
+    "Monlica Wattana",
+    "Wararat Songpan",
+    "Sunti Tintanai",
+    "Saiyan Saiyod",
+    "Silada Intarasothonchun",
+    "Urachart Kokaew",
+    "Urawan Chanket",
+    "Phet Aimtongkham",
+    "Wachirawut Thamviset",
+    "Warunya Wunnasri",
+    "Rapassit Chinnapatjee",
+    "Sakpod Tongleamnak",
+    "Thanaphon Tangchoopong",
+    "Sarun Apichontrakul",
+    "Rasamee Suwanwerakamtorn",
+    "Chanon Dechsupa",
+    "Praisan Padungweang",
+    "Sumonta Kasemvilas",
+    "Pakarat Musikawan",
+    "Yanika Kongsorot");
+
+
+[hits] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [uid] => WOS:000346139000154
+                    [title] => Mobile Animal Tracking Systems Using Light Sensor for Efficient Power and Cost Saving Motion Detection
+                    [types] => Array
+                        (
+                            [0] => Meeting
+                        )
+
+                    [sourceTypes] => Array
+                        (
+                            [0] => Proceedings Paper
+                        )
+
+                    [source] => stdClass Object
+                        (
+                            [sourceTitle] => PROCEEDINGS OF THE 2012 8TH INTERNATIONAL SYMPOSIUM ON COMMUNICATION SYSTEMS, NETWORKS & DIGITAL SIGNAL PROCESSING (CSNDSP)
+                            [publishYear] => 2012
+                            [pages] => stdClass Object
+                                (
+                                    [count] => 6
+                                )
+
+                        )
+
+                    [names] => stdClass Object
+                        (
+                            [authors] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [displayName] => So-In, Chakchai
+                                            [wosStandard] => So-In, C
+                                            [researcherId] => I-7907-2012
+                                        )
+
+                                    [1] => stdClass Object
+                                        (
+                                            [displayName] => Phaudphut, Comdet
+                                            [wosStandard] => Phaudphut, C
+                                            [researcherId] => FQW-0870-2022
+                                        )
+
+                                    [2] => stdClass Object
+                                        (
+                                            [displayName] => Tesana, Smarn
+                                            [wosStandard] => Tesana, S
+                                            [researcherId] => EAO-3093-2022
+                                        )
+
+                                    [3] => stdClass Object
+                                        (
+                                            [displayName] => Weeramongkonlert, Nutnicha
+                                            [wosStandard] => Weeramongkonlert, N
+                                            [researcherId] => EEH-4508-2022
+                                        )
+
+                                    [4] => stdClass Object
+                                        (
+                                            [displayName] => Wijitsopon, Kasidit
+                                            [wosStandard] => Wijitsopon, K
+                                            [researcherId] => EFM-1615-2022
+                                        )
+
+                                    [5] => stdClass Object
+                                        (
+                                            [displayName] => KoKaew, Urachart
+                                            [wosStandard] => KoKaew, U
+                                            [researcherId] => AAQ-1863-2021
+                                        )
+
+                                    [6] => stdClass Object
+                                        (
+                                            [displayName] => Waikham, Boonsup
+                                            [wosStandard] => Waikham, B
+                                            [researcherId] => GGS-9750-2022
+                                        )
+
+                                    [7] => stdClass Object
+                                        (
+                                            [displayName] => Saiyod, Saiyan
+                                            [wosStandard] => Saiyod, S
+                                            [researcherId] => AAY-6509-2021
+                                        )
+
+                                )
+
+                            [bookCorp] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [displayName] => IEEE
+                                        )
+
+                                )
+
+                        )
+
+                    [links] => stdClass Object
+                        (
+                            [record] => https://www.webofscience.com/api/gateway?GWVersion=2&SrcApp=soften_project06&SrcAuth=WosAPI&KeyUT=WOS:000346139000154&DestLinkType=FullRecord&DestApp=WOS_CPL
+                            [references] => https://www.webofscience.com/api/gateway?GWVersion=2&SrcApp=soften_project06&SrcAuth=WosAPI&KeyUT=WOS:000346139000154&DestLinkType=CitedReferences&DestApp=WOS
+                            [related] => https://www.webofscience.com/api/gateway?GWVersion=2&SrcApp=soften_project06&SrcAuth=WosAPI&KeyUT=WOS:000346139000154&DestLinkType=RelatedRecords&DestApp=WOS_CPL
+                        )
+
+                    [citations] => Array
+                        (
+                        )
+
+                    [identifiers] => stdClass Object
+                        (
+                            [eisbn] => 978-1-4577-1473-3
+                        )
+
+                    [keywords] => stdClass Object
+                        (
+                            [authorKeywords] => Array
+                                (
+                                    [0] => Analog Light Sensor
+                                    [1] => Android OS
+                                    [2] => Mobile Animal Tracking
+                                    [3] => Motion Detection
+                                    [4] => Power Saving
+                                )
+
+                        )
+
+                )
+
+
+
+{
+    "author_name": "Pusadee",
+    "articles": [
+        {
+            "authors": "Nattarika Bodeerat, Junsuda Modnok, Tonapha Pusadee, Angsana Akarapisan, Patcharaporn Suwor, Tanyarat Tarinta, Suchila Techawongstien, Nakarin Jeeatid",
+            "article_loc": "การประเมินความต้านทานต่อโรคเหี่ยวเขียวที่เกิดจากเชื้อ Ralstonia solanacearumร่วมกับลักษณะผลผลิตและองค์ประกอบผลผลิตของเชื้อพันธุกรรมมะเขือเทศ",
+            "article_eng": "Assessment of resistance to bacterial wilt incited by Ralstonia solanacearum with fruit yield and its components of tomato germplasms",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "52",
+            "page_number": "1216-1230",
+            "year": "2024",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Pusadee Neawpung, Prasarn Malakul Na Ayudhya, Pongpan Kirdpitak",
+            "article_loc": "กลยุทธ์จิตวิทยาเชิงบูรณาการเพื่อเสริมสร้างภูมิคุ้มกันภาวะหมดไฟ ในการทำงานของพยาบาลหอผู้ป่วย โรงพยาบาลเอกชน",
+            "article_eng": "Integrative psychological strategies for enhancing work burnout immunity of in-patient nurses in private hospitals",
+            "journal_loc": "วารสารวิจัยทางวิทยาศาสตร์สุขภาพ วิทยาลัยพยาบาลบรมราชชนนี จังหวัดนนทบุรี",
+            "journal_eng": "BCNNON HEALTH SCIENCE RESEARCH JOURNAL",
+            "volume": "18",
+            "page_number": "143-154",
+            "year": "2024",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Siriluk Toosang, Sansanee Jamjod, Tonapha Pusadee",
+            "article_loc": "",
+            "article_eng": "Characterization of Grain Quality Traits of Thai Highland Glutinous Rice Landraces.",
+            "journal_loc": "Chiang Mai Journal of Science",
+            "journal_eng": "Chiang Mai Journal of Science",
+            "volume": "51",
+            "page_number": "e2024007",
+            "year": "2024",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Rattapohn Khamfun, Kamon Thippachote, Tonapha Pusadee, Jutamas Kumchai",
+            "article_loc": "การตอบสนองต่อการคัดเลือกพันธุ์แบบหมู่ประยุกต์ในประชากรฟักทองประดับผลสีขาวและสีส้ม",
+            "article_eng": "Response to Modified Mass Selection in White and Orange Fruit Skin Ornamental Pumpkin ( Cucurbita pepo L.) Populations",
+            "journal_loc": "วารสารเกษตร",
+            "journal_eng": "Journal of Agriculture",
+            "volume": "40",
+            "page_number": "501- 511",
+            "year": "2024",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Rachun Seang-ngam, Kamon Thippachote, Nakarin Jeeatid, Tonapha Pusadee, Jutamas Kumchai",
+            "article_loc": "การผสมข้ามชนิดและการถ่ายทอดลักษณะด้วย วิธีการผสมกลับในพริก",
+            "article_eng": "Interspecific Hybridization and Inheritance by Backcross Method in Chilis",
+            "journal_loc": "วารสารเกษตร",
+            "journal_eng": "Journal of Agriculture",
+            "volume": "40",
+            "page_number": "525- 537",
+            "year": "2024",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Chanisorn Suriya, Sansanee Jamjod, Pennapa Jaksomsak, Tonapha Pusadee",
+            "article_loc": "การวิเคราะห์พันธุกรรมของยีน OsDFR ที่เกี่ยวข้องกับการสังเคราะห์แอนโทไซยานินในข้าวก่ำพื้นเมืองไทย",
+            "article_eng": "Genetic Analysis of Genes OsDFR Associated to Anthocyanin Biosynthesis in Thai Purple Rice Landraces",
+            "journal_loc": "วารสารเกษตร",
+            "journal_eng": "Journal of Agriculture",
+            "volume": "40",
+            "page_number": "431- 444",
+            "year": "2024",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Chutima Wiriya, Pennapa Jaksomsak, Chanakan Thebault Prom-u-thai, Sansanee Jamjod, Tonapha Pusadee",
+            "article_loc": "ผลของการจัดการน้ำและปุ๋ยไนโตรเจนต่อปริมาณโพรลีนในใบ ในแต่ละระยะการเจริญเติบโตของข้าวหอมพื้นเมืองไทย",
+            "article_eng": "Effects of Water and Nitrogen Fertilizer Management on Leaf Proline Content in Different Growth Stages of Thai Fragrant Rice Landraces",
+            "journal_loc": "วารสารเกษตร",
+            "journal_eng": "Journal of Agriculture",
+            "volume": "38",
+            "page_number": "405-417",
+            "year": "2022",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Tonapha Pusadee, Nunnaphin Punti, Sansanee Jamjod, Chanakan Thebault Prom-u-thai, Pennapa Jaksomsak",
+            "article_loc": "ผลของปุ๋ยไนโตรเจนต่อปริมาณสารโพรลีน ผลผลิต องค์ประกอบผลผลิต คุณภาพเมล็ด และการแสดงออกของยีนในข้าวหอมพันธุ์พื้นเมืองไทย",
+            "article_eng": "Effects of Nitrogen Fertilizer on Proline Content, Yield, Yield Components, Grain Quality, and Gene Expression in Thai Fragrant Rice Landrace",
+            "journal_loc": "วารสารเกษตร",
+            "journal_eng": "Journal of Agriculture",
+            "volume": "38",
+            "page_number": "265-277",
+            "year": "2022",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Sansanee Jamjod, Pattapon Tonking, Chanakan Thebault Prom-u-thai, Tonapha Pusadee",
+            "article_loc": "การประเมินประชากรลูกผสมระหว่างข้าวก่ำพันธุ์แสง 5 ที่มีสารฟีนอลสูงในเมล็ด กับข้าวพันธุ์สมัยใหม่ปทุมธานี 1",
+            "article_eng": "Evaluation of Progeny Populations Between Purple Rice with High Grain Phenol cv. Saeng 5 and Modern Variety cv. Pathum Thani 1",
+            "journal_loc": "วารสารเกษตร",
+            "journal_eng": "Journal of Agriculture",
+            "volume": "38",
+            "page_number": "293-303",
+            "year": "2022",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Sansanee Jamjod, Thanatchaphon Wirattanachaiwan, Tonapha Pusadee, Chanakan Thebault Prom-u-thai",
+            "article_loc": "การใช้เครื่องหมายโมเลกุลช่วยคัดเลือกร่วมกับการทดสอบกลิ่นเพื่อปรับปรุงลักษณะความหอมในข้าวก่ำเจ้าไม่ไวต่อช่วงแสง",
+            "article_eng": "Using molecular marker assisted selection and aroma sensory test for Breeding non-glutinous, photoperiod insensitive purple rice for aroma",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "50",
+            "page_number": "782-793",
+            "year": "2022",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Sinsupa Poonlamai, Chanakan Thebault Prom-u-thai, Tonapha Pusadee, Sansanee Jamjod",
+            "article_loc": "การคัดเลือกข้าวก่ำเพื่อธาตุเหล็กในเมล็ดและผลผลิตสูงในลูกผสมชั่วที่ 4 ถึงชั่วที่ 5 ระหว่างข้าวพันธุ์ก่ำหอม มช. และข้าวปทุมธานี 1",
+            "article_eng": "Purple Rice Selection for High Grain Iron and Yield Rice Lines in F4 and F5 Generations from Cross Between Kum Hom Mor Chor and Pathum Thani 1",
+            "journal_loc": "วารสารเกษตร",
+            "journal_eng": "Journal of Agriculture",
+            "volume": "38",
+            "page_number": "51-61",
+            "year": "2022",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Pusadee Chucheep",
+            "article_loc": "ผลของโปรแกรมการส่งเสริมสุขภาพจิตต่อพฤติกรรมการดูแลตนเอง ด้านสุขภาพจิตในผู้สูงอายุ จังหวัดปทุมธานี",
+            "article_eng": "Effectiveness of a Mental Health Promotion Program for Self-care Behavior of the Elderly in Pathumthani Province, Thailand",
+            "journal_loc": "วารสารพยาบาลสาธารณสุข",
+            "journal_eng": "Journal of Public Health Nursing",
+            "volume": "35",
+            "page_number": "109-124",
+            "year": "2021",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Sansanee Jamjod, Chanakan Thebault Prom-u-thai, Tonapha Pusadee, Grit Buddhasri",
+            "article_loc": "การประเมินผลผลิตและแอนโทไซยานินในเมล็ดสายพันธุ์ก้าวหน้าข้าวก่ำเจ้าไม่ไวต่อช่วงแสงลูกผสมระหว่างพันธุ์ก่ำดอยสะเก็ดและปทุมธานี 1",
+            "article_eng": "Evaluation of advanced purple rice lines with photoperiod insensitive from Kum Doi Saket and Pathum Thani 1 for yield and grain anthocyanin content",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "49",
+            "page_number": "1450-1464",
+            "year": "2021",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Chayanon Wongput, Chanakan Thebault Prom-u-thai, Tonapha Pusadee, Sansanee Jamjod",
+            "article_loc": "การประเมินสายพันธุ์ก้าวหน้าข้าวก่ำไม่ไวต่อช่วงแสงรุ่นที่ 7 และ 8 ระหว่างข้าวพันธุ์ก่ำดอยสะเก็ดและพันธุ์ปทุมธานี 1",
+            "article_eng": "Evaluation of purple rice advanced lines for photoperiod insensitivity during F7 and F8 generations between Kum Doi Saket and Pathum Thani 1",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "49",
+            "page_number": "586-594",
+            "year": "2021",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Pichaya Wairojanakul, Pusadee Yotnuengnit",
+            "article_loc": "ยาซิมวาสแตตินกับการลดการสูญเสียการยึดปริทันต์:การศึกษาแบบสังเกตการณ์",
+            "article_eng": "Effect of Oral Simvastatin on Reduction of Periodontal Attachment loss: Observational study",
+            "journal_loc": "วิทยาสารทันตแพทยศาสตร์",
+            "journal_eng": "Journal of the Dental Association of Thailand",
+            "volume": "70",
+            "page_number": "190-197",
+            "year": "2020",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Aphirat Tolumdab, Chanakan Prom-u-thai, Tonapha Pusadee, Sansanee Jamjod",
+            "article_loc": "การคัดเลือกสายพันธุ์บริสุทธิ์ข้าวเหนียวดำที่มีปริมาณสารแอนโทไซยานินในเมล็ดสูงจากประชากรข้าวพื้นเมืองภาคเหนือของประเทศไทย",
+            "article_eng": "Pure line selection of purple glutinous rice with high anthocyanin in grain from local rice population in Northern Thailand",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "48",
+            "page_number": "1042-1055",
+            "year": "2020",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Chatthong Jaruphisitpaiboom, Narumon Premmasawat, Areerat Pesungnoen, Nongnaphat Rungnoei, Pusadee Dankul",
+            "article_loc": "แนวทางการพัฒนาศักยภาพอาสาสมัครสาธารณสุขประจำหมู่บ้านในการป้องกันโรคหลอดเลือดสมองในกลุ่มเสี่ยง",
+            "article_eng": "Guidelines for Potential Development of Village Health Volunteers (o Prevent Stroke in a Risk Group",
+            "journal_loc": "วารสารพยาบาลกระทรวงสาธารณสุข",
+            "journal_eng": "Nursing Journal of the Ministry of Public Health",
+            "volume": "30",
+            "page_number": "74-89",
+            "year": "2020",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Tewa Khodruankeaw, Chanakan Thebault Prom-u-thai, Tonapha Pusadee, Sansanee Jamjod",
+            "article_loc": "การประเมินประชากรลูกผสมระหว่างข้าวไร่พันธ์ุก่ำหอม มช. กับข้าวพันธ์ุ ไม่ไวต่อช่วงแสง",
+            "article_eng": "Evaluation of progeny population between upland rice KumHomMorChor and photoperiod insensitive rice varieties",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "48",
+            "page_number": "535-546",
+            "year": "2020",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Pusadee Neawpung, Aree Punmanee",
+            "article_loc": "การเสริมสร้างพฤติกรรมการให้บริการโดยการใช้โปรแกรมพัฒนาการสื่อสารระหว่างบุคคลของพนักงานส่วนหน้าโรงพยาบาลสมิติเวช ",
+            "article_eng": "The Enhancement of Interpersonal Communication Service Behavior of Front-Line Staff Samitivej Hospital",
+            "journal_loc": "วารสารจิตวิทยา มหาวิทยาลัยเกษมบัณฑิต",
+            "journal_eng": "Journal of Psychology Kasem Bundit University",
+            "volume": "10",
+            "page_number": "60-68",
+            "year": "2020",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Benjamaporn Wangkaew, Chanakan Thebault Prom-u-thai, Sansanee Jamjod, Benjavan Rerkasem, Tonapha Pusadee",
+            "article_loc": "",
+            "article_eng": "Silicon Concentration and Expression of Silicon Transport Genes in Two Thai Rice Varieties.",
+            "journal_loc": "Chiang Mai University Journal of Natural Sciences",
+            "journal_eng": "Chiang Mai University Journal of Natural Sciences",
+            "volume": "18",
+            "page_number": "358-372",
+            "year": "2019",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Chutima Suaythaisong, Sansanee Jamjod, Tonapha Pusadee",
+            "article_loc": "การแสดงออกของยีน CIPK15 ในพันธุ์ข้าวไทยภายใต้สภาพน้ำท่วม",
+            "article_eng": "Expression of CIPK15 Gene in Thai Rice Varieties under Submergence",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "47",
+            "page_number": "495-508",
+            "year": "2019",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Paweena Tejakum, Saran Khumto, Sansanee Jamjod, Narit Yimyam, Tonapha Pusadee",
+            "article_loc": "ผลผลิต คุณภาพเมล็ด และความหอมของข้าวหอมพื้นเมืองที่สูงพันธ์ุบือเนอมู",
+            "article_eng": "Yield, Grain Quality and Fragrance of a Highland Fragrant Rice Landrace Variety, Bue Ner Moo",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "47",
+            "page_number": "317-326",
+            "year": "2019",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Patamaporn Masud, Sansanee Jamjod, Tonapha Pusadee",
+            "article_loc": "ความสามารถในการยืดปล้องและการแสดงออกของยีน SK2 ในข้าวป่าสามัญภายใต้สภาพน้ำลึก",
+            "article_eng": "Internode Elongation Ability and SK2 Gene Expression in Common Wild Rice Under Deep Water",
+            "journal_loc": "วารสารเกษตร",
+            "journal_eng": "Journal of Agriculture",
+            "volume": "35",
+            "page_number": "401-411",
+            "year": "2019",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Sansanee Jamjod, Phukjira Chan-In, Narit Yimyam, Tonapha Pusadee",
+            "article_loc": "ความหลากหลายอัลลีลของยีน <I>BADH2<\/I> และโมเลกุลไมโครแซทเทลไลท์ในข้าวหอมพื้นเมืองที่สูง",
+            "article_eng": "Diversity of <I>BADH2<\/I> Alleles and Microsatellite Molecules in Highland Fragrant Rice Landraces",
+            "journal_loc": "วารสารเกษตร",
+            "journal_eng": "Journal of Agriculture",
+            "volume": "35",
+            "page_number": "23-35",
+            "year": "2019",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Pusadee Pornkasemsart, Benjalux Sakunasingha",
+            "article_loc": "กลยุทธ์การลงทุนเพื่อจัดพอร์ตโฟลิโอสำหรับการวางแผนเกษียณอายุ",
+            "article_eng": "Investment Strategies for Planning a Retirement Portfolio",
+            "journal_loc": "วารสารมนุษยศาสตร์และสังคมศาสตร์ มหาวิทยาลัยมหาสารคาม",
+            "journal_eng": "Journal of Humanities and Social Sciences Mahasarakham University",
+            "volume": "38",
+            "page_number": "73-83",
+            "year": "2019",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Sirin Kulsawekkul, Sansanee Jamjod, Tonapha Pusadee",
+            "article_loc": "ความหลากหลายทางพันธุกรรมของข้าวพันธุ์พื้นเมืองที่สูง จากกลุ่มชาติพันธุ์ในภาคเหนือของประเทศไทย",
+            "article_eng": "Genetic diversity of highland rice landraces from ethnic groups in northern Thailand",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "47",
+            "page_number": "901-916",
+            "year": "2019",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Suksan Fongfon, Tonapha Pusadee, Chanakan Thebault Prom-u-thai, Sansanee Jamjod",
+            "article_loc": "การจำแนกลักษณะทางสัณฐาน พืชไร่ และคุณภาพพิเศษของ ข้าวกjeพันธ์พื้นเมืองที่สูงจากภาคเหนือของประเทศไทย",
+            "article_eng": "Classification of morphological, agronomic and special grain quality characters among highland purple rice landraces from Northern Thailand",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "47",
+            "page_number": "1139-1150",
+            "year": "2019",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Tanya Wiriya, Sansanee Jamjod, Tonapha Pusadee",
+            "article_loc": "โครงสร้างประชากรและความหลากหลายทางพันธุกรรมของข้าวพันธุ์พื้นเมืองที่สูงในจังหวัดเชียงราย",
+            "article_eng": "Population Structure and Genetic Diversity of Highland Rice Landraces in Chiang Rai Province",
+            "journal_loc": "วารสารเกษตร",
+            "journal_eng": "Journal of Agriculture",
+            "volume": "35",
+            "page_number": "193-204",
+            "year": "2019",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Kosit Sribhen, Pusadee Luenee",
+            "article_loc": "",
+            "article_eng": "Circulating cardiac troponin T in skeletal muscle disease: A reflection of re-expression phenomenon?",
+            "journal_loc": "Siriraj Medical Journal",
+            "journal_eng": "Siriraj Medical Journal",
+            "volume": "70",
+            "page_number": "459-465",
+            "year": "2018",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Pongsathon Janyoi, Pusadee Seresangtakul",
+            "article_loc": "",
+            "article_eng": "Isarn Dialect Speech Synthesis using HMM with syllablecontext features",
+            "journal_loc": "ECTI Transactions on Computer and Information Technology",
+            "journal_eng": "ECTI Transactions on Computer and Information Technology",
+            "volume": "12",
+            "page_number": "81-89",
+            "year": "2018",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Pusadee Chucheep",
+            "article_loc": "ผลของโปรแกรมการออกกำลังกายสำหรับผู้สูงอายุที่ใช้รถเข็น ต่อสมรรถภาพทางกายและความคาดหวังความสามารถตนเอง ในการปฏิบัติกิจวัตรประจำวันของผู้สูงอายุ จังหวัดปทุมธานี",
+            "article_eng": "The Effectiveness of Exercise Program for Wheelchair used  Toward Physical Conditions and Self Efficacy Expectation on Daily Living Activities of the Elderly in Pathumthani Province",
+            "journal_loc": "วารสารบัณฑิตศาส์น มหาวิทยาลัยมหามกุฏราชวิทยาลัย (สาขามนุษยศาสตร์และสังคมศาสตร์)",
+            "journal_eng": "Mahamakut Graduate School Journal (Humanities and Social Sciences)",
+            "volume": "16",
+            "page_number": "105-115",
+            "year": "2018",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Kantpithcha Saicumfu, Sansanee Jamjod, Tonapha Pusadee",
+            "article_loc": "ความหลากหลายทางพันธุกรรมและคุณสมบัติเคมีกายภาพของแป้งในข้าวเหนียวพันธ์พื้นเมืองที่สูงของประเทศไทย",
+            "article_eng": "Genetic diversity and physicochemical properties of starch in highland glutinous rice landraces of Thailand",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "46",
+            "page_number": "1135-1146",
+            "year": "2018",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Prakarn Tovichien, Pusadee Luenee, Panutsaya Tientadakul, Nithiwat Vatanavicharn",
+            "article_loc": "",
+            "article_eng": "ACCURACY OF A POINT-OF-CARE AMMONIA ANALYZER FOR SCREENING OF BLOOD AMMONIA IN PEDIATRIC PATIENTS WITH INBORN ERROR OF METABOLISM",
+            "journal_loc": "The Southeast Asian Journal of Tropical Medicine and Public Health",
+            "journal_eng": "The Southeast Asian Journal of Tropical Medicine and Public Health",
+            "volume": "48",
+            "page_number": "133-140",
+            "year": "2017",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Pittawat Somboon, Chanakan Thebault Prom-u-tha, Tonapha Pusadee, Sansanee Jamjod",
+            "article_loc": "การกระจายตัวทางพันธุกรรมของปริมาณแอนโทไซยานินในเมล็ดข้าวลูกผสมชั่วที่ 2 ระหว่างข้าวเหนียวดำจากที่สูงและข้าวพันธุ์ปทุมธานี 1 ที่ปลูกที่ลุ่มและที่สูง",
+            "article_eng": "Gene Segregation for Anthocyanin Contents in F2 Population Between Purple Glutinous Rice from Highland and Pathum Thani 1 Grown at Lowland and Highland Locations",
+            "journal_loc": "วารสารเกษตร",
+            "journal_eng": "Journal of Agriculture",
+            "volume": "33",
+            "page_number": "323-332",
+            "year": "2017",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Nittaya Napatsornweerawong, Preechaya Wongkrajang, Pusadee Luenee, Panutsaya Tientadakul, Busadee Pratumvinit",
+            "article_loc": "การประเมินความถูกต้องแม่นยำของการตรวจระดับน้ำตาลของเครื่องตรวจระดับน้ำตาล ณ จุดดูแลผู้ป่วย : Nova StatStrip",
+            "article_eng": "Evaluation of validation of blood glucose measurement by a point-of-care glucometer : Nova StatStrip",
+            "journal_loc": "เวชบันทึกศิริราช",
+            "journal_eng": "Siriraj Medical Bulletin",
+            "volume": "10",
+            "page_number": "144-152",
+            "year": "2017",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Pusadee Yotnuengnit",
+            "article_loc": "หลักการเลือกใช้ศัลยกรรมปลูกถ่ายเนื้อเยื่อเหงือก",
+            "article_eng": "Principle for the Selection of Gingival Tissue Graft Surgery",
+            "journal_loc": "วิทยาสารทันตแพทยศาสตร์",
+            "journal_eng": "Journal of the Dental Association of Thailand",
+            "volume": "65",
+            "page_number": "212-223",
+            "year": "2015",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "S. Bunpan, Tonapha Pusadee, Narit Yimyam, Korawan Sringarm, Benjavan Rerkasem, Sansanee Jamjod",
+            "article_loc": "การประเมินลักษณะประชากรงาขี้ม้อนพื้นเมืองจากภาคเหนือตอนบน ของประเทศไทย",
+            "article_eng": "Characterization of local perilla (Perilla frutescens (L.) Britt) populations from upper north thailand",
+            "journal_loc": "แก่นเกษตร",
+            "journal_eng": "Khon Kaen Agriculture Journal",
+            "volume": "43",
+            "page_number": "285-296",
+            "year": "2015",
+            "cited": "0",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Pusadee Sri-aroon, Chantima Lohachit, Masakazu Harada",
+            "article_loc": "",
+            "article_eng": "Survey of brackish-water snails in eastern Thailand",
+            "journal_loc": "The Southeast Asian Journal of Tropical Medicine and Public Health",
+            "journal_eng": "The Southeast Asian Journal of Tropical Medicine and Public Health",
+            "volume": "35",
+            "page_number": "150-155",
+            "year": "2004",
+            "cited": "2",
+            "document_type": "Journal"
+        },
+        {
+            "authors": "Chantima Lohachit, Pusadee Sri-Aroon",
+            "article_loc": "",
+            "article_eng": "Survival of Beta and Gamma Races of Neotricula Aperta Snail Intermediate Hosts of Schistosoma Mekongi in Raw Waters",
+            "journal_loc": "The Southeast Asian Journal of Tropical Medicine and Public Health",
+            "journal_eng": "The Southeast Asian Journal of Tropical Medicine and Public Health",
+            "volume": "27",
+            "page_number": "396-399",
+            "year": "1996",
+            "cited": "0",
+            "document_type": "Journal"
+        }
+    ]
+}

@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\WosApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WosApiController;
+
+use App\Http\Controllers\ApiController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,5 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+Route::post('/scopus/error/{statusCode}/{apiName}', [ApiController::class, 'apiScopusErrorHandling']);
 Route::get('/researchers/data', [WosApiController::class, 'getResearcherData']);
