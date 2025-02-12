@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.4 on win32)" generated="2025-02-12T12:21:42.980189" rpa="false" schemaversion="5">
+<suite id="s1" name="UAT Researcher CT" source="C:\SoftEnGroup6\git-group-repository-group-6-sec-2\SourceCodeVersion_1\tests\robot\UAT_Researcher_CT.robot">
+<test id="s1-t1" name="CT1.1 Test Home Page Can Be Accessed" line="10">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T12:21:43.201272" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T12:21:43.201272" elapsed="2.485818"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-12T12:21:45.687090" elapsed="0.072776"/>
+</kw>
+<status status="PASS" start="2025-02-12T12:21:43.200267" elapsed="2.560610"/>
+</test>
+<test id="s1-t2" name="CT1.2 Click Login" line="14">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T12:21:45.763873" level="INFO">Clicking element 'xpath=//a[@class='btn-solid-sm' and @href='/login']'.</msg>
+<arg>xpath=//a[@class='btn-solid-sm' and @href='/login']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T12:21:45.762884" elapsed="0.118588"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T12:21:48.884002" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T12:21:45.882455" elapsed="3.001547"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<msg time="2025-02-12T12:21:59.167026" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-38.png"&gt;&lt;img src="selenium-screenshot-38.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T12:21:59.167026" level="FAIL">Location did not contain '/login' in 10 seconds.</msg>
+<arg>/login</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2025-02-12T12:21:48.884516" elapsed="10.283510">Location did not contain '/login' in 10 seconds.</status>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Account Login</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-12T12:21:59.169026" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-12T12:21:45.761877" elapsed="13.407149">Location did not contain '/login' in 10 seconds.</status>
+</test>
+<test id="s1-t3" name="CT1.3 Test Login" line="20">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-02-12T12:22:09.516595" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-39.png"&gt;&lt;img src="selenium-screenshot-39.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T12:22:09.517596" level="FAIL">Element 'id=username' not visible after 10 seconds.</msg>
+<arg>id=username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-02-12T12:21:59.170025" elapsed="10.347571">Element 'id=username' not visible after 10 seconds.</status>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-12T12:22:09.517596" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-12T12:22:09.518597" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-12T12:22:09.518597" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-12T12:22:09.518597" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="NOT RUN" start="2025-02-12T12:22:09.518597" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Dashboard</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-12T12:22:09.518597" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-12T12:21:59.170025" elapsed="10.348572">Element 'id=username' not visible after 10 seconds.</status>
+</test>
+<status status="FAIL" start="2025-02-12T12:21:42.982189" elapsed="26.538408"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="2" skip="0" id="s1" name="UAT Researcher CT">UAT Researcher CT</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
