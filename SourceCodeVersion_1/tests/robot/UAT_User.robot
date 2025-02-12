@@ -11,6 +11,9 @@ ${Education R3}    2555 ปร.ด. (วิทยาการคอมพิว�
 ${Email}    punhor1@kku.ac.th
 ${SCOPUS_TAB}   id=scopus-tab
 ${SCOPUS_SECTION}   id=scopus
+
+# เหลือกดปุ่ม show more และเช็คข้อมูลที่แสดง
+
 *** Test Cases ***
 UT1.1Test Home Page Can Be Accessed
     Open Browser    ${URL}    ${BROWSER}
