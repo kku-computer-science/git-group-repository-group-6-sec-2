@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.4 on win32)" generated="2025-02-12T07:42:38.714108" rpa="false" schemaversion="5">
+<suite id="s1" name="UAT Researcher CT" source="C:\SoftEnGroup6\git-group-repository-group-6-sec-2\SourceCodeVersion_1\tests\robot\UAT_Researcher_CT.robot">
+<test id="s1-t1" name="CT1.1 Test Home Page Can Be Accessed" line="10">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T07:42:38.927663" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T07:42:38.927663" elapsed="2.400312"/>
+</kw>
+<status status="PASS" start="2025-02-12T07:42:38.927663" elapsed="2.402100"/>
+</test>
+<test id="s1-t2" name="CT1.2 Click Login" line="13">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T07:42:41.332914" level="INFO">Clicking element 'xpath=//a[contains(@class, "btn-solid-sm")]'.</msg>
+<msg time="2025-02-12T07:42:42.827987" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T07:42:42.827987" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (1154, 35)
+  (Session info: chrome=132.0.6834.160)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7D5AD02F5+28725]
+	(No symbol) [0x00007FF7D5A32AE0]
+	(No symbol) [0x00007FF7D58C510A]
+	(No symbol) [0x00007FF7D59210F8]
+	(No symbol) [0x00007FF7D591EB42]
+	(No symbol) [0x00007FF7D591BC51]
+	(No symbol) [0x00007FF7D591ABB1]
+	(No symbol) [0x00007FF7D590C6B4]
+	(No symbol) [0x00007FF7D593FFAA]
+	(No symbol) [0x00007FF7D590BF86]
+	(No symbol) [0x00007FF7D59401C0]
+	(No symbol) [0x00007FF7D5960181]
+	(No symbol) [0x00007FF7D593FD53]
+	(No symbol) [0x00007FF7D590A0E3]
+	(No symbol) [0x00007FF7D590B471]
+	GetHandleVerifier [0x00007FF7D5DFF30D+3366989]
+	GetHandleVerifier [0x00007FF7D5E112F0+3440688]
+	GetHandleVerifier [0x00007FF7D5E078FD+3401277]
+	GetHandleVerifier [0x00007FF7D5B9AAAB+858091]
+	(No symbol) [0x00007FF7D5A3E74F]
+	(No symbol) [0x00007FF7D5A3A304]
+	(No symbol) [0x00007FF7D5A3A49D]
+	(No symbol) [0x00007FF7D5A28B69]
+	BaseThreadInitThunk [0x00007FFCB302259D+29]
+	RtlUserThreadStart [0x00007FFCB46AAF38+40]
+</msg>
+<arg>xpath=//a[contains(@class, "btn-solid-sm")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-02-12T07:42:41.332914" elapsed="1.495073">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (1154, 35)
+  (Session info: chrome=132.0.6834.160)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7D5AD02F5+28725]
+	(No symbol) [0x00007FF7D5A32AE0]
+	(No symbol) [0x00007FF7D58C510A]
+	(No symbol) [0x00007FF7D59210F8]
+	(No symbol) [0x00007FF7D591EB42]
+	(No symbol) [0x00007FF7D591BC51]
+	(No symbol) [0x00007FF7D591ABB1]
+	(No symbol) [0x00007FF7D590C6B4]
+	(No symbol) [0x00007FF7D593FFAA]
+	(No symbol) [0x00007FF7D590BF86]
+	(No symbol) [0x00007FF7D59401C0]
+	(No symbol) [0x00007FF7D5960181]
+	(No symbol) [0x00007FF7D593FD53]
+	(No symbol) [0x00007FF7D590A0E3]
+	(No symbol) [0x00007FF7D590B471]
+	GetHandleVerifier [0x00007FF7D5DFF30D+3366989]
+	GetHandleVerifier [0x00007FF7D5E112F0+3440688]
+	GetHandleVerifier [0x00007FF7D5E078FD+3401277]
+	GetHandleVerifier [0x00007FF7D5B9AAAB+858091]
+	(No symbol) [0x00007FF7D5A3E74F]
+	(No symbol) [0x00007FF7D5A3A304]
+	(No symbol) [0x00007FF7D5A3A49D]
+	(No symbol) [0x00007FF7D5A28B69]
+	BaseThreadInitThunk [0x00007FFCB302259D+29]
+	RtlUserThreadStart [0x00007FFCB46AAF38+40]
+</status>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/login</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="NOT RUN" start="2025-02-12T07:42:42.827987" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Account Login</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-12T07:42:42.827987" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-12T07:42:41.331780" elapsed="1.496207">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (1154, 35)
+  (Session info: chrome=132.0.6834.160)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7D5AD02F5+28725]
+	(No symbol) [0x00007FF7D5A32AE0]
+	(No symbol) [0x00007FF7D58C510A]
+	(No symbol) [0x00007FF7D59210F8]
+	(No symbol) [0x00007FF7D591EB42]
+	(No symbol) [0x00007FF7D591BC51]
+	(No symbol) [0x00007FF7D591ABB1]
+	(No symbol) [0x00007FF7D590C6B4]
+	(No symbol) [0x00007FF7D593FFAA]
+	(No symbol) [0x00007FF7D590BF86]
+	(No symbol) [0x00007FF7D59401C0]
+	(No symbol) [0x00007FF7D5960181]
+	(No symbol) [0x00007FF7D593FD53]
+	(No symbol) [0x00007FF7D590A0E3]
+	(No symbol) [0x00007FF7D590B471]
+	GetHandleVerifier [0x00007FF7D5DFF30D+3366989]
+	GetHandleVerifier [0x00007FF7D5E112F0+3440688]
+	GetHandleVerifier [0x00007FF7D5E078FD+3401277]
+	GetHandleVerifier [0x00007FF7D5B9AAAB+858091]
+	(No symbol) [0x00007FF7D5A3E74F]
+	(No symbol) [0x00007FF7D5A3A304]
+	(No symbol) [0x00007FF7D5A3A49D]
+	(No symbol) [0x00007FF7D5A28B69]
+	BaseThreadInitThunk [0x00007FFCB302259D+29]
+	RtlUserThreadStart [0x00007FFCB46AAF38+40]
+</status>
+</test>
+<test id="s1-t3" name="CT1.3 Test Login" line="17">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T07:42:42.827987" level="INFO">Typing text 'punhor1@kku.ac.th' into text field 'id=username'.</msg>
+<msg time="2025-02-12T07:42:42.990243" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T07:42:42.990243" level="FAIL">Element with locator 'id=username' not found.</msg>
+<arg>id=username</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2025-02-12T07:42:42.827987" elapsed="0.162256">Element with locator 'id=username' not found.</status>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-12T07:42:42.990243" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-12T07:42:43.000261" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="NOT RUN" start="2025-02-12T07:42:43.000261" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Dashboard</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-12T07:42:43.000261" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-12T07:42:42.827987" elapsed="0.172274">Element with locator 'id=username' not found.</status>
+</test>
+<status status="FAIL" start="2025-02-12T07:42:38.729746" elapsed="4.270515"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="2" skip="0" id="s1" name="UAT Researcher CT">UAT Researcher CT</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
