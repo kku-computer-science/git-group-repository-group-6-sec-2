@@ -123,7 +123,7 @@ class TciAPIService
                 $paperModel = new Paper();
                 $paperModel->paper_name = $paper['article_eng'];
                 $paperModel->paper_type = $paper['document_type'];
-                $paperModel->paper_subtype = $paper['journal_eng'];
+                $paperModel->paper_sourcetitle = $paper['journal_eng'];
                 $paperModel->paper_yearpub = $paper['year'];
                 $paperModel->paper_volume = $paper['volume'];
                 $paperModel->paper_citation = $paper['cited'];
