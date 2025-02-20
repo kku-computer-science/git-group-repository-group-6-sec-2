@@ -30,13 +30,13 @@ class User extends Authenticatable
         'position_en',
         'position_th',
         'title_name_th',
-        'title_name_en',     
+        'title_name_en',
         'role',
         'picture',
         'status',
         'program_id',
         'username'
-        
+
     ];
 
     /**
@@ -47,8 +47,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        
-        
     ];
 
     /**
@@ -61,7 +59,8 @@ class User extends Authenticatable
     ];
 
 
-    public function getPictureAttribute($value){
+    public function getPictureAttribute($value): string
+    {
         if($value){
             return asset('images/imag_user/'.$value);
         }else{
@@ -78,32 +77,26 @@ class User extends Authenticatable
         return $this->belongsToMany(ResearchGroup::class,'work_of_research_groups')->withPivot('role');
         // OR return $this->belongsTo('App\User');
     }
-
     public function paper()
     {
         return $this->belongsToMany(Paper::class,'user_papers')->withPivot('author_type');
-        
-    }
 
+    }
     public function academicworks()
     {
         return $this->belongsToMany(Academicwork::class,'user_of_academicworks')->withPivot('author_type');
-        
-    }
 
+    }
     public function program() {
         return $this->belongsTo(Program::class);
     }
-
     public function department() {
         return $this->belongsTo(department::class);
     }
-
     public function expertise()
     {
         return $this->hasMany(Expertise::class);
     }
-
     public function education()
     {
         return $this->hasMany(Education::class);

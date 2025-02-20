@@ -36,4 +36,4 @@
         </div>
     </body>
 </html>
-<?php /**PATH E:\kkustudy\kku3_2\3_2SoftEn\git-group-repository-group-6-sec-2\InitialProject\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions/views/minimal.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\653380263-0\SoftEn_Group6\git-group-repository-group-6-sec-2\InitialProject\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions/views/minimal.blade.php ENDPATH**/ ?>

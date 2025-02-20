@@ -675,4 +675,4 @@
     }
 </script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('dashboards.users.layouts.user-dash-layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\kkustudy\kku3_2\3_2SoftEn\git-group-repository-group-6-sec-2\InitialProject\resources\views/dashboards/users/profile.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('dashboards.users.layouts.user-dash-layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\653380263-0\SoftEn_Group6\git-group-repository-group-6-sec-2\InitialProject\resources\views/dashboards/users/profile.blade.php ENDPATH**/ ?>

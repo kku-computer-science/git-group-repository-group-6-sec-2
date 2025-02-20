@@ -328,4 +328,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </body>
 
 
-</html><?php /**PATH E:\kkustudy\kku3_2\3_2SoftEn\git-group-repository-group-6-sec-2\InitialProject\resources\views/dashboards/users/layouts/user-dash-layout.blade.php ENDPATH**/ ?>
+</html><?php /**PATH D:\653380263-0\SoftEn_Group6\git-group-repository-group-6-sec-2\InitialProject\resources\views/dashboards/users/layouts/user-dash-layout.blade.php ENDPATH**/ ?>
