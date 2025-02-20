@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Services\APIFetcher;
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 
 use App\Models\Author;
 use App\Models\Paper;
