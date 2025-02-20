@@ -1,13 +1,12 @@
 <?php
-
 namespace App\Services\APIFetcher;
-require 'vendor/autoload.php';
 
 use App\Models\Author;
 use App\Models\Paper;
 use App\Models\Source_data;
 use App\Models\User;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\DB;
 
 class WosAPIService
@@ -23,7 +22,7 @@ class WosAPIService
         try {
             $response = $client->request('GET', 'https://api.clarivate.com/apis/wos-starter/v1/documents', [
                 'headers' => [
-                    'X-ApiKey' => "17edd46abea64599993f929a865e6bc9c36b3a2a",
+                    'X-ApiKey' => $this->apiKey,
                     'Accept' => 'application/json',
                 ],
                 'query' => [
@@ -37,7 +36,7 @@ class WosAPIService
             $jsonData = $response->getBody()->getContents();
             return json_decode($jsonData, true);
 
-        } catch (\Exception $e) {
+        } catch (GuzzleException $e) {
             error_log("Error while fetching Web of Science publication: " . $e->getMessage());
             return [] ;
         }
@@ -165,10 +164,6 @@ class WosAPIService
         }
     }
 
-    private function findOrCreateAuthor($fname, $lname) {
-        return Author::firstOrCreate(
-            ['author_fname' => $fname, 'author_lname' => $lname]
-        );
-    }
-
 }
+
+
