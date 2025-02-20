@@ -54,61 +54,50 @@
                         <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}</b>
                             @endif</h6>
                         <h6 class="card-text1"><b>{{$res->academic_ranks_en}}</b></h6>
-                        <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
-                        <!-- <h6 class="card-text1">College of Computing</h6>
-                    <h6 class="card-text1">Khon Kaen University</h6> -->
                         <h6 class="card-text1">E-mail: {{$res->email}}</h6>
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
                         @foreach( $res->education as $edu)
                         <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
                         @endforeach
-                        <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            {{ trans('message.expertise') }}
-                        </button> -->
-                        <!-- <h6 class="card-title">Metrics overview</h6>
-                    <h6 class="card-text2" id="citation">Citation count</h6>
-                    <h6 class="card-text2" id="doc_count">Document count</h6>
-                    <h6 class="card-text2" id="cite_count">Cited By count</h6>
-                    <h6 class="card-text2" id="h-index">H-index </h6> -->
-                    <h3>H-Index: <span id="h-index-result">กำลังคำนวณ...</span></h3>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <h6 class="title-pub">{{ trans('message.publications2') }}</h6>
+                <h6 class="title-pub">{{ __('message.publications2') }}</h6>
                 <div class="col-xs-12 text-center bt">
                     <div class="clearfix"></div>
                     <div class="row text-center">
                         <div class="col">
-                            <div class="count" id='all'>
-                            </div>
+                            <div class="count" id="all"></div>
                         </div>
                         <div class="col">
-                            <div class="count" id='scopus_sum'>
-                            </div>
+                            <div class="count" id="scopus_sum"></div>
                         </div>
                         <div class="col">
-                            <div class="count" id='wos_sum'>
-                            </div>
+                            <div class="count" id="wos_sum"></div>
                         </div>
                         <div class="col">
-                            <div class="count" id='tci_sum'>
-                            </div>
+                            <div class="count" id="tci_sum"></div>
                         </div>
-
                     </div>
                     <br>
                     <div class="chart">
                         <canvas id="barChart"></canvas>
+                        <div class="text-center mt-4">
+                            <a href="{{ route('citation-h-index', ['userId' => $res->id]) }}" class="btn btn-outline-primary btn-lg hover-shadow">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
+                    <a href="{{ route('history.chart', ['userId' => $res->id]) }}" class="btn btn-secondary">
+                        ดูกราฟย้อนหลัง
+                    </a>
                 </div>
             </div>
-
-
-
         </div>
     </div>
+</div>
+
     <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -600,7 +589,7 @@
     async function myFunction() {
         var res = <?php echo $res; ?>;
         //var fname = res.fname_en;
-        //var fname = res.fname_en.substr(0, 1); 
+        //var fname = res.fname_en.substr(0, 1);
         //console.log(fname);
         //const response = await fetch('https://api.elsevier.com/content/search/scopus?query=AUTHOR-NAME('+ res.lname_en +','+fname+')%20&apikey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson');
         const response = await fetch('https://api.elsevier.com/content/search/author?query=authlast(' + res.lname_en +
@@ -661,19 +650,19 @@
         let sum = sumsco + sumtci + sumwos + sumbook + sumpatent;
 
         //$("#scopus").append('data-to="100"');
-        document.getElementById("all").innerHTML += `   
+        document.getElementById("all").innerHTML += `
                 <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
                 <p class="count-text ">SUMMARY</p>`
 
-        document.getElementById("scopus_sum").innerHTML += `   
+        document.getElementById("scopus_sum").innerHTML += `
                 <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
                 <p class="count-text">SCOPUS</p>`
 
-        document.getElementById("wos_sum").innerHTML += `    
+        document.getElementById("wos_sum").innerHTML += `
                 <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
                 <p class="count-text ">WOS</p>`
 
-        document.getElementById("tci_sum").innerHTML += `  
+        document.getElementById("tci_sum").innerHTML += `
                 <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
                 <p class="count-text ">TCI</p>`
 
@@ -776,43 +765,6 @@
             $this.countTo(options);
         }
     });
-    
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-        function calculateHIndex() {
-            let citations = [];
-
-            // ดึงค่าจำนวน Citation จากคอลัมน์ที่ 8 (Citations)
-            document.querySelectorAll("#example1 tbody tr").forEach(row => {
-                let citationCell = row.cells[7]; // คอลัมน์ที่ 8 (Citations)
-                if (citationCell) {
-                    let citation = parseInt(citationCell.textContent.trim()) || 0;
-                    citations.push(citation);
-                }
-            });
-
-            // เรียงลำดับ Citation จากมากไปน้อย
-            citations.sort((a, b) => b - a);
-
-            // คำนวณค่า H-Index
-            let h_index = 0;
-            for (let i = 0; i < citations.length; i++) {
-                if (citations[i] >= i + 1) {
-                    h_index = i + 1;
-                } else {
-                    break;
-                }
-            }
-
-            // แสดงผลลัพธ์ H-Index บนหน้าเว็บ
-            document.getElementById("h-index-result").textContent = h_index;
-        }
-
-        // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
-        calculateHIndex();
-    });
-
 </script>
 <!-- <script>
     // get the p element
@@ -822,7 +774,7 @@
     const myArray =  a.text.toString().split(" ");
     console.log(myArray)
     document.getElementById("authtd").innerHTML = "name :"+ myArray;
-    
+
 });
 </script> -->
 @endsection

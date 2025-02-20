@@ -7,6 +7,7 @@ use App\Models\Program;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use App\Models\Researcher;
 
 class ResearcherController extends Controller
 {
@@ -119,5 +120,11 @@ class ResearcherController extends Controller
         $request = $request->textsearch;
         $a = $this->searchs($id,$request);
         return $a;
+    }
+
+    public function showAllResearchers()
+    {
+        $researchers = Researcher::all();
+        return view('researchers.all', compact('researchers'));
     }
 }
