@@ -22,6 +22,7 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
-        "flag-icon-css": "^4.1.7"
+        "flag-icon-css": "^4.1.7",
+        "newman-reporter-html": "^1.0.5"
     }
 }
