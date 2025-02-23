@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Services\APIFetcher;
 
 use App\Models\Author;
@@ -129,6 +128,10 @@ class TciAPIService
                 // 🔍 1. ค้นหาด้วย DOI (Exact Match)
                 if ($doi) {
                     $paperModel = Paper::whereRaw('LOWER(paper_doi) = ?', [$doi])->first();
+                }
+                else{
+                    // ถ้าไม่มี DOI ให้ค้นหาด้วยชื่อเรื่อง
+                    $paperModel = Paper::whereRaw('LOWER(paper_name) = ?', [$title])->first();
                 }
 
                 // 🔍 2. ถ้าไม่เจอด้วย DOI, ใช้ Full-Text Search
