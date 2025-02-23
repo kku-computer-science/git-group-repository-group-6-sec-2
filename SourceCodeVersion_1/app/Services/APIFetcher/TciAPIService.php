@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Services\APIFetcher;
 
 use App\Models\Author;
@@ -118,80 +117,122 @@ class TciAPIService
 
     public static function saveTCIPublications(array $papers, string $userId): void
     {
-        foreach ($papers['articles'] as $paper){
-            if(Paper::Where('paper_name', $paper['article_eng'])->first() == null){
-                $paperModel = new Paper();
-                $paperModel->paper_name = $paper['article_eng'];
-                $paperModel->paper_type = $paper['document_type'];
-                $paperModel->paper_sourcetitle = $paper['journal_eng'];
-                $paperModel->paper_yearpub = $paper['year'];
-                $paperModel->paper_volume = $paper['volume'];
-                $paperModel->paper_citation = $paper['cited'];
-                $paperModel->paper_page = $paper['page_number'];
-                $paperModel->save();
+        foreach ($papers['articles'] as $paper) {
+            DB::transaction(function () use ($paper, $userId) {
+                // ทำความสะอาดข้อมูลพื้นฐาน
+                $title = strtolower(trim($paper['article_eng']));
+                $doi = !empty($paper['doi']) ? strtolower(trim($paper['doi'])) : null;
 
-                $source = Source_data::findOrFail(3);
-                $paperModel->source()->sync($source);
+                $paperModel = null;
 
-                $authorsArray = explode(', ', $paper['authors']);
-                $authors = array_map(function($author) {
+                // 🔍 1. ค้นหาด้วย DOI (Exact Match)
+                if ($doi) {
+                    $paperModel = Paper::whereRaw('LOWER(paper_doi) = ?', [$doi])->first();
+                }
+                else{
+                    // ถ้าไม่มี DOI ให้ค้นหาด้วยชื่อเรื่อง
+                    $paperModel = Paper::whereRaw('LOWER(paper_name) = ?', [$title])->first();
+                }
+
+                // 🔍 2. ถ้าไม่เจอด้วย DOI, ใช้ Full-Text Search
+                if(!$paperModel) {
+                    $papers = Paper::all(); //  Get all papers for comparison
+                    foreach ($papers as $existingPaper) {
+                        $existingTitle = strtolower(trim($existingPaper->paper_name));
+                        similar_text($title, $existingTitle, $percent); // Calculate similarity
+
+                        if ($percent > 90) {
+                            $paperModel = $existingPaper;  //  Consider it the same paper
+                            break; // Exit the loop once a match is found
+                        }
+                    }
+                }
+
+                if (!$paperModel) {
+                    // 🆕 สร้าง Paper ใหม่
+                    $paperModel = new Paper();
+                    $paperModel->paper_name = trim($paper['article_eng']);
+                    $paperModel->paper_doi = $doi;
+                    $paperModel->paper_type = !empty($paper['document_type']) ? $paper['document_type'] : null;
+                    $paperModel->paper_sourcetitle = !empty($paper['journal_eng']) ? $paper['journal_eng'] : null;
+                    $paperModel->paper_yearpub = !empty($paper['year']) ? (int)$paper['year'] : null;
+                    $paperModel->paper_volume = !empty($paper['volume']) ? (int)$paper['volume'] : null;
+                    $paperModel->paper_citation = !empty($paper['cited']) ? (int)$paper['cited'] : 0;
+                    $paperModel->paper_page = !empty($paper['page_number']) ? $paper['page_number'] : null;
+                    $paperModel->save();
+
+                    // เชื่อมโยงกับ Source_data (ในที่นี้ใช้ source id 3)
+                    $source = Source_data::findOrFail(3);
+                    $paperModel->source()->sync([$source->id]);
+                } else {
+                    // 🔄 อัปเดต Citation หากข้อมูลใหม่มีค่าสูงกว่า
+                    if ($paperModel->paper_citation < (int)$paper['cited']) {
+                        $paperModel->update(['paper_citation' => (int)$paper['cited']]);
+                    }
+                }
+
+                // 🔗 เชื่อมโยง Authors
+                $authorsArray = array_filter(explode(', ', $paper['authors']));
+                $authors = array_map(function ($author) {
                     $parts = explode(' ', $author, 2);
+                    if (count($parts) < 2) {
+                        // กรณีมีชื่อเดียว (เช่น "Einstein") ให้เติมค่าว่างในส่วนนามสกุล
+                        $parts = [$parts[0] ?? '', ''];
+                    }
                     return [
-                        'fname' => $parts[0] ?? '',
-                        'lname' => $parts[1] ?? ''
+                        'fname' => $parts[0],
+                        'lname' => $parts[1]
                     ];
                 }, $authorsArray);
 
-                $authorCount = count($authorsArray);
+                $authorCount = count($authors);
                 foreach ($authors as $index => $authorData) {
-                    $user = User::where([
-                        ['fname_en', '=', $authorData['fname']],
-                        ['lname_en', '=', $authorData['lname']]
-                    ])
-                        ->orWhere([
-                            [DB::raw("concat(left(fname_en,1),'.')"), '=', $authorData['fname']],
+                    // ค้นหา User โดยตรวจสอบทั้งชื่อเต็มและตัวย่อ
+                    $user = User::where(function ($query) use ($authorData) {
+                        $query->where([
+                            ['fname_en', '=', $authorData['fname']],
                             ['lname_en', '=', $authorData['lname']]
                         ])
-                        ->orWhere([
-                            [DB::raw("left(fname_en,1)"), '=', $authorData['fname']],
-                            ['lname_en', '=', $authorData['lname']]
-                        ])
-                        ->first();
+                            ->orWhere(function ($query) use ($authorData) {
+                                $query->where(DB::raw("concat(left(fname_en,1),'.')"), '=', $authorData['fname'])
+                                    ->where('lname_en', '=', $authorData['lname']);
+                            })
+                            ->orWhere(function ($query) use ($authorData) {
+                                $query->where(DB::raw("left(fname_en,1)"), '=', $authorData['fname'])
+                                    ->where('lname_en', '=', $authorData['lname']);
+                            });
+                    })->first();
 
-                    /* Author_type (1 = first, 2 = middle, 3 = last) */
+                    // กำหนด author type: คนแรก = 1, คนสุดท้าย = 3, คนกลาง = 2
                     $authorType = ($index === 0) ? 1 : (($index === $authorCount - 1) ? 3 : 2);
 
                     if ($user) {
-                        $paperModel->teacher()->attach($user, ['author_type' => $authorType]);
+                        // เชื่อมโยงกับ teacher (User) โดยใช้ syncWithoutDetaching เพื่อป้องกันความซ้ำ
+                        $paperModel->teacher()->syncWithoutDetaching([$user->id => ['author_type' => $authorType]]);
                     } else {
-                        $author = TciAPIService::findOrCreateAuthor($authorData['fname'], $authorData['lname']);
-                        $paperModel->author()->attach($author, ['author_type' => $authorType]);
+                        // ค้นหาในตาราง Author หากไม่พบใน User
+                        $authorModel = Author::where('author_fname', $authorData['fname'])
+                            ->where('author_lname', $authorData['lname'])
+                            ->first();
+                        if (!$authorModel) {
+                            $authorModel = new Author();
+                            $authorModel->author_fname = $authorData['fname'];
+                            $authorModel->author_lname = $authorData['lname'];
+                            // บันทึก Author ใหม่และเชื่อมโยงกับ Paper ผ่านความสัมพันธ์
+                            $paperModel->author()->save($authorModel, ['author_type' => $authorType]);
+                        } else {
+                            $paperModel->author()->syncWithoutDetaching([$authorModel->id => ['author_type' => $authorType]]);
+                        }
                     }
                 }
 
-            }
-            else{
-                $findPaper = Paper::where('paper_name', $paper['article_eng'])->firstOrFail();
-                $user = User::findOrFail($userId);
-                if (!$user->paper()->where('paper_id', $findPaper->id)->exists()) {
-                    $author = Author::where([
-                        ['author_fname', $user->fname_en],
-                        ['author_lname', $user->lname_en]
-                    ])->first();
-                    if ($author) {
-                        $findPaper->authors()->detach($author->id);
-                    }
-                    $findPaper->teacher()->attach($user->id);
+                // 🔗 เชื่อมโยง Paper กับ User (Owner) โดยใช้ syncWithoutDetaching
+                $currentUser = User::findOrFail($userId);
+                if (!$paperModel->teacher->contains($currentUser->id)) {
+                    $paperModel->teacher()->syncWithoutDetaching([$currentUser->id]);
                 }
-            }
-
+            });
         }
     }
 
-    private static function findOrCreateAuthor($fname, $lname) {
-        return Author::firstOrCreate(
-            ['author_fname' => $fname, 'author_lname' => $lname],
-            ['author_fname' => $fname, 'author_lname' => $lname]
-        );
-    }
 }

@@ -146,7 +146,7 @@
                         {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
                         <div id="collapse-{{ $paper->id }}" class="collapse">
                             <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
+                            <p>Author:
                                 @foreach ($paper->author as $author)
                                 <span>
                                     <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
@@ -164,7 +164,7 @@
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
                             <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
-                            <p>Source: 
+                            <p>Source:
                                 @foreach ($paper->source as $s)
                                 <span>
                                     <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
@@ -203,7 +203,7 @@
                         {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
                         <div id="collapse-scopus-{{ $paper->id }}" class="collapse">
                             <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
+                            <p>Author:
                                 @foreach ($paper->author as $author)
                                 <span>
                                     <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
@@ -221,7 +221,7 @@
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
                             <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
-                            <p>Source: 
+                            <p>Source:
                                 @foreach ($paper->source as $s)
                                 <span>
                                     <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
@@ -260,7 +260,7 @@
                         {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
                         <div id="collapse-wos-{{ $paper->id }}" class="collapse">
                             <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
+                            <p>Author:
                                 @foreach ($paper->author as $author)
                                 <span>
                                     <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
@@ -278,7 +278,7 @@
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
                             <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
-                            <p>Source: 
+                            <p>Source:
                                 @foreach ($paper->source as $s)
                                 <span>
                                     <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
@@ -317,7 +317,7 @@
                         {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
                         <div id="collapse-tci-{{ $paper->id }}" class="collapse">
                             <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
+                            <p>Author:
                                 @foreach ($paper->author as $author)
                                 <span>
                                     <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
@@ -335,7 +335,7 @@
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
                             <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
-                            <p>Source: 
+                            <p>Source:
                                 @foreach ($paper->source as $s)
                                 <span>
                                     <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
@@ -373,7 +373,7 @@
                         {{$paper->ac_name}}
                         <div id="collapse-book-{{ $paper->id }}" class="collapse">
                             <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
+                            <p>Author:
                                 @foreach ($paper->author as $author)
                                 <span>
                                     <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
@@ -417,7 +417,7 @@
                         {{$paper->ac_name}}
                         <div id="collapse-patent-{{ $paper->id }}" class="collapse">
                             <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author: 
+                            <p>Author:
                                 @foreach ($paper->author as $author)
                                 <span>
                                     <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
@@ -693,12 +693,14 @@
     var paper_wos_s = <?php echo $paper_wos_s; ?>;
     var paper_book_s = <?php echo $paper_book_s; ?>;
     var paper_patent_s = <?php echo $paper_patent_s; ?>;
+    var paper_scholar_s = <?php echo $paper_google_s; ?>;
     //console.log(paper_book_s);
     let sumtci = 0;
     let sumsco = 0;
     let sumwos = 0;
     let sumbook = 0;
     let sumpatent = 0;
+    let sumScholar = 0;
     (function($) {
         for (let i = 0; i < paper_scopus_s.length; i++) {
             sumsco += paper_scopus_s[i];
@@ -715,22 +717,26 @@
         for (let i = 0; i < paper_patent_s.length; i++) {
             sumpatent += paper_patent_s[i];
         }
-        let sum = sumsco + sumtci + sumwos + sumbook + sumpatent;
+        for (let i = 0; i < paper_scholar_s.length; i++) {
+            sumScholar += paper_scholar_s[i];
+        }
+
+        let sum = sumsco + sumtci + sumwos + sumbook + sumpatent + sumScholar;
 
         //$("#scopus").append('data-to="100"');
-        document.getElementById("all").innerHTML += `   
+        document.getElementById("all").innerHTML += `
                 <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
                 <p class="count-text ">SUMMARY</p>`
 
-        document.getElementById("scopus_sum").innerHTML += `   
+        document.getElementById("scopus_sum").innerHTML += `
                 <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
                 <p class="count-text">SCOPUS</p>`
 
-        document.getElementById("wos_sum").innerHTML += `    
+        document.getElementById("wos_sum").innerHTML += `
                 <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
                 <p class="count-text ">WOS</p>`
 
-        document.getElementById("tci_sum").innerHTML += `  
+        document.getElementById("tci_sum").innerHTML += `
                 <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
                 <p class="count-text ">TCI</p>`
 

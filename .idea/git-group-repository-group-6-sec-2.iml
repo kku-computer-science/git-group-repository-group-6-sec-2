@@ -10,7 +10,6 @@
       <sourceFolder url="file://$MODULE_DIR$/InitialProject/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/InitialProject/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/InitialProject/tests/Unit" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
@@ -150,7 +149,6 @@
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/storage/framework/cache/data/04" />
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/storage/framework/cache/data/5c" />
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/storage/framework/cache/data/85" />
-      <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/vendor/asm89/stack-cors" />
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/vendor/barryvdh/laravel-dompdf" />
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/vendor/brick/math" />
