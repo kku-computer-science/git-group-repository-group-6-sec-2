@@ -42,6 +42,9 @@ class WosAPIService
         }
     }
 
+    /**
+     * @throws \Exception
+     */
     public function saveWOSPublications(array $papers, string $userId): void
     {
         foreach ($papers['hits'] as $paper) {
@@ -171,7 +174,3 @@ class WosAPIService
     }
 
 }
-
-//$w = new WosAPIService('17edd46abea64599993f929a865e6bc9c36b3a2a');
-//$data = $w->getResearcherPublications('Seresangtakul Pusadee');
-//print_r(json_encode($data, JSON_PRETTY_PRINT));
