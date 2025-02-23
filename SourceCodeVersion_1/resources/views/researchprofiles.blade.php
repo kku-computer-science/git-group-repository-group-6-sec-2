@@ -721,7 +721,7 @@
             sumScholar += 1;
         }
 
-        let sum = sumScholar;
+        let sum = sumScholar + sumsco + sumwos + sumtci;
 
         //$("#scopus").append('data-to="100"');
         document.getElementById("all").innerHTML += `
