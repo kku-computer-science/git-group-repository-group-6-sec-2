@@ -693,7 +693,7 @@
     var paper_wos_s = <?php echo $paper_wos_s; ?>;
     var paper_book_s = <?php echo $paper_book_s; ?>;
     var paper_patent_s = <?php echo $paper_patent_s; ?>;
-    var paper_scholar_s = <?php echo $paper_google_s; ?>;
+    var paper_scholar_s = <?php echo $papers_google; ?>;
     //console.log(paper_book_s);
     let sumtci = 0;
     let sumsco = 0;
@@ -718,10 +718,10 @@
             sumpatent += paper_patent_s[i];
         }
         for (let i = 0; i < paper_scholar_s.length; i++) {
-            sumScholar += paper_scholar_s[i];
+            sumScholar += 1;
         }
 
-        let sum = sumsco + sumtci + sumwos + sumbook + sumpatent + sumScholar;
+        let sum = sumScholar;
 
         //$("#scopus").append('data-to="100"');
         document.getElementById("all").innerHTML += `
