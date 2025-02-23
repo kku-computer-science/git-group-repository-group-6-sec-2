@@ -7,11 +7,12 @@ class DuplicateCheckTest extends TestCase
 
     protected function setUp(): void
     {
-        // ใช้ข้อมูล MySQL จาก .env
-        $host = '127.0.0.1';
-        $dbname = 'example_app';
-        $username = 'root';
-        $password = '';
+        
+        $host = '192.185.83.226';
+        $dbname = 'cssegrou_academic_project';
+        $username = 'cssegrou_root';
+        $password = 'Es^0MASZs?n5';
+        
 
         try {
             $this->pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
