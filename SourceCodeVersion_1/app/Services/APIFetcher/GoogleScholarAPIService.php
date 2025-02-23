@@ -99,7 +99,7 @@ class GoogleScholarAPIService {
                     foreach ($papers as $existingPaper) {
                         $existingTitle = strtolower(trim($existingPaper->paper_name));
                         similar_text($title, $existingTitle, $percent); // Calculate similarity
-                        if ($percent > 69) {
+                        if ($percent > 85) {
                             $paper = $existingPaper;  //  Consider it the same paper
                             break; // Exit the loop once a match is found
                         }
