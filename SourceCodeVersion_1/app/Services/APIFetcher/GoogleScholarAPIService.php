@@ -70,6 +70,9 @@ class GoogleScholarAPIService {
         ];
     }
 
+    /**
+     * @throws Exception
+     */
     public function saveGoogleScholarPublications(array $data, string $userId): void
     {
         foreach ($data['articles'] as $article) {
