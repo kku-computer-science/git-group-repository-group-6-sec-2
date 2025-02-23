@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Academicwork;
-use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Paper;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
-
-
 
 class ProfileController extends Controller
 {
@@ -36,7 +33,7 @@ class ProfileController extends Controller
 
         // ดึงสถิติย้อนหลัง 5 ปี และ 20 ปี
         $year = range(Carbon::now()->year - 5, Carbon::now()->year);
-        $year2 = range(Carbon::now()->year - 20, Carbon::now()->year);
+        $year2 = range(Carbon::now()->year - 100, Carbon::now()->year);
 
         $paper_scopus = $this->getPaperStats($id, $year, 1);
         $paper_tci = $this->getPaperStats($id, $year, 3);
@@ -247,21 +244,4 @@ class ProfileController extends Controller
         // ส่งข้อมูลไปที่ Blade
         return view('citation_chart', compact('years', 'paper_scopus_s', 'paper_wos_s', 'paper_google_s', 'paper_tci_s', 'citations', 'h_index'));
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
