@@ -1,5 +1,6 @@
 <?php
 namespace App\Services\APIFetcher;
+
 use App\Models\Author;
 use App\Models\Paper;
 use App\Models\Source_data;
@@ -83,6 +84,10 @@ class GoogleScholarAPIService {
                 // 🔍 1. ค้นหาด้วย DOI (Exact Match)
                 if ($doi) {
                     $paper = Paper::whereRaw('LOWER(paper_doi) = ?', [$doi])->first();
+                }
+                else{
+                    // ถ้าไม่มี DOI ให้ค้นหาด้วยชื่อเรื่อง
+                    $paper = Paper::whereRaw('LOWER(paper_name) = ?', [$title])->first();
                 }
 
                 // 🔍 2. ถ้าไม่เจอด้วย DOI ให้ค้นหาด้วย ใช้ similar text
