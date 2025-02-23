@@ -69,22 +69,23 @@
                     <div class="clearfix"></div>
                     <div class="row text-center">
                         <div class="col">
-                            <div class="count" id='all'>
-                            </div>
+                            <div class="count" id="all"></div>
                         </div>
                         <div class="col">
-                            <div class="count" id='scopus_sum'>
-                            </div>
+                            <div class="count" id="scopus_sum"></div>
                         </div>
                         <div class="col">
-                            <div class="count" id='wos_sum'>
-                            </div>
+                            <div class="count" id="wos_sum"></div>
                         </div>
                         <div class="col">
-                            <div class="count" id='tci_sum'>
-                            </div>
+                            <div class="count" id="tci_sum"></div>
+                        </div>
+                        <div class="col">
+                            <div class="count" id="google_scholar"></div>
                         </div>
                     </div>
+
+
                     <br>
                     <div class="text-center mt-3">
                         <a href="{{ route('history.chart', ['userId' => $res->id]) }}" class="btn btn-dark btn-lg shadow rounded-pill px-4 py-3">
@@ -740,6 +741,9 @@
                 <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
                 <p class="count-text ">TCI</p>`
 
+        document.getElementById("google_scholar").innerHTML += `
+                <h2 class="timer count-title count-number" data-to="${sumScholar}" data-speed="1500"></h2>
+                <p class="count-text ">Google Scholar</p>`
 
         //document.getElementById("scopus").appendChild('data-to="100"');
         $.fn.countTo = function(options) {
