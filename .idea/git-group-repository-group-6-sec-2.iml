@@ -150,7 +150,6 @@
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/storage/framework/cache/data/04" />
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/storage/framework/cache/data/5c" />
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/storage/framework/cache/data/85" />
-      <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/vendor/asm89/stack-cors" />
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/vendor/barryvdh/laravel-dompdf" />
       <excludeFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/vendor/brick/math" />
