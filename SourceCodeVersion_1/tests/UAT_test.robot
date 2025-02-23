@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${BROWSER}    Chrome
-${URL}        https://cssegroup6sec267.cpkkuhost.com/
+${URL}        http://127.0.0.1:8000/
 
 
 *** Test Cases ***
@@ -48,11 +48,15 @@ TC05 Published Research Page
     Wait Until Page Contains         Published Research    timeout=60s
 
 TC06 Call Papers
-    Wait Until Element Is Visible    xpath=//a[contains(@class,'btn btn-primary btn-icon-text btn-sm mb-3') and contains(text(),'Call Paper')]    timeout=30s
+    Wait Until Element Is Visible    xpath=//a[contains(@class,'btn btn-primary btn-icon-text btn-sm mb-3') and contains(text(),'Call Paper')]    timeout=60s
     Scroll Element Into View    xpath=//a[contains(@class,'btn btn-primary btn-icon-text btn-sm mb-3') and contains(text(),'Call Paper')]
     Click Element    xpath=//a[contains(@class,'btn btn-primary btn-icon-text btn-sm mb-3') and contains(text(),'Call Paper')]
     Sleep    2s
-    Switch Window    NEW
-    Wait Until Element Is Visible    name=username    timeout=30s
+    Wait Until Element Is Visible    name=username    timeout=60s
+    # จัดการ popup กดปุ่ม OK
+    Wait Until Element Is Visible    xpath=//button[contains(@class,'swal-button--confirm')]    timeout=10s
+    Click Element    xpath=//button[contains(@class,'swal-button--confirm')]
+
+
 
 [Teardown]    Close Browser
