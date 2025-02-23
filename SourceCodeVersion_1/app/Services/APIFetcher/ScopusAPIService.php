@@ -117,7 +117,6 @@ class ScopusAPIService {
                     $paperModel = Paper::whereRaw('LOWER(paper_name) = ?', [$title])->first();
                 }
 
-
                 // 🔍 2. ถ้าไม่เจอด้วย DOI, ใช้ Full-Text Search
                 if(!$paperModel) {
                     $papers = Paper::all(); //  Get all papers for comparison
