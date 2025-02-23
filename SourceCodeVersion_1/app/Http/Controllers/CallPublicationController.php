@@ -39,13 +39,13 @@ class CallPublicationController extends Controller
         TciAPIService::saveTciPublications($tciPublication, $userId);
 
 
-        /* Google Scholar API and web scraper */
-        $idScraper = new IDScraper(new Client());
-        $authorNames = [$fName_lName];
-        $authorScholarId = $idScraper->search($authorNames);
-        $googleScholarAPI = new GoogleScholarAPIService('6b2865ac4c28b16a9e0b76c9306d8ff0689620635b9923c5d90e63609218dc26');
-        $googleScholarPublications = $googleScholarAPI->getResearcherPublications($authorScholarId[0]);
-        $googleScholarAPI->saveGoogleScholarPublications($googleScholarPublications, $userId);
+        // /* Google Scholar API and web scraper */
+        // $idScraper = new IDScraper(new Client());
+        // $authorNames = [$fName_lName];
+        // $authorScholarId = $idScraper->search($authorNames);
+        // $googleScholarAPI = new GoogleScholarAPIService('6b2865ac4c28b16a9e0b76c9306d8ff0689620635b9923c5d90e63609218dc26');
+        // $googleScholarPublications = $googleScholarAPI->getResearcherPublications($authorScholarId[0]);
+        // $googleScholarAPI->saveGoogleScholarPublications($googleScholarPublications, $userId);
 
         return redirect()->back();
     }
