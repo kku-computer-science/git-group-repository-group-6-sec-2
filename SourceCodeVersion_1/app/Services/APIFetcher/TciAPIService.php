@@ -210,34 +210,19 @@ class TciAPIService
                         // เชื่อมโยงกับ teacher (User) โดยใช้ syncWithoutDetaching เพื่อป้องกันความซ้ำ
                         $paperModel->teacher()->syncWithoutDetaching([$user->id => ['author_type' => $authorType]]);
                     } else {
-                        // ค้นหาผู้แต่งจากตาราง Author โดยใช้ชื่อเต็มก่อน
-                        $authorModel = Author::where('author_fname', $authorData['fname'])
-                            ->where('author_lname', $authorData['lname'])
+                        $authorModel = Author::where('author_lname', $authorData['lname'])
                             ->first();
-
-                        if (!$authorModel) {
-                            // ลองค้นหาด้วยชื่อตัวย่อ เช่น "J." แทน "John"
-                            $authorShort = Author::where('author_fname', 'LIKE', substr($authorData['fname'], 0, 1) . '.')
-                                ->where('author_lname', $authorData['lname'])
-                                ->first();
-
-                            if ($authorShort) {
-                                // อัปเดตชื่อตัวย่อเป็นชื่อเต็ม
-                                $authorShort->author_fname = $authorData['fname'];
-                                $authorShort->save();
-                                $authorModel = $authorShort;
-                            } else {
-                                // ไม่พบทั้งชื่อเต็มและชื่อตัวย่อ -> สร้าง Author ใหม่
-                                $authorModel = new Author();
-                                $authorModel->author_fname = $authorData['fname'];
-                                $authorModel->author_lname = $authorData['lname'];
-                                $authorModel->save();
-                            }
+                        if(!$authorModel) {
+                            $authorModel = new Author();
+                            $authorModel->author_fname = $authorData['fname'];
+                            $authorModel->author_lname = $authorData['lname'];
+                            $authorModel->save();
+                        }
+                        elseif (strlen($authorModel->author_fname) < strlen($authorData['fname'])) {
+                            $authorModel->update(['author_fname' => $authorData['lname']]);
                         }
 
-                        // เชื่อมโยง Author กับ Paper โดยไม่ลบความสัมพันธ์เก่าออก
                         $paperModel->author()->syncWithoutDetaching([$authorModel->id => ['author_type' => $authorType]]);
-
                     }
                 }
 
