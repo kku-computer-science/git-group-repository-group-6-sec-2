@@ -6,7 +6,6 @@ use App\Models\Paper;
 use App\Models\Source_data;
 use App\Models\User;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
@@ -185,22 +184,21 @@ class ScopusAPIService {
 
                     if ($user) {
                         $paperModel->teacher()->syncWithoutDetaching([$user->id => ['author_type' => $authorType]]);
-                    } else {
-                        // ค้นหาในตาราง Author หากไม่พบใน User
-                        $author = Author::where([
-                            ['author_fname', '=', $authorData['firstName']],
-                            ['author_lname', '=', $authorData['lastName']]
-                        ])->first();
-
-                        if (!$author) {
-                            $author = new Author();
-                            $author->author_fname = $authorData['firstName'];
-                            $author->author_lname = $authorData['lastName'];
-                            // บันทึก Author ใหม่และเชื่อมโยงกับ Paper ผ่าน Eloquent Relationship
-                            $paperModel->author()->save($author, ['author_type' => $authorType]);
-                        } else {
-                            $paperModel->author()->syncWithoutDetaching([$author->id => ['author_type' => $authorType]]);
+                    }
+                    else {
+                        $authorModel = Author::where('author_lname', $authorData['lastName'])
+                            ->first();
+                        if(!$authorModel) {
+                            $authorModel = new Author();
+                            $authorModel->author_fname = $authorData['firstName'];
+                            $authorModel->author_lname = $authorData['lastName'];
+                            $authorModel->save();
                         }
+                        elseif (strlen($authorModel->author_fname) < strlen($authorData['firstName'])) {
+                            $authorModel->update(['author_fname' => $authorData['firstName']]);
+                        }
+
+                        $paperModel->author()->syncWithoutDetaching([$authorModel->id => ['author_type' => $authorType]]);
                     }
                 }
 

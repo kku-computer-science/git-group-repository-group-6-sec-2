@@ -210,19 +210,19 @@ class TciAPIService
                         // เชื่อมโยงกับ teacher (User) โดยใช้ syncWithoutDetaching เพื่อป้องกันความซ้ำ
                         $paperModel->teacher()->syncWithoutDetaching([$user->id => ['author_type' => $authorType]]);
                     } else {
-                        // ค้นหาในตาราง Author หากไม่พบใน User
-                        $authorModel = Author::where('author_fname', $authorData['fname'])
-                            ->where('author_lname', $authorData['lname'])
+                        $authorModel = Author::where('author_lname', $authorData['lname'])
                             ->first();
-                        if (!$authorModel) {
+                        if(!$authorModel) {
                             $authorModel = new Author();
                             $authorModel->author_fname = $authorData['fname'];
                             $authorModel->author_lname = $authorData['lname'];
-                            // บันทึก Author ใหม่และเชื่อมโยงกับ Paper ผ่านความสัมพันธ์
-                            $paperModel->author()->save($authorModel, ['author_type' => $authorType]);
-                        } else {
-                            $paperModel->author()->syncWithoutDetaching([$authorModel->id => ['author_type' => $authorType]]);
+                            $authorModel->save();
                         }
+                        elseif (strlen($authorModel->author_fname) < strlen($authorData['fname'])) {
+                            $authorModel->update(['author_fname' => $authorData['lname']]);
+                        }
+
+                        $paperModel->author()->syncWithoutDetaching([$authorModel->id => ['author_type' => $authorType]]);
                     }
                 }
 

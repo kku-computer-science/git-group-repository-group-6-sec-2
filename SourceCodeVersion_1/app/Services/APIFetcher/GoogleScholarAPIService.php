@@ -167,20 +167,19 @@ class GoogleScholarAPIService {
                         // ผูก Paper กับ teacher (User) โดยไม่ลบความสัมพันธ์ที่มีอยู่แล้ว
                         $paper->teacher()->syncWithoutDetaching([$foundUser->id => ['author_type' => $authorType]]);
                     } else {
-                        // ค้นหาจากตาราง Author หากไม่พบ User
-                        $authorModel = Author::where('author_fname', $authorData['fname'])
-                            ->where('author_lname', $authorData['lname'])
+                        $authorModel = Author::where('author_lname', $authorData['lname'])
                             ->first();
-
-                        if (!$authorModel) {
-                            // สร้าง Author ใหม่หากไม่พบ
+                        if(!$authorModel) {
                             $authorModel = new Author();
                             $authorModel->author_fname = $authorData['fname'];
                             $authorModel->author_lname = $authorData['lname'];
-                            $paper->author()->save($authorModel, ['author_type' => $authorType]);
-                        } else {
-                            $paper->author()->syncWithoutDetaching([$authorModel->id => ['author_type' => $authorType]]);
+                            $authorModel->save();
                         }
+                        elseif (strlen($authorModel->author_fname) < strlen($authorData['fname'])) {
+                            $authorModel->update(['author_fname' => $authorData['lname']]);
+                        }
+
+                        $paper->author()->syncWithoutDetaching([$authorModel->id => ['author_type' => $authorType]]);
                     }
                 }
 
