@@ -6,7 +6,6 @@ use App\Models\Paper;
 use App\Models\Source_data;
 use App\Models\User;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
@@ -186,21 +185,36 @@ class ScopusAPIService {
                     if ($user) {
                         $paperModel->teacher()->syncWithoutDetaching([$user->id => ['author_type' => $authorType]]);
                     } else {
-                        // ค้นหาในตาราง Author หากไม่พบใน User
+                        // ค้นหาในตาราง Author ด้วยชื่อเต็ม
                         $author = Author::where([
                             ['author_fname', '=', $authorData['firstName']],
                             ['author_lname', '=', $authorData['lastName']]
                         ])->first();
 
                         if (!$author) {
-                            $author = new Author();
-                            $author->author_fname = $authorData['firstName'];
-                            $author->author_lname = $authorData['lastName'];
-                            // บันทึก Author ใหม่และเชื่อมโยงกับ Paper ผ่าน Eloquent Relationship
-                            $paperModel->author()->save($author, ['author_type' => $authorType]);
-                        } else {
-                            $paperModel->author()->syncWithoutDetaching([$author->id => ['author_type' => $authorType]]);
+                            // ลองค้นหาด้วยชื่อตัวย่อ
+                            $authorShort = Author::where([
+                                ['author_fname', 'LIKE', substr($authorData['firstName'], 0, 1) . '.'],
+                                ['author_lname', '=', $authorData['lastName']]
+                            ])->first();
+
+                            if ($authorShort) {
+                                // อัปเดตเป็นชื่อเต็ม
+                                $authorShort->author_fname = $authorData['firstName'];
+                                $authorShort->save();
+                                $author = $authorShort;
+                            } else {
+                                // ไม่พบข้อมูลเลย สร้างใหม่
+                                $author = new Author();
+                                $author->author_fname = $authorData['firstName'];
+                                $author->author_lname = $authorData['lastName'];
+                                $author->save();
+                            }
                         }
+
+                        // เชื่อมโยงกับ Paper
+                        $paperModel->author()->syncWithoutDetaching([$author->id => ['author_type' => $authorType]]);
+
                     }
                 }
 
