@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 7.1.1 (Python 3.12.2 on win32)" name="Generator">
+<meta content="Robot Framework 7.0.1 (Python 3.12.4 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all">
 :root {
@@ -1252,48 +1252,58 @@ window.stats = (function () {
             });
     }
     function calculatePercents(total, passed, failed, skipped) {
-        if (total == 0)
+        if (total == 0) {
             return [0.0, 0.0, 0.0];
+        }
         var pass = 100.0 * passed / total;
         var skip = 100.0 * skipped / total;
         var fail = 100.0 * failed / total;
         if (pass > 0 && pass < 0.1)
-            pass = 0.1;
+            pass = 0.1
         if (fail > 0 && fail < 0.1)
-            fail = 0.1;
+            fail = 0.1
         if (skip > 0 && skip < 0.1)
-            skip = 0.1;
+            skip = 0.1
         if (pass > 99.95 && pass < 100)
-            pass = 99.9;
+            pass = 99.9
         if (fail > 99.95 && fail < 100)
-            fail = 99.9;
+            fail = 99.9
         if (skip > 99.95 && skip < 100)
-            skip = 99.9;
-        return [round1(pass), round1(skip), round1(fail)];
+            skip = 99.9
+        return [Math.round(pass*10)/10, Math.round(skip*10)/10, Math.round(fail*10)/10];
     }
     function calculateWidths(num1, num2, num3) {
         if (num1 + num2 + num3 === 0)
             return [0.0, 0.0, 0.0];
         // Make small percentages better visible
         if (num1 > 0 && num1 < 1)
-            num1 = 1.0;
+            num1 = 1
         if (num2 > 0 && num2 < 1)
-            num2 = 1.0;
+            num2 = 1
         if (num3 > 0 && num3 < 1)
-            num3 = 1.0;
+            num3 = 1
         // Handle situation where some are rounded up
         while (num1 + num2 + num3 > 100) {
-            if (num1 >= num2 && num1 >= num3)
-                num1 = round1(num1 - 0.1);
-            else if (num2 >= num1 && num2 >= num3)
-                num2 = round1(num2 - 0.1);
-            else
-                num3 = round1(num3 - 0.1);
+            if (num1 > num2 && num1 > num3)
+                num1 -= 0.1;
+            else if (num2 > num1 && num2 > num3)
+                num2 -= 0.1;
+            else if (num3 > num1 && num3 > num2)
+                num3 -= 0.1;
+            else if (num1 > num3 && num1 == num2) {
+                num1 -= 0.1;
+                num2 -= 0.1;
+            }
+            else if (num1 > num2 && num1 == num3) {
+                num1 -= 0.1;
+                num3 -= 0.1;
+            }
+            else if (num2 > num1 && num2 == num3) {
+                num2 -= 0.1;
+                num3 -= 0.1;
+            }
         }
-        return [num1, num2, num3];
-    }
-    function round1(num) {
-        return Math.round(num*10) / 10;
+        return [Math.ceil(num1*10)/10, Math.ceil(num2*10)/10, Math.ceil(num3*10)/10];
     }
     return {
         Statistics: Statistics
@@ -2071,25 +2081,25 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[0,0,149540],[],[[4,0,0,[],[0,172,7997,5],[[0,6,7,0,8,9,0,0,[1,173,2707],[[173,2,10]]],[0,11,7,0,12,0,0,0,[1,2880,41],[]],[0,13,7,0,14,15,0,0,[0,2922,5246],[[8164,2,16],[8164,5,5]]],[0,17,7,0,18,15,0,0,[3,8168,1],[]]]],[19,0,0,[],[1,8170,2481],[[0,20,7,0,21,22,0,0,[1,8171,22],[]],[0,23,7,0,24,25,0,0,[1,8193,281],[]],[0,26,7,0,27,25,0,0,[1,8476,88],[[8476,2,28]]],[0,29,30,0,31,32,0,0,[1,8563,2002],[[10565,2,33]]],[0,34,7,0,35,36,0,0,[1,10565,25],[]],[0,20,7,0,21,37,0,0,[1,10591,58],[]]]],[38,0,0,[],[1,10653,3202],[[0,39,7,0,40,41,0,0,[1,10654,191],[[10654,2,42]]],[0,39,7,0,40,43,0,0,[1,10845,90],[[10845,2,44]]],[0,45,7,0,46,47,0,0,[1,10935,2901],[[10935,2,48]]],[0,13,7,0,14,49,0,0,[1,13836,18],[]]]],[50,0,0,[],[1,13856,7482],[[0,29,30,0,31,51,0,0,[1,13857,5001],[[18858,2,52]]],[0,13,7,0,14,53,0,0,[1,18859,16],[]],[0,23,7,0,24,54,0,0,[1,18876,295],[]],[0,26,7,0,27,54,0,0,[1,19172,154],[[19172,2,55]]],[0,29,30,0,31,32,0,0,[1,19327,2000],[[21327,2,33]]],[0,20,7,0,21,56,0,0,[1,21327,11],[]]]],[57,0,58,[],[0,21341,63190,59],[[0,20,7,0,21,60,0,0,[1,21342,9],[]],[0,23,7,0,24,61,0,0,[1,21353,288],[]],[0,62,7,0,63,64,0,0,[1,21640,21],[]],[0,26,7,0,27,61,0,0,[1,21662,729],[[21662,2,65]]],[0,29,30,0,31,32,0,0,[1,22391,2001],[[24393,2,33]]],[0,66,30,0,67,68,0,0,[1,24393,1],[]],[0,69,7,0,70,71,0,0,[1,24395,17],[]],[0,13,7,0,14,72,0,0,[0,24412,60118],[[84528,2,73],[84529,5,59]]]]],[74,0,0,[],[0,84542,62765,75],[[0,20,7,0,21,76,0,0,[1,84543,41],[]],[0,23,7,0,24,77,0,0,[1,84584,306],[]],[0,26,7,0,27,77,0,0,[1,84890,109],[[84891,2,78]]],[0,29,30,0,31,32,0,0,[1,84999,2001],[[87000,2,33]]],[0,20,7,0,21,79,0,0,[0,87001,60304],[[147304,2,80],[147304,5,75]]],[0,20,7,0,21,81,0,0,[3,147305,0],[]],[0,26,7,0,27,82,0,0,[3,147306,0],[]]]],[83,0,0,[],[1,147307,2232],[[0,84,7,0,85,0,0,0,[1,147308,2231],[]]]]],[],[7,4,3,0]];
+window.output["suite"] = [1,2,3,0,[],[0,0,90639],[],[[4,0,0,[],[0,469,57001,5],[[0,6,7,0,8,9,0,0,[1,470,26429],[[471,2,10]]],[0,11,7,0,12,0,0,0,[1,26901,55],[]],[0,13,7,0,14,15,0,0,[0,26957,30511],[[57464,2,16],[57465,5,5]]],[0,17,7,0,18,19,0,0,[3,57469,1],[]]]],[20,0,0,[],[1,57473,3044],[[0,13,7,0,14,21,0,0,[1,57474,64],[]],[0,22,7,0,23,24,0,0,[1,57539,333],[]],[0,25,7,0,26,24,0,0,[1,57875,207],[[57876,2,27]]],[0,28,29,0,30,31,0,0,[1,58082,2002],[[60085,2,32]]],[0,33,7,0,34,35,0,0,[1,60086,36],[]],[0,13,7,0,14,36,0,0,[1,60127,389],[]]]],[37,0,0,[],[1,60521,5259],[[0,38,7,0,39,40,0,0,[1,60521,228],[[60522,2,41]]],[0,38,7,0,39,42,0,0,[1,60750,196],[[60751,2,43]]],[0,44,7,0,45,46,0,0,[1,60947,4790],[[60948,2,47]]],[0,48,7,0,49,50,0,0,[1,65738,39],[]]]],[51,0,0,[],[1,65782,4597],[[0,28,29,0,30,31,0,0,[1,65783,2002],[[67783,2,32]]],[0,48,7,0,49,52,0,0,[1,67786,52],[]],[0,22,7,0,23,53,0,0,[1,67839,334],[]],[0,25,7,0,26,53,0,0,[1,68175,147],[[68175,2,54]]],[0,28,29,0,30,31,0,0,[1,68323,2001],[[70324,2,32]]],[0,13,7,0,14,55,0,0,[1,70325,52],[]]]],[56,0,57,[],[0,70381,12071,58],[[0,13,7,0,14,59,0,0,[1,70383,50],[]],[0,60,7,0,61,62,0,0,[1,70435,11],[[70436,2,63]]],[0,25,7,0,26,64,0,0,[1,70448,1562],[[70448,2,65]]],[0,66,7,0,67,68,0,0,[1,72011,11],[]],[0,13,7,0,14,69,0,0,[0,72023,10426],[[82447,2,70],[82447,5,58]]]]],[71,0,72,[],[0,82454,5674,73],[[0,13,7,0,14,74,0,0,[1,82457,44],[]],[0,60,7,0,61,62,0,0,[1,82503,13],[[82504,2,63]]],[0,25,7,0,26,75,0,0,[1,82517,150],[[82518,2,76]]],[0,13,7,0,14,77,0,0,[0,82669,5457],[[88125,2,78],[88125,5,73]]],[0,25,7,0,26,79,0,0,[3,88127,0],[]],[0,13,7,0,14,80,0,0,[3,88128,0],[]]]],[81,0,0,[],[1,88132,2506],[[0,82,7,0,83,0,0,0,[1,88132,2503],[]]]]],[],[7,4,3,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*UAT test","*E:\\kkustudy\\kku3_2\\3_2SoftEn\\git-group-repository-group-6-sec-2\\SourceCodeVersion_1\\tests\\UAT_test.robot","*UAT_test.robot","*TC01 Open Event Registration Page","*Text 'RESEARCH DOCUMENT MANAGEMENT SYSTEM' did not appear in 5 seconds.","*Open Browser","*SeleniumLibrary","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*${URL}    ${BROWSER}","*Opening browser 'Chrome' to base url '<a href=\"http://127.0.0.1:8000/\">http://127.0.0.1:8000/\x3c/a>'.","*Maximize Browser Window","*<p>Maximizes current browser window.\x3c/p>","*Wait Until Page Contains","*<p>Waits until <code>text\x3c/code> appears on the current page.\x3c/p>","*text=RESEARCH DOCUMENT MANAGEMENT SYSTEM","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-1.png\"><img src=\"selenium-screenshot-1.png\" width=\"800px\">\x3c/a>","*Page Should Contain","*<p>Verifies that current page contains <code>text\x3c/code>.\x3c/p>","*TC02 Login Button","*Wait Until Element Is Visible","*<p>Waits until the element <code>locator\x3c/code> is visible.\x3c/p>","*xpath=//a[contains(@class,'btn-solid-sm') and text()='Login']    timeout=30s","*Scroll Element Into View","*<p>Scrolls the element identified by <code>locator\x3c/code> into view.\x3c/p>","*xpath=//a[contains(@class,'btn-solid-sm') and text()='Login']","*Click Element","*<p>Click the element identified by <code>locator\x3c/code>.\x3c/p>","*Clicking element 'xpath=//a[contains(@class,'btn-solid-sm') and text()='Login']'.","*Sleep","*BuiltIn","*<p>Pauses the test executed for the given time.\x3c/p>","*2s","*Slept 2 seconds.","*Switch Window","*<p>Switches to browser window matching <code>locator\x3c/code>.\x3c/p>","*NEW","*name=username    timeout=30s","*TC03 Login System","*Input Text","*<p>Types the given <code>text\x3c/code> into the text field identified by <code>locator\x3c/code>.\x3c/p>","*name=username    punhor1@kku.ac.th","*Typing text 'punhor1@kku.ac.th' into text field 'name=username'.","*name=password    123456789","*Typing text '123456789' into text field 'name=password'.","*Click Button","*<p>Clicks the button identified by <code>locator\x3c/code>.\x3c/p>","*xpath=//button[@type='submit']","*Clicking button 'xpath=//button[@type='submit']'.","*Dashboard    timeout=30s","*TC04 Manage Publications","*5s","*Slept 5 seconds.","*Manage Publications    timeout=60s","*xpath=//a[@data-bs-toggle='collapse' and @aria-controls='ManagePublications']","*Clicking element 'xpath=//a[@data-bs-toggle='collapse' and @aria-controls='ManagePublications']'.","*xpath=//span[contains(text(),'Manage Publications')]    timeout=60s","*TC05 Published Research Page","*<p>ตรวจสอบว่าหน้า Published Research เปิดขึ้นสำเร็จ\x3c/p>","*Text 'Published Research' did not appear in 1 minute.","*xpath=//a[contains(text(),'Published research')]    timeout=60s","*xpath=//a[contains(text(),'Published research')]","*Wait Until Element Is Enabled","*<p>Waits until the element <code>locator\x3c/code> is enabled.\x3c/p>","*xpath=//a[contains(text(),'Published research')]    timeout=10s","*Clicking element 'xpath=//a[contains(text(),'Published research')]'.","*Log To Console","*<p>Logs the given message to the console.\x3c/p>","** Checking URL *","*Wait Until Location Contains","*<p>Waits until the current URL contains <code>expected\x3c/code>.\x3c/p>","*/papers    timeout=60s","*Published Research    timeout=60s","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-2.png\"><img src=\"selenium-screenshot-2.png\" width=\"800px\">\x3c/a>","*TC06 Call Papers","*Element 'name=username' not visible after 1 minute.","*xpath=//a[contains(@class,'btn btn-primary btn-icon-text btn-sm mb-3') and contains(text(),'Call Paper')]    timeout=60s","*xpath=//a[contains(@class,'btn btn-primary btn-icon-text btn-sm mb-3') and contains(text(),'Call Paper')]","*Clicking element 'xpath=//a[contains(@class,'btn btn-primary btn-icon-text btn-sm mb-3') and contains(text(),'Call Paper')]'.","*name=username    timeout=60s","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-3.png\"><img src=\"selenium-screenshot-3.png\" width=\"800px\">\x3c/a>","*xpath=//button[contains(@class,'swal-button--confirm')]    timeout=10s","*xpath=//button[contains(@class,'swal-button--confirm')]","*[Teardown]","*Close Browser","*<p>Closes the current browser.\x3c/p>"]);
+window.output["strings"] = window.output["strings"].concat(["*","*UAT test","*D:\\653380263-0\\SoftwareEngineer\\git-group-repository-group-6-sec-2\\SourceCodeVersion_1\\tests\\UAT_test.robot","*UAT_test.robot","*TC01 Open Event Registration Page","*Element 'xpath=//h1[contains(text(),'RESEARCH DOCUMENT MANAGEMENT SYSTEM')]' not visible after 30 seconds.","*Open Browser","*SeleniumLibrary","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*${URL}    ${BROWSER}","*Opening browser 'Chrome' to base url '<a href=\"https://cssegroup6sec267.cpkkuhost.com/\">https://cssegroup6sec267.cpkkuhost.com/\x3c/a>'.","*Maximize Browser Window","*<p>Maximizes current browser window.\x3c/p>","*Wait Until Element Is Visible","*<p>Waits until the element <code>locator\x3c/code> is visible.\x3c/p>","*xpath=//h1[contains(text(),'RESEARCH DOCUMENT MANAGEMENT SYSTEM')]    timeout=30s","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-10.png\"><img src=\"selenium-screenshot-10.png\" width=\"800px\">\x3c/a>","*Page Should Contain","*<p>Verifies that current page contains <code>text\x3c/code>.\x3c/p>","*RESEARCH DOCUMENT MANAGEMENT SYSTEM","*TC02 Login Button","*xpath=//a[contains(@class,'btn-solid-sm') and text()='Login']    timeout=30s","*Scroll Element Into View","*<p>Scrolls the element identified by <code>locator\x3c/code> into view.\x3c/p>","*xpath=//a[contains(@class,'btn-solid-sm') and text()='Login']","*Click Element","*<p>Click the element identified by <code>locator\x3c/code>.\x3c/p>","*Clicking element 'xpath=//a[contains(@class,'btn-solid-sm') and text()='Login']'.","*Sleep","*BuiltIn","*<p>Pauses the test executed for the given time.\x3c/p>","*2s","*Slept 2 seconds.","*Switch Window","*<p>Switches to browser window matching <code>locator\x3c/code>.\x3c/p>","*NEW","*name=username    timeout=30s","*TC03 Login System","*Input Text","*<p>Types the given <code>text\x3c/code> into the text field identified by <code>locator\x3c/code>.\x3c/p>","*name=username    punhor1@kku.ac.th","*Typing text 'punhor1@kku.ac.th' into text field 'name=username'.","*name=password    123456789","*Typing text '123456789' into text field 'name=password'.","*Click Button","*<p>Clicks the button identified by <code>locator\x3c/code>.\x3c/p>","*xpath=//button[@type='submit']","*Clicking button 'xpath=//button[@type='submit']'.","*Wait Until Page Contains","*<p>Waits until <code>text\x3c/code> appears on the current page.\x3c/p>","*Dashboard    timeout=30s","*TC04 Manage Publications","*Manage Publications    timeout=60s","*xpath=//a[@data-bs-toggle='collapse' and @aria-controls='ManagePublications']","*Clicking element 'xpath=//a[@data-bs-toggle='collapse' and @aria-controls='ManagePublications']'.","*xpath=//span[contains(text(),'Manage Publications')]    timeout=60s","*TC05 Published Research Page","*<p>ตรวจสอบว่าหน้า Published Research เปิดขึ้นสำเร็จ\x3c/p>","*Element 'xpath=//h1[contains(text(),'Published Research')]' not visible after 10 seconds.","*xpath=//a[contains(text(),'Published research')]    timeout=15s","*Execute Javascript","*<p>Executes the given JavaScript code with possible arguments.\x3c/p>","*window.scrollTo(0, document.body.scrollHeight)","*Executing JavaScript:\nwindow.scrollTo(0, document.body.scrollHeight)\nWithout any arguments.","*xpath=//a[contains(text(),'Published research')]","*Clicking element 'xpath=//a[contains(text(),'Published research')]'.","*Wait Until Location Contains","*<p>Waits until the current URL contains <code>expected\x3c/code>.\x3c/p>","*/papers    timeout=10s","*xpath=//h1[contains(text(),'Published Research')]    timeout=10s","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-11.png\"><img src=\"selenium-screenshot-11.png\" width=\"800px\">\x3c/a>","*TC06 Call Papers","*<p>กดปุ่ม Call Paper และตรวจสอบว่าหน้า login เปิดขึ้นเร็วที่สุด\x3c/p>","*Element 'xpath=//button[contains(@class,'swal-button--confirm')]' not visible after 5 seconds.","*xpath=//a[contains(@class,'btn btn-primary btn-icon-text btn-sm mb-3') and contains(text(),'Call Paper')]    timeout=15s","*xpath=//a[contains(@class,'btn btn-primary btn-icon-text btn-sm mb-3') and contains(text(),'Call Paper')]","*Clicking element 'xpath=//a[contains(@class,'btn btn-primary btn-icon-text btn-sm mb-3') and contains(text(),'Call Paper')]'.","*xpath=//button[contains(@class,'swal-button--confirm')]    timeout=5s","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-12.png\"><img src=\"selenium-screenshot-12.png\" width=\"800px\">\x3c/a>","*xpath=//button[contains(@class,'swal-button--confirm')]","*name=username    timeout=10s","*[Teardown]","*Close Browser","*<p>Closes the current browser.\x3c/p>"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:02:29","fail":3,"label":"All Tests","pass":4,"skip":0}],[],[{"elapsed":"00:02:30","fail":3,"id":"s1","label":"UAT test","name":"UAT test","pass":4,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:01:30","fail":3,"label":"All Tests","pass":4,"skip":0}],[],[{"elapsed":"00:01:31","fail":3,"id":"s1","label":"UAT test","name":"UAT test","pass":4,"skip":0}]];
 </script>
 <script type="text/javascript">
 window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1740321368129;
+window.output["baseMillis"] = 1740500484872;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 149582;
+window.output["generated"] = 90697;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;

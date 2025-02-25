@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 7.1.1 (Python 3.12.2 on win32)" name="Generator">
+<meta content="Robot Framework 7.0.1 (Python 3.12.4 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all">
 :root {
@@ -1068,48 +1068,58 @@ window.stats = (function () {
             });
     }
     function calculatePercents(total, passed, failed, skipped) {
-        if (total == 0)
+        if (total == 0) {
             return [0.0, 0.0, 0.0];
+        }
         var pass = 100.0 * passed / total;
         var skip = 100.0 * skipped / total;
         var fail = 100.0 * failed / total;
         if (pass > 0 && pass < 0.1)
-            pass = 0.1;
+            pass = 0.1
         if (fail > 0 && fail < 0.1)
-            fail = 0.1;
+            fail = 0.1
         if (skip > 0 && skip < 0.1)
-            skip = 0.1;
+            skip = 0.1
         if (pass > 99.95 && pass < 100)
-            pass = 99.9;
+            pass = 99.9
         if (fail > 99.95 && fail < 100)
-            fail = 99.9;
+            fail = 99.9
         if (skip > 99.95 && skip < 100)
-            skip = 99.9;
-        return [round1(pass), round1(skip), round1(fail)];
+            skip = 99.9
+        return [Math.round(pass*10)/10, Math.round(skip*10)/10, Math.round(fail*10)/10];
     }
     function calculateWidths(num1, num2, num3) {
         if (num1 + num2 + num3 === 0)
             return [0.0, 0.0, 0.0];
         // Make small percentages better visible
         if (num1 > 0 && num1 < 1)
-            num1 = 1.0;
+            num1 = 1
         if (num2 > 0 && num2 < 1)
-            num2 = 1.0;
+            num2 = 1
         if (num3 > 0 && num3 < 1)
-            num3 = 1.0;
+            num3 = 1
         // Handle situation where some are rounded up
         while (num1 + num2 + num3 > 100) {
-            if (num1 >= num2 && num1 >= num3)
-                num1 = round1(num1 - 0.1);
-            else if (num2 >= num1 && num2 >= num3)
-                num2 = round1(num2 - 0.1);
-            else
-                num3 = round1(num3 - 0.1);
+            if (num1 > num2 && num1 > num3)
+                num1 -= 0.1;
+            else if (num2 > num1 && num2 > num3)
+                num2 -= 0.1;
+            else if (num3 > num1 && num3 > num2)
+                num3 -= 0.1;
+            else if (num1 > num3 && num1 == num2) {
+                num1 -= 0.1;
+                num2 -= 0.1;
+            }
+            else if (num1 > num2 && num1 == num3) {
+                num1 -= 0.1;
+                num3 -= 0.1;
+            }
+            else if (num2 > num1 && num2 == num3) {
+                num2 -= 0.1;
+                num3 -= 0.1;
+            }
         }
-        return [num1, num2, num3];
-    }
-    function round1(num) {
-        return Math.round(num*10) / 10;
+        return [Math.ceil(num1*10)/10, Math.ceil(num2*10)/10, Math.ceil(num3*10)/10];
     }
     return {
         Statistics: Statistics
@@ -1887,22 +1897,22 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[0,0,149540],[],[[4,0,0,[],[0,172,7997,5],[]],[6,0,0,[],[1,8170,2481],[]],[7,0,0,[],[1,10653,3202],[]],[8,0,0,[],[1,13856,7482],[]],[9,0,10,[],[0,21341,63190,11],[]],[12,0,0,[],[0,84542,62765,13],[]],[14,0,0,[],[1,147307,2232],[]]],[],[7,4,3,0]];
+window.output["suite"] = [1,2,3,0,[],[0,0,90639],[],[[4,0,0,[],[0,469,57001,5],[]],[6,0,0,[],[1,57473,3044],[]],[7,0,0,[],[1,60521,5259],[]],[8,0,0,[],[1,65782,4597],[]],[9,0,10,[],[0,70381,12071,11],[]],[12,0,13,[],[0,82454,5674,14],[]],[15,0,0,[],[1,88132,2506],[]]],[],[7,4,3,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*UAT test","*E:\\kkustudy\\kku3_2\\3_2SoftEn\\git-group-repository-group-6-sec-2\\SourceCodeVersion_1\\tests\\UAT_test.robot","*UAT_test.robot","*TC01 Open Event Registration Page","*Text 'RESEARCH DOCUMENT MANAGEMENT SYSTEM' did not appear in 5 seconds.","*TC02 Login Button","*TC03 Login System","*TC04 Manage Publications","*TC05 Published Research Page","*<p>ตรวจสอบว่าหน้า Published Research เปิดขึ้นสำเร็จ\x3c/p>","*Text 'Published Research' did not appear in 1 minute.","*TC06 Call Papers","*Element 'name=username' not visible after 1 minute.","*[Teardown]"]);
+window.output["strings"] = window.output["strings"].concat(["*","*UAT test","*D:\\653380263-0\\SoftwareEngineer\\git-group-repository-group-6-sec-2\\SourceCodeVersion_1\\tests\\UAT_test.robot","*UAT_test.robot","*TC01 Open Event Registration Page","*Element 'xpath=//h1[contains(text(),'RESEARCH DOCUMENT MANAGEMENT SYSTEM')]' not visible after 30 seconds.","*TC02 Login Button","*TC03 Login System","*TC04 Manage Publications","*TC05 Published Research Page","*<p>ตรวจสอบว่าหน้า Published Research เปิดขึ้นสำเร็จ\x3c/p>","*Element 'xpath=//h1[contains(text(),'Published Research')]' not visible after 10 seconds.","*TC06 Call Papers","*<p>กดปุ่ม Call Paper และตรวจสอบว่าหน้า login เปิดขึ้นเร็วที่สุด\x3c/p>","*Element 'xpath=//button[contains(@class,'swal-button--confirm')]' not visible after 5 seconds.","*[Teardown]"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:02:29","fail":3,"label":"All Tests","pass":4,"skip":0}],[],[{"elapsed":"00:02:30","fail":3,"id":"s1","label":"UAT test","name":"UAT test","pass":4,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:01:30","fail":3,"label":"All Tests","pass":4,"skip":0}],[],[{"elapsed":"00:01:31","fail":3,"id":"s1","label":"UAT test","name":"UAT test","pass":4,"skip":0}]];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1740321368129;
+window.output["baseMillis"] = 1740500484872;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 149582;
+window.output["generated"] = 90697;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
