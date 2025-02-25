@@ -22,6 +22,9 @@ class CallPublicationController extends Controller
         $lName_fName = $user->lname_en . ' ' . $user->fname_en;
         $fName_lName = $user->fname_en . ' ' . $user->lname_en;
 
+        $fname_thai = $user->fname_th;
+        $lname_thai = $user->lname_th;
+
         /* Scopus API */
         $scopusAPI = new ScopusAPIService();
         $scopusPublications = $scopusAPI->fetchData($userId);
@@ -32,9 +35,11 @@ class CallPublicationController extends Controller
         $wosPublications = $wosAPI->getResearcherPublications($lName_fName);
         $wosAPI->saveWOSPublications($wosPublications, $userId);
 
-        /* TCI web scraper */
-        $tciPublication = TciAPIService::extractRelevantData($user->lname_en);
-        TciAPIService::saveTciPublications($tciPublication, $userId);
+        if($fname_thai && $lname_thai){
+            /* TCI web scraper in Thai Name*/
+            $tciPublication = TciAPIService::extractRelevantData($fname_thai.' '.$lname_thai);
+            TciAPIService::saveTciPublications($tciPublication, $userId);
+        }
 
         /* Google Scholar API and web scraper */
         $googleScholarAPI = new GoogleScholarAPIService('6b2865ac4c28b16a9e0b76c9306d8ff0689620635b9923c5d90e63609218dc26');
