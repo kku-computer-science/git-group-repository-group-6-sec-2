@@ -24,6 +24,7 @@ class TciAPIService
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Temporary SSL ignore
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); // Temporary SSL ignore
+        curl_setopt($ch, CURLOPT_ENCODING, ""); // รองรับ gzip, deflate และ encoding อื่นๆ
 
         if ($isPost && $payload) {
             curl_setopt($ch, CURLOPT_POST, true);
@@ -37,6 +38,9 @@ class TciAPIService
         if ($httpCode !== 200) {
             throw new Exception("HTTP Error: Status Code $httpCode");
         }
+
+        // ปรับการแสดงผลภาษาไทย
+        $response = mb_convert_encoding($response, 'UTF-8');
 
         return json_decode($response, true);
     }
@@ -87,9 +91,7 @@ class TciAPIService
             $articleInfo = self::getArticleInfo($articleId, $researcherName);
             $authors = self::getAllAuthorsName($articleId);
 
-            // print_r($articleInfo);
-
-            $authorNames = array_map(fn($author) => $author['name'], $authors ?? []);
+            $authorNames = array_map(fn($author) => $author['name_loc'], $authors ?? []);
             $articleInfo['authors'] = implode(', ', $authorNames);
 
             if ($articleInfo[0]['document_type_id'] == 1) {
@@ -122,8 +124,6 @@ class TciAPIService
                 // ทำความสะอาดข้อมูลพื้นฐาน
                 $title = strtolower(trim($paper['article_eng']));
                 $doi = !empty($paper['doi']) ? strtolower(trim($paper['doi'])) : null;
-
-                $paperModel = null;
 
                 // 🔍 1. ค้นหาด้วย DOI (Exact Match)
                 if ($doi) {
@@ -210,16 +210,16 @@ class TciAPIService
                         // เชื่อมโยงกับ teacher (User) โดยใช้ syncWithoutDetaching เพื่อป้องกันความซ้ำ
                         $paperModel->teacher()->syncWithoutDetaching([$user->id => ['author_type' => $authorType]]);
                     } else {
-                        $authorModel = Author::where('author_lname', $authorData['lname'])
-                            ->first();
+                        $authorModel = Author::where([
+                            ['author_fname', '=', $authorData['fname']],
+                            ['author_lname', '=', $authorData['lname']]
+                        ])->first();
+
                         if(!$authorModel) {
                             $authorModel = new Author();
                             $authorModel->author_fname = $authorData['fname'];
                             $authorModel->author_lname = $authorData['lname'];
                             $authorModel->save();
-                        }
-                        elseif (strlen($authorModel->author_fname) < strlen($authorData['fname'])) {
-                            $authorModel->update(['author_fname' => $authorData['lname']]);
                         }
 
                         $paperModel->author()->syncWithoutDetaching([$authorModel->id => ['author_type' => $authorType]]);
@@ -234,5 +234,4 @@ class TciAPIService
             });
         }
     }
-
 }
