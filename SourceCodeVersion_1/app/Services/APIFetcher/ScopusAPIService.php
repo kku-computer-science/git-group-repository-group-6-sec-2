@@ -186,16 +186,16 @@ class ScopusAPIService {
                         $paperModel->teacher()->syncWithoutDetaching([$user->id => ['author_type' => $authorType]]);
                     }
                     else {
-                        $authorModel = Author::where('author_lname', $authorData['lastName'])
-                            ->first();
+                        $authorModel = Author::where([
+                            ['author_lname', $authorData['lastName']],
+                            ['author_fname', $authorData['firstName']]
+                        ])->first();
+
                         if(!$authorModel) {
                             $authorModel = new Author();
                             $authorModel->author_fname = $authorData['firstName'];
                             $authorModel->author_lname = $authorData['lastName'];
                             $authorModel->save();
-                        }
-                        elseif (strlen($authorModel->author_fname) < strlen($authorData['firstName'])) {
-                            $authorModel->update(['author_fname' => $authorData['firstName']]);
                         }
 
                         $paperModel->author()->syncWithoutDetaching([$authorModel->id => ['author_type' => $authorType]]);
