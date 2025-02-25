@@ -10,8 +10,8 @@ class DuplicateCheckTest extends TestCase
         
         $host = '192.185.83.226';
         $dbname = 'cssegrou_academic_project';
-        $username = 'cssegrou_root';
-        $password = 'Es^0MASZs?n5';
+        $username = 'cssegrou_fern';
+        $password = '1x2x3x4x5x';
         
 
         try {

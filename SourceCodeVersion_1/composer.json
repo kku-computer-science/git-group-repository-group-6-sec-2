@@ -33,7 +33,7 @@
         "laravel/sail": "^1.12",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.6"
+        "phpunit/phpunit": "*"
     },
     "autoload": {
         "psr-4": {
