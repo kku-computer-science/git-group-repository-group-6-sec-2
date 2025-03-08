@@ -63,6 +63,7 @@
                 <div class="d-flex align-items-end">
                     <h6 class="title-pub mb-0 mr-5" style="font-size: 16px;">{{ trans('message.publications2') }}</h6>
                     <h6 class="mb-0 ml-3" style="font-size: 16px;">h-index: <span id="h-index-result">กำลังคำนวณ...</span></h6>
+                    <h6 class="mb-0 ml-3" style="font-size: 16px;">i10-index: <span id="i10-index-result">กำลังคำนวณ...</span></h6>
                 </div>
 
                 <div class="col-xs-12 text-center bt">
@@ -116,6 +117,11 @@
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="scholar-tab" data-bs-toggle="tab" data-bs-target="#scholar" type="button" role="tab" aria-controls="scholar" aria-selected="false">
+                    Google Scholar
+                </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
@@ -178,6 +184,63 @@
                     <td>{{ $paper->paper_yearpub }}</td>
                     <td>
                         <a href="#" class="show-more" data-target="#collapse-{{ $paper->id }}" data-id="{{ $paper->id }}">Show more ▼</a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="tab-pane fade" id="scholar" role="tabpanel" aria-labelledby="scholar-tab">
+    <div class="table-responsive">
+        <table id="scholarTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Paper Name</th>
+                    <th>Citations</th>
+                    <th>Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($papers_google as $paper)
+                <tr>
+                    <td style="width:50%;">
+                        {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
+                        <div id="collapse-scholar-{{ $paper->id }}" class="collapse">
+                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
+                            <p>Author:
+                                @foreach ($paper->author as $author)
+                                <span>
+                                    <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                </span>
+                                @endforeach
+                                @foreach ($paper->teacher as $author)
+                                <span >
+                                    <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                                        <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                </span>
+                                @endforeach
+                            </p>
+                            <p>Document Type: {{$paper->paper_type}}</p>
+                            <p>Page: {{$paper->paper_page}}</p>
+                            <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
+                            <p>Ciations: {{$paper->paper_citation}}</p>
+                            <p>Doi: {{$paper->paper_doi}}</p>
+                            <p>Source:
+                                @foreach ($paper->source as $s)
+                                <span>
+                                    <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
+                                </span>
+                                @endforeach
+                            </p>
+                        </div>
+                    </td>
+                    <td>{{ $paper->paper_citation }}</td>
+                    <td>{{ $paper->paper_yearpub }}</td>
+                    <td>
+                        <a href="#" class="show-more" data-target="#collapse-scholar-{{ $paper->id }}" data-id="{{ $paper->id }}">Show more ▼</a>
                     </td>
                 </tr>
                 @endforeach
@@ -453,6 +516,14 @@
 <script>
     $(document).ready(function() {
         $('#papersTable').DataTable({
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false
+        });
+        $('#scholarTable').DataTable({
             paging: true,
             lengthChange: true,
             searching: true,
@@ -869,8 +940,25 @@
             // แสดงผลลัพธ์ H-Index บนหน้าเว็บ
             document.getElementById("h-index-result").textContent = h_index;
         }
+
+        function calculateI10Index() {
+        let i10_index = 0;
+        document.querySelectorAll("#papersTable tbody tr").forEach(row => {
+            let citationCell = row.cells[1]; // คอลัมน์ที่ 1 (Citations)
+            if (citationCell) {
+                let citation = parseInt(citationCell.textContent.trim()) || 0;
+                if (citation >= 10) {
+                    i10_index++;
+                }
+            }
+        });
+
+        // แสดงผลลัพธ์ i10-Index บนหน้าเว็บ
+        document.getElementById("i10-index-result").textContent = i10_index;
+    }
         // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
         calculateHIndex();
+        calculateI10Index();
     });
 
 </script>
