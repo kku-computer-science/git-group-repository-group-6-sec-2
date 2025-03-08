@@ -85,8 +85,11 @@
                         </div>
                     </div>
 
-
                     <br>
+                    <!-- กราฟ -->
+                    <div class="chart">
+                        <canvas id="barChart"></canvas>
+                    </div>
                     <div class="text-center mt-3">
                         <a href="{{ route('history.chart', ['userId' => $res->id]) }}" class="btn btn-dark btn-lg shadow rounded-pill px-4 py-3">
                             <i class="fas fa-chart-line me-2"></i>แสดงกราฟการตีพิมพ์ทั้งหมด
