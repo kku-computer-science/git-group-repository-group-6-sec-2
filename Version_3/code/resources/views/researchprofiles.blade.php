@@ -31,6 +31,9 @@
         display: table;
         color: #4ad1e5;
     }
+
+    
+
 </style>
 
 @section('content')
@@ -84,13 +87,20 @@
                             <div class="count" id="google_scholar"></div>
                         </div>
                     </div>
-
-                    <br>
                     <!-- กราฟ -->
-                    <div class="chart">
-                        <canvas id="barChart"></canvas>
+                    <div class="chart-container position-relative" style="overflow: hidden; width: 100%;">
+                        <div class="chart-wrapper d-flex">
+                            <!-- กราฟการตีพิมพ์ -->
+                            <canvas id="barChart" class="chart-item" style="cursor: pointer;"></canvas>
+                            <!-- กราฟ Citations -->
+                            <canvas id="citationChart" class="chart-item" style="display: none; cursor: pointer;"></canvas>
+                        </div>
+                        <span id="toggle-chart" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">&gt;</span>
                     </div>
-                    <div class="text-center mt-3">
+                </div>
+            </div>
+            
+                    <!-- <div class="text-center mt-3">
                         <a href="{{ route('history.chart', ['userId' => $res->id]) }}" class="btn btn-dark btn-lg shadow rounded-pill px-4 py-3">
                             <i class="fas fa-chart-line me-2"></i>แสดงกราฟการตีพิมพ์ทั้งหมด
                         </a>
@@ -99,17 +109,17 @@
                         <a href="{{ route('citation-h-index', ['userId' => $res->id]) }}" class="btn btn-primary btn-lg shadow rounded-pill px-4 py-3">
                             <i class="fas fa-chart-line me-2"></i> แสดงกราฟ Citations
                         </a>
-                    </div>
-                </div>
-            </div>
+                    </div> -->
         </div>
     </div>
     <br>
+    
+
 
     <div class="d-flex justify-content-between align-items-center">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary</button>
+             <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="scopus-tab" data-bs-toggle="tab" data-bs-target="#scopus" type="button" role="tab" aria-controls="scopus" aria-selected="false">SCOPUS</button>
@@ -877,4 +887,7 @@
     });
 
 </script>
+
+
+
 @endsection
