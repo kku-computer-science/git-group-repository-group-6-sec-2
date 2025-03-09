@@ -89,35 +89,37 @@
                         <h6 class="title-pub mb-0 mr-5" style="font-size: 16px;">{{ trans('message.publications2') }}</h6>
                         <h6 class="mb-0 ml-3" style="font-size: 16px;">h-index: <span
                                 id="h-index-result">กำลังคำนวณ...</span></h6>
+                        <h6 class="mb-0 ml-3" style="font-size: 16px;">i10-index: <span 
+                        id="i10-index-result">กำลังคำนวณ...</span></h6>
                         <h6 class="mb-0 ml-3" style="font-size: 16px;">Total Citations: <span 
                         id="total-citations-result">กำลังคำนวณ...</span></h6>
                     </div>
 
-                    <div class="col-xs-12 text-center bt">
+                    <div class="">
                         <div class="clearfix"></div>
-                        <div class="row text-center">
+                        <div class="row text-cente mr-5">
                             <div class="col">
-                                <div class="count" id="all"></div>
+                                <div class="count" id="all" style="cursor: pointer;"></div>
                             </div>
                             <div class="col">
-                                <div class="count" id="scopus_sum"></div>
+                                <div class="count" id="scopus_sum" style="cursor: pointer;"></div>
                             </div>
                             <div class="col">
-                                <div class="count" id="wos_sum"></div>
+                                <div class="count" id="wos_sum" style="cursor: pointer;"></div>
                             </div>
                             <div class="col">
-                                <div class="count" id="tci_sum"></div>
+                                <div class="count" id="tci_sum" style="cursor: pointer;"></div>
                             </div>
                             <div class="col">
-                                <div class="count" id="google_scholar"></div>
+                                <div class="count" id="google_scholar" style="cursor: pointer;"></div>
                             </div>
-                        </div>
-
-                        <!-- กราฟ -->
-                        <div class="mt-5">
+                            <div class="mt-0">
                             <canvas id="publicationChart"></canvas>
                             <canvas id="citationChart" style="display: none;"></canvas>
                         </div>
+                        </div>
+
+                        <!-- กราฟ -->
                         <!-- <div class="chart-container position-relative"
                             style="overflow: hidden; width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
                             <div class="chart-wrapper d-flex justify-content-center align-items-center"
@@ -939,8 +941,26 @@
                     // แสดงผลลัพธ์ H-Index บนหน้าเว็บ
                     document.getElementById("h-index-result").textContent = h_index;
                 }
+
+                function calculateI10Index() {
+                    let i10_index = 0;
+                    document.querySelectorAll("#papersTable tbody tr").forEach(row => {
+                        let citationCell = row.cells[1]; // คอลัมน์ที่ 1 (Citations)
+                        if (citationCell) {
+                            let citation = parseInt(citationCell.textContent.trim()) || 0;
+                            if (citation >= 10) {
+                                i10_index++;
+                            }
+                        }
+                    });
+
+                    // แสดงผลลัพธ์ i10-Index บนหน้าเว็บ
+                    document.getElementById("i10-index-result").textContent = i10_index;
+                }
+
                 // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
                 calculateHIndex();
+                calculateI10Index();
             });
 
         </script>
