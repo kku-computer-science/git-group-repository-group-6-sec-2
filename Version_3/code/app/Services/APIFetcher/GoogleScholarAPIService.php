@@ -1,6 +1,8 @@
 <?php
 namespace App\Services\APIFetcher;
 
+use App\Models\User_Cited_Year;
+use App\Models\UserCited_year;
 use App\Models\Author;
 use App\Models\Paper;
 use App\Models\Source_data;
@@ -66,7 +68,8 @@ class GoogleScholarAPIService {
         return [
             'author_name' => $authorName,
             'interests' => $interests,
-            'articles' => $filteredArticles
+            'articles' => $filteredArticles,
+            'graph' => $data['cited_by']['graph'] ?? [],
         ];
     }
 
@@ -75,6 +78,19 @@ class GoogleScholarAPIService {
      */
     public function saveGoogleScholarPublications(array $data, string $userId): void
     {
+        $insertData = [];
+
+        foreach ($data['graph'] as $item) {
+            $insertData[] = [
+                'cited_year' => $item['year'],
+                'cited_count' => $item['citations'],
+                'user_id' => $userId,
+            ];
+        }
+
+        // ใช้ Bulk Insert ลด Query หลายรอบ
+        User_Cited_Year::insert($insertData);
+
         foreach ($data['articles'] as $article) {
             // ใช้ transaction เพื่อให้การบันทึกข้อมูลเป็น atomic operation
             DB::beginTransaction();
@@ -120,6 +136,8 @@ class GoogleScholarAPIService {
                     // กำหนดความสัมพันธ์กับ Source (ในที่นี้ใช้ Source_data id 4)
                     $source = Source_data::findOrFail(4);
                     $paper->source()->sync([$source->id]);
+
+                    $paper->cited_year();
                 } else {
                     // 🔄 อัปเดตจำนวน Citation หากข้อมูลใหม่มีค่าสูงกว่า
                     if ($paper->paper_citation < (int)$article['cited_by']) {
@@ -252,6 +270,21 @@ class GoogleScholarAPIService {
                 Log::error("Failed to update user_scholar_id for user: " . $user->id);
             }
         }
+    }
+
+    public function extractDataToObject(array $papers): array
+    {
+        $extractedData = [];
+        foreach ($papers['articles'] as $paper) {
+            $paperm = new Paper();
+            $paperm->paper_name = trim($paper['title']);
+            $paperm->paper_url = !empty($paper['link']) ? trim($paper['link']) : null;
+            $paperm->paper_citation = isset($paper['cited_by']) ? (int)$paper['cited_by'] : 0;
+            $paperm->paper_yearpub = !empty($paper['year']) ? (int)$paper['year'] : null;
+            $paperm->paper_sourcetitle = !empty($paper['publication']) ? trim($paper['publication']) : null;
+            $extractedData[] = $paperm;
+        }
+        return $extractedData;
     }
 
 }
