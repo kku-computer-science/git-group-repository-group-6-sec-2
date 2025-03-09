@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiDatabaseController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
@@ -131,3 +132,5 @@ Route::get('/clear-all', function() {
         'optimize' => 'Class loader optimized'
     ], 200);
 });
+
+Route::middleware(['auth'])->get('/compare', [ApiDatabaseController::class, 'compareData']);
