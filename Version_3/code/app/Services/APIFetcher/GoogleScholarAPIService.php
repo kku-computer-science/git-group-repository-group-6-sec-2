@@ -2,7 +2,6 @@
 namespace App\Services\APIFetcher;
 
 use App\Models\User_Cited_Year;
-use App\Models\UserCited_year;
 use App\Models\Author;
 use App\Models\Paper;
 use App\Models\Source_data;
