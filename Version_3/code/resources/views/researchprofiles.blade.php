@@ -55,6 +55,23 @@
         height: 100%;
     }
 
+     /* เพิ่มความสูงให้กับกราฟ */
+    #publicationChart, #citationChart {
+        height: 180px;
+    }
+
+    /* เพิ่มสไตล์สำหรับปุ่ม */
+    .toggle-btn {
+        position: absolute;
+        bottom: 10px; /* ปรับให้ปุ่มอยู่ด้านล่าง */
+        left: 50%;  /* กำหนดให้ปุ่มอยู่กลาง */
+        transform: translateX(-50%); /* ทำให้ปุ่มอยู่ตรงกลาง */
+        font-size: 20px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #000;
+    }
 
 </style>
 
@@ -66,7 +83,7 @@
                 <div class="col-md-2">
                     <img class="card-image" src="{{$res->picture}}" alt="">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <div class="card-body">
                         <h6 class="card-text"><b>{{$res->position_th}} {{$res->fname_th}} {{$res->lname_th}}</b></h6>
                         @if($res->doctoral_degree == 'Ph.D.')
@@ -84,7 +101,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="d-flex align-items-end">
                         <h6 class="title-pub mb-0 mr-5" style="font-size: 16px;">{{ trans('message.publications2') }}</h6>
                         <h6 class="mb-0 ml-3" style="font-size: 16px;">h-index: <span
@@ -113,13 +130,19 @@
                             <div class="col">
                                 <div class="count" id="google_scholar" style="cursor: pointer;"></div>
                             </div>
-                            <div class="mt-0">
-                            <canvas id="publicationChart"></canvas>
-                            <canvas id="citationChart" style="display: none;"></canvas>
+                            <div class="mt-0 position-relative">
+                                <canvas id="publicationChart"></canvas>
+                                <canvas id="citationChart" style="display: none;"></canvas>
+                                <!-- ปุ่มสำหรับสลับกราฟ -->
+                                <br>
+                                <button id="toggle-chart" class="toggle-btn">></button>
+                            </div>
                         </div>
-                        </div>
-
-                        <!-- กราฟ -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- กราฟ -->
                         <!-- <div class="chart-container position-relative"
                             style="overflow: hidden; width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
                             <div class="chart-wrapper d-flex justify-content-center align-items-center"
@@ -134,24 +157,7 @@
                             <!-- <span id="toggle-chart"
                                 style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">&gt;</span> -->
                         <!-- </div> -->
-                    </div>
-                </div>
-
-                <!-- <div class="text-center mt-3">
-                            <a href="{{ route('history.chart', ['userId' => $res->id]) }}" class="btn btn-dark btn-lg shadow rounded-pill px-4 py-3">
-                                <i class="fas fa-chart-line me-2"></i>แสดงกราฟการตีพิมพ์ทั้งหมด
-                            </a>
-                        </div>
-                        <div class="text-center mt-4">
-                            <a href="{{ route('citation-h-index', ['userId' => $res->id]) }}" class="btn btn-primary btn-lg shadow rounded-pill px-4 py-3">
-                                <i class="fas fa-chart-line me-2"></i> แสดงกราฟ Citations
-                            </a>
-                        </div> -->
-            </div>
-        </div>
-<!-- ปุ่มสำหรับสลับกราฟ -->
-<button id="toggle-chart" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">&gt;</button>
-
+                        
         <br>
 
 
@@ -1049,6 +1055,9 @@
                             }
                         }
                     });
+
+                    // กำหนดความสูงของกราฟใหม่
+                    document.getElementById("publicationChart").style.height = "180px";
                 }
 
                 function processTableData() {
@@ -1181,6 +1190,9 @@
                             }
                         }
                     });
+
+                    // กำหนดความสูงของกราฟใหม่
+                    document.getElementById("citationChart").style.height = "180px";
                 }
 
                 // ✅ เรียกใช้เพื่อดึงข้อมูลตารางและวาดกราฟ summary
@@ -1217,9 +1229,13 @@
                         citationChartElement.style.display = "block";
                         this.innerHTML = "&lt;"; // เปลี่ยนปุ่มไปทางซ้าย
                     }
+
+                    // กำหนดความสูงของกราฟใหม่
+                    barChartElement.style.height = "180px";
+                    citationChartElement.style.height = "180px";
                 });
             });
-</script>
+        </script>
 
 
 @endsection
