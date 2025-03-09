@@ -234,4 +234,24 @@ class TciAPIService
             });
         }
     }
+
+    public static function extractDataToObject(array $papers): array
+    {
+        $extractedData = [];
+        foreach ($papers['articles'] as $paper) {
+            $paperModel = new Paper();
+            $paperModel->paper_name = trim($paper['article_eng']);
+            $paperModel->paper_doi = !empty($paper['doi']) ? strtolower(trim($paper['doi'])) : null;
+            $paperModel->paper_type = !empty($paper['document_type']) ? $paper['document_type'] : null;
+            $paperModel->paper_sourcetitle = !empty($paper['journal_eng']) ? $paper['journal_eng'] : null;
+            $paperModel->paper_yearpub = !empty($paper['year']) ? (int)$paper['year'] : null;
+            $paperModel->paper_volume = !empty($paper['volume']) ? (int)$paper['volume'] : null;
+            $paperModel->paper_citation = !empty($paper['cited']) ? (int)$paper['cited'] : 0;
+            $paperModel->paper_page = !empty($paper['page_number']) ? $paper['page_number'] : null;
+            $extractedData[] = $paperModel;
+
+        }
+        return $extractedData;
+
+    }
 }
