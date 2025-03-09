@@ -66,9 +66,9 @@
                     <h6 class="mb-0 ml-3" style="font-size: 16px;">i10-index: <span id="i10-index-result">กำลังคำนวณ...</span></h6>
                 </div>
 
-                <div class="col-xs-12 text-center bt">
+                <div class="">
                     <div class="clearfix"></div>
-                    <div class="row text-center">
+                    <div class="row text-center mr-5">
                         <div class="col">
                             <div class="count" id="all"></div>
                         </div>
@@ -84,20 +84,21 @@
                         <div class="col">
                             <div class="count" id="google_scholar"></div>
                         </div>
+                        <div class="mt-0">
+                        <canvas id="publicationChart"></canvas>
                     </div>
 
+                    </div>
 
                     
-                    <div class="mt-5">
-                    <canvas id="publicationChart"></canvas>
-                </div>
+
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-between align-items-center mt-3">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary</button>
@@ -636,91 +637,160 @@ $('#scholarTable').DataTable({
 
     });
 </script>
-
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let publicationsPerYear = {};
-        
-        // ดึงข้อมูลปีจากตาราง
+document.addEventListener("DOMContentLoaded", function () {
+    let googleScholarData = {};
+    let scopusData = {};
+    let tciData = {};
+    let publicationsPerYear = {};
+
+    function updateChart(filterType) {
+        let data = {};
+
+        if (filterType === "summary") {
+            data = publicationsPerYear;
+        } else if (filterType === "google_scholar") {
+            data = googleScholarData;
+        } else if (filterType === "scopus") {
+            data = scopusData;
+        } else if (filterType === "tci") {
+            data = tciData;
+        }
+
+        let years = Object.keys(data).map(y => parseInt(y)).sort((a, b) => a - b);
+        let counts = years.map(y => data[y]);
+
+        if (counts.length === 0) {
+            console.warn(`⚠️ ไม่มีข้อมูลสำหรับ ${filterType}`);
+            return;
+        }
+
+        console.log(`📊 Final Data for Chart:`, { years, counts });
+
+        if (window.myChart) {
+            window.myChart.destroy();
+        }
+
+        var ctx = document.getElementById("publicationChart").getContext("2d");
+        window.myChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: years,
+                datasets: [{
+                    label: filterType.toUpperCase(),
+                    backgroundColor: "rgba(150, 150, 150, 0.6)",
+                    borderColor: "rgba(150, 150, 150, 1)",
+                    borderWidth: 2,
+                    hoverBorderWidth: 3,
+                    data: counts,
+                    maxBarThickness: 40,
+                    barPercentage: 0.8,
+                    categoryPercentage: 0.9
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: { padding: { top: 20, bottom: 20 } },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: Math.ceil(Math.max(...counts) + 2),
+                        ticks: { stepSize: 1, precision: 0 },
+                        grid: { drawTicks: true, drawBorder: true }
+                    },
+                    x: {
+                        ticks: { autoSkip: false, align: 'center', maxRotation: 45, minRotation: 45 },
+                        grid: { drawTicks: true, drawBorder: true }
+                    }
+                }
+            }
+        });
+    }
+
+    function processTableData() {
+        publicationsPerYear = {}; 
+        googleScholarData = {}; 
+        scopusData = {}; 
+        tciData = {};
+
         document.querySelectorAll("#papersTable tbody tr").forEach(row => {
-            let yearCell = row.cells[2]; // คอลัมน์ที่ 2 (Year)
-            if (yearCell) {
-                let year = parseInt(yearCell.textContent.trim()) || 0;
-                if (year) {
-                    publicationsPerYear[year] = (publicationsPerYear[year] || 0) + 1;
+            let yearCell = row.cells[2];
+            let showMoreLink = row.querySelector(".show-more");
+            let sourceText = "";
+
+            if (!yearCell || !yearCell.textContent) {
+                console.warn("⚠️ Missing year data in row:", row);
+                return;
+            }
+
+            let year = parseInt(yearCell.textContent.trim()) || 0;
+
+            console.log("🟢 Year Found:", year);
+
+            if (year) {
+                publicationsPerYear[year] = (publicationsPerYear[year] || 0) + 1;
+            }
+
+            if (showMoreLink) {
+                let targetDiv = document.querySelector(showMoreLink.getAttribute("data-target"));
+                if (targetDiv) {
+                    let sourceElement = Array.from(targetDiv.querySelectorAll("p")).find(p => p.textContent.includes("Source:"));
+                    if (sourceElement) {
+                        sourceText = sourceElement.textContent.replace("Source:", "").trim().toLowerCase();
+                    }
+                }
+            }
+
+            console.log(`🔹 Year: ${year}, Source: ${sourceText}`);
+
+            if (year) {
+                if (sourceText.includes("google scholar")) {
+                    googleScholarData[year] = (googleScholarData[year] || 0) + 1;
+                } else if (sourceText.includes("scopus")) {
+                    scopusData[year] = (scopusData[year] || 0) + 1;
+                } else if (sourceText.includes("tci")) {
+                    tciData[year] = (tciData[year] || 0) + 1;
                 }
             }
         });
 
-        // เรียงปีจากน้อยไปมาก
-        let years = Object.keys(publicationsPerYear).map(y => parseInt(y)).sort((a, b) => a - b);
-        let counts = years.map(y => publicationsPerYear[y]);
+        console.log("📊 Debug: Summary Data ก่อนส่งเข้า Chart", publicationsPerYear);
 
-        // วาดกราฟ
-        var ctx = document.getElementById("publicationChart").getContext("2d");
-
-new Chart(ctx, {
-    type: "bar",
-    data: {
-        labels: years,
-        datasets: [{
-            label: "Number of Published Papers",
-            backgroundColor: "rgba(75, 192, 192, 0.6)",
-            borderColor: "rgba(75, 192, 192, 1)",
-            borderWidth: 2,
-            hoverBorderWidth: 3,
-            data: counts,
-            maxBarThickness: 40,  // จำกัดความกว้างของแท่ง
-            minBarLength: 15,  // 🔥 แท่งเล็กสุดจะสูงขึ้น
-            barPercentage: 0.7,
-            categoryPercentage: 0.8
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false, // ✅ ป้องกันการบีบกราฟ
-        layout: {
-            padding: {
-                top: 20,
-                bottom: 20
-            }
-        },
-        scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: "Year"
-                },
-                ticks: {
-                    autoSkip: true, // ✅ ลดจำนวนตัวเลขแกน X ให้อ่านง่ายขึ้น
-                    maxRotation: 30,
-                    minRotation: 30
-                }
-            },
-            y: {
-                beginAtZero: true, // ✅ เริ่มที่ 0
-                min: 0, 
-                suggestedMax: Math.max(...counts) + 2, // ปรับขนาดสูงสุด
-                title: {
-                    display: true,
-                    text: "Number of Papers"
-                },
-                ticks: {
-                    stepSize: 1,
-                    precision: 0
-                },
-                grid: {
-                    color: "rgba(0, 0, 0, 0.1)"
-                }
-            }
+        if (Object.keys(publicationsPerYear).length === 0) {
+            console.warn("⚠️ ไม่มีข้อมูลใน publicationsPerYear");
+        } else {
+            updateChart("summary");
         }
     }
-});
 
+    // ✅ เรียกใช้เพื่อดึงข้อมูลตารางและวาดกราฟ summary
+    processTableData();
 
-
+    // ✅ ตั้งค่า Event ให้ปุ่มเปลี่ยนกราฟเมื่อกด
+    document.getElementById("google_scholar").addEventListener("click", function () {
+        updateChart("google_scholar");
     });
+
+    document.getElementById("scopus_sum").addEventListener("click", function () {
+        updateChart("scopus");
+    });
+
+    document.getElementById("tci_sum").addEventListener("click", function () {
+        updateChart("tci");
+    });
+
+    document.getElementById("all").addEventListener("click", function () {
+        updateChart("summary");
+    });
+});
 </script>
+
 
 <script type="text/javascript">
     function myDisplayer(some) {
