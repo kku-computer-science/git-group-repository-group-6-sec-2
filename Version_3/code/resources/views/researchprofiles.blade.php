@@ -87,22 +87,15 @@
                     </div>
 
 
-                    <br>
-                    <div class="text-center mt-3">
-                        <a href="{{ route('history.chart', ['userId' => $res->id]) }}" class="btn btn-dark btn-lg shadow rounded-pill px-4 py-3">
-                            <i class="fas fa-chart-line me-2"></i>แสดงกราฟการตีพิมพ์ทั้งหมด
-                        </a>
-                    </div>
-                    <div class="text-center mt-4">
-                        <a href="{{ route('citation-h-index', ['userId' => $res->id]) }}" class="btn btn-primary btn-lg shadow rounded-pill px-4 py-3">
-                            <i class="fas fa-chart-line me-2"></i> แสดงกราฟ Citations
-                        </a>
-                    </div>
+                    
+                    <div class="mt-5">
+                    <canvas id="publicationChart"></canvas>
+                </div>
                 </div>
             </div>
         </div>
     </div>
-    <br>
+
 
     <div class="d-flex justify-content-between align-items-center">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -523,14 +516,15 @@
             info: true,
             autoWidth: false
         });
-        $('#scholarTable').DataTable({
-            paging: true,
-            lengthChange: true,
-            searching: true,
-            ordering: true,
-            info: true,
-            autoWidth: false
-        });
+$('#scholarTable').DataTable({
+    paging: true,
+    lengthChange: true,
+    searching: true,
+    ordering: true,
+    info: true,
+    autoWidth: false
+});
+
 
         $('#scopusTable').DataTable({
             paging: true,
@@ -644,81 +638,88 @@
 </script>
 
 <script>
-    var year = <?php echo $year; ?>;
-    var paper_tci = <?php echo $paper_tci; ?>;
-    var paper_scopus = <?php echo $paper_scopus; ?>;
-    var paper_wos = <?php echo $paper_wos; ?>;
-    var areaChartData = {
-
-        labels: year,
-
-        datasets: [{
-                label: 'SCOPUS',
-                backgroundColor: '#83E4B5',
-                borderColor: 'rgba(255, 255, 255, 0.5)',
-                pointRadius: false,
-                pointColor: '#83E4B5',
-                pointStrokeColor: '#3b8bba',
-                pointHighlightFill: '#fff',
-                pointHighlightStroke: '#83E4B5',
-                data: paper_scopus
-            },
-            {
-                label: 'TCI',
-                backgroundColor: '#3994D6',
-                borderColor: 'rgba(210, 214, 222, 1)',
-                pointRadius: false,
-                pointColor: '#3994D6',
-                pointStrokeColor: '#c1c7d1',
-                pointHighlightFill: '#fff',
-                pointHighlightStroke: '#3994D6',
-                data: paper_tci
-            },
-            {
-                label: 'WOS',
-                backgroundColor: '#FCC29A',
-                borderColor: 'rgba(0, 0, 255, 1)',
-                pointRadius: false,
-                pointColor: '#FCC29A',
-                pointStrokeColor: '#c1c7d1',
-                pointHighlightFill: '#fff',
-                pointHighlightStroke: '#FCC29A',
-                data: paper_wos
-            },
-        ]
-    }
-
-
-
-    //-------------
-    //- BAR CHART -
-    //-------------
-    var barChartCanvas = $('#barChart').get(0).getContext('2d')
-    var barChartData = $.extend(true, {}, areaChartData)
-    var temp0 = areaChartData.datasets[0]
-    var temp1 = areaChartData.datasets[1]
-    barChartData.datasets[0] = temp1
-    barChartData.datasets[1] = temp0
-
-    var barChartOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        datasetFill: false,
-        scales: {
-            yAxes: [{
-                ticks: {
-                    stepSize: 1
+    document.addEventListener("DOMContentLoaded", function () {
+        let publicationsPerYear = {};
+        
+        // ดึงข้อมูลปีจากตาราง
+        document.querySelectorAll("#papersTable tbody tr").forEach(row => {
+            let yearCell = row.cells[2]; // คอลัมน์ที่ 2 (Year)
+            if (yearCell) {
+                let year = parseInt(yearCell.textContent.trim()) || 0;
+                if (year) {
+                    publicationsPerYear[year] = (publicationsPerYear[year] || 0) + 1;
                 }
-            }]
+            }
+        });
+
+        // เรียงปีจากน้อยไปมาก
+        let years = Object.keys(publicationsPerYear).map(y => parseInt(y)).sort((a, b) => a - b);
+        let counts = years.map(y => publicationsPerYear[y]);
+
+        // วาดกราฟ
+        var ctx = document.getElementById("publicationChart").getContext("2d");
+
+new Chart(ctx, {
+    type: "bar",
+    data: {
+        labels: years,
+        datasets: [{
+            label: "Number of Published Papers",
+            backgroundColor: "rgba(75, 192, 192, 0.6)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 2,
+            hoverBorderWidth: 3,
+            data: counts,
+            maxBarThickness: 40,  // จำกัดความกว้างของแท่ง
+            minBarLength: 15,  // 🔥 แท่งเล็กสุดจะสูงขึ้น
+            barPercentage: 0.7,
+            categoryPercentage: 0.8
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false, // ✅ ป้องกันการบีบกราฟ
+        layout: {
+            padding: {
+                top: 20,
+                bottom: 20
+            }
+        },
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: "Year"
+                },
+                ticks: {
+                    autoSkip: true, // ✅ ลดจำนวนตัวเลขแกน X ให้อ่านง่ายขึ้น
+                    maxRotation: 30,
+                    minRotation: 30
+                }
+            },
+            y: {
+                beginAtZero: true, // ✅ เริ่มที่ 0
+                min: 0, 
+                suggestedMax: Math.max(...counts) + 2, // ปรับขนาดสูงสุด
+                title: {
+                    display: true,
+                    text: "Number of Papers"
+                },
+                ticks: {
+                    stepSize: 1,
+                    precision: 0
+                },
+                grid: {
+                    color: "rgba(0, 0, 0, 0.1)"
+                }
+            }
         }
-
     }
+});
 
-    new Chart(barChartCanvas, {
-        type: 'bar',
-        data: barChartData,
-        options: barChartOptions
-    })
+
+
+    });
 </script>
 
 <script type="text/javascript">
