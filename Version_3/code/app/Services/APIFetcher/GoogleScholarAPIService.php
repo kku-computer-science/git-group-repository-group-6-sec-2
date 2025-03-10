@@ -226,7 +226,6 @@ class GoogleScholarAPIService {
             ->first();
 
         if ($user && !empty($user->user_scholar_id)) {
-            Log::info("User scholar id already exists: " . $user->user_scholar_id);
             return $user->user_scholar_id;
         }
         try {
@@ -281,6 +280,17 @@ class GoogleScholarAPIService {
             $paperm->paper_citation = isset($paper['cited_by']) ? (int)$paper['cited_by'] : 0;
             $paperm->paper_yearpub = !empty($paper['year']) ? (int)$paper['year'] : null;
             $paperm->paper_sourcetitle = !empty($paper['publication']) ? trim($paper['publication']) : null;
+            $paperm->abstract = null;
+            $paperm->keyword = null;
+            $paperm->publication = null;
+            $paperm->paper_type = null;
+            $paperm->paper_subtype = null;
+            $paperm->paper_volume = null;
+            $paperm->paper_issue = null;
+            $paperm->paper_page = null;
+            $paperm->paper_doi = null;
+            $paperm->paper_funder = null;
+
             $extractedData[] = $paperm;
         }
         return $extractedData;
