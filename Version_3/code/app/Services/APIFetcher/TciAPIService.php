@@ -248,6 +248,15 @@ class TciAPIService
             $paperModel->paper_volume = !empty($paper['volume']) ? (int)$paper['volume'] : null;
             $paperModel->paper_citation = !empty($paper['cited']) ? (int)$paper['cited'] : 0;
             $paperModel->paper_page = !empty($paper['page_number']) ? $paper['page_number'] : null;
+            $paperModel->publication = null;
+            $paperModel->keyword = null;
+            $paperModel->abstract = null;
+            $paperModel->paper_funder = null;
+            $paperModel->paper_issue = null;
+            $paperModel->paper_subtype = null;
+            $paperModel->paper_url = null;
+
+
             $extractedData[] = $paperModel;
 
         }
