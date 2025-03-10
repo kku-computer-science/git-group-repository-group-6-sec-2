@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "fe212277-d082-46f1-853a-625e047a8699",
+		"name": "API_SE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37936690"
+	},
+	"item": [
+		{
+			"name": "scopusAPI",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// ตรวจสอบว่า API ตอบกลับด้วย Status Code 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// แปลง Response เป็น JSON\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"// ตรวจสอบว่า Entry แต่ละตัวมี property ที่ต้องการ (แค่มี ไม่สนค่า)\r",
+							"jsonData[\"search-results\"].entry.forEach((item, index) => {\r",
+							"    pm.test(`Entry ${index + 1} has required fields`, function () {\r",
+							"        pm.expect(item).to.have.property(\"dc:title\");  \r",
+							"        pm.expect(item).to.have.property(\"prism:url\");  \r",
+							"        pm.expect(item).to.have.property(\"dc:creator\");\r",
+							"        pm.expect(item).to.have.property(\"prism:publicationName\");  \r",
+							"        pm.expect(item).to.have.property(\"prism:coverDate\");  \r",
+							"        pm.expect(item).to.have.property(\"citedby-count\");  \r",
+							"        pm.expect(item).to.have.property(\"prism:aggregationType\");  \r",
+							"        pm.expect(item).to.have.property(\"subtypeDescription\");  \r",
+							"        pm.expect(item).to.have.property(\"prism:doi\");  \r",
+							"\r",
+							"        // ตรวจสอบเฉพาะว่ามี property นี้อยู่หรือไม่ (ไม่ตรวจค่าว่าง)\r",
+							"        if (item.hasOwnProperty(\"prism:volume\")) {\r",
+							"            pm.expect(item).to.have.property(\"prism:volume\");\r",
+							"        }\r",
+							"\r",
+							"        if (item.hasOwnProperty(\"prism:issueIdentifier\")) {\r",
+							"            pm.expect(item).to.have.property(\"prism:issueIdentifier\");\r",
+							"        }\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"// ตรวจสอบว่า Response Time ไม่เกิน 2 วินาที\r",
+							"pm.test(\"Response time should be below 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.elsevier.com/content/search/scopus?query=AUTHOR-NAME(Horata,P)&apikey=6ab3c2a01c29f0e36b00c8fa1d013f83",
+					"protocol": "https",
+					"host": [
+						"api",
+						"elsevier",
+						"com"
+					],
+					"path": [
+						"content",
+						"search",
+						"scopus"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "AUTHOR-NAME(Horata,P)"
+						},
+						{
+							"key": "apikey",
+							"value": "6ab3c2a01c29f0e36b00c8fa1d013f83"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wosAPI",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// ตรวจสอบว่า API ตอบกลับด้วย Status Code 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// แปลง Response เป็น JSON\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"// ตรวจสอบว่ามี metadata และ property ที่จำเป็น\r",
+							"pm.test(\"Response has metadata with required fields\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"metadata\");\r",
+							"    pm.expect(jsonData.metadata).to.have.property(\"total\");\r",
+							"    pm.expect(jsonData.metadata).to.have.property(\"page\");\r",
+							"    pm.expect(jsonData.metadata).to.have.property(\"limit\");\r",
+							"});\r",
+							"\r",
+							"// ตรวจสอบว่ามี hits และเป็น array\r",
+							"pm.test(\"Hits array exists and is not empty\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"hits\");\r",
+							"    pm.expect(jsonData.hits).to.be.an(\"array\");\r",
+							"    pm.expect(jsonData.hits.length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"// ตรวจสอบว่าแต่ละ entry ใน hits มี property ที่ต้องการ (แค่มี ไม่สนค่า)\r",
+							"jsonData.hits.forEach((item, index) => {\r",
+							"    pm.test(`Entry ${index + 1} has required fields`, function () {\r",
+							"        pm.expect(item).to.have.property(\"uid\");  \r",
+							"        pm.expect(item).to.have.property(\"title\");  \r",
+							"        pm.expect(item).to.have.property(\"types\");  \r",
+							"        pm.expect(item).to.have.property(\"sourceTypes\");  \r",
+							"        pm.expect(item).to.have.property(\"source\");  \r",
+							"        pm.expect(item).to.have.property(\"names\");  \r",
+							"        pm.expect(item).to.have.property(\"links\");  \r",
+							"        pm.expect(item).to.have.property(\"identifiers\");  \r",
+							"        pm.expect(item).to.have.property(\"keywords\");  \r",
+							"\r",
+							"        // ตรวจสอบเฉพาะว่ามี property นี้อยู่หรือไม่ (ไม่ตรวจค่าว่าง)\r",
+							"        if (item.hasOwnProperty(\"citations\")) {\r",
+							"            pm.expect(item).to.have.property(\"citations\");\r",
+							"        }\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"// ตรวจสอบว่า Response Time ไม่เกิน 2 วินาที\r",
+							"pm.test(\"Response time should be below 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-ApiKey",
+						"value": "4e58ee08d1f6ba5b493b7dc227cc59d21c84e8f3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.clarivate.com/apis/wos-starter/v1/documents?db=WOS&q=AU=Horata,P",
+					"protocol": "https",
+					"host": [
+						"api",
+						"clarivate",
+						"com"
+					],
+					"path": [
+						"apis",
+						"wos-starter",
+						"v1",
+						"documents"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "WOS"
+						},
+						{
+							"key": "q",
+							"value": "AU=Horata,P"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "googlescholarAPI",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// ตรวจสอบว่า API ตอบกลับด้วย Status Code 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// แปลง Response เป็น JSON\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"// ตรวจสอบว่า response มี 'search_metadata' และ field ที่จำเป็น\r",
+							"pm.test(\"Response has search_metadata with required fields\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"search_metadata\");\r",
+							"    pm.expect(jsonData.search_metadata).to.have.property(\"id\");\r",
+							"    pm.expect(jsonData.search_metadata).to.have.property(\"status\");\r",
+							"    pm.expect(jsonData.search_metadata).to.have.property(\"created_at\");\r",
+							"    pm.expect(jsonData.search_metadata).to.have.property(\"request_time_taken\");\r",
+							"    pm.expect(jsonData.search_metadata).to.have.property(\"total_time_taken\");\r",
+							"});\r",
+							"\r",
+							"// ตรวจสอบว่า response มี 'search_parameters' และค่า 'q' ถูกต้อง\r",
+							"pm.test(\"Response has search_parameters with correct query\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"search_parameters\");\r",
+							"    pm.expect(jsonData.search_parameters.q).to.eql(\"Horata Punyaphol\");\r",
+							"});\r",
+							"\r",
+							"// ตรวจสอบว่า 'search_information' มีข้อมูลทั้งหมดที่จำเป็น\r",
+							"pm.test(\"Response has search_information with correct fields\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"search_information\");\r",
+							"    pm.expect(jsonData.search_information).to.have.property(\"query_displayed\");\r",
+							"    pm.expect(jsonData.search_information).to.have.property(\"total_results\");\r",
+							"    pm.expect(jsonData.search_information).to.have.property(\"page\");\r",
+							"    pm.expect(jsonData.search_information).to.have.property(\"time_taken_displayed\");\r",
+							"});\r",
+							"\r",
+							"// ตรวจสอบว่า 'profiles' มีข้อมูลที่จำเป็นและแต่ละโปรไฟล์มี field ที่จำเป็น\r",
+							"pm.test(\"Profiles array exists and contains required fields\", function () {\r",
+							"    pm.expect(jsonData.profiles).to.be.an(\"array\");\r",
+							"    pm.expect(jsonData.profiles.length).to.be.greaterThan(0);\r",
+							"    \r",
+							"    jsonData.profiles.forEach((profile, index) => {\r",
+							"        pm.test(`Profile ${index + 1} has required fields`, function () {\r",
+							"            pm.expect(profile).to.have.property(\"author_id\");\r",
+							"            pm.expect(profile).to.have.property(\"name\");\r",
+							"            pm.expect(profile).to.have.property(\"link\");\r",
+							"            pm.expect(profile).to.have.property(\"affiliations\");\r",
+							"            pm.expect(profile).to.have.property(\"email\");\r",
+							"            pm.expect(profile).to.have.property(\"cited_by\");\r",
+							"        });\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"// ตรวจสอบว่า 'organic_results' มีข้อมูลที่จำเป็นและแต่ละ entry มี field ที่จำเป็น\r",
+							"pm.test(\"Organic results array exists and contains required fields\", function () {\r",
+							"    pm.expect(jsonData.organic_results).to.be.an(\"array\");\r",
+							"    pm.expect(jsonData.organic_results.length).to.be.greaterThan(0);\r",
+							"    \r",
+							"    jsonData.organic_results.forEach((result, index) => {\r",
+							"        pm.test(`Organic result ${index + 1} has required fields`, function () {\r",
+							"            pm.expect(result).to.have.property(\"position\");\r",
+							"            pm.expect(result).to.have.property(\"title\");\r",
+							"            pm.expect(result).to.have.property(\"link\");\r",
+							"            pm.expect(result).to.have.property(\"publication\");\r",
+							"            pm.expect(result).to.have.property(\"snippet\");\r",
+							"\r",
+							"            if (result.hasOwnProperty(\"inline_links\")) {\r",
+							"                pm.expect(result.inline_links).to.have.property(\"cited_by\");\r",
+							"                pm.expect(result.inline_links).to.have.property(\"versions\");\r",
+							"                pm.expect(result.inline_links).to.have.property(\"related_articles_link\");\r",
+							"            }\r",
+							"\r",
+							"            if (result.hasOwnProperty(\"authors\")) {\r",
+							"                pm.expect(result.authors).to.be.an(\"array\");\r",
+							"                result.authors.forEach((author) => {\r",
+							"                    pm.expect(author).to.have.property(\"name\");\r",
+							"                    pm.expect(author).to.have.property(\"id\");\r",
+							"                    pm.expect(author).to.have.property(\"link\");\r",
+							"                });\r",
+							"            }\r",
+							"        });\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"// ตรวจสอบว่า Response Time ไม่เกิน 2 วินาที\r",
+							"pm.test(\"Response time should be below 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.searchapi.io/api/v1/search?engine=google_scholar&q=Horata+Punyaphol&num=25&api_key=TR95VohGTEDPRFEkGb78cKk8",
+					"protocol": "https",
+					"host": [
+						"www",
+						"searchapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"search"
+					],
+					"query": [
+						{
+							"key": "engine",
+							"value": "google_scholar"
+						},
+						{
+							"key": "q",
+							"value": "Horata+Punyaphol"
+						},
+						{
+							"key": "num",
+							"value": "25"
+						},
+						{
+							"key": "api_key",
+							"value": "TR95VohGTEDPRFEkGb78cKk8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
