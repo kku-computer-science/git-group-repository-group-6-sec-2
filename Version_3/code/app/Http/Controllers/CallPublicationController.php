@@ -41,14 +41,13 @@ class CallPublicationController extends Controller
             TciAPIService::saveTciPublications($tciPublication, $userId);
         }
 
-        /* Google Scholar API and web scraper */
+        /* Google Scholar API */
         $googleScholarAPI = new GoogleScholarAPIService('6b2865ac4c28b16a9e0b76c9306d8ff0689620635b9923c5d90e63609218dc26');
         $scholarId = $googleScholarAPI->getIdAuthorScholar($fName_lName);
         if($scholarId){
             $googleScholarPublications = $googleScholarAPI->getResearcherPublications($scholarId);
             $googleScholarAPI->saveGoogleScholarPublications($googleScholarPublications, $userId);
         }
-
         return redirect()->back();
     }
 
