@@ -230,6 +230,7 @@ class ScopusAPIService {
             $paperModel->paper_funder = !empty($paper['funding']) ? json_encode($paper['funding']) : null;
             $paperModel->abstract = !empty($paper['abstract']) ? $paper['abstract'] : null;
             $paperModel->keyword = !empty($paper['keywords']) ? json_encode($paper['keywords']) : null;
+            $paperModel->publication = null;
             $extractedData[] = $paperModel;
 
         }
