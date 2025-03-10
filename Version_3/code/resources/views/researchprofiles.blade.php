@@ -233,7 +233,6 @@
                                             <p>Document Type: {{$paper->paper_type}}</p>
                                             <p>Page: {{$paper->paper_page}}</p>
                                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                                            <p>Ciations: {{$paper->paper_citation}}</p>
                                             <p>Doi: {{$paper->paper_doi}}</p>
                                             <p>Source:
                                                 @foreach ($paper->source as $s)
@@ -292,7 +291,6 @@
                                             <p>Document Type: {{$paper->paper_type}}</p>
                                             <p>Page: {{$paper->paper_page}}</p>
                                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                                            <p>Ciations: {{$paper->paper_citation}}</p>
                                             <p>Doi: {{$paper->paper_doi}}</p>
                                             <p>Source:
                                                 @foreach ($paper->source as $s)
@@ -351,7 +349,6 @@
                                             <p>Document Type: {{$paper->paper_type}}</p>
                                             <p>Page: {{$paper->paper_page}}</p>
                                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                                            <p>Ciations: {{$paper->paper_citation}}</p>
                                             <p>Doi: {{$paper->paper_doi}}</p>
                                             <p>Source:
                                                 @foreach ($paper->source as $s)
@@ -410,7 +407,6 @@
                                             <p>Document Type: {{$paper->paper_type}}</p>
                                             <p>Page: {{$paper->paper_page}}</p>
                                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                                            <p>Ciations: {{$paper->paper_citation}}</p>
                                             <p>Doi: {{$paper->paper_doi}}</p>
                                             <p>Source:
                                                 @foreach ($paper->source as $s)
@@ -538,7 +534,8 @@
                     searching: true,
                     ordering: true,
                     info: true,
-                    autoWidth: false
+                    autoWidth: false,
+                    order: [2, 'desc']
                 });
 
                 $('#scopusTable').DataTable({
@@ -547,7 +544,8 @@
                     searching: true,
                     ordering: true,
                     info: true,
-                    autoWidth: false
+                    autoWidth: false,
+                    order: [2, 'desc']
                 });
 
                 $('#wosTable').DataTable({
@@ -556,7 +554,8 @@
                     searching: true,
                     ordering: true,
                     info: true,
-                    autoWidth: false
+                    autoWidth: false,
+                    order: [2, 'desc']
                 });
 
                 $('#tciTable').DataTable({
@@ -565,7 +564,8 @@
                     searching: true,
                     ordering: true,
                     info: true,
-                    autoWidth: false
+                    autoWidth: false,
+                    order: [2, 'desc']
                 });
 
                 $('#bookTable').DataTable({
@@ -574,7 +574,8 @@
                     searching: true,
                     ordering: true,
                     info: true,
-                    autoWidth: false
+                    autoWidth: false,
+                    order: [2, 'desc']
                 });
 
                 $('#patentTable').DataTable({
@@ -583,7 +584,8 @@
                     searching: true,
                     ordering: true,
                     info: true,
-                    autoWidth: false
+                    autoWidth: false,
+                    order: [2, 'desc']
                 });
 
                 $(document).on("click", ".show-more", function (e) {
