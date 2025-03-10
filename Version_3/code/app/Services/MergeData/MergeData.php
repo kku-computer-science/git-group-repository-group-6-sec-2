@@ -12,15 +12,23 @@ class MergeData
 
         foreach ([$dataWOS, $dataTCI, $dataScholar] as $dataSource) {
             foreach ($dataSource as $paper) {
-                $found = false;
-                foreach ($mergedData as $existingPaper) {
+                $foundIndex = null;
+                $highestCitation = $paper->paper_citation; // ใช้ค่าเริ่มต้นของ paper
+
+                foreach ($mergedData as $index => $existingPaper) {
                     similar_text(strtolower($existingPaper->paper_name), strtolower($paper->paper_name), $percent);
                     if ($percent >= 90) {
-                        $found = true;
+                        $foundIndex = $index;
+                        $highestCitation = max($existingPaper->paper_citation, $paper->paper_citation);
                         break;
                     }
                 }
-                if (!$found) {
+
+                if ($foundIndex !== null) {
+                    // อัปเดตค่าการอ้างอิงถ้ามากกว่า
+                    $mergedData[$foundIndex]->paper_citation = $highestCitation;
+                } else {
+                    // ถ้าไม่เจอให้เพิ่มเข้าไป
                     $mergedData[] = $paper;
                 }
             }
