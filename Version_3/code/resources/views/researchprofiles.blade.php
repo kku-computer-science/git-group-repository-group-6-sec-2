@@ -1,5 +1,34 @@
 @extends('layouts.layout')
 <style>
+    .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); 
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        width: 60%;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 700px; /* ✅ จำกัดขนาด Modal ไม่ให้ใหญ่เกินไป */
+    }
+
+
+    .close {
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
     .count {
         background-color: #fff;
         padding: 2px 0;
@@ -31,12 +60,27 @@
         display: table;
         color: #4ad1e5;
     }
+
+    #popupCanvas {
+    width: 100% !important; /* ✅ ป้องกันการยืดเกิน */
+    height: 400px !important; /* ✅ กำหนดความสูงที่เหมาะสม */
+    max-height: 400px;
+}
 </style>
 
 @section('content')
 
 <div class="container cardprofile mt-5">
-    <div class="card">
+            <!-- ✅ Modal Popup -->
+            <div id="chartPopup" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>รายละเอียดข้อมูลทั้งหมด</h3>
+                    <canvas id="popupCanvas"></canvas>  <!-- ✅ เปลี่ยน ID ให้แน่ใจว่าเป็น <canvas> -->
+                </div>
+            </div>
+
+    <div class="card ">
         <div class="row g-0">
             <div class="col-md-2">
                 <img class="card-image" src="{{$res->picture}}" alt="">
@@ -84,14 +128,10 @@
                         <div class="col">
                             <div class="count" id="google_scholar"></div>
                         </div>
-                        <div class="mt-0">
-                        <canvas id="publicationChart"></canvas>
+                        <div class="mt-0" id="chartContainer" style="cursor: pointer;">
+                            <canvas id="publicationChart"></canvas>
+                        </div>
                     </div>
-
-                    </div>
-
-                    
-
                 </div>
             </div>
         </div>
@@ -637,87 +677,168 @@ $('#scholarTable').DataTable({
 
     });
 </script>
+
+<!-- กราฟ -->
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+    let chartContainer = document.getElementById("chartContainer");
+
+    if (!chartContainer) {
+        console.error("❌ chartContainer ไม่พบใน DOM");
+        return;
+    }
+
+    chartContainer.addEventListener("click", function () {
+        console.log("✅ กดที่ chartContainer แล้ว!");
+
+        if (typeof showPopupChart !== "function") {
+            console.error("❌ showPopupChart ไม่ได้ถูกประกาศ!");
+            return;
+        }
+
+        showPopupChart("summary");
+    });
+});
+
+
+document.querySelector(".close").addEventListener("click", function () {
+    let modal = document.getElementById("chartPopup");
+    modal.style.opacity = "0"; // ✅ ให้มันจางลงก่อนซ่อน
+    setTimeout(() => {
+        modal.style.display = "none"; // ✅ ซ่อนหลังจากจาง
+    }, 300);
+
+    if (window.popupChart instanceof Chart) {
+        window.popupChart.destroy(); // ✅ ลบ Chart เพื่อป้องกันซ้อนกัน
+    }
+
+    console.log("Popup Closed");
+});
+
+document.getElementById("chartPopup").addEventListener("click", function (event) {
+    if (event.target === this) {
+        this.style.display = "none";
+        if (window.popupChart instanceof Chart) {
+            window.popupChart.destroy();
+        }
+    }
+});
+document.querySelector(".close").addEventListener("click", function () {
+    let modal = document.getElementById("chartPopup");
+    modal.style.opacity = "0"; // ✅ ให้มันจางลงก่อนซ่อน
+    setTimeout(() => {
+        modal.style.display = "none"; // ✅ ซ่อนหลังจากจาง
+    }, 300);
+
+    if (window.popupChart instanceof Chart) {
+        window.popupChart.destroy(); // ✅ ลบ Chart เพื่อป้องกันซ้อนกัน
+    }
+
+    console.log("Popup Closed");
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
     let googleScholarData = {};
     let scopusData = {};
     let tciData = {};
+    let wosData = {};
     let publicationsPerYear = {};
+    let showAllYears = false; // เริ่มต้นแสดงแค่ 5 ปีแรก
+    let currentFilter = "summary"; // ตัวแปรเก็บประเภทของข้อมูลที่เลือก
 
     function updateChart(filterType) {
-        let data = {};
+    let data = {};
 
-        if (filterType === "summary") {
-            data = publicationsPerYear;
-        } else if (filterType === "google_scholar") {
-            data = googleScholarData;
-        } else if (filterType === "scopus") {
-            data = scopusData;
-        } else if (filterType === "tci") {
-            data = tciData;
-        }
+    if (filterType === "summary") {
+        data = publicationsPerYear;
+    } else if (filterType === "google_scholar") {
+        data = googleScholarData;
+    } else if (filterType === "scopus") {
+        data = scopusData;
+    } else if (filterType === "tci") {
+        data = tciData;
+    } else if (filterType === "wos") {
+        data = wosData;
+    }
 
-        let years = Object.keys(data).map(y => parseInt(y)).sort((a, b) => a - b);
-        let counts = years.map(y => data[y]);
+    let years = Object.keys(data).map(y => parseInt(y)).sort((a, b) => a - b);
+    let counts = years.map(y => data[y]);
 
-        if (counts.length === 0) {
-            console.warn(`⚠️ ไม่มีข้อมูลสำหรับ ${filterType}`);
-            return;
-        }
+    // ✅ แสดงเฉพาะ 5 ปีล่าสุดเมื่อเป็นโหมดปกติ
+    if (!showAllYears && years.length > 5) {
+        years = years.slice(-5);
+        counts = counts.slice(-5);
+    }
 
-        console.log(`📊 Final Data for Chart:`, { years, counts });
+    if (counts.length === 0) {
+        console.warn(`⚠️ ไม่มีข้อมูลสำหรับ ${filterType}`);
+        return;
+    }
 
-        if (window.myChart) {
-            window.myChart.destroy();
-        }
+    console.log(`📊 Final Data for Chart:`, { years, counts });
 
-        var ctx = document.getElementById("publicationChart").getContext("2d");
-        window.myChart = new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: years,
-                datasets: [{
-                    label: filterType.toUpperCase(),
-                    backgroundColor: "rgba(150, 150, 150, 0.6)",
-                    borderColor: "rgba(150, 150, 150, 1)",
-                    borderWidth: 2,
-                    hoverBorderWidth: 3,
-                    data: counts,
-                    maxBarThickness: 40,
-                    barPercentage: 0.8,
-                    categoryPercentage: 0.9
-                }]
+    if (window.myChart) {
+        window.myChart.destroy();
+    }
+
+    var ctx = document.getElementById("publicationChart").getContext("2d");
+    window.myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: years,
+            datasets: [{
+                label: filterType.toUpperCase(),
+                backgroundColor: "rgba(150, 150, 150, 0.6)",
+                borderColor: "rgba(150, 150, 150, 1)",
+                borderWidth: 2,
+                hoverBorderWidth: 3,
+                data: counts,
+                maxBarThickness: 40,
+                barPercentage: 0.8,
+                categoryPercentage: 0.9
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: { padding: { top: 20, bottom: 20 } },
+            plugins: {
+                legend: { display: false },
+                tooltip: { enabled: true }
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                layout: { padding: { top: 20, bottom: 20 } },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: { enabled: true }
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: Math.ceil(Math.max(...counts) + 2),
+                    ticks: { stepSize: 1, precision: 0 },
+                    grid: { drawTicks: true, drawBorder: true }
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: Math.ceil(Math.max(...counts) + 2),
-                        ticks: { stepSize: 1, precision: 0 },
-                        grid: { drawTicks: true, drawBorder: true }
-                    },
-                    x: {
-                        ticks: { autoSkip: false, align: 'center', maxRotation: 45, minRotation: 45 },
-                        grid: { drawTicks: true, drawBorder: true }
-                    }
+                x: {
+                    ticks: { autoSkip: false, align: 'center', maxRotation: 45, minRotation: 45 },
+                    grid: { drawTicks: true, drawBorder: true }
+                }
+            },
+            onClick: function (event, elements) {
+                if (elements.length > 0) {
+                console.log("✅ กดที่กราฟแล้ว! เปิด Popup...");
+                showPopupChart(filterType);
                 }
             }
-        });
-    }
+        }
+    });
+
+    currentFilter = filterType;
+}
+
 
     function processTableData() {
         publicationsPerYear = {}; 
         googleScholarData = {}; 
         scopusData = {}; 
         tciData = {};
+        wosData = {};
 
         document.querySelectorAll("#papersTable tbody tr").forEach(row => {
             let yearCell = row.cells[2];
@@ -756,6 +877,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     scopusData[year] = (scopusData[year] || 0) + 1;
                 } else if (sourceText.includes("tci")) {
                     tciData[year] = (tciData[year] || 0) + 1;
+                } else if (sourceText.includes("Web Of Science")) {
+                    wosData[year] = (wosData[year] || 0) + 1;
                 }
             }
         });
@@ -785,9 +908,113 @@ document.addEventListener("DOMContentLoaded", function () {
         updateChart("tci");
     });
 
+    document.getElementById("wos_sum").addEventListener("click", function () {
+        updateChart("wos");
+    });
+
     document.getElementById("all").addEventListener("click", function () {
         updateChart("summary");
     });
+
+    
+    function showPopupChart(filterType) {
+        console.log("📊 เปิด Popup Chart:", filterType);
+        let data = {};
+
+        if (filterType === "summary") {
+            data = publicationsPerYear;
+        } else if (filterType === "google_scholar") {
+            data = googleScholarData;
+        } else if (filterType === "scopus") {
+            data = scopusData;
+        } else if (filterType === "tci") {
+            data = tciData;
+        } else if (filterType === "wos") {
+            data = wosData;
+        }
+
+        let years = Object.keys(data).map(y => parseInt(y)).sort((a, b) => a - b);
+        let counts = years.map(y => data[y]);
+
+        console.log("📊 กำลังแสดง Popup Chart", { years, counts });
+
+        let modal = document.getElementById("chartPopup");
+        modal.style.display = "block";
+
+        setTimeout(() => {
+            let canvas = document.getElementById("popupCanvas");
+            
+            if (!canvas) {
+                console.error("❌ popupCanvas ไม่พบใน DOM");
+                return;
+            }
+
+            let ctx = canvas.getContext("2d");
+
+            if (!ctx) {
+                console.error("❌ ไม่สามารถเรียก getContext('2d') บน popupCanvas ได้");
+                return;
+            }
+
+            // ✅ ลบ Chart เก่าก่อนสร้างใหม่
+            if (window.popupChart instanceof Chart) {
+                window.popupChart.destroy();
+            }
+
+            window.popupChart = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: years,
+                    datasets: [{
+                        label: `ข้อมูลทั้งหมด (${filterType.toUpperCase()})`,
+                        backgroundColor: "rgba(255, 99, 132, 0.6)",
+                        borderColor: "rgba(255, 99, 132, 1)",
+                        borderWidth: 2,
+                        hoverBorderWidth: 3,
+                        data: counts,
+                        maxBarThickness: 40,
+                        barPercentage: 0.8,
+                        categoryPercentage: 0.9
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true, // ✅ ป้องกันการยืดเกิน
+                    layout: { padding: { top: 20, bottom: 20 } },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: true }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            min: 0,
+                            max: Math.ceil(Math.max(...counts) + 2),
+                            ticks: { stepSize: 1, precision: 0 },
+                            grid: { drawTicks: true, drawBorder: true }
+                        },
+                        x: {
+                            ticks: { autoSkip: false, align: 'center', maxRotation: 45, minRotation: 45 },
+                            grid: { drawTicks: true, drawBorder: true }
+                        }
+                    }
+                }
+            });
+            document.getElementById("chartPopup").style.display = "block";
+
+            // ✅ ทำให้ Popup แสดงทุกครั้งที่กด
+            let modal = document.getElementById("chartPopup");
+            modal.style.display = "block";
+            modal.style.opacity = "1";
+
+            console.log("Popup Opened");
+    }, 100);
+}
+window.showPopupChart = showPopupChart;
+
+
+
+
 });
 </script>
 
