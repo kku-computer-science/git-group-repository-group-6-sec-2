@@ -24,7 +24,6 @@ class Paper extends Model
         'paper_page',
         'paper_doi',
         'paper_funder',
-        'reference_number',
         'patent_date',
         'abstract',
         'keyword',
