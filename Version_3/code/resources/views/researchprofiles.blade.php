@@ -36,11 +36,12 @@
         padding: 20px;
         background-color: #fff;
         border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .bt {
-        text-align: left; /* จัดตำแหน่งไปทางซ้าย */
+        text-align: left;
+        /* จัดตำแหน่งไปทางซ้าย */
     }
 
     .chart-wrapper {
@@ -55,24 +56,27 @@
         height: 100%;
     }
 
-     /* เพิ่มความสูงให้กับกราฟ */
-    #publicationChart, #citationChart {
+    /* เพิ่มความสูงให้กับกราฟ */
+    #publicationChart,
+    #citationChart {
         height: 180px;
     }
 
     /* เพิ่มสไตล์สำหรับปุ่ม */
     .toggle-btn {
         position: absolute;
-        bottom: 10px; /* ปรับให้ปุ่มอยู่ด้านล่าง */
-        left: 50%;  /* กำหนดให้ปุ่มอยู่กลาง */
-        transform: translateX(-50%); /* ทำให้ปุ่มอยู่ตรงกลาง */
+        bottom: 10px;
+        /* ปรับให้ปุ่มอยู่ด้านล่าง */
+        left: 50%;
+        /* กำหนดให้ปุ่มอยู่กลาง */
+        transform: translateX(-50%);
+        /* ทำให้ปุ่มอยู่ตรงกลาง */
         font-size: 20px;
         cursor: pointer;
         background: none;
         border: none;
         color: #000;
     }
-
 </style>
 
 @section('content')
@@ -106,10 +110,10 @@
                         <h6 class="title-pub mb-0 mr-5" style="font-size: 16px;">{{ trans('message.publications2') }}</h6>
                         <h6 class="mb-0 ml-3" style="font-size: 16px;">h-index: <span
                                 id="h-index-result">กำลังคำนวณ...</span></h6>
-                        <h6 class="mb-0 ml-3" style="font-size: 16px;">i10-index: <span 
-                        id="i10-index-result">กำลังคำนวณ...</span></h6>
-                        <h6 class="mb-0 ml-3" style="font-size: 16px;">Total Citations: <span 
-                        id="total-citations-result">กำลังคำนวณ...</span></h6>
+                        <h6 class="mb-0 ml-3" style="font-size: 16px;">i10-index: <span
+                                id="i10-index-result">กำลังคำนวณ...</span></h6>
+                        <h6 class="mb-0 ml-3" style="font-size: 16px;">Total Citations: <span
+                                id="total-citations-result">กำลังคำนวณ...</span></h6>
                     </div>
 
                     <div class="">
@@ -131,7 +135,7 @@
                                 <div class="count" id="google_scholar" style="cursor: pointer;"></div>
                             </div>
                             <div class="mt-0 position-relative">
-                                <canvas id="publicationChart"></canvas>
+                                <canvas id="publicationChart" style="cursor: pointer;"></canvas>
                                 <canvas id="citationChart" style="display: none;"></canvas>
                                 <!-- ปุ่มสำหรับสลับกราฟ -->
                                 <br>
@@ -143,21 +147,21 @@
             </div>
         </div>
         <!-- กราฟ -->
-                        <!-- <div class="chart-container position-relative"
-                            style="overflow: hidden; width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
-                            <div class="chart-wrapper d-flex justify-content-center align-items-center"
-                                style="gap: 20px; width: 100%;"> -->
-                                <!-- กราฟการตีพิมพ์ -->
-                                <!-- <canvas id="publicationChart" class="chart-item"
-                                    style="cursor: pointer;"></canvas> -->
-                                <!-- กราฟ Citations -->
-                                <!-- <canvas id="citationChart" class="chart-item"
-                                    style="display: none; cursor: pointer; width: 100%; height: 100%; max-height: 500px;"></canvas> -->
-                            <!-- </div> -->
-                            <!-- <span id="toggle-chart"
-                                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">&gt;</span> -->
-                        <!-- </div> -->
-                        
+        <!-- <div class="chart-container position-relative"
+                                                    style="overflow: hidden; width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
+                                                    <div class="chart-wrapper d-flex justify-content-center align-items-center"
+                                                        style="gap: 20px; width: 100%;"> -->
+        <!-- กราฟการตีพิมพ์ -->
+        <!-- <canvas id="publicationChart" class="chart-item"
+                                                            style="cursor: pointer;"></canvas> -->
+        <!-- กราฟ Citations -->
+        <!-- <canvas id="citationChart" class="chart-item"
+                                                            style="display: none; cursor: pointer; width: 100%; height: 100%; max-height: 500px;"></canvas> -->
+        <!-- </div> -->
+        <!-- <span id="toggle-chart"
+                                                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">&gt;</span> -->
+        <!-- </div> -->
+
         <br>
 
 
@@ -650,121 +654,6 @@
             });
         </script>
 
-        <script>
-            var year = <?php echo $year; ?>;
-            var paper_tci = <?php echo $paper_tci; ?>;
-            var paper_scopus = <?php echo $paper_scopus; ?>;
-            var paper_wos = <?php echo $paper_wos; ?>;
-            var areaChartData = {
-
-                labels: year,
-
-                datasets: [{
-                    label: 'SCOPUS',
-                    backgroundColor: '#83E4B5',
-                    borderColor: 'rgba(255, 255, 255, 0.5)',
-                    pointRadius: false,
-                    pointColor: '#83E4B5',
-                    pointStrokeColor: '#3b8bba',
-                    pointHighlightFill: '#fff',
-                    pointHighlightStroke: '#83E4B5',
-                    data: paper_scopus
-                },
-                {
-                    label: 'TCI',
-                    backgroundColor: '#3994D6',
-                    borderColor: 'rgba(210, 214, 222, 1)',
-                    pointRadius: false,
-                    pointColor: '#3994D6',
-                    pointStrokeColor: '#c1c7d1',
-                    pointHighlightFill: '#fff',
-                    pointHighlightStroke: '#3994D6',
-                    data: paper_tci
-                },
-                {
-                    label: 'WOS',
-                    backgroundColor: '#FCC29A',
-                    borderColor: 'rgba(0, 0, 255, 1)',
-                    pointRadius: false,
-                    pointColor: '#FCC29A',
-                    pointStrokeColor: '#c1c7d1',
-                    pointHighlightFill: '#fff',
-                    pointHighlightStroke: '#FCC29A',
-                    data: paper_wos
-                },
-                ]
-            }
-
-
-
-            //-------------
-            //- BAR CHART -
-            //-------------
-            var barChartCanvas = $('#barChart').get(0).getContext('2d')
-            var barChartData = $.extend(true, {}, areaChartData)
-            var temp0 = areaChartData.datasets[0]
-            var temp1 = areaChartData.datasets[1]
-            barChartData.datasets[0] = temp1
-            barChartData.datasets[1] = temp0
-
-            var barChartOptions = {
-                responsive: true,
-                maintainAspectRatio: false,
-                datasetFill: false,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            stepSize: 1
-                        }
-                    }]
-                }
-
-            }
-
-            new Chart(barChartCanvas, {
-                type: 'bar',
-                data: barChartData,
-                options: barChartOptions
-            })
-        </script>
-
-        <script type="text/javascript">
-            function myDisplayer(some) {
-
-                document.getElementById("citation").innerHTML = "Citation count : " + some['h-index'];
-                document.getElementById("doc_count").innerHTML = "Document count : " + some['coredata']['citation-count'];
-                document.getElementById("cite_count").innerHTML = "Cited By count : " + some['coredata']['cited-by-count'];
-                document.getElementById("h-index").innerHTML = "H-index : " + some['h-index'];
-
-            }
-            async function myFunction() {
-                var res = <?php echo $res; ?>;
-                const response = await fetch('https://api.elsevier.com/content/search/author?query=authlast(' + res.lname_en +
-                    ')%20and%20authfirst(' + res.fname_en +
-                    ')%20&apiKey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson');
-                //var a = got["search-results"];
-                const got = await response.json();
-                aid = got["search-results"]["entry"][0]['dc:identifier'];
-                aid = aid.split(":");
-                aid = aid[1];
-                const resultC = await fetch('https://api.elsevier.com/content/author?author_id=' + aid +
-                    '&view=metrics&apiKey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson');
-                const data = await resultC.json();
-                auth = data['author-retrieval-response'][0];
-                //data = data['h-index'];
-
-                return auth
-
-            }
-            myFunction().then(
-                function (value) {
-                    myDisplayer(value);
-                },
-                function (error) {
-                    myDisplayer(error);
-                }
-            );
-        </script>
     </div>
     <script>
         var paper_tci_s = <?php echo $paper_tci_s; ?>;
@@ -804,24 +693,24 @@
 
             //$("#scopus").append('data-to="100"');
             document.getElementById("all").innerHTML += `
-                    <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                    <p class="count-text ">SUMMARY</p>`
+                                            <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
+                                            <p class="count-text ">SUMMARY</p>`
 
             document.getElementById("scopus_sum").innerHTML += `
-                    <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
-                    <p class="count-text">SCOPUS</p>`
+                                            <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
+                                            <p class="count-text">SCOPUS</p>`
 
             document.getElementById("wos_sum").innerHTML += `
-                    <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
-                    <p class="count-text ">WOS</p>`
+                                            <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
+                                            <p class="count-text ">WOS</p>`
 
             document.getElementById("tci_sum").innerHTML += `
-                    <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
-                    <p class="count-text ">TCI</p>`
+                                            <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
+                                            <p class="count-text ">TCI</p>`
 
             document.getElementById("google_scholar").innerHTML += `
-                    <h2 class="timer count-title count-number" data-to="${sumScholar}" data-speed="1500"></h2>
-                    <p class="count-text ">Google Scholar</p>`
+                                            <h2 class="timer count-title count-number" data-to="${sumScholar}" data-speed="1500"></h2>
+                                            <p class="count-text ">Google Scholar</p>`
 
             //document.getElementById("scopus").appendChild('data-to="100"');
             $.fn.countTo = function (options) {
@@ -922,111 +811,254 @@
             }
         });
 
+        // h-index i10-index
         document.addEventListener("DOMContentLoaded", function () {
-                function calculateHIndex() {
-                    let citations = [];
-                    // ดึงค่าจำนวน Citation จากคอลัมน์ที่ 8 (Citations)
-                    document.querySelectorAll("#papersTable  tbody tr").forEach(row => {
-                        let citationCell = row.cells[1]; // คอลัมน์ที่ 8 (Citations)
-                        if (citationCell) {
-                            let citation = parseInt(citationCell.textContent.trim()) || 0;
-                            citations.push(citation);
-                        }
-                    });
-                    // เรียงลำดับ Citation จากมากไปน้อย
-                    citations.sort((a, b) => b - a);
-                    // คำนวณค่า H-Index
-                    let h_index = 0;
-                    for (let i = 0; i < citations.length; i++) {
-                        if (citations[i] >= i + 1) {
-                            h_index = i + 1;
-                        } else {
-                            break;
+            function calculateHIndex() {
+                let citations = [];
+                // ดึงค่าจำนวน Citation จากคอลัมน์ที่ 8 (Citations)
+                document.querySelectorAll("#papersTable  tbody tr").forEach(row => {
+                    let citationCell = row.cells[1]; // คอลัมน์ที่ 8 (Citations)
+                    if (citationCell) {
+                        let citation = parseInt(citationCell.textContent.trim()) || 0;
+                        citations.push(citation);
+                    }
+                });
+                // เรียงลำดับ Citation จากมากไปน้อย
+                citations.sort((a, b) => b - a);
+                // คำนวณค่า H-Index
+                let h_index = 0;
+                for (let i = 0; i < citations.length; i++) {
+                    if (citations[i] >= i + 1) {
+                        h_index = i + 1;
+                    } else {
+                        break;
+                    }
+                }
+                // แสดงผลลัพธ์ H-Index บนหน้าเว็บ
+                document.getElementById("h-index-result").textContent = h_index;
+            }
+
+            function calculateI10Index() {
+                let i10_index = 0;
+                document.querySelectorAll("#papersTable tbody tr").forEach(row => {
+                    let citationCell = row.cells[1]; // คอลัมน์ที่ 1 (Citations)
+                    if (citationCell) {
+                        let citation = parseInt(citationCell.textContent.trim()) || 0;
+                        if (citation >= 10) {
+                            i10_index++;
                         }
                     }
-                    // แสดงผลลัพธ์ H-Index บนหน้าเว็บ
-                    document.getElementById("h-index-result").textContent = h_index;
+                });
+
+                // แสดงผลลัพธ์ i10-Index บนหน้าเว็บ
+                document.getElementById("i10-index-result").textContent = i10_index;
+            }
+
+            // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
+            calculateHIndex();
+            calculateI10Index();
+        });
+
+    </script>
+
+    <!-- เพิ่มโค้ด JavaScript สำหรับสร้างกราฟ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+    <script>
+        if (typeof Chart !== 'undefined') {
+            Chart.defaults.scale.ticks.precision = -1;
+            Chart.defaults.scale.ticks.stepSize = 0;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let googleScholarData = {};
+            let scopusData = {};
+            let tciData = {};
+            let publicationsPerYear = {};
+            let citationsPerYear = {};
+            let currentFilterType = "summary"; // เก็บประเภทฟิลเตอร์ปัจจุบัน
+
+            // เพิ่ม CSS สำหรับ Modal
+            const styleElement = document.createElement('style');
+            styleElement.textContent = `
+                        .modal {
+                            display: none;
+                            position: fixed;
+                            z-index: 999;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba(0,0,0,0.5);
+                            opacity: 0;
+                            transition: opacity 0.3s ease;
+                        }
+
+                        .modal-content {
+                            background-color: white;
+                            margin: 10% auto;
+                            padding: 20px;
+                            width: 60%;
+                            border-radius: 10px;
+                            text-align: center;
+                            max-width: 700px;
+                        }
+
+                        .close {
+                            float: right;
+                            font-size: 28px;
+                            font-weight: bold;
+                            cursor: pointer;
+                        }
+                        `;
+            document.head.appendChild(styleElement);
+
+            // เพิ่ม Modal HTML ใน DOM
+            const modalHTML = `
+                        <div id="chartPopup" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h3>รายละเอียดข้อมูลทั้งหมด</h3>
+                                <canvas id="popupCanvas"></canvas>
+                            </div>
+                        </div>`;
+
+            // เพิ่ม Modal ไปที่ body
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+            function updateChart(filterType) {
+                // ตรวจสอบว่ากราฟ Citation ถูกแสดงอยู่หรือไม่
+                if (document.getElementById("citationChart").style.display !== "none") {
+                    console.warn(`⚠️ ไม่สามารถเปลี่ยนกราฟได้ขณะนี้`);
+                    return;
                 }
 
-                function calculateI10Index() {
-                    let i10_index = 0;
-                    document.querySelectorAll("#papersTable tbody tr").forEach(row => {
-                        let citationCell = row.cells[1]; // คอลัมน์ที่ 1 (Citations)
-                        if (citationCell) {
-                            let citation = parseInt(citationCell.textContent.trim()) || 0;
-                            if (citation >= 10) {
-                                i10_index++;
+                currentFilterType = filterType; // บันทึกฟิลเตอร์ปัจจุบัน
+                let data = {};
+
+                if (filterType === "summary") {
+                    data = publicationsPerYear;
+                } else if (filterType === "google_scholar") {
+                    data = googleScholarData;
+                } else if (filterType === "scopus") {
+                    data = scopusData;
+                } else if (filterType === "tci") {
+                    data = tciData;
+                }
+
+                let years = Object.keys(data).map(y => parseInt(y)).sort((a, b) => a - b);
+                let counts = years.map(y => data[y]);
+
+                if (counts.length === 0) {
+                    console.warn(`⚠️ ไม่มีข้อมูลสำหรับ ${filterType}`);
+                    return;
+                }
+
+                // กรณีแสดงเฉพาะ 5 ปีล่าสุด (สำหรับกราฟหลัก)
+                let displayYears = years;
+                let displayCounts = counts;
+
+                if (years.length > 5) {
+                    // แสดงเฉพาะ 5 ปีล่าสุด
+                    displayYears = years.slice(-5);
+                    displayCounts = counts.slice(-5);
+                }
+
+                console.log(`📊 Data for Chart (recent 5 years):`, { years: displayYears, counts: displayCounts });
+                console.log(`📊 All Data:`, { years, counts });
+
+                // เลือกว่าจะอัพเดทกราฟไหน
+                if (window.myChart) {
+                    window.myChart.destroy();
+                }
+
+                var ctx = document.getElementById("publicationChart").getContext("2d");
+                window.myChart = new Chart(ctx, {
+                    type: "bar",
+                    data: {
+                        labels: displayYears,
+                        datasets: [{
+                            label: filterType.toUpperCase(),
+                            backgroundColor: "rgba(150, 150, 150, 0.6)",
+                            borderColor: "rgba(150, 150, 150, 1)",
+                            borderWidth: 2,
+                            hoverBorderWidth: 3,
+                            data: displayCounts,
+                            maxBarThickness: 40,
+                            barPercentage: 0.8,
+                            categoryPercentage: 0.9
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        layout: { padding: { top: 20, bottom: 20 } },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { enabled: true }
+                        },
+                        scales: {
+                            y: {
+                                type: 'linear',
+                                beginAtZero: true,
+                                min: 0,
+                                max: function (context) {
+                                    const max = Math.max(...context.chart.data.datasets[0].data);
+                                    return Math.ceil(max) + 1;
+                                },
+                                ticks: {
+                                    precision: -1,
+                                    callback: function (value) {
+                                        return Math.floor(value);
+                                    },
+                                    stepSize: 3,
+                                    autoSkip: false
+                                },
+                                grid: {
+                                    drawTicks: true,
+                                    drawBorder: true
+                                }
+                            },
+                            x: {
+                                ticks: { autoSkip: false, align: 'center', maxRotation: 45, minRotation: 45 },
+                                grid: { drawTicks: true, drawBorder: true }
                             }
                         }
-                    });
+                    }
+                });
 
-                    // แสดงผลลัพธ์ i10-Index บนหน้าเว็บ
-                    document.getElementById("i10-index-result").textContent = i10_index;
-                }
+                // กำหนดความสูงของกราฟใหม่
+                document.getElementById("publicationChart").style.height = "180px";
 
-                // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
-                calculateHIndex();
-                calculateI10Index();
-            });
+                // เก็บข้อมูลทั้งหมดไว้ใช้ใน popup
+                window.allYears = years;
+                window.allCounts = counts;
+            }
 
-        </script>
+            function showPopupChart(filterType) {
+                let modal = document.getElementById("chartPopup");
+                modal.style.display = "block";
 
-        <!-- เพิ่มโค้ด JavaScript สำหรับสร้างกราฟ -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+                setTimeout(() => {
+                    let canvas = document.getElementById("popupCanvas");
+                    let ctx = canvas.getContext("2d");
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                let googleScholarData = {};
-                let scopusData = {};
-                let tciData = {};
-                let publicationsPerYear = {};
-                let citationsPerYear = {};
-
-                function updateChart(filterType) {
-                    // ตรวจสอบว่ากราฟ Citation ถูกแสดงอยู่หรือไม่
-                    if (document.getElementById("citationChart").style.display !== "none") {
-                        console.warn(`⚠️ ไม่สามารถเปลี่ยนกราฟได้ขณะนี้`);
-                        return;
+                    if (window.popupChart instanceof Chart) {
+                        window.popupChart.destroy();
                     }
 
-                    let data = {};
-
-                    if (filterType === "summary") {
-                        data = publicationsPerYear;
-                    } else if (filterType === "google_scholar") {
-                        data = googleScholarData;
-                    } else if (filterType === "scopus") {
-                        data = scopusData;
-                    } else if (filterType === "tci") {
-                        data = tciData;
-                    }
-
-                    let years = Object.keys(data).map(y => parseInt(y)).sort((a, b) => a - b);
-                    let counts = years.map(y => data[y]);
-
-                    if (counts.length === 0) {
-                        console.warn(`⚠️ ไม่มีข้อมูลสำหรับ ${filterType}`);
-                        return;
-                    }
-
-                    console.log(`📊 Final Data for Chart:`, { years, counts });
-
-                    if (window.myChart) {
-                        window.myChart.destroy();
-                    }
-
-                    var ctx = document.getElementById("publicationChart").getContext("2d");
-                    window.myChart = new Chart(ctx, {
+                    // ใช้ข้อมูลทั้งหมด (ไม่ใช่แค่ 5 ปีล่าสุด)
+                    window.popupChart = new Chart(ctx, {
                         type: "bar",
                         data: {
-                            labels: years,
+                            labels: window.allYears,
                             datasets: [{
-                                label: filterType.toUpperCase(),
-                                backgroundColor: "rgba(150, 150, 150, 0.6)",
-                                borderColor: "rgba(150, 150, 150, 1)",
+                                label: `ข้อมูลทั้งหมด (${filterType.toUpperCase()})`,
+                                backgroundColor: "rgba(255, 99, 132, 0.6)",
+                                borderColor: "rgba(255, 99, 132, 1)",
                                 borderWidth: 2,
                                 hoverBorderWidth: 3,
-                                data: counts,
+                                data: window.allCounts,
                                 maxBarThickness: 40,
                                 barPercentage: 0.8,
                                 categoryPercentage: 0.9
@@ -1034,7 +1066,7 @@
                         },
                         options: {
                             responsive: true,
-                            maintainAspectRatio: false,
+                            maintainAspectRatio: true,
                             layout: { padding: { top: 20, bottom: 20 } },
                             plugins: {
                                 legend: { display: false },
@@ -1044,8 +1076,8 @@
                                 y: {
                                     beginAtZero: true,
                                     min: 0,
-                                    max: Math.ceil(Math.max(...counts) + 2),
-                                    ticks: { stepSize: 1, precision: 0 },
+                                    max: Math.ceil(Math.max(...window.allCounts) + 2),
+                                    ticks: { stepSize: 1, precision: -1 },
                                     grid: { drawTicks: true, drawBorder: true }
                                 },
                                 x: {
@@ -1056,186 +1088,220 @@
                         }
                     });
 
-                    // กำหนดความสูงของกราฟใหม่
-                    document.getElementById("publicationChart").style.height = "180px";
-                }
+                    modal.style.opacity = "1";
+                }, 100);
+            }
 
-                function processTableData() {
-                    publicationsPerYear = {}; 
-                    googleScholarData = {}; 
-                    scopusData = {}; 
-                    tciData = {};
-                    citationsPerYear = {};
+            function processTableData() {
+                publicationsPerYear = {};
+                googleScholarData = {};
+                scopusData = {};
+                tciData = {};
+                citationsPerYear = {};
 
-                    document.querySelectorAll("#papersTable tbody tr").forEach(row => {
-                        let yearCell = row.cells[2];
-                        let citationCell = row.cells[1];
-                        let showMoreLink = row.querySelector(".show-more");
-                        let sourceText = "";
+                document.querySelectorAll("#papersTable tbody tr").forEach(row => {
+                    let yearCell = row.cells[2];
+                    let citationCell = row.cells[1];
+                    let showMoreLink = row.querySelector(".show-more");
+                    let sourceText = "";
 
-                        if (!yearCell || !yearCell.textContent) {
-                            console.warn("⚠️ Missing year data in row:", row);
-                            return;
-                        }
-
-                        let year = parseInt(yearCell.textContent.trim()) || 0;
-                        let citation = parseInt(citationCell.textContent.trim()) || 0;
-
-                        console.log("🟢 Year Found:", year);
-
-                        if (year) {
-                            publicationsPerYear[year] = (publicationsPerYear[year] || 0) + 1;
-                            citationsPerYear[year] = (citationsPerYear[year] || 0) + citation;
-                        }
-
-                        if (showMoreLink) {
-                            let targetDiv = document.querySelector(showMoreLink.getAttribute("data-target"));
-                            if (targetDiv) {
-                                let sourceElement = Array.from(targetDiv.querySelectorAll("p")).find(p => p.textContent.includes("Source:"));
-                                if (sourceElement) {
-                                    sourceText = sourceElement.textContent.replace("Source:", "").trim().toLowerCase();
-                                }
-                            }
-                        }
-
-                        console.log(`🔹 Year: ${year}, Source: ${sourceText}`);
-
-                        if (year) {
-                            if (sourceText.includes("google scholar")) {
-                                googleScholarData[year] = (googleScholarData[year] || 0) + 1;
-                            } else if (sourceText.includes("scopus")) {
-                                scopusData[year] = (scopusData[year] || 0) + 1;
-                            } else if (sourceText.includes("tci")) {
-                                tciData[year] = (tciData[year] || 0) + 1;
-                            }
-                        }
-                    });
-
-                    console.log("📊 Debug: Summary Data ก่อนส่งเข้า Chart", publicationsPerYear);
-
-                    if (Object.keys(publicationsPerYear).length === 0) {
-                        console.warn("⚠️ ไม่มีข้อมูลใน publicationsPerYear");
-                    } else {
-                        updateChart("summary");
+                    if (!yearCell || !yearCell.textContent) {
+                        console.warn("⚠️ Missing year data in row:", row);
+                        return;
                     }
 
-                    // คำนวณผลรวม citation ทุกปี
-                    let totalCitations = Object.values(citationsPerYear).reduce((acc, curr) => acc + curr, 0);
+                    let year = parseInt(yearCell.textContent.trim()) || 0;
+                    let citation = parseInt(citationCell.textContent.trim()) || 0;
 
-                    // แสดงผลรวม citation บนหน้าเว็บ
-                    document.getElementById("total-citations-result").textContent = totalCitations;
+                    console.log("🟢 Year Found:", year);
 
-                    // วาดกราฟ Citation Chart
-                    var ctxCitation = document.getElementById("citationChart").getContext("2d");
-                    window.citationChart = new Chart(ctxCitation, {
-                        type: "line",
-                        data: {
-                            labels: Object.keys(citationsPerYear).map(y => parseInt(y)).sort((a, b) => a - b),
-                            datasets: [{
-                                label: "Citations",
-                                backgroundColor: "rgba(153, 102, 255, 0.2)",
-                                borderColor: "rgba(153, 102, 255, 1)",
-                                borderWidth: 2,
-                                hoverBorderWidth: 3,
-                                data: Object.keys(citationsPerYear).map(y => citationsPerYear[y]),
-                                fill: true
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            layout: {
-                                padding: {
-                                    top: 20,
-                                    bottom: 20
-                                }
-                            },
-                            scales: {
-                                x: {
-                                    title: {
-                                        display: true,
-                                        text: "Year"
-                                    },
-                                    ticks: {
-                                        autoSkip: true,
-                                        maxRotation: 30,
-                                        minRotation: 30
-                                    }
-                                },
-                                y: {
-                                    beginAtZero: true,
-                                    min: 0,
-                                    suggestedMax: Math.max(...Object.values(citationsPerYear)) + 10,
-                                    title: {
-                                        display: true,
-                                        text: "Number of Citations"
-                                    },
-                                    ticks: {
-                                        stepSize: 1,
-                                        precision: 0
-                                    },
-                                    grid: {
-                                        color: "rgba(0, 0, 0, 0.1)"
-                                    }
-                                }
-                            },
-                            plugins: {
-                                tooltip: {
-                                    callbacks: {
-                                        label: function (tooltipItem) {
-                                            return tooltipItem.dataset.label + ": " + tooltipItem.raw;
-                                        }
-                                    }
-                                }
+                    if (year) {
+                        publicationsPerYear[year] = (publicationsPerYear[year] || 0) + 1;
+                        citationsPerYear[year] = (citationsPerYear[year] || 0) + citation;
+                    }
+
+                    if (showMoreLink) {
+                        let targetDiv = document.querySelector(showMoreLink.getAttribute("data-target"));
+                        if (targetDiv) {
+                            let sourceElement = Array.from(targetDiv.querySelectorAll("p")).find(p => p.textContent.includes("Source:"));
+                            if (sourceElement) {
+                                sourceText = sourceElement.textContent.replace("Source:", "").trim().toLowerCase();
                             }
                         }
-                    });
+                    }
 
-                    // กำหนดความสูงของกราฟใหม่
-                    document.getElementById("citationChart").style.height = "180px";
-                }
+                    console.log(`🔹 Year: ${year}, Source: ${sourceText}`);
 
-                // ✅ เรียกใช้เพื่อดึงข้อมูลตารางและวาดกราฟ summary
-                processTableData();
-
-                // ✅ ตั้งค่า Event ให้ปุ่มเปลี่ยนกราฟเมื่อกด
-                document.getElementById("google_scholar").addEventListener("click", function () {
-                    updateChart("google_scholar");
+                    if (year) {
+                        if (sourceText.includes("google scholar")) {
+                            googleScholarData[year] = (googleScholarData[year] || 0) + 1;
+                        } else if (sourceText.includes("scopus")) {
+                            scopusData[year] = (scopusData[year] || 0) + 1;
+                        } else if (sourceText.includes("tci")) {
+                            tciData[year] = (tciData[year] || 0) + 1;
+                        }
+                    }
                 });
 
-                document.getElementById("scopus_sum").addEventListener("click", function () {
-                    updateChart("scopus");
-                });
+                console.log("📊 Debug: Summary Data ก่อนส่งเข้า Chart", publicationsPerYear);
 
-                document.getElementById("tci_sum").addEventListener("click", function () {
-                    updateChart("tci");
-                });
-
-                document.getElementById("all").addEventListener("click", function () {
+                if (Object.keys(publicationsPerYear).length === 0) {
+                    console.warn("⚠️ ไม่มีข้อมูลใน publicationsPerYear");
+                } else {
                     updateChart("summary");
-                });
+                }
 
-                // เพิ่มฟังก์ชันสลับกราฟ
-                document.getElementById("toggle-chart").addEventListener("click", function () {
-                    var barChartElement = document.getElementById("publicationChart");
-                    var citationChartElement = document.getElementById("citationChart");
+                // คำนวณผลรวม citation ทุกปี
+                let totalCitations = Object.values(citationsPerYear).reduce((acc, curr) => acc + curr, 0);
 
-                    if (barChartElement.style.display === "none") {
-                        barChartElement.style.display = "block";
-                        citationChartElement.style.display = "none";
-                        this.innerHTML = "&gt;"; // เปลี่ยนปุ่มไปทางขวา
-                    } else {
-                        barChartElement.style.display = "none";
-                        citationChartElement.style.display = "block";
-                        this.innerHTML = "&lt;"; // เปลี่ยนปุ่มไปทางซ้าย
+                // แสดงผลรวม citation บนหน้าเว็บ
+                document.getElementById("total-citations-result").textContent = totalCitations;
+
+                // วาดกราฟ Citation Chart
+                var ctxCitation = document.getElementById("citationChart").getContext("2d");
+                window.citationChart = new Chart(ctxCitation, {
+                    type: "line",
+                    data: {
+                        labels: Object.keys(citationsPerYear).map(y => parseInt(y)).sort((a, b) => a - b),
+                        datasets: [{
+                            label: "Citations",
+                            backgroundColor: "rgba(153, 102, 255, 0.2)",
+                            borderColor: "rgba(153, 102, 255, 1)",
+                            borderWidth: 2,
+                            hoverBorderWidth: 3,
+                            data: Object.keys(citationsPerYear).map(y => citationsPerYear[y]),
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        layout: {
+                            padding: {
+                                top: 20,
+                                bottom: 20
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: "Year"
+                                },
+                                ticks: {
+                                    autoSkip: true,
+                                    maxRotation: 30,
+                                    minRotation: 30
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                min: 0,
+                                suggestedMax: Math.max(...Object.values(citationsPerYear)) + 10,
+                                title: {
+                                    display: true,
+                                    text: "Number of Citations"
+                                },
+                                ticks: {
+                                    stepSize: 1,
+                                    precision: 0
+                                },
+                                grid: {
+                                    color: "rgba(0, 0, 0, 0.1)"
+                                }
+                            }
+                        },
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function (tooltipItem) {
+                                        return tooltipItem.dataset.label + ": " + tooltipItem.raw;
+                                    }
+                                }
+                            }
+                        }
                     }
-
-                    // กำหนดความสูงของกราฟใหม่
-                    barChartElement.style.height = "180px";
-                    citationChartElement.style.height = "180px";
                 });
-            });
-        </script>
 
+                // กำหนดความสูงของกราฟใหม่
+                document.getElementById("citationChart").style.height = "180px";
+            }
+
+            // ✅ เรียกใช้เพื่อดึงข้อมูลตารางและวาดกราฟ summary
+            processTableData();
+
+            // ✅ ตั้งค่า Event ให้ปุ่มเปลี่ยนกราฟเมื่อกด
+            document.getElementById("google_scholar").addEventListener("click", function () {
+                updateChart("google_scholar");
+            });
+
+            document.getElementById("scopus_sum").addEventListener("click", function () {
+                updateChart("scopus");
+            });
+
+            document.getElementById("tci_sum").addEventListener("click", function () {
+                updateChart("tci");
+            });
+
+            document.getElementById("all").addEventListener("click", function () {
+                updateChart("summary");
+            });
+
+            // เพิ่มฟังก์ชันสลับกราฟ
+            document.getElementById("toggle-chart").addEventListener("click", function () {
+                var barChartElement = document.getElementById("publicationChart");
+                var citationChartElement = document.getElementById("citationChart");
+
+                if (barChartElement.style.display === "none") {
+                    barChartElement.style.display = "block";
+                    citationChartElement.style.display = "none";
+                    this.innerHTML = "&gt;"; // เปลี่ยนปุ่มไปทางขวา
+                } else {
+                    barChartElement.style.display = "none";
+                    citationChartElement.style.display = "block";
+                    this.innerHTML = "&lt;"; // เปลี่ยนปุ่มไปทางซ้าย
+                }
+
+                // กำหนดความสูงของกราฟใหม่
+                barChartElement.style.height = "180px";
+                citationChartElement.style.height = "180px";
+            });
+
+            // เพิ่ม event listener สำหรับการคลิกที่กราฟ (เปิด popup)
+            document.getElementById("publicationChart").addEventListener("click", function () {
+                showPopupChart(currentFilterType);
+            });
+
+            // ปิด Modal เมื่อคลิกที่ปุ่มปิด
+            document.querySelector(".close").addEventListener("click", function () {
+                let modal = document.getElementById("chartPopup");
+                modal.style.opacity = "0";
+                setTimeout(() => {
+                    modal.style.display = "none";
+                }, 300);
+
+                if (window.popupChart instanceof Chart) {
+                    window.popupChart.destroy();
+                }
+            });
+
+            // ปิด Modal เมื่อคลิกนอกพื้นที่ Modal
+            document.getElementById("chartPopup").addEventListener("click", function (event) {
+                if (event.target === this) {
+                    this.style.opacity = "0";
+                    setTimeout(() => {
+                        this.style.display = "none";
+                    }, 300);
+
+                    if (window.popupChart instanceof Chart) {
+                        window.popupChart.destroy();
+                    }
+                }
+            });
+
+            // นำฟังก์ชัน showPopupChart มาไว้ใน window เพื่อให้เรียกใช้ได้จากภายนอก
+            window.showPopupChart = showPopupChart;
+        });
+    </script>
 
 @endsection
