@@ -9,7 +9,6 @@ class Paper extends Model
 {
     use HasFactory;
     protected $hidden = [
-        
         'pivot'
     ];
     protected $fillable = [
@@ -25,12 +24,10 @@ class Paper extends Model
         'paper_page',
         'paper_doi',
         'paper_funder',
-        'reference_number',
         'patent_date',
         'abstract',
         'keyword',
         'publication'
-    
     ];
     protected $casts = [
         'keyword' => 'array',
@@ -47,6 +44,5 @@ class Paper extends Model
     public function author()
     {
         return $this->belongsToMany(Author::class,'author_of_papers')->withPivot('author_type');
-        // OR return $this->hasOne('App\Phone');
     }
 }

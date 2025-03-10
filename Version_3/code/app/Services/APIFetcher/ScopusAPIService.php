@@ -211,4 +211,31 @@ class ScopusAPIService {
         }
     }
 
+    public function extractDataToObject(array $papers): array
+    {
+        $extractedData = [];
+        foreach ($papers as $paper) {
+            $paperModel = new Paper();
+            $paperModel->paper_name = trim($paper['title']);
+            $paperModel->paper_doi = !empty($paper['doi']) ? strtolower(trim($paper['doi'])) : null;
+            $paperModel->paper_type = !empty($paper['type']) ? $paper['type'] : null;
+            $paperModel->paper_subtype = !empty($paper['subtype']) ? $paper['subtype'] : null;
+            $paperModel->paper_sourcetitle = !empty($paper['sourceTitle']) ? $paper['sourceTitle'] : null;
+            $paperModel->paper_url = !empty($paper['url']) ? $paper['url'] : null;
+            $paperModel->paper_yearpub = !empty($paper['year']) ? (int)$paper['year'] : null;
+            $paperModel->paper_volume = !empty($paper['volume']) ? (int)$paper['volume'] : null;
+            $paperModel->paper_issue = !empty($paper['issue']) ? $paper['issue'] : null;
+            $paperModel->paper_citation = !empty($paper['citationCount']) ? (int)$paper['citationCount'] : 0;
+            $paperModel->paper_page = !empty($paper['pageRange']) ? $paper['pageRange'] : null;
+            $paperModel->paper_funder = !empty($paper['funding']) ? json_encode($paper['funding']) : null;
+            $paperModel->abstract = !empty($paper['abstract']) ? $paper['abstract'] : null;
+            $paperModel->keyword = !empty($paper['keywords']) ? json_encode($paper['keywords']) : null;
+            $paperModel->publication = null;
+            $extractedData[] = $paperModel;
+
+        }
+        return $extractedData;
+
+    }
+
 }

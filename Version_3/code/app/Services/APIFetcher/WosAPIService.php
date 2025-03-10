@@ -174,4 +174,29 @@ class WosAPIService
         }
     }
 
+    public function extractDataToObject(array $papers): array
+    {
+        $extractedData = [];
+        foreach ($papers['hits'] as $paper) {
+            $paperModel = new Paper();
+            $paperModel->paper_name = trim($paper['title']);
+            $paperModel->paper_doi = !empty($paper['identifiers']['doi']) ? strtolower(trim($paper['identifiers']['doi'])) : null;
+            $paperModel->paper_type = !empty($paper['types'][0]) ? $paper['types'][0] : null;
+            $paperModel->paper_subtype = !empty($paper['sourceTypes'][0]) ? $paper['sourceTypes'][0] : null;
+            $paperModel->paper_sourcetitle = !empty($paper['source']['sourceTitle']) ? $paper['source']['sourceTitle'] : null;
+            $paperModel->paper_url = !empty($paper['links']['record']) ? $paper['links']['record'] : null;
+            $paperModel->paper_yearpub = !empty($paper['source']['publishYear']) ? (int)$paper['source']['publishYear'] : null;
+            $paperModel->paper_volume = !empty($paper['source']['volume']) ? (int)$paper['source']['volume'] : null;
+            $paperModel->paper_issue = !empty($paper['source']['issue']) ? (int)$paper['source']['issue'] : null;
+            $paperModel->paper_citation = !empty($paper['citations'][0]['count']) ? (int)$paper['citations'][0]['count'] : 0;
+            $paperModel->paper_page = !empty($paper['source']['pages']['range']) ? $paper['source']['pages']['range'] : null;
+            $paperModel->paper_funder = !empty($paper['names']['sponsors']['displayName']) ? $paper['names']['sponsors']['displayName'] : null;
+            $paperModel->keyword = !empty($paper['keywords']['authorKeywords']) ? json_encode($paper['keywords']['authorKeywords']) : null;
+            $paperModel->abstract = null;
+            $paperModel->publication = null;
+            $extractedData[] = $paperModel;
+        }
+        return $extractedData;
+    }
+
 }

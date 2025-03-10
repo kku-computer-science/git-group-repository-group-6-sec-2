@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use \Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -105,4 +105,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Fund::class);
     }
+
+    public function user_cited_year(): HasMany
+    {
+        return $this->hasMany(User_Cited_year::class);
+    }
+
 }
