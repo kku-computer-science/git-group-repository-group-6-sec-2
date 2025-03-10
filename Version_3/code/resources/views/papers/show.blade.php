@@ -25,16 +25,16 @@
             </div>
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>ประเภทวารสาร</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_type }}</p>
+                <p class="card-text col-sm-9 paper_type">{{ $paper->paper_type }}</p>
             </div>
 
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>ประเภทเอกสาร</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_subtype }}</p>
+                <p class="card-text col-sm-9 paper_subtype">{{ $paper->paper_subtype }}</p>
             </div>
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>Publication</b></p>
-                <p class="card-text col-sm-9">{{ $paper->publication }}</p>
+                <p class="card-text col-sm-9 publication">{{ $paper->publication }}</p>
             </div>
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>ผู้เขียน</b></p>
@@ -81,7 +81,7 @@
 
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>ชื่องานวารสาร (sourcetitle)</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_sourcetitle }}</p>
+                <p class="card-text col-sm-9 sourcetitle">{{ $paper->paper_sourcetitle }}</p>
             </div>
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>ปีที่ตีพิมพ์</b></p>
@@ -89,23 +89,23 @@
             </div>
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>เล่มที่ (volume)</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_volume }}</p>
+                <p class="card-text col-sm-9 volume">{{ $paper->paper_volume }}</p>
             </div>
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>ฉบับที่ (ISSUE)</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_issue}}</p>
+                <p class="card-text col-sm-9 issue">{{ $paper->paper_issue}}</p>
             </div>
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>เลขหน้า</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_page }}</p>
+                <p class="card-text col-sm-9 page">{{ $paper->paper_page }}</p>
             </div>
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>DOI</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_doi }}</p>
+                <p class="card-text col-sm-9 doi">{{ $paper->paper_doi }}</p>
             </div>
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>URL</b></p>
-                <a href="{{ $paper->paper_url }}" target="_blank" class="card-text col-sm-9">{{ $paper->paper_url }}</a>
+                <a href="{{ $paper->paper_url }}" target="_blank" class="card-text col-sm-9 paper_url">{{ $paper->paper_url }}</a>
             </div>
 
             <a class="btn btn-primary mt-5" href="{{ route('papers.index') }}"> Back</a>
