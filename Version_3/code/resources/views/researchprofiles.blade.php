@@ -1,5 +1,34 @@
 @extends('layouts.layout')
 <style>
+    .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); 
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        width: 60%;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 700px; /* ✅ จำกัดขนาด Modal ไม่ให้ใหญ่เกินไป */
+    }
+
+
+    .close {
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
     .count {
         background-color: #fff;
         padding: 2px 0;
@@ -31,12 +60,27 @@
         display: table;
         color: #4ad1e5;
     }
+
+    #popupCanvas {
+    width: 100% !important; /* ✅ ป้องกันการยืดเกิน */
+    height: 400px !important; /* ✅ กำหนดความสูงที่เหมาะสม */
+    max-height: 400px;
+}
 </style>
 
 @section('content')
 
 <div class="container cardprofile mt-5">
-    <div class="card">
+            <!-- ✅ Modal Popup -->
+            <div id="chartPopup" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>รายละเอียดข้อมูลทั้งหมด</h3>
+                    <canvas id="popupCanvas"></canvas>  <!-- ✅ เปลี่ยน ID ให้แน่ใจว่าเป็น <canvas> -->
+                </div>
+            </div>
+
+    <div class="card ">
         <div class="row g-0">
             <div class="col-md-2">
                 <img class="card-image" src="{{$res->picture}}" alt="">
@@ -84,14 +128,10 @@
                         <div class="col">
                             <div class="count" id="google_scholar"></div>
                         </div>
-                        <div class="mt-0">
-                        <canvas id="publicationChart"></canvas>
+                        <div class="mt-0" id="chartContainer" style="cursor: pointer;">
+                            <canvas id="publicationChart"></canvas>
+                        </div>
                     </div>
-
-                    </div>
-
-                    
-
                 </div>
             </div>
         </div>
@@ -163,7 +203,6 @@
                             <p>Document Type: {{$paper->paper_type}}</p>
                             <p>Page: {{$paper->paper_page}}</p>
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
                             <p>Source:
                                 @foreach ($paper->source as $s)
@@ -220,7 +259,6 @@
                             <p>Document Type: {{$paper->paper_type}}</p>
                             <p>Page: {{$paper->paper_page}}</p>
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
                             <p>Source:
                                 @foreach ($paper->source as $s)
@@ -263,7 +301,7 @@
                             <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
                             <p>Author:
                                 @foreach ($paper->author as $author)
-                                <span>
+                                <span>  
                                     <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
                                 </span>
                                 @endforeach
@@ -277,7 +315,6 @@
                             <p>Document Type: {{$paper->paper_type}}</p>
                             <p>Page: {{$paper->paper_page}}</p>
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
                             <p>Source:
                                 @foreach ($paper->source as $s)
@@ -334,7 +371,6 @@
                             <p>Document Type: {{$paper->paper_type}}</p>
                             <p>Page: {{$paper->paper_page}}</p>
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
                             <p>Source:
                                 @foreach ($paper->source as $s)
@@ -391,7 +427,6 @@
                             <p>Document Type: {{$paper->paper_type}}</p>
                             <p>Page: {{$paper->paper_page}}</p>
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
                             <p>Source:
                                 @foreach ($paper->source as $s)
@@ -508,6 +543,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+  
+
     $(document).ready(function() {
         $('#papersTable').DataTable({
             paging: true,
@@ -515,7 +552,8 @@
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 $('#scholarTable').DataTable({
     paging: true,
@@ -523,7 +561,8 @@ $('#scholarTable').DataTable({
     searching: true,
     ordering: true,
     info: true,
-    autoWidth: false
+    autoWidth: false,
+    order: [[2, 'desc']]  
 });
 
 
@@ -533,7 +572,8 @@ $('#scholarTable').DataTable({
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 
         $('#wosTable').DataTable({
@@ -542,7 +582,8 @@ $('#scholarTable').DataTable({
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 
         $('#tciTable').DataTable({
@@ -551,7 +592,8 @@ $('#scholarTable').DataTable({
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 
         $('#bookTable').DataTable({
@@ -560,7 +602,8 @@ $('#scholarTable').DataTable({
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 
         $('#patentTable').DataTable({
@@ -569,7 +612,8 @@ $('#scholarTable').DataTable({
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 
         $(document).on("click", ".show-more", function(e) {
@@ -590,6 +634,7 @@ $('#scholarTable').DataTable({
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
 
 <script>
     $(document).ready(function() {
@@ -637,87 +682,150 @@ $('#scholarTable').DataTable({
 
     });
 </script>
+
+<!-- กราฟ -->
 <script>
+let currentFilter = "summary";  // ✅ ทำให้เป็นตัวแปร Global
+
+document.addEventListener("DOMContentLoaded", function () {
+    let chartContainer = document.getElementById("chartContainer");
+
+    if (!chartContainer) {
+        console.error("❌ chartContainer ไม่พบใน DOM");
+        return;
+    }
+
+    document.getElementById("chartContainer").addEventListener("click", function () {
+        console.log(`✅ กดที่ chartContainer แล้ว! เปิด Popup สำหรับ: ${currentFilter}`);
+        showPopupChart(currentFilter);  // ✅ ใช้ตัวกรองที่ถูกต้อง
+    });
+
+});
+
+document.querySelector(".close").addEventListener("click", function () {
+    let modal = document.getElementById("chartPopup");
+    modal.style.opacity = "0"; // ✅ ให้มันจางลงก่อนซ่อน
+    setTimeout(() => {
+        modal.style.display = "none"; // ✅ ซ่อนหลังจากจาง
+    }, 300);
+
+    if (window.popupChart instanceof Chart) {
+        window.popupChart.destroy(); // ✅ ลบ Chart เพื่อป้องกันซ้อนกัน
+    }
+
+    console.log("Popup Closed");
+});
+
+document.getElementById("chartPopup").addEventListener("click", function (event) {
+    if (event.target === this) {
+        this.style.display = "none";
+        if (window.popupChart instanceof Chart) {
+            window.popupChart.destroy();
+        }
+    }
+});
+document.querySelector(".close").addEventListener("click", function () {
+    let modal = document.getElementById("chartPopup");
+    modal.style.opacity = "0"; // ✅ ให้มันจางลงก่อนซ่อน
+    setTimeout(() => {
+        modal.style.display = "none"; // ✅ ซ่อนหลังจากจาง
+    }, 300);
+
+    if (window.popupChart instanceof Chart) {
+        window.popupChart.destroy(); // ✅ ลบ Chart เพื่อป้องกันซ้อนกัน
+    }
+
+    console.log("Popup Closed");
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
     let googleScholarData = {};
     let scopusData = {};
     let tciData = {};
+    let wosData = {};
     let publicationsPerYear = {};
+    let showAllYears = false; // เริ่มต้นแสดงแค่ 5 ปีแรก
 
     function updateChart(filterType) {
-        let data = {};
+    let data = {};
 
-        if (filterType === "summary") {
-            data = publicationsPerYear;
-        } else if (filterType === "google_scholar") {
-            data = googleScholarData;
-        } else if (filterType === "scopus") {
-            data = scopusData;
-        } else if (filterType === "tci") {
-            data = tciData;
-        }
+    if (filterType === "summary") {
+        data = publicationsPerYear;
+    } else if (filterType === "google_scholar") {
+        data = googleScholarData;
+    } else if (filterType === "scopus") {
+        data = scopusData;
+    } else if (filterType === "tci") {
+        data = tciData;
+    } else if (filterType === "wos") {
+        data = wosData;
+    }
 
-        let years = Object.keys(data).map(y => parseInt(y)).sort((a, b) => a - b);
-        let counts = years.map(y => data[y]);
+    currentFilter = filterType;  // ✅ บันทึกค่าปัจจุบันว่ากราฟกำลังแสดงอะไร
+    console.log("✅ อัปเดตตัวกรองเป็น:", currentFilter);  // ✅ ตรวจสอบว่าเปลี่ยนจริง
 
-        if (counts.length === 0) {
-            console.warn(`⚠️ ไม่มีข้อมูลสำหรับ ${filterType}`);
-            return;
-        }
+    let years = Object.keys(data).map(y => parseInt(y)).sort((a, b) => a - b);
+    let counts = years.map(y => data[y]);
 
-        console.log(`📊 Final Data for Chart:`, { years, counts });
+    if (years.length === 0) {
+        console.warn(`⚠️ ไม่มีข้อมูลสำหรับ ${filterType}`);
+        return;
+    }
 
-        if (window.myChart) {
-            window.myChart.destroy();
-        }
+        // ✅ เลือกเฉพาะ 5 ปีล่าสุด
+    if (years.length > 5) {
+        years = years.slice(-5);
+        counts = counts.slice(-5);
+    }
+    if (window.myChart) {
+        window.myChart.destroy();
+    }
 
-        var ctx = document.getElementById("publicationChart").getContext("2d");
-        window.myChart = new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: years,
-                datasets: [{
-                    label: filterType.toUpperCase(),
-                    backgroundColor: "rgba(150, 150, 150, 0.6)",
-                    borderColor: "rgba(150, 150, 150, 1)",
-                    borderWidth: 2,
-                    hoverBorderWidth: 3,
-                    data: counts,
-                    maxBarThickness: 40,
-                    barPercentage: 0.8,
-                    categoryPercentage: 0.9
-                }]
+    var ctx = document.getElementById("publicationChart").getContext("2d");
+    window.myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: years,
+            datasets: [{
+                label: filterType.toUpperCase(),
+                backgroundColor: "rgba(150, 150, 150, 0.6)",
+                borderColor: "rgba(150, 150, 150, 1)",
+                borderWidth: 2,
+                hoverBorderWidth: 3,
+                data: counts,
+                maxBarThickness: 40,
+                barPercentage: 0.8,
+                categoryPercentage: 0.9
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: { padding: { top: 20, bottom: 20 } },
+            plugins: {
+                legend: { display: false },
+                tooltip: { enabled: true }
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                layout: { padding: { top: 20, bottom: 20 } },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: { enabled: true }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: Math.ceil(Math.max(...counts) + 2),
-                        ticks: { stepSize: 1, precision: 0 },
-                        grid: { drawTicks: true, drawBorder: true }
-                    },
-                    x: {
-                        ticks: { autoSkip: false, align: 'center', maxRotation: 45, minRotation: 45 },
-                        grid: { drawTicks: true, drawBorder: true }
-                    }
+            onClick: function (event, elements) {
+                if (elements.length > 0) {
+                    console.log(`✅ กดที่กราฟแล้ว! เปิด Popup สำหรับ: ${currentFilter}`);
+                    showPopupChart(currentFilter);  // ✅ ใช้ค่า currentFilter ที่อัปเดตแล้ว
                 }
             }
-        });
-    }
+        }
+    });
+ 
+}
+
+
 
     function processTableData() {
         publicationsPerYear = {}; 
         googleScholarData = {}; 
         scopusData = {}; 
         tciData = {};
+        wosData = {};
 
         document.querySelectorAll("#papersTable tbody tr").forEach(row => {
             let yearCell = row.cells[2];
@@ -756,11 +864,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     scopusData[year] = (scopusData[year] || 0) + 1;
                 } else if (sourceText.includes("tci")) {
                     tciData[year] = (tciData[year] || 0) + 1;
+                } else if (sourceText.includes("Web Of Science")||sourceText.includes("wos")) {
+                    wosData[year] = (wosData[year] || 0) + 1;
                 }
             }
         });
 
-        console.log("📊 Debug: Summary Data ก่อนส่งเข้า Chart", publicationsPerYear);
+        console.log("📊 Debug: WOS Data ก่อนส่งเข้า Chart", wosData);
 
         if (Object.keys(publicationsPerYear).length === 0) {
             console.warn("⚠️ ไม่มีข้อมูลใน publicationsPerYear");
@@ -785,9 +895,113 @@ document.addEventListener("DOMContentLoaded", function () {
         updateChart("tci");
     });
 
+    document.getElementById("wos_sum").addEventListener("click", function () {
+        updateChart("wos");
+    });
+
     document.getElementById("all").addEventListener("click", function () {
         updateChart("summary");
     });
+
+    
+    function showPopupChart(filterType) {
+    console.log("📊 เปิด Popup Chart:", filterType);
+
+    let data = {};
+    if (filterType === "summary") {
+        data = publicationsPerYear;
+    } else if (filterType === "google_scholar") {
+        data = googleScholarData;
+    } else if (filterType === "scopus") {
+        data = scopusData;
+    } else if (filterType === "tci") {
+        data = tciData;
+    } else if (filterType === "wos") {
+        data = wosData;
+    }
+
+    console.log("✅ ข้อมูลที่ใช้วาดกราฟ:", data);
+
+    if (!data || Object.keys(data).length === 0) {
+        console.error(`❌ ไม่มีข้อมูลสำหรับ ${filterType}`);
+        return;
+    }
+
+    let years = Object.keys(data).map(y => parseInt(y)).sort((a, b) => a - b);
+    let counts = years.map(y => data[y]);
+
+    console.log("📊 กำลังแสดง Popup Chart", { years, counts });
+
+    let modal = document.getElementById("chartPopup");
+    modal.style.display = "block";
+
+    setTimeout(() => {
+        let canvas = document.getElementById("popupCanvas");
+        
+        if (!canvas) {
+            console.error("❌ popupCanvas ไม่พบใน DOM");
+            return;
+        }
+
+        let ctx = canvas.getContext("2d");
+
+        if (!ctx) {
+            console.error("❌ ไม่สามารถเรียก getContext('2d') บน popupCanvas ได้");
+            return;
+        }
+
+        // ✅ ลบ Chart เก่าก่อนสร้างใหม่
+        if (window.popupChart instanceof Chart) {
+            window.popupChart.destroy();
+        }
+
+        window.popupChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: years,
+                datasets: [{
+                    label: `ข้อมูลทั้งหมด (${filterType.toUpperCase()})`,
+                    backgroundColor: "rgba(255, 99, 132, 0.6)",
+                    borderColor: "rgba(255, 99, 132, 1)",
+                    borderWidth: 2,
+                    hoverBorderWidth: 3,
+                    data: counts,
+                    maxBarThickness: 40,
+                    barPercentage: 0.8,
+                    categoryPercentage: 0.9
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true, // ✅ ป้องกันการยืดเกิน
+                layout: { padding: { top: 20, bottom: 20 } },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: Math.ceil(Math.max(...counts) + 2),
+                        ticks: { stepSize: 1, precision: 0 },
+                        grid: { drawTicks: true, drawBorder: true }
+                    },
+                    x: {
+                        ticks: { autoSkip: false, align: 'center', maxRotation: 45, minRotation: 45 },
+                        grid: { drawTicks: true, drawBorder: true }
+                    }
+                }
+            }
+        });
+
+        modal.style.display = "block";
+        modal.style.opacity = "1";
+
+        console.log("✅ Popup Chart Opened for:", filterType);
+    }, 100);
+}
+window.showPopupChart = showPopupChart;
 });
 </script>
 
@@ -1033,4 +1247,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 </script>
+
+
 @endsection
