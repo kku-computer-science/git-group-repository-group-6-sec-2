@@ -135,8 +135,6 @@ class GoogleScholarAPIService {
                     // กำหนดความสัมพันธ์กับ Source (ในที่นี้ใช้ Source_data id 4)
                     $source = Source_data::findOrFail(4);
                     $paper->source()->sync([$source->id]);
-
-                    $paper->cited_year();
                 } else {
                     // 🔄 อัปเดตจำนวน Citation หากข้อมูลใหม่มีค่าสูงกว่า
                     if ($paper->paper_citation < (int)$article['cited_by']) {
