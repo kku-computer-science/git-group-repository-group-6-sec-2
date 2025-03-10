@@ -203,7 +203,6 @@
                             <p>Document Type: {{$paper->paper_type}}</p>
                             <p>Page: {{$paper->paper_page}}</p>
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
                             <p>Source:
                                 @foreach ($paper->source as $s)
@@ -260,7 +259,6 @@
                             <p>Document Type: {{$paper->paper_type}}</p>
                             <p>Page: {{$paper->paper_page}}</p>
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
                             <p>Source:
                                 @foreach ($paper->source as $s)
@@ -303,7 +301,7 @@
                             <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
                             <p>Author:
                                 @foreach ($paper->author as $author)
-                                <span>
+                                <span>  
                                     <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
                                 </span>
                                 @endforeach
@@ -317,7 +315,6 @@
                             <p>Document Type: {{$paper->paper_type}}</p>
                             <p>Page: {{$paper->paper_page}}</p>
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
                             <p>Source:
                                 @foreach ($paper->source as $s)
@@ -374,7 +371,6 @@
                             <p>Document Type: {{$paper->paper_type}}</p>
                             <p>Page: {{$paper->paper_page}}</p>
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
                             <p>Source:
                                 @foreach ($paper->source as $s)
@@ -431,7 +427,6 @@
                             <p>Document Type: {{$paper->paper_type}}</p>
                             <p>Page: {{$paper->paper_page}}</p>
                             <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
                             <p>Doi: {{$paper->paper_doi}}</p>
                             <p>Source:
                                 @foreach ($paper->source as $s)
@@ -548,6 +543,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+  
+
     $(document).ready(function() {
         $('#papersTable').DataTable({
             paging: true,
@@ -555,7 +552,8 @@
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 $('#scholarTable').DataTable({
     paging: true,
@@ -563,7 +561,8 @@ $('#scholarTable').DataTable({
     searching: true,
     ordering: true,
     info: true,
-    autoWidth: false
+    autoWidth: false,
+    order: [[2, 'desc']]  
 });
 
 
@@ -573,7 +572,8 @@ $('#scholarTable').DataTable({
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 
         $('#wosTable').DataTable({
@@ -582,7 +582,8 @@ $('#scholarTable').DataTable({
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 
         $('#tciTable').DataTable({
@@ -591,7 +592,8 @@ $('#scholarTable').DataTable({
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 
         $('#bookTable').DataTable({
@@ -600,7 +602,8 @@ $('#scholarTable').DataTable({
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 
         $('#patentTable').DataTable({
@@ -609,7 +612,8 @@ $('#scholarTable').DataTable({
             searching: true,
             ordering: true,
             info: true,
-            autoWidth: false
+            autoWidth: false,
+            order: [[2, 'desc']]  
         });
 
         $(document).on("click", ".show-more", function(e) {
@@ -630,6 +634,7 @@ $('#scholarTable').DataTable({
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
 
 <script>
     $(document).ready(function() {
@@ -859,7 +864,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     scopusData[year] = (scopusData[year] || 0) + 1;
                 } else if (sourceText.includes("tci")) {
                     tciData[year] = (tciData[year] || 0) + 1;
-                } else if (sourceText.includes("web of science")||sourceText.includes("wos")) {
+                } else if (sourceText.includes("Web Of Science")||sourceText.includes("wos")) {
                     wosData[year] = (wosData[year] || 0) + 1;
                 }
             }
@@ -997,10 +1002,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 100);
 }
 window.showPopupChart = showPopupChart;
-
-
-
-
 });
 </script>
 
@@ -1246,4 +1247,6 @@ window.showPopupChart = showPopupChart;
     });
 
 </script>
+
+
 @endsection
