@@ -192,6 +192,8 @@ class WosAPIService
             $paperModel->paper_page = !empty($paper['source']['pages']['range']) ? $paper['source']['pages']['range'] : null;
             $paperModel->paper_funder = !empty($paper['names']['sponsors']['displayName']) ? $paper['names']['sponsors']['displayName'] : null;
             $paperModel->keyword = !empty($paper['keywords']['authorKeywords']) ? json_encode($paper['keywords']['authorKeywords']) : null;
+            $paperModel->abstract = null;
+            $paperModel->publication = null;
             $extractedData[] = $paperModel;
         }
         return $extractedData;
