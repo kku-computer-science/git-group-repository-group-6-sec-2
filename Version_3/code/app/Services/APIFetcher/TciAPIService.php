@@ -103,16 +103,17 @@ class TciAPIService
         return null;
     }
 
+    // get abbrivation of an article
     public static function getAbbr(string $articleName): ?string
     {
         $articleName = str_replace(" ", "%20", $articleName);
         $url = "https://pyapi.lingosoft.co/abbr_feature?key=$articleName";
         $refurl = "https://search.tci-thailand.org/";
-        $data = self::fetchData($url, $refurl);
 
-        return $data;
+        return self::fetchData($url, $refurl);
     }
 
+    //json data of all articles id that cite an article
     public static function getCitedArticles(int $article_id,string $abbr): ?array
     {
         $url = "https://search.tci-thailand.org/php/search/search_ref_feature.php?search_article_id=$article_id&abbr_loc=$abbr";
@@ -122,8 +123,27 @@ class TciAPIService
         return $data['article_ids']  ?? [];
     }
 
-  
-
+    //คำนวณปีที่ cite
+    public static function calculateCitedYear(array $citedArticles): ?array
+    {
+        $cited_years = [];
+        
+        foreach ($citedArticles as $citedArticle) 
+        {
+            $citedArticleInfo = self::getArticleInfo($citedArticle, "");
+            $citedyear = $citedArticleInfo[0]['year'] ?? null; 
+            
+            if ($citedyear !== null) {
+                if (isset($cited_years[$citedyear])) {
+                    $cited_years[$citedyear]++;  
+                } else {
+                    $cited_years[$citedyear] = 1; 
+                }
+            }
+        }
+        return $cited_years;
+    }
+    
     public static function extractRelevantData(string $researcherName): ?array
     {
         $articles = self::getArticles($researcherName);
@@ -285,3 +305,11 @@ class TciAPIService
     }
 }
 
+
+
+$keyword = "Sartra Wongthanavasu";
+$relevantData = TciAPIService::extractRelevantData($keyword);
+$d = TciAPIService::getArticleLinks("309186");
+$abbr = TciAPIService::getAbbr("Survey of brackish-water snails in eastern Thailand");
+$cited = TciAPIService::getCitedArticles("27206",$abbr);
+TciAPIService::calculateCitedYear($cited);
