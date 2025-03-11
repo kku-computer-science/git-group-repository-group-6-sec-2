@@ -87,8 +87,12 @@ class GoogleScholarAPIService {
             ];
         }
 
-        // ใช้ Bulk Insert ลด Query หลายรอบ
-        User_Cited_Year::insert($insertData);
+        // ใช้ upsert เพื่อเพิ่มหรืออัปเดต
+        User_Cited_Year::upsert(
+            $insertData,
+            ['cited_year', 'user_id'], // กำหนดคีย์ที่ใช้ตรวจสอบว่า row ซ้ำหรือไม่
+            ['cited_count'] // อัปเดตค่า cited_count ถ้ามีข้อมูลอยู่แล้ว
+        );
 
         foreach ($data['articles'] as $article) {
             // ใช้ transaction เพื่อให้การบันทึกข้อมูลเป็น atomic operation
@@ -293,7 +297,4 @@ class GoogleScholarAPIService {
         }
         return $extractedData;
     }
-
 }
-
-
