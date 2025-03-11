@@ -8,6 +8,7 @@ use App\Models\Paper;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ProfileController extends Controller
 {
@@ -19,6 +20,11 @@ class ProfileController extends Controller
         // ดึงข้อมูลผู้ใช้และอาจารย์ทั้งหมด
         $res = User::findOrFail($id);
         $teachers = User::role('teacher')->get();
+
+        // ดึงข้อมูลจำนวนการอ้างอิงทั้งหมด
+        $userCited = $res->user_cited_year;
+
+        Log :: info("Cited Data ---------> ".$userCited);
 
         // ดึงข้อมูลงานวิจัย
         $papers = $this->getPapersByTeacher($id);
@@ -70,6 +76,7 @@ class ProfileController extends Controller
             'papers_wos' => $papers_wos,
             'book_chapter' => $book_chapter,
             'patent' => $patent,
+            'userCited' => $userCited
         ]);
     }
 

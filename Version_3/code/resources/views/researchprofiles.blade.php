@@ -148,18 +148,18 @@
         </div>
         <!-- กราฟ -->
         <!-- <div class="chart-container position-relative"
-                                                                                style="overflow: hidden; width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
-                                                                                <div class="chart-wrapper d-flex justify-content-center align-items-center"
-                                                                                    style="gap: 20px; width: 100%;"> -->
+                                                                                    style="overflow: hidden; width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
+                                                                                    <div class="chart-wrapper d-flex justify-content-center align-items-center"
+                                                                                        style="gap: 20px; width: 100%;"> -->
         <!-- กราฟการตีพิมพ์ -->
         <!-- <canvas id="publicationChart" class="chart-item"
-                                                                                        style="cursor: pointer;"></canvas> -->
+                                                                                            style="cursor: pointer;"></canvas> -->
         <!-- กราฟ Citations -->
         <!-- <canvas id="citationChart" class="chart-item"
-                                                                                        style="display: none; cursor: pointer; width: 100%; height: 100%; max-height: 500px;"></canvas> -->
+                                                                                            style="display: none; cursor: pointer; width: 100%; height: 100%; max-height: 500px;"></canvas> -->
         <!-- </div> -->
         <!-- <span id="toggle-chart"
-                                                                                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">&gt;</span> -->
+                                                                                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">&gt;</span> -->
         <!-- </div> -->
 
         <br>
@@ -768,24 +768,24 @@
 
             //$("#scopus").append('data-to="100"');
             document.getElementById("all").innerHTML += `
-                                                                        <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                                                                        <p class="count-text ">SUMMARY</p>`
+                                                                            <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
+                                                                            <p class="count-text ">SUMMARY</p>`
 
             document.getElementById("scopus_sum").innerHTML += `
-                                                                        <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
-                                                                        <p class="count-text">SCOPUS</p>`
+                                                                            <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
+                                                                            <p class="count-text">SCOPUS</p>`
 
             document.getElementById("wos_sum").innerHTML += `
-                                                                        <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
-                                                                        <p class="count-text ">WOS</p>`
+                                                                            <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
+                                                                            <p class="count-text ">WOS</p>`
 
             document.getElementById("tci_sum").innerHTML += `
-                                                                        <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
-                                                                        <p class="count-text ">TCI</p>`
+                                                                            <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
+                                                                            <p class="count-text ">TCI</p>`
 
             document.getElementById("google_scholar").innerHTML += `
-                                                                        <h2 class="timer count-title count-number" data-to="${sumScholar}" data-speed="1500"></h2>
-                                                                        <p class="count-text ">Google Scholar</p>`
+                                                                            <h2 class="timer count-title count-number" data-to="${sumScholar}" data-speed="1500"></h2>
+                                                                            <p class="count-text ">Google Scholar</p>`
 
             //document.getElementById("scopus").appendChild('data-to="100"');
             $.fn.countTo = function (options) {
@@ -957,47 +957,47 @@
             // เพิ่ม CSS สำหรับ Modal
             const styleElement = document.createElement('style');
             styleElement.textContent = `
-                            .modal {
-                                display: none;
-                                position: fixed;
-                                z-index: 999;
-                                left: 0;
-                                top: 0;
-                                width: 100%;
-                                height: 100%;
-                                background-color: rgba(0,0,0,0.5);
-                                opacity: 0;
-                                transition: opacity 0.3s ease;
-                            }
+                                .modal {
+                                    display: none;
+                                    position: fixed;
+                                    z-index: 999;
+                                    left: 0;
+                                    top: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: rgba(0,0,0,0.5);
+                                    opacity: 0;
+                                    transition: opacity 0.3s ease;
+                                }
 
-                            .modal-content {
-                                background-color: white;
-                                margin: 10% auto;
-                                padding: 20px;
-                                width: 60%;
-                                border-radius: 10px;
-                                text-align: center;
-                                max-width: 700px;
-                            }
+                                .modal-content {
+                                    background-color: white;
+                                    margin: 10% auto;
+                                    padding: 20px;
+                                    width: 60%;
+                                    border-radius: 10px;
+                                    text-align: center;
+                                    max-width: 700px;
+                                }
 
-                            .close {
-                                float: right;
-                                font-size: 28px;
-                                font-weight: bold;
-                                cursor: pointer;
-                            }
-                        `;
+                                .close {
+                                    float: right;
+                                    font-size: 28px;
+                                    font-weight: bold;
+                                    cursor: pointer;
+                                }
+                            `;
             document.head.appendChild(styleElement);
 
             // เพิ่ม Modal HTML ใน DOM
             const modalHTML = `
-                            <div id="chartPopup" class="modal">
-                                <div class="modal-content">
-                                    <span class="close">&times;</span>
-                                    <h3>รายละเอียดข้อมูลทั้งหมด</h3>
-                                    <canvas id="popupCanvas"></canvas>
-                                </div>
-                            </div>`;
+                                <div id="chartPopup" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <h3>รายละเอียดข้อมูลทั้งหมด</h3>
+                                        <canvas id="popupCanvas"></canvas>
+                                    </div>
+                                </div>`;
 
             // เพิ่ม Modal ไปที่ body
             document.body.insertAdjacentHTML('beforeend', modalHTML);
@@ -1280,7 +1280,6 @@
                         }
                     }
 
-                    console.log(`🔹 Year: ${year}, Source: ${sourceText}`);
 
                     if (year) {
                         if (sourceText.includes("google scholar")) {
@@ -1295,23 +1294,44 @@
                     }
                 });
 
-                console.log("📊 Debug: WOS Data ก่อนส่งเข้า Chart", wosData);
-
                 if (Object.keys(publicationsPerYear).length === 0) {
                     console.warn("⚠️ ไม่มีข้อมูลใน publicationsPerYear");
                 } else {
                     updateChart("summary");
                 }
 
+                let userCited = @json($userCited);
+                let countCitations = {}
+
+
+                // แปลงข้อมูลจาก userCited ให้เป็นรูปแบบที่ใช้ในการสร้างกราฟ
+                userCited.forEach(item => {
+                    let year = item.cited_year;
+                    let count = item.cited_count;
+
+                    if (year && count !== undefined) {
+                        countCitations[year] = (countCitations[year] || 0) + count;
+                    }
+                });
+
+                if (Object.keys(countCitations).length === 0) {
+                    console.warn("⚠️ ไม่มีข้อมูล citation");
+                } else {
+                    updateChart("summary");
+                }
+
                 // คำนวณผลรวม citation ทุกปี
-                let totalCitations = Object.values(allCitationsPerYear).reduce((acc, curr) => acc + curr, 0);
+                let totalCitations = Object.values(countCitations).reduce((acc, curr) => acc + curr, 0);
 
                 // แสดงผลรวม citation บนหน้าเว็บ
                 document.getElementById("total-citations-result").textContent = totalCitations;
 
-                // กำหนดข้อมูล 5 ปีล่าสุดสำหรับ citationChart
-                let citationYears = Object.keys(allCitationsPerYear).map(y => parseInt(y)).sort((a, b) => a - b);
-                let citationCounts = citationYears.map(y => allCitationsPerYear[y]);
+                // รับข้อมูลจาก userCited
+                let citationYears = userCited.map(item => item.cited_year);
+                let citationCounts = userCited.map(item => item.cited_count);
+
+                console.log("🟢 Citation Years:", citationYears);
+                console.log("🟢 Citation Counts:", citationCounts);
 
                 if (citationYears.length > 5) {
                     citationYears = citationYears.slice(-5);
@@ -1388,9 +1408,10 @@
                 document.getElementById("citationChart").style.height = "180px";
 
                 // เก็บข้อมูลทั้งหมดไว้ใช้ใน popup
-                window.allCitationYears = Object.keys(allCitationsPerYear).map(y => parseInt(y)).sort((a, b) => a - b);
-                window.allCitationCounts = window.allCitationYears.map(y => allCitationsPerYear[y]);
+                window.allCitationYears = Object.keys(countCitations).map(y => parseInt(y)).sort((a, b) => a - b);
+                window.allCitationCounts = window.allCitationYears.map(y => countCitations[y]);
             }
+
             // ✅ เรียกใช้เพื่อดึงข้อมูลตารางและวาดกราฟ summary
             processTableData();
 
