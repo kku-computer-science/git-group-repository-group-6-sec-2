@@ -10,16 +10,16 @@ use Illuminate\Support\Facades\DB;
 
 class TciAPIService
 {
-    private static function fetchData(string $url, array $payload = null, bool $isPost = false): ?array
+    private static function fetchData(string $baseurl, string $refurl,array $payload = null, bool $isPost = false)
     {
         $headers = [
             "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
             "Content-Type: application/x-www-form-urlencoded",
-            "Referer: https://search.tci-thailand.org/advance_search.html"
+            "Referer: $refurl"
         ];
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, $baseurl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Temporary SSL ignore
@@ -41,13 +41,17 @@ class TciAPIService
 
         // ปรับการแสดงผลภาษาไทย
         $response = mb_convert_encoding($response, 'UTF-8');
-
-        return json_decode($response, true);
+        $jsonData = json_decode($response, true);
+    
+        // If JSON decoding fails, return raw string
+        return ($jsonData !== null) ? $jsonData : $response;
     }
 
+    //list of all articles from an author (name)
     public static function getArticles(string $keyword, string $criteria = "author", int $curPage = 1, int $pageSize = 100, string $yearFilter = "", string $countryFilter = "", int $yearNum = 30): array
     {
         $url = 'https://search.tci-thailand.org/php/search/advance_search.php';
+        $refurl = 'https://search.tci-thailand.org/advance_search.html';
         $payload = [
             "keyword[]" => $keyword,
             "criteria[]" => $criteria,
@@ -60,23 +64,67 @@ class TciAPIService
             "year_num" => $yearNum
         ];
 
-        $data = self::fetchData($url, $payload, true);
+        $data = self::fetchData($url, $refurl, $payload, true);
         return $data['article_ids'] ?? [];
     }
 
+    //json data of all authors id in an article
     public static function getAllAuthorsName(int $articleId): ?array
     {
         $url = "https://search.tci-thailand.org/php/search/author_info.php?article_id=$articleId";
-        return self::fetchData($url);
+        $refurl = "https://search.tci-thailand.org/advance_search.html";
+        return self::fetchData($url, $refurl);
     }
 
+    //json data of an article
     public static function getArticleInfo(int $articleId, string $keyword): ?array
     {
         $url = "https://search.tci-thailand.org/php/search/search_result.php?get_article_info=true&article_id=$articleId&advance_search%5B%5D=" . urlencode($keyword);
-        return self::fetchData($url);
+        $refurl = "https://search.tci-thailand.org/advance_search.html";
+        return self::fetchData($url, $refurl);
     }
 
-    public static function extractRelevantData(string $researcherName): array
+    // link ของบทความ
+    public static function getArticleLinks(int $article_id)
+    {
+        $posturl = "https://search.tci-thailand.org/php/search/link.php";
+        $refurl = 'https://search.tci-thailand.org/advance_search.html';
+        $resultUrl = 'https://search.tci-thailand.org/';
+        $payload = [
+            "article_id" => $article_id,
+            "link" => "true"
+        ];
+
+        $data = self::fetchData($posturl, $refurl, $payload, true);
+       
+        if (preg_match('/href="([^"]+)"/', $data['openArticle'], $matches)) {
+            return $resultUrl.$matches[1]; 
+        }
+        return null;
+    }
+
+    public static function getAbbr(string $articleName): ?string
+    {
+        $articleName = str_replace(" ", "%20", $articleName);
+        $url = "https://pyapi.lingosoft.co/abbr_feature?key=$articleName";
+        $refurl = "https://search.tci-thailand.org/";
+        $data = self::fetchData($url, $refurl);
+
+        return $data;
+    }
+
+    public static function getCitedArticles(int $article_id,string $abbr): ?array
+    {
+        $url = "https://search.tci-thailand.org/php/search/search_ref_feature.php?search_article_id=$article_id&abbr_loc=$abbr";
+        $refurl = "https://search.tci-thailand.org/advance_search.html";
+        $data = self::fetchData($url, $refurl);
+
+        return $data['article_ids']  ?? [];
+    }
+
+  
+
+    public static function extractRelevantData(string $researcherName): ?array
     {
         $articles = self::getArticles($researcherName);
         if (empty($articles)) {
@@ -90,8 +138,9 @@ class TciAPIService
         foreach ($articles as $articleId) {
             $articleInfo = self::getArticleInfo($articleId, $researcherName);
             $authors = self::getAllAuthorsName($articleId);
+            $articleLink = self::getArticleLinks($articleId);
 
-            $authorNames = array_map(fn($author) => $author['name_loc'], $authors ?? []);
+            $authorNames = array_map(fn($author) => $author['name'], $authors);
             $articleInfo['authors'] = implode(', ', $authorNames);
 
             if ($articleInfo[0]['document_type_id'] == 1) {
@@ -102,7 +151,7 @@ class TciAPIService
                 'authors' => $articleInfo['authors'] ?? '',
                 'article_loc' => $articleInfo[0]['article_loc'] ?? 'Unknown Title',
                 'article_eng' => $articleInfo[0]['article_eng'] ?? 'Unknown Title',
-                'journal_loc' => $articleInfo[0]['journal_loc'] ?? '',
+                'journal_loc' => $articleInfo[0]['journal_loc'] ?? '',  
                 'journal_eng' => $articleInfo[0]['journal_eng'] ?? '',
                 'volume' => $articleInfo[0]['volume'] ?? 'N/A',
                 'page_number' => $articleInfo[0]['page_number'] ?? 'N/A',
@@ -235,3 +284,4 @@ class TciAPIService
         }
     }
 }
+
