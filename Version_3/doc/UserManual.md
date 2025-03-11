@@ -9,6 +9,7 @@ Research Document Management System เป็นระบบสำหรับ�
 - **Username:** ใช้ **KKU-Mail**
 - **Password:** ใช้รหัสผ่านที่กำหนด  
 - สำหรับนักศึกษาที่เข้าสู่ระบบเป็นครั้งแรก ให้ใช้ **รหัสนักศึกษา** เป็นรหัสผ่าน  
+![alt text](image.png)
 
 ### **2.2 ขั้นตอนการเข้าสู่ระบบ**
 1. ไปที่ [Research Document Management System](https://cssegroup6sec267.cpkkuhost.com/)  
