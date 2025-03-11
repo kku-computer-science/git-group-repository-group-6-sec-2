@@ -1042,9 +1042,6 @@
                     displayCounts = counts.slice(-5);
                 }
 
-                console.log(`📊 Data for Chart (recent 5 years):`, { years: displayYears, counts: displayCounts });
-                console.log(`📊 All Data:`, { years, counts });
-
                 // เลือกว่าจะอัพเดทกราฟไหน
                 if (window.myChart) {
                     window.myChart.destroy();
@@ -1263,8 +1260,6 @@
                     let year = parseInt(yearCell.textContent.trim()) || 0;
                     let citation = parseInt(citationCell.textContent.trim()) || 0;
 
-                    console.log("🟢 Year Found:", year);
-
                     if (year) {
                         publicationsPerYear[year] = (publicationsPerYear[year] || 0) + 1;
                         allCitationsPerYear[year] = (allCitationsPerYear[year] || 0) + citation;
@@ -1321,7 +1316,7 @@
                 }
 
                 // คำนวณผลรวม citation ทุกปี
-                let totalCitations = Object.values(countCitations).reduce((acc, curr) => acc + curr, 0);
+                let totalCitations = Object.values(allCitationsPerYear).reduce((acc, curr) => acc + curr, 0);
 
                 // แสดงผลรวม citation บนหน้าเว็บ
                 document.getElementById("total-citations-result").textContent = totalCitations;
@@ -1329,9 +1324,6 @@
                 // รับข้อมูลจาก userCited
                 let citationYears = userCited.map(item => item.cited_year);
                 let citationCounts = userCited.map(item => item.cited_count);
-
-                console.log("🟢 Citation Years:", citationYears);
-                console.log("🟢 Citation Counts:", citationCounts);
 
                 if (citationYears.length > 5) {
                     citationYears = citationYears.slice(-5);
