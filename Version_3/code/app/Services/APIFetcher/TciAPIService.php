@@ -85,7 +85,7 @@ class TciAPIService
     }
 
     // link ของบทความ
-    public static function getArticleLinks(int $article_id)
+    public static function getArticleLink(int $article_id)
     {
         $posturl = "https://search.tci-thailand.org/php/search/link.php";
         $refurl = 'https://search.tci-thailand.org/advance_search.html';
@@ -124,7 +124,7 @@ class TciAPIService
     }
 
     //คำนวณปีที่ cite
-    public static function calculateCitedYear(array $citedArticles): ?array
+    public static function sumCitedYear(array $citedArticles): ?array
     {
         $cited_years = [];
         
@@ -158,7 +158,10 @@ class TciAPIService
         foreach ($articles as $articleId) {
             $articleInfo = self::getArticleInfo($articleId, $researcherName);
             $authors = self::getAllAuthorsName($articleId);
-            $articleLink = self::getArticleLinks($articleId);
+            $abbr = self::getAbbr($articleInfo[0]['article_eng']);
+            $cited = self::getCitedArticles($articleId,$abbr);
+            $sumCitedYear = self::sumCitedYear($cited);
+            $articleLink = self::getArticleLink($articleId);
 
             $authorNames = array_map(fn($author) => $author['name'], $authors);
             $articleInfo['authors'] = implode(', ', $authorNames);
@@ -177,7 +180,9 @@ class TciAPIService
                 'page_number' => $articleInfo[0]['page_number'] ?? 'N/A',
                 'year' => $articleInfo[0]['year'] ?? 'Unknown Year',
                 'cited' => $articleInfo[0]['cited'] ?? 0,
-                'document_type' => $articleInfo[0]['document_type'] ?? ''
+                'document_type' => $articleInfo[0]['document_type'] ?? '',
+                'article_link' => $articleLink ?? '',
+                'sum_cited_year' => $sumCitedYear
             ];
     }
     return [
@@ -306,10 +311,3 @@ class TciAPIService
 }
 
 
-
-$keyword = "Sartra Wongthanavasu";
-$relevantData = TciAPIService::extractRelevantData($keyword);
-$d = TciAPIService::getArticleLinks("309186");
-$abbr = TciAPIService::getAbbr("Survey of brackish-water snails in eastern Thailand");
-$cited = TciAPIService::getCitedArticles("27206",$abbr);
-TciAPIService::calculateCitedYear($cited);
