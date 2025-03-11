@@ -148,18 +148,18 @@
         </div>
         <!-- กราฟ -->
         <!-- <div class="chart-container position-relative"
-                                                                style="overflow: hidden; width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
-                                                                <div class="chart-wrapper d-flex justify-content-center align-items-center"
-                                                                    style="gap: 20px; width: 100%;"> -->
+                                                                    style="overflow: hidden; width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
+                                                                    <div class="chart-wrapper d-flex justify-content-center align-items-center"
+                                                                        style="gap: 20px; width: 100%;"> -->
         <!-- กราฟการตีพิมพ์ -->
         <!-- <canvas id="publicationChart" class="chart-item"
-                                                                        style="cursor: pointer;"></canvas> -->
+                                                                            style="cursor: pointer;"></canvas> -->
         <!-- กราฟ Citations -->
         <!-- <canvas id="citationChart" class="chart-item"
-                                                                        style="display: none; cursor: pointer; width: 100%; height: 100%; max-height: 500px;"></canvas> -->
+                                                                            style="display: none; cursor: pointer; width: 100%; height: 100%; max-height: 500px;"></canvas> -->
         <!-- </div> -->
         <!-- <span id="toggle-chart"
-                                                                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">&gt;</span> -->
+                                                                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">&gt;</span> -->
         <!-- </div> -->
 
         <br>
@@ -185,7 +185,8 @@
                         role="tab" aria-controls="tci" aria-selected="false">TCI</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="scholar-tab" data-bs-toggle="tab" data-bs-target="#scholar" type="button" role="tab" aria-controls="scholar" aria-selected="false">
+                    <button class="nav-link" id="scholar-tab" data-bs-toggle="tab" data-bs-target="#scholar" type="button"
+                        role="tab" aria-controls="scholar" aria-selected="false">
                         Google Scholar
                     </button>
                 </li>
@@ -436,61 +437,63 @@
             </div>
 
             <div class="tab-pane fade" id="scholar" role="tabpanel" aria-labelledby="scholar-tab">
-    <div class="table-responsive">
-        <table id="scholarTable" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Paper Name</th>
-                    <th>Citations</th>
-                    <th>Year</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($papers_google as $paper)
-                <tr>
-                    <td style="width:50%;">
-                        {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
-                        <div id="collapse-scholar-{{ $paper->id }}" class="collapse">
-                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
-                            <p>Author:
-                                @foreach ($paper->author as $author)
-                                <span>
-                                    <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-                                </span>
-                                @endforeach
-                                @foreach ($paper->teacher as $author)
-                                <span >
-                                    <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                        <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
-                                </span>
-                                @endforeach
-                            </p>
-                            <p>Document Type: {{$paper->paper_type}}</p>
-                            <p>Page: {{$paper->paper_page}}</p>
-                            <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
-                            <p>Ciations: {{$paper->paper_citation}}</p>
-                            <p>Doi: {{$paper->paper_doi}}</p>
-                            <p>Source:
-                                @foreach ($paper->source as $s)
-                                <span>
-                                    <a>{{$s -> source_name}}@if (!$loop->last) , @endif</a>
-                                </span>
-                                @endforeach
-                            </p>
-                        </div>
-                    </td>
-                    <td>{{ $paper->paper_citation }}</td>
-                    <td>{{ $paper->paper_yearpub }}</td>
-                    <td>
-                        <a href="#" class="show-more" data-target="#collapse-scholar-{{ $paper->id }}" data-id="{{ $paper->id }}">Show more ▼</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
+                <div class="table-responsive">
+                    <table id="scholarTable" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Paper Name</th>
+                                <th>Citations</th>
+                                <th>Year</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($papers_google as $paper)
+                                <tr>
+                                    <td style="width:50%;">
+                                        {!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}
+                                        <div id="collapse-scholar-{{ $paper->id }}" class="collapse">
+                                            <!-- ข้อมูลที่เหลือที่ต้องการแสดง -->
+                                            <p>Author:
+                                                @foreach ($paper->author as $author)
+                                                    <span>
+                                                        <a>{{$author->author_fname}} {{$author->author_lname}}</a>
+                                                    </span>
+                                                @endforeach
+                                                @foreach ($paper->teacher as $author)
+                                                    <span>
+                                                        <a href="{{ route('detail', Crypt::encrypt($author->id))}}">
+                                                            <teacher>{{$author->fname_en}} {{$author->lname_en}}</teacher>
+                                                        </a>
+                                                    </span>
+                                                @endforeach
+                                            </p>
+                                            <p>Document Type: {{$paper->paper_type}}</p>
+                                            <p>Page: {{$paper->paper_page}}</p>
+                                            <p>Journals/Transactions: {{$paper->paper_sourcetitle}}</p>
+                                            <p>Ciations: {{$paper->paper_citation}}</p>
+                                            <p>Doi: {{$paper->paper_doi}}</p>
+                                            <p>Source:
+                                                @foreach ($paper->source as $s)
+                                                    <span>
+                                                        <a>{{$s->source_name}}@if (!$loop->last) , @endif</a>
+                                                    </span>
+                                                @endforeach
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td>{{ $paper->paper_citation }}</td>
+                                    <td>{{ $paper->paper_yearpub }}</td>
+                                    <td>
+                                        <a href="#" class="show-more" data-target="#collapse-scholar-{{ $paper->id }}"
+                                            data-id="{{ $paper->id }}">Show more ▼</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
                 <div class="table-responsive">
                     <table id="bookTable" class="table table-striped" style="width:100%">
@@ -765,24 +768,24 @@
 
             //$("#scopus").append('data-to="100"');
             document.getElementById("all").innerHTML += `
-                                                        <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                                                        <p class="count-text ">SUMMARY</p>`
+                                                            <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
+                                                            <p class="count-text ">SUMMARY</p>`
 
             document.getElementById("scopus_sum").innerHTML += `
-                                                        <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
-                                                        <p class="count-text">SCOPUS</p>`
+                                                            <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
+                                                            <p class="count-text">SCOPUS</p>`
 
             document.getElementById("wos_sum").innerHTML += `
-                                                        <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
-                                                        <p class="count-text ">WOS</p>`
+                                                            <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
+                                                            <p class="count-text ">WOS</p>`
 
             document.getElementById("tci_sum").innerHTML += `
-                                                        <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
-                                                        <p class="count-text ">TCI</p>`
+                                                            <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
+                                                            <p class="count-text ">TCI</p>`
 
             document.getElementById("google_scholar").innerHTML += `
-                                                        <h2 class="timer count-title count-number" data-to="${sumScholar}" data-speed="1500"></h2>
-                                                        <p class="count-text ">Google Scholar</p>`
+                                                            <h2 class="timer count-title count-number" data-to="${sumScholar}" data-speed="1500"></h2>
+                                                            <p class="count-text ">Google Scholar</p>`
 
             //document.getElementById("scopus").appendChild('data-to="100"');
             $.fn.countTo = function (options) {
@@ -954,47 +957,47 @@
             // เพิ่ม CSS สำหรับ Modal
             const styleElement = document.createElement('style');
             styleElement.textContent = `
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 999;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0,0,0,0.5);
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
+                .modal {
+                    display: none;
+                    position: fixed;
+                    z-index: 999;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,0.5);
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
 
-            .modal-content {
-                background-color: white;
-                margin: 10% auto;
-                padding: 20px;
-                width: 60%;
-                border-radius: 10px;
-                text-align: center;
-                max-width: 700px;
-            }
+                .modal-content {
+                    background-color: white;
+                    margin: 10% auto;
+                    padding: 20px;
+                    width: 60%;
+                    border-radius: 10px;
+                    text-align: center;
+                    max-width: 700px;
+                }
 
-            .close {
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-                cursor: pointer;
-            }
-        `;
+                .close {
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            `;
             document.head.appendChild(styleElement);
 
             // เพิ่ม Modal HTML ใน DOM
             const modalHTML = `
-            <div id="chartPopup" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h3>รายละเอียดข้อมูลทั้งหมด</h3>
-                    <canvas id="popupCanvas"></canvas>
-                </div>
-            </div>`;
+                <div id="chartPopup" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>รายละเอียดข้อมูลทั้งหมด</h3>
+                        <canvas id="popupCanvas"></canvas>
+                    </div>
+                </div>`;
 
             // เพิ่ม Modal ไปที่ body
             document.body.insertAdjacentHTML('beforeend', modalHTML);
@@ -1052,11 +1055,11 @@
 
                 switch (filterType) {
                     case "summary":
-                        backgroundColor = "rgba(75, 192, 114, 0.6)";
+                        backgroundColor = "rgba(91, 237, 140, 0.6)";
                         borderColor = "rgb(75, 192, 93)";
                         break;
                     case "google_scholar":
-                        backgroundColor = "rgba(255, 30, 30, 0.6)";
+                        backgroundColor = "rgba(255, 142, 142, 0.82)";
                         borderColor = "rgba(220, 12, 12, 0.6)";
                         break;
                     case "scopus":
@@ -1064,8 +1067,8 @@
                         borderColor = "rgb(248, 131, 41)";
                         break;
                     case "wos":
-                        backgroundColor = "rgba(41, 255, 41, 0.6)";
-                        borderColor = "rgb(41, 255, 41)";
+                        backgroundColor = "rgba(41, 137, 255, 0.6)";
+                        borderColor = "rgb(29, 109, 206)";
                         break;
                     case "tci":
                         backgroundColor = "rgba(112, 102, 255, 0.6)";
@@ -1127,7 +1130,7 @@
                                 ticks: { autoSkip: false, align: 'center', maxRotation: 45, minRotation: 45 },
                                 grid: { drawTicks: true, drawBorder: true }
                             },
-                            
+
                         },
                         legend: { display: true, onClick: (e) => e.stopPropagation() },
 
@@ -1158,23 +1161,23 @@
 
                     switch (filterType) {
                         case "summary":
-                            backgroundColor = "rgba(75, 192, 192, 0.6)";
-                            borderColor = "rgba(75, 192, 192, 1)";
+                            backgroundColor = "rgba(91, 237, 140, 0.6)";
+                            borderColor = "rgb(75, 192, 93)";
                             break;
                         case "google_scholar":
-                            backgroundColor = "rgba(255, 206, 86, 0.6)";
-                            borderColor = "rgba(255, 206, 86, 1)";
+                            backgroundColor = "rgba(255, 142, 142, 0.82)";
+                            borderColor = "rgba(220, 12, 12, 0.6)";
                             break;
                         case "scopus":
-                            backgroundColor = "rgba(255, 159, 64, 0.6)";
-                            borderColor = "rgba(255, 159, 64, 1)";
+                            backgroundColor = "rgba(255, 141, 41, 0.6)";
+                            borderColor = "rgb(248, 131, 41)";
                             break;
                         case "wos":
-                            backgroundColor = "rgba(41, 255, 41, 0.6)";
-                            borderColor = "rgba(41, 255, 41, 1)";
+                            backgroundColor = "rgba(41, 137, 255, 0.6)";
+                            borderColor = "rgb(29, 109, 206)";
                             break;
                         case "tci":
-                            backgroundColor = "rgba(153, 102, 255, 0.6)";
+                            backgroundColor = "rgba(112, 102, 255, 0.6)";
                             borderColor = "rgba(153, 102, 255, 1)";
                             break;
                         default:
