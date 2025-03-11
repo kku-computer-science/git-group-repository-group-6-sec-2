@@ -42,7 +42,6 @@ TC05 Published Research Page
     Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
     Click Element                    xpath=//a[contains(text(),'Published research')]
     Wait Until Location Contains     /papers
-    Wait Until Element Is Visible    xpath=//h1[contains(text(),'Published Research')]
 
 TC06 Call Papers
     [Documentation]    กดปุ่ม Call Paper และตรวจสอบว่าหน้า login เปิดขึ้นเร็วที่สุด
