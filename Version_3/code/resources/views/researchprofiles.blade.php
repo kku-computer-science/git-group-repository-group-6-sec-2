@@ -148,18 +148,18 @@
         </div>
         <!-- กราฟ -->
         <!-- <div class="chart-container position-relative"
-                                                                    style="overflow: hidden; width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
-                                                                    <div class="chart-wrapper d-flex justify-content-center align-items-center"
-                                                                        style="gap: 20px; width: 100%;"> -->
+                                                                                style="overflow: hidden; width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
+                                                                                <div class="chart-wrapper d-flex justify-content-center align-items-center"
+                                                                                    style="gap: 20px; width: 100%;"> -->
         <!-- กราฟการตีพิมพ์ -->
         <!-- <canvas id="publicationChart" class="chart-item"
-                                                                            style="cursor: pointer;"></canvas> -->
+                                                                                        style="cursor: pointer;"></canvas> -->
         <!-- กราฟ Citations -->
         <!-- <canvas id="citationChart" class="chart-item"
-                                                                            style="display: none; cursor: pointer; width: 100%; height: 100%; max-height: 500px;"></canvas> -->
+                                                                                        style="display: none; cursor: pointer; width: 100%; height: 100%; max-height: 500px;"></canvas> -->
         <!-- </div> -->
         <!-- <span id="toggle-chart"
-                                                                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">&gt;</span> -->
+                                                                                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">&gt;</span> -->
         <!-- </div> -->
 
         <br>
@@ -768,24 +768,24 @@
 
             //$("#scopus").append('data-to="100"');
             document.getElementById("all").innerHTML += `
-                                                            <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                                                            <p class="count-text ">SUMMARY</p>`
+                                                                        <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
+                                                                        <p class="count-text ">SUMMARY</p>`
 
             document.getElementById("scopus_sum").innerHTML += `
-                                                            <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
-                                                            <p class="count-text">SCOPUS</p>`
+                                                                        <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
+                                                                        <p class="count-text">SCOPUS</p>`
 
             document.getElementById("wos_sum").innerHTML += `
-                                                            <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
-                                                            <p class="count-text ">WOS</p>`
+                                                                        <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
+                                                                        <p class="count-text ">WOS</p>`
 
             document.getElementById("tci_sum").innerHTML += `
-                                                            <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
-                                                            <p class="count-text ">TCI</p>`
+                                                                        <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
+                                                                        <p class="count-text ">TCI</p>`
 
             document.getElementById("google_scholar").innerHTML += `
-                                                            <h2 class="timer count-title count-number" data-to="${sumScholar}" data-speed="1500"></h2>
-                                                            <p class="count-text ">Google Scholar</p>`
+                                                                        <h2 class="timer count-title count-number" data-to="${sumScholar}" data-speed="1500"></h2>
+                                                                        <p class="count-text ">Google Scholar</p>`
 
             //document.getElementById("scopus").appendChild('data-to="100"');
             $.fn.countTo = function (options) {
@@ -957,47 +957,47 @@
             // เพิ่ม CSS สำหรับ Modal
             const styleElement = document.createElement('style');
             styleElement.textContent = `
-                .modal {
-                    display: none;
-                    position: fixed;
-                    z-index: 999;
-                    left: 0;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0,0,0,0.5);
-                    opacity: 0;
-                    transition: opacity 0.3s ease;
-                }
+                            .modal {
+                                display: none;
+                                position: fixed;
+                                z-index: 999;
+                                left: 0;
+                                top: 0;
+                                width: 100%;
+                                height: 100%;
+                                background-color: rgba(0,0,0,0.5);
+                                opacity: 0;
+                                transition: opacity 0.3s ease;
+                            }
 
-                .modal-content {
-                    background-color: white;
-                    margin: 10% auto;
-                    padding: 20px;
-                    width: 60%;
-                    border-radius: 10px;
-                    text-align: center;
-                    max-width: 700px;
-                }
+                            .modal-content {
+                                background-color: white;
+                                margin: 10% auto;
+                                padding: 20px;
+                                width: 60%;
+                                border-radius: 10px;
+                                text-align: center;
+                                max-width: 700px;
+                            }
 
-                .close {
-                    float: right;
-                    font-size: 28px;
-                    font-weight: bold;
-                    cursor: pointer;
-                }
-            `;
+                            .close {
+                                float: right;
+                                font-size: 28px;
+                                font-weight: bold;
+                                cursor: pointer;
+                            }
+                        `;
             document.head.appendChild(styleElement);
 
             // เพิ่ม Modal HTML ใน DOM
             const modalHTML = `
-                <div id="chartPopup" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <h3>รายละเอียดข้อมูลทั้งหมด</h3>
-                        <canvas id="popupCanvas"></canvas>
-                    </div>
-                </div>`;
+                            <div id="chartPopup" class="modal">
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <h3>รายละเอียดข้อมูลทั้งหมด</h3>
+                                    <canvas id="popupCanvas"></canvas>
+                                </div>
+                            </div>`;
 
             // เพิ่ม Modal ไปที่ body
             document.body.insertAdjacentHTML('beforeend', modalHTML);
@@ -1181,23 +1181,31 @@
                             borderColor = "rgba(153, 102, 255, 1)";
                             break;
                         default:
-                            backgroundColor = "rgba(150, 150, 150, 0.6)";
-                            borderColor = "rgba(150, 150, 150, 1)";
+                            backgroundColor = "rgba(255, 229, 100, 0.6)";
+                            borderColor = "rgb(233, 201, 17)";
                             break;
                     }
 
-                    // ใช้ข้อมูลทั้งหมด (ไม่ใช่แค่ 5 ปีล่าสุด)
+                    let labels, data;
+                    if (filterType === "citations") {
+                        labels = window.allCitationYears;
+                        data = window.allCitationCounts;
+                    } else {
+                        labels = window.allYears;
+                        data = window.allCounts;
+                    }
+
                     window.popupChart = new Chart(ctx, {
                         type: "bar",
                         data: {
-                            labels: window.allYears,
+                            labels: labels,
                             datasets: [{
                                 label: `ข้อมูลทั้งหมด (${filterType.toUpperCase()})`,
                                 backgroundColor: backgroundColor,
                                 borderColor: borderColor,
                                 borderWidth: 2,
                                 hoverBorderWidth: 3,
-                                data: window.allCounts,
+                                data: data,
                                 maxBarThickness: 40,
                                 barPercentage: 0.8,
                                 categoryPercentage: 0.9
@@ -1215,7 +1223,7 @@
                                 y: {
                                     beginAtZero: true,
                                     min: 0,
-                                    max: Math.ceil(Math.max(...window.allCounts) + 2),
+                                    max: Math.ceil(Math.max(...data) + 2),
                                     ticks: { stepSize: 1, precision: -1 },
                                     grid: { drawTicks: true, drawBorder: true }
                                 },
@@ -1239,6 +1247,7 @@
                 wosData = {};
                 tciData = {};
                 citationsPerYear = {};
+                allCitationsPerYear = {};
 
                 document.querySelectorAll("#papersTable tbody tr").forEach(row => {
                     let yearCell = row.cells[2];
@@ -1258,7 +1267,7 @@
 
                     if (year) {
                         publicationsPerYear[year] = (publicationsPerYear[year] || 0) + 1;
-                        citationsPerYear[year] = (citationsPerYear[year] || 0) + citation;
+                        allCitationsPerYear[year] = (allCitationsPerYear[year] || 0) + citation;
                     }
 
                     if (showMoreLink) {
@@ -1295,24 +1304,33 @@
                 }
 
                 // คำนวณผลรวม citation ทุกปี
-                let totalCitations = Object.values(citationsPerYear).reduce((acc, curr) => acc + curr, 0);
+                let totalCitations = Object.values(allCitationsPerYear).reduce((acc, curr) => acc + curr, 0);
 
                 // แสดงผลรวม citation บนหน้าเว็บ
                 document.getElementById("total-citations-result").textContent = totalCitations;
+
+                // กำหนดข้อมูล 5 ปีล่าสุดสำหรับ citationChart
+                let citationYears = Object.keys(allCitationsPerYear).map(y => parseInt(y)).sort((a, b) => a - b);
+                let citationCounts = citationYears.map(y => allCitationsPerYear[y]);
+
+                if (citationYears.length > 5) {
+                    citationYears = citationYears.slice(-5);
+                    citationCounts = citationCounts.slice(-5);
+                }
 
                 // วาดกราฟ Citation Chart
                 var ctxCitation = document.getElementById("citationChart").getContext("2d");
                 window.citationChart = new Chart(ctxCitation, {
                     type: "bar",
                     data: {
-                        labels: Object.keys(citationsPerYear).map(y => parseInt(y)).sort((a, b) => a - b),
+                        labels: citationYears,
                         datasets: [{
                             label: "Citations",
-                            backgroundColor: "rgba(153, 102, 255, 0.2)",
-                            borderColor: "rgba(153, 102, 255, 1)",
+                            backgroundColor: "rgba(255, 237, 73, 0.7)",
+                            borderColor: "rgb(231, 196, 20)",
                             borderWidth: 2,
                             hoverBorderWidth: 3,
-                            data: Object.keys(citationsPerYear).map(y => citationsPerYear[y]),
+                            data: citationCounts,
                             fill: true
                         }]
                     },
@@ -1340,7 +1358,7 @@
                             y: {
                                 beginAtZero: true,
                                 min: 0,
-                                suggestedMax: Math.max(...Object.values(citationsPerYear)) + 10,
+                                suggestedMax: Math.max(...citationCounts) + 10,
                                 title: {
                                     display: true,
                                     text: "Number of Citations"
@@ -1368,8 +1386,11 @@
 
                 // กำหนดความสูงของกราฟใหม่
                 document.getElementById("citationChart").style.height = "180px";
-            }
 
+                // เก็บข้อมูลทั้งหมดไว้ใช้ใน popup
+                window.allCitationYears = Object.keys(allCitationsPerYear).map(y => parseInt(y)).sort((a, b) => a - b);
+                window.allCitationCounts = window.allCitationYears.map(y => allCitationsPerYear[y]);
+            }
             // ✅ เรียกใช้เพื่อดึงข้อมูลตารางและวาดกราฟ summary
             processTableData();
 
@@ -1417,6 +1438,10 @@
             // เพิ่ม event listener สำหรับการคลิกที่กราฟ (เปิด popup)
             document.getElementById("publicationChart").addEventListener("click", function () {
                 showPopupChart(currentFilterType);
+            });
+
+            document.getElementById("citationChart").addEventListener("click", function () {
+                showPopupChart("citations");
             });
 
             // ปิด Modal เมื่อคลิกที่ปุ่มปิด
