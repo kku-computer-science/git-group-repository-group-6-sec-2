@@ -24,8 +24,6 @@ class ProfileController extends Controller
         // ดึงข้อมูลจำนวนการอ้างอิงทั้งหมด
         $userCited = $res->user_cited_year;
 
-        Log :: info("Cited Data ---------> ".$userCited);
-
         // ดึงข้อมูลงานวิจัย
         $papers = $this->getPapersByTeacher($id);
         $papers_scopus = $this->getPapersBySource($id, 1);
