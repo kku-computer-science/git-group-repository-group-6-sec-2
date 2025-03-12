@@ -112,33 +112,6 @@
 </div>
 
 <div class="container">
-    <h2>Data from Database (Total: {{ count($publicationsDB) }})</h2>
-    <p><strong>Missing in API:</strong> {{ count($missingInAPI) }}</p>
-    <table>
-        <thead>
-        <tr>
-            <th>No.</th>
-            <th>Document Name</th>
-            <th>DOI</th>
-            <th>Status</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach ($publicationsDB as $index => $publication)
-            <tr>
-                <td>{{ $index + 1 }}</td>
-                <td>{{ $publication['paper_name'] }}</td>
-                <td>{{ $publication['paper_doi'] ?? 'N/A' }}</td>
-                <td class="{{ $missingInAPI->contains(fn($missing) => $missing['paper_name'] === $publication['paper_name']) ? 'status-missing' : 'status-matched' }}">
-                    {{ $missingInAPI->contains(fn($missing) => $missing['paper_name'] === $publication['paper_name']) ? 'Not Found in API' : 'Exists in API' }}
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-</div>
-
-<div class="container">
     <h2>Cited Data Comparison</h2>
     <p><strong>Missing Cited Data in Database:</strong> {{ count($citedMissing) }}</p>
     <table>
