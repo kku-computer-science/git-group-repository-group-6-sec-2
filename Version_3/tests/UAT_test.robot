@@ -5,8 +5,7 @@ Library    Collections
 
 *** Variables ***
 ${BROWSER}    Chrome
-# ${URL}        https://cssegroup6sec267.cpkkuhost.com/
-${URL}        http://127.0.0.1:8000/
+${URL}        https://cssegroup6sec267.cpkkuhost.com/
 ${JSON_FILE}  ..\Version_3\code\public\punpun.json
 
 
