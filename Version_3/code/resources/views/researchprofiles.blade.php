@@ -1042,6 +1042,17 @@
                     displayCounts = counts.slice(-5);
                 }
 
+                let allData = {
+                    years: years,
+                    counts: counts
+                };
+
+                // ใช้ JSON.stringify() แปลงเป็นข้อความ JSON
+                let allDataJson = JSON.stringify(allData);
+
+                // พิมพ์ลง console โดยมี prefix "ALL_DATA_JSON::"
+                console.log("ALL_DATA_JSON::" + allDataJson);
+
                 // เลือกว่าจะอัพเดทกราฟไหน
                 if (window.myChart) {
                     window.myChart.destroy();
@@ -1197,7 +1208,7 @@
                         data: {
                             labels: labels,
                             datasets: [{
-                                label: `ข้อมูลทั้งหมด (${filterType.toUpperCase()})`,
+                                label: `${filterType.toUpperCase()}`,
                                 backgroundColor: backgroundColor,
                                 borderColor: borderColor,
                                 borderWidth: 2,
@@ -1297,7 +1308,7 @@
 
                 let userCited = @json($userCited);
                 let countCitations = {}
-
+                console.log(JSON.stringify(userCited))
 
                 // แปลงข้อมูลจาก userCited ให้เป็นรูปแบบที่ใช้ในการสร้างกราฟ
                 userCited.forEach(item => {
