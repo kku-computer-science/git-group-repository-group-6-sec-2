@@ -108,7 +108,7 @@ class User extends Authenticatable
 
     public function user_cited_year(): HasMany
     {
-        return $this->hasMany(User_Cited_year::class);
+        return $this->hasMany(User_Cited_Year::class);
     }
 
 }
