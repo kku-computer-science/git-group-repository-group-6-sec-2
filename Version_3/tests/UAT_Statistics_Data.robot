@@ -4,7 +4,7 @@ Library            SeleniumLibrary
 
 *** Variables ***
 ${BROWSER}         Firefox
-${URL}             http://127.0.0.1:8000/
+${URL}            https://cssegroup6sec267.cpkkuhost.com/
 
 # Researcher Statistics
 ${H_INDEX}         10

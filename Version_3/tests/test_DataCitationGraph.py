@@ -23,7 +23,7 @@ class TestCitedData(unittest.TestCase):
 
         # เริ่ม WebDriver
         self.driver = webdriver.Chrome(options=chrome_options)
-        self.url = "http://127.0.0.1:8000/detail/eyJpdiI6IjNWVDFuU1F3WWg3WXhPemtoTjdDM3c9PSIsInZhbHVlIjoiYS9OZlNXYVYrU1pDRWVld3RDNC9TUT09IiwibWFjIjoiNjE5MmMyOTkzOTBjNWNmZGExZTVmMjcwYmQ5NzMwMWEzZjA3OGEyMTEzZDNkZTQ1NTMwZTZlNDMwMjY1YTVmNCIsInRhZyI6IiJ9"  # ใช้ URL จาก log
+        self.url = "https://cssegroup6sec267.cpkkuhost.com/detail/eyJpdiI6IjNWVDFuU1F3WWg3WXhPemtoTjdDM3c9PSIsInZhbHVlIjoiYS9OZlNXYVYrU1pDRWVld3RDNC9TUT09IiwibWFjIjoiNjE5MmMyOTkzOTBjNWNmZGExZTVmMjcwYmQ5NzMwMWEzZjA3OGEyMTEzZDNkZTQ1NTMwZTZlNDMwMjY1YTVmNCIsInRhZyI6IiJ9"  # ใช้ URL จาก log
         print(f"Opening URL: {self.url}")
 
     def tearDown(self):
