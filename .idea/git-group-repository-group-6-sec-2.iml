@@ -15,6 +15,11 @@
       <sourceFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
       <sourceFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/SourceCodeVersion_1/tests/Unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/Version_1/InitialProject" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Version_2/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Version_2/code" isTestSource="false" packagePrefix="App" />
+      <sourceFolder url="file://$MODULE_DIR$/Version_2/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Version_2/code" isTestSource="false" packagePrefix="App" />
       <excludeFolder url="file://$MODULE_DIR$/InitialProject/vendor/asm89/stack-cors" />
       <excludeFolder url="file://$MODULE_DIR$/InitialProject/vendor/barryvdh/laravel-dompdf" />
       <excludeFolder url="file://$MODULE_DIR$/InitialProject/vendor/brick/math" />
