@@ -28,7 +28,7 @@ class ApiDatabaseController extends Controller
         $dataTCI = [];
         if ($user->fname_th && $user->lname_th) {
             $dataTCI = TciAPIService::extractDataToObject(
-                TciAPIService::extractRelevantData("{$user->fname_th} {$user->lname_th}")
+                TciAPIService::extractRelevantData("$user->fname_th $user->lname_th")
             ) ?? [];
         }
 
