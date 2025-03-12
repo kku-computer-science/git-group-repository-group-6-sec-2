@@ -138,6 +138,31 @@
     </table>
 </div>
 
+<div class="container">
+    <h2>Cited Data Comparison</h2>
+    <p><strong>Missing Cited Data in Database:</strong> {{ count($citedMissing) }}</p>
+    <table>
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Cited Year</th>
+            <th>Cited Count</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach ($citedMissing as $index => $item)
+            <tr>
+                <td>{{ $index + 1 }}</td>
+                <td>{{ $item['cited_year'] }}</td>
+                <td>{{ $item['cited_count'] }}</td>
+                <td class="status-missing">Not Found in Database</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+</div>
+
 <a href="./dashboard" class="btn-back">Back to Dashboard</a>
 
 </body>
