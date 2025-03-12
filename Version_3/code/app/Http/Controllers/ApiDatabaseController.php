@@ -33,15 +33,15 @@ class ApiDatabaseController extends Controller
         }
 
         $dataScholar = [];
+        $dataScholarObj = [];
         $googleScholarAPI = new GoogleScholarAPIService('6b2865ac4c28b16a9e0b76c9306d8ff0689620635b9923c5d90e63609218dc26');
         if ($scholarId = $googleScholarAPI->getIdAuthorScholar($user->fname_en . ' ' . $user->lname_en)) {
-            $dataScholar = $googleScholarAPI->extractDataToObject(
-                $googleScholarAPI->getResearcherPublications($scholarId)
-            ) ?? [];
+            $dataScholar = $googleScholarAPI->getResearcherPublications($scholarId);
+            $dataScholarObj =   $googleScholarAPI->extractDataToObject($dataScholar) ?? [];
         }
 
         // 🔹 รวมข้อมูลจากทุก API
-        $publicationsAPI = (new MergeData())->mergeData($dataScopus, $dataWOS, $dataTCI, $dataScholar);
+        $publicationsAPI = (new MergeData())->mergeData($dataScopus, $dataWOS, $dataTCI, $dataScholarObj);
 
         // 🔹 ดึงข้อมูลจาก Database
         $publicationsDB = $user->paper->map(fn($paper) => collect($paper)->except(['id', 'pivot'])->toArray());
@@ -57,7 +57,34 @@ class ApiDatabaseController extends Controller
         !$apiCollection->contains(fn($apiPaper) => $this->comparePapers($dbPaper, $apiPaper))
         );
 
-        return view('compare', compact('user', 'apiCollection', 'publicationsDB', 'missingInDB', 'missingInAPI'));
+        $citedDataAPI = [];
+        foreach ($dataScholar['graph'] as $item) {
+            $citedDataAPI[] = [
+                'user_id' => $user->id,
+                'cited_year' => $item['year'],
+                'cited_count' => $item['citations']
+            ];
+        }
+
+        $citedDataDB = $user->user_cited_year->toArray();
+
+        $citedMissing = [];
+        foreach ($citedDataAPI as $apiItem) {
+            $found = false;
+
+            foreach ($citedDataDB as $dbItem) {
+                if ($dbItem['cited_year'] === $apiItem['cited_year'] && $dbItem['cited_count'] === $apiItem['cited_count']) {
+                    $found = true;
+                    break;
+                }
+            }
+
+            if (!$found) {
+                $citedMissing[] = $apiItem;
+            }
+        }
+
+        return view('compare', compact('user', 'apiCollection', 'publicationsDB', 'missingInDB', 'missingInAPI', 'citedDataAPI', 'citedDataDB', 'citedMissing'));
     }
 
     private function comparePapers(array $paperA, array $paperB): bool
@@ -72,5 +99,4 @@ class ApiDatabaseController extends Controller
 
         return $diff->isEmpty();
     }
-
 }
