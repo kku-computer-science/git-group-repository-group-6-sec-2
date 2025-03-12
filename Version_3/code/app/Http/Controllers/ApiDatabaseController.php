@@ -53,10 +53,6 @@ class ApiDatabaseController extends Controller
         !$publicationsDB->contains(fn($dbPaper) => $this->comparePapers($apiPaper, $dbPaper))
         );
 
-        $missingInAPI = $publicationsDB->filter(fn($dbPaper) =>
-        !$apiCollection->contains(fn($apiPaper) => $this->comparePapers($dbPaper, $apiPaper))
-        );
-
         $citedDataAPI = [];
         foreach ($dataScholar['graph'] as $item) {
             $citedDataAPI[] = [
@@ -84,7 +80,7 @@ class ApiDatabaseController extends Controller
             }
         }
 
-        return view('compare', compact('user', 'apiCollection', 'publicationsDB', 'missingInDB', 'missingInAPI', 'citedDataAPI', 'citedDataDB', 'citedMissing'));
+        return view('compare', compact('user', 'apiCollection', 'publicationsDB', 'missingInDB', 'citedMissing'));
     }
 
     private function comparePapers(array $paperA, array $paperB): bool
